@@ -1,6 +1,3 @@
----
-output: html_document
----
 Geography 30323: Data Analysis & Visualization
 ---
 __Fall 2015__
