@@ -45,14 +45,44 @@ Yau, Nathan (2013).  _Data Points: Visualization that Means Something_.  Indiana
 
 ### Evaluation
 
-TBD
+You will complete __three take-home examinations__, which collectively comprise __45 percent of your grade__.  Each examination will be comprised of a structured set of homework problems that test you on the computing and analytical skills you've learned to that point in the course.  Deliverables will be in the form of Jupyter Notebooks that show and describe the work you've done.  
+
+You will also have 14 __weekly assignments__ which in total make up __42 percent of your grade__.  Weekly assignments are assigned each Thursday, and due by the end of the day the following Thursday.  You'll have devoted class time each week to work on the assignments.  
+
+In-class tutorials and participation exercises will constitute the remaining __13 percent__ of your grade. 
+
+__The minimum percentages__ to achieve a specific grade are as follows: 
+
+|Percentage|Grade|
+|----------|-----|
+|94|A|
+|90|A-|
+|87|B+|
+|83|B|
+|80|B-|
+|77|C+|
+|73|C|
+|70|C- or Pass|
+|67|D+|
+|63|D|
+|60|D-|
+|Below 60|F|
+
+I will award an incomplete (I) only in the most extreme and exceptional circumstances.  Please notify me as soon as possible if you are in a situation where you feel you require an I.  
+
+The attendance policy for this course corresponds to the official TCU attendance policy, which reads: 
+
+> Regular and punctual class attendance is essential, and no assigned work is summarily excused because of absence, no matter what the cause.
+
+Extensions to deadlines and make-up participation credit will only be permitted in the instance of a __documented illness or emergency__ or a __documented TCU-sanctioned activity__.  
+
 
 
 ### Course Schedule
 
 |__Week__           |__Topic__             |__Reading__                  |__Assignments__        |
 |-------------------|----------------------|-----------------------------|-----------------------|
-|Week 1: Aug 25-27  |What is data?         |_Data Points_, Ch.1          |Intro to data in Excel |
+|Week 1: Aug 25-27  |What is data?         |_Data Points_, Ch.1          |Data journalism |
 |Week 2: Sept 1-3    |Programming I|_Think Python_, Chs. 1-2   |Python basics; intro to the Jupyter Notebook| 
 |Week 3: Sept 8-10 |Programming II|_Think Python_, Ch. 3         |Functions and modules in Python| 
 |Week 4: Sept 15-17|Programming III|_Think Python_, Chs. 7-8    |Loops/conditionals/object-oriented programming in Python|
@@ -61,9 +91,9 @@ TBD
 |Week 7: Oct 6-8|Data wrangling I|Wickham (2014), "Tidy Data"|`pandas`: subsetting, indexing, merging|
 |Week 8: Oct 15|Data wrangling II||`pandas`: `groupby` operations, reshaping data|
 |Week 9: Oct 20-22|Advanced I/O: databases, web, APIs|TBD|Web scraping and APIs in Python|
-|Week 10: Oct 27-29|Visualization best practices I|_Data Points_, Ch. 5|Visualization with `seaborn` I|
-|Week 11: Nov 3-5|Visualization best practices II|_Data Points_, Ch. 6|Visualization with `seaborn` II|
-|Week 12: Nov 10-12|Interactive data visualization|TBD|Interactive plots with `plotly` and `bokeh`|
+|Week 10: Oct 27-29|Visualization best practices I|_Data Points_, Ch. 2|Visualization with `seaborn` I|
+|Week 11: Nov 3-5|Visualization best practices II|_Data Points_, Ch. 5|Visualization with `seaborn` II|
+|Week 12: Nov 10-12|Interactive data visualization|_Data Points_, Ch. 6|Interactive plots with `plotly` and `bokeh`|
 |Week 13-14: Nov 17-23|Geographic data & visualization|_The Nature of Geographic Information_, Ch. 1|Mapping with CartoDB|
 |Week 15: Dec 1-3|Communicating with data|TBD|Data dashboards with Tableau Public|
 |Week 16: Dec 8|Where to go from here?|TBD|N/A
@@ -71,7 +101,7 @@ TBD
 
 ### Software
 
-The main software used in this course is the Anaconda distribution of the Python programming language (version 3.4) from Continuum Analytics, which includes nearly 200 popular Python packages for data analysis, visualization, and scientific computing.  Anaconda is completely free and can be installed from this link: <http://continuum.io/downloads>, and works on the most popular operating systems (Windows, Mac OS, Linux).  I’ll show you how to install Anaconda on your own computer in class.  If you prefer to do your work on campus, Anaconda will also be available in our classroom (Tucker 353) and in the Institute for Urban Living & Innovation computer lab, SCHAR 2015A.  Late in the course, we will also be using CartoDB and Tableau Public for interactive visualization.  
+The main software used in this course is the Anaconda distribution of the Python programming language (version 3.4) from Continuum Analytics, which includes over 330 popular Python packages for data analysis, visualization, and scientific computing.  Anaconda is completely free and can be installed from this link: <http://continuum.io/downloads>, and works on the most popular operating systems (Windows, Mac OS, Linux).  I’ll show you how to install Anaconda on your own computer in class.  If you prefer to do your work on campus, Anaconda will also be available in our classroom (Tucker 353) and in the Center for Urban Studies computer lab, SCHAR 2015A.  Late in the course, we will also be using CartoDB and Tableau Public for interactive visualization.  
 
 All assignments and tutorials in this course will be completed in the Jupyter Notebook, which is an extension to Python that facilitates interactive computing.  The Jupyter Notebook exemplifies literate programming, which refers to a combination of textual description, code, and images/graphics in the same document.  In turn, you’ll use the Jupyter notebook to document your workflow and make your work reproducible.  
 

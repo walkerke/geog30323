@@ -1,0 +1,140 @@
+---
+title: "What is data?"
+author: GEOG 30323
+date: August 25, 2015
+output: 
+  revealjs::revealjs_presentation: 
+    theme: "white"
+    transition: "none"
+    center: TRUE
+    fig_caption: TRUE
+    
+---
+
+## Introductions
+
+---
+
+## My data journey
+
+<img src=img/cpg.jpg style="width: 400px">
+
+---
+
+## Course goals
+
+---
+
+## Syllabus
+
+---
+
+## What is data? {data-background="http://40.media.tumblr.com/7b57c6752cd0275899448e8591b905ca/tumblr_na7b2lPl0e1td9006o1_500.jpg"}
+
+---
+
+#### Brainstorm: how might you use data if you were...
+
+* ...a librarian? 
+* ...a police officer? 
+* ...a small shoe store owner? 
+* ...a general manager of a professional basketball franchise?  
+
+---
+
+## Policing
+
+<img src="https://technical.ly/philly/wp-content/uploads/sites/2/2012/11/philly_pd.jpg" style="width: 800px"><figcaption>Source: [technical.ly](https://technical.ly/philly/2012/11/20/philadelphia-police-gis-new-system-crime-tracking/)</figcaption>
+
+---
+
+## Retail
+
+<img src="http://cdn.shopify.com/s/files/1/0070/7032/files/image5.png?6023"><figcaption>Source: [Humayun Khan/Shopify](http://www.shopify.com/blog/14254569-why-all-sale-signs-are-red-the-science-of-color-in-retail)</figcaption>
+
+---
+
+## Sports
+
+<img src="https://espngrantland.files.wordpress.com/2015/04/joshsmith1152.jpg?w=694" style="width: 500px"><figcaption>Source: [Kirk Goldsberry/_Grantland_](http://grantland.com/the-triangle/nba-least-efficient-shooters-josh-smith-michael-carter-williams-trey-burke-nerlens-noel-dion-waiters/)</figcaption>
+
+---
+
+## Data science
+
+<img src=img/onion.png style="width: 800px"><figcaption>Source: [_The Onion_](http://www.theonion.com/article/amazoncom-recommendations-understand-area-woman-be-2121)</figcaption>
+
+---
+
+### What you will learn in this course
+
+This course covers the process of __exploratory data analysis__, which includes how to: 
+
+>- Find data
+>- Load data
+>- Clean data
+>- Summarize data
+>- Visualize data
+>- Present data
+>- Example question: what are the most popular female baby names in Texas, and how has this changed over time?  
+
+---
+
+## Finding data
+
+<img src=img/ssa.png style="width: 500px"><figcaption>Source: [Social Security Administration](http://www.ssa.gov/oact/babynames/limits.html)</figcaption>
+
+---
+
+### Loading and cleaning data
+
+<img src=img/csv.png>
+
+---
+
+## Summarizing data
+
+<img src=img/names_table.png>
+
+---
+
+## Visualizing data
+
+<img src=img/heatmap.png style="width: 850px">
+
+---
+
+## Presenting data
+
+<iframe width="1000" height="550" frameborder="0" seamless="seamless" scrolling="no" src="https://plot.ly/~walkerke/110.embed?width=800&height=550" ></iframe>
+
+---
+
+## Tools of the trade
+
+* Your main tool: the Python programming language
+* Guest appearances from: CartoDB, Tableau
+* More to come on Python next week!
+
+---
+
+### Assignment 1: Data journalism
+
+* __Data journalism__: movement in journalism toward interactive, data-driven content
+* Popular publications: [The Upshot (_New York Times_)](http://www.nytimes.com/upshot/?_r=0), [FiveThirtyEight](http://fivethirtyeight.com/), [_The Guardian_](http://www.theguardian.com/data), [ProPublica](https://www.propublica.org/), many more
+
+Your task: 
+
+* Find an example of data journalism from the past two years in a recognized publication
+* Write a response that 1) summarizes the article, 2) discusses its data sources, and 3) discusses its methods of analysis and visualization.  
+* At least one paragraph, no longer than one page
+
+  
+<style>
+
+#what-is-data h1 {
+  color: white;
+}
+
+
+</style>
