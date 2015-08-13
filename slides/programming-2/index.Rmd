@@ -1,0 +1,300 @@
+---
+title: "Programming II - Functions and Modules"
+author: GEOG 30323
+date: September 8, 2015
+output: 
+  revealjs::revealjs_presentation: 
+    theme: "white"
+    transition: "none"
+    highlight: "zenburn"
+    center: TRUE
+    fig_caption: TRUE
+    
+---
+
+## Python refresher
+
+Define...
+
+>- Variables
+>- Strings
+>- Lists
+>- Indexing and slicing
+
+---
+
+## Functions
+
+* If you find yourself doing the same thing frequently, it can be tedious to write the same code over and over! 
+* As such, you should use __functions__ to make your code re-usable
+
+---
+
+* Functions are defined with a `def` statement followed by a colon (`:`) 
+* They include a series of __parameters__ to which you supply __arguments__, which are like variables that operate within your function: 
+
+```python
+def myfunction(parameter1, parameter2, parameter3): 
+    """Your code goes here"""
+    
+# "Calling" the function: 
+
+myfunction(arg1, arg2, arg3)
+
+```
+
+---
+
+## Empty functions
+
+* At a basic level, a function can be defined without parameters
+
+Example: 
+
+```python
+>>> def drwalker(): 
+...     print("The best professor!")
+... 
+>>> drwalker()
+The best professor!
+```
+
+---
+
+## Functions and parameters
+
+__Parameters__ are components of your function that can vary based on user input.  Example: 
+
+```python
+>>> def make_big(x):
+...     print(x.upper())
+... 
+>>> make_big('abcdefg')
+ABCDEFG
+>>> make_big('the quick brown fox jumped over the lazy dog')
+THE QUICK BROWN FOX JUMPED OVER THE LAZY DOG
+>>> x = 'hijklmn'
+>>> make_big(x)
+HIJKLMN
+```
+
+## The "return" statement
+
+* The output of functions can be assigned to variables if a `return` statement is provided
+
+Example: 
+
+```python
+>>> def add_five(x):
+...     return x + 5
+... 
+>>> y = add_five(10)
+>>> y
+15
+```
+
+---
+
+### Python and whitespace
+
+* Python code is organized by __indentation__ and __whitespace__
+* After function definitions, code should be indented with __four spaces__. In the Jupyter Notebook (and other Python development environments), the Tab key represents four spaces, and it will indent your code automatically
+* Code that is not indented properly will cause an error
+
+```python
+>>> def add_six(x):
+... return x + 6
+  File "<stdin>", line 2
+    return x + 6
+         ^
+IndentationError: expected an indented block
+```
+
+---
+
+### Comments
+
+* _Comments_, preceded by a hashtag (`#`), can be included in your code but are not run
+* _Commenting_ your code is useful for describing what you are doing, or keeping experimental/old code you don't want to run during the development process
+
+```python
+# The function 'divide_by_two' divides any number by two  <-- a comment
+
+def divide_by_two(number):
+    return number / 2
+
+# This didn't work - remember whitespace issues
+
+# def divide_by_two(number):
+# return number / 2
+```
+---
+
+### Docstrings
+
+* _Docstrings_ can be used to describe what functions do
+* Docstrings are enclosed in triple double quotes (`"""   """`) and are placed on the line following the function definition
+
+```python
+def concat_numbers(num1, num2):
+    """
+    Return a concatenated string from two numbers.  
+    
+    Parameters: 
+    -----------
+    
+    num1: The first number you'd like to concatenate
+    
+    num2: The second number you'd like to concatenate   
+    
+    """
+    
+    return str(num1) + str(num2)
+```
+
+---
+
+### Ordering and named arguments
+
+Arguments can be supplied to functions in two ways: 
+
+* "Unnamed" in the order specified
+* "Named" in any order.  Be careful, however, if you mix the two!
+
+```python
+>>> concat_numbers(7, 3)
+'73'
+>>> concat_numbers(num2 = 7, num1 = 3)
+'37'
+>>> concat_numbers(7, num2 = 3)
+'73'
+>>> concat_numbers(num2 = 7, 3)
+  File "<stdin>", line 1
+SyntaxError: non-keyword arg after keyword arg
+```
+
+---
+
+## Scripts
+
+* Python _script_: organized collection of code stored in a text file with a `.py` suffix
+* Generally, scripts authored in a text editor or integrated development environment (IDE)
+* IDE that comes packaged with Anaconda: __Spyder__
+
+---
+
+### Scripts
+
+* In IDEs, you can document workflows with scripts and run them interactively: 
+
+<img src=img/script.png style="width: 800px">
+
+---
+
+### Scripts
+
+* Scripts can also be run from the command line, e.g. `python myscript.py`
+
+* Alternatively, scripts can be used in Python _modules_ and _packages_
+
+---
+
+## Modules and packages
+
+* _Module_: file containing variables, functions, etc. that can be _imported_ into a Python session with the `import` statement
+* _Package_: directory of modules that perform similar tasks (e.g. data visualization, statistics, etc.)
+* Thousands upon thousands of Python packages available - that do just about anything!
+
+---
+
+## Creating your own module
+
+Let's try this out!
+
+---
+
+### The Python namespace
+
+* When you declare variables, define functions, import modules, etc., you are adding objects to the _Python namespace_
+* Imported modules can be referenced in multiple ways: 
+
+```python
+# All of these are equivalent
+
+import mymodule
+mymodule.add_abc(mymodule.tcu)
+
+import mymodule as mm
+
+mm.add_abc(mm.tcu)
+
+from mymodule import *
+
+add_abc(tcu)
+```
+
+---
+
+## Built-in packages
+
+* Many packages are included in `stdlib`, the standard library that ships with Python
+* Popular modules: `re` for regular expressions; `os` for operating system functions; `random` for random-number generation; and many more.  Full list: <https://docs.python.org/2/library/>
+
+---
+
+## Conda
+
+* Your Anaconda Python installation ships with over 330 packages for scientific computing
+* New packages added to Anaconda can be installed with `conda install` from the command line
+* To update all your packages, run `conda update --all`
+
+---
+
+## PyPI and pip
+
+* Third-party Python packages are generally found at the Python Package Index (PyPI): https://pypi.python.org/pypi
+* Generally, these packages can be installed from the command line with `pip`, the recommended tool for installing packages from PyPI
+* Example usage: `pip install newpackage`
+* To upgrade packages, use the `--upgrade` option: `pip install --upgrade newpackage` 
+
+---
+
+### The PyData ecosystem
+
+<img src=img/pydata.png style="width: 700px"><figcaption>Source: [Jake VanderPlas, SciPy 2015 Keynote](https://speakerdeck.com/jakevdp/the-state-of-the-stack-scipy-2015-keynote)</figcaption>
+
+---
+
+<img src="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png" style="width: 700px">
+
+* Our course materials are hosted on GitHub - so what is GitHub, exactly?  
+* Let's take a tour: <https://github.com/>
+
+---
+
+## Open-source software
+
+* Developed, in large part, by the user community
+* Source code is _open_
+* Software is generally free to purchase and update; some services under a "freemium" model
+* Reliant on the user community for support
+
+---
+
+## How open-source software works
+
+* Example: my R package, `tigris`: https://github.com/walkerke/tigris
+
+
+
+
+
+<style>
+
+.reveal section img {
+  background:none; 
+  border:none; 
+  box-shadow:none;
+  }
+  
+</style>

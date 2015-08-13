@@ -76,6 +76,14 @@ print("Hello World")
 
 ---
 
+### Why Python? 
+
+* Just ask these companies!
+
+<img src=img/companies.png style="width: 800px"><figcaption>Source: [Peter Wang - PyData Dallas Keynote](http://www.slideshare.net/misterwang/pydata-texas-2015-keynote)</figcaption>
+
+---
+
 ### Other options for data analysis
 
 <img src="https://www.r-project.org/Rlogo.png" style="width: 300px">                                             <img src="https://camo.githubusercontent.com/e1ae5c7f6fe275a50134d5889a68f0acdd09ada8/687474703a2f2f6a756c69616c616e672e6f72672f696d616765732f6c6f676f5f68697265732e706e67" style = "width: 300px">
@@ -105,7 +113,7 @@ print("Hello World")
 
 > 1. Open your terminal/command prompt; on Windows, search for `cmd.exe`; on Mac, find it in __Utilities --> Applications__.
 > 2. Change into your project directory with `cd` - this is where you will save your notebooks.  Example: `cd C:\Users\kylewalker\geog30323`.  
-> 3. Enter the command `ipython notebook`, and you are off!
+> 3. Enter the command `jupyter notebook`, and you are off!
 
 ---
 
@@ -147,11 +155,10 @@ _This link_ is __truly__ must-see: [click here to view it!](http://personal.tcu.
 * At a basic level, Python can function like a calculator, or concatenate strings: 
 
 ```python
-In [1]: 2 + 3
-Out[1]: 5
-
-In [2]: "x" + "y"
-Out[2]: 'xy'
+>>> 2 + 3
+5
+>>> 'x' + 'y'
+'xy'
 
 ```
 
@@ -168,11 +175,9 @@ Out[2]: 'xy'
 Example: 
 
 ```python
-In [3]: x = 1
-
-In [4]: print(x)
+>>> x = 1
+>>> print(x)
 1
-
 ```
 
 ---
@@ -184,11 +189,9 @@ In [4]: print(x)
 Example: 
 
 ```python
-In [5]: tcu = "Texas Christian University"
-
-In [6]: tcu.swapcase()
-Out[6]: 'tEXAS cHRISTIAN uNIVERSITY'
-
+>>> tcu = 'Texas Christian University'
+>>> tcu.swapcase()
+'tEXAS cHRISTIAN uNIVERSITY'
 ```
 
 ---
@@ -203,18 +206,19 @@ Example list: `mylist = [2, 4, 6, 8, 10, 12]`
 
 ---
 
-## Indexing
+### Indexing and slicing
 
-* Elements in Python objects can be accessed by position using __indexing__; covers characters in strings, objects in lists, and much more
+* Elements in Python can be accessed by position using __indexing__; covers characters in strings, objects in lists, and much more
 * Python indexing starts at 0 - meaning that the first element is referenced with `0`, the second with `1`, and so forth
+* __Slicing__: extract subset `a:b` starting with position `a` up to __but not including__ position `b`
 
 Example: 
 
 ```python
-In [1]: tcu = "Texas Christian University"
-
-In [2]: tcu[0]
-Out[2]: 'T'
+>>> tcu[0]
+'T'
+>>> tcu[6:15]
+'Christian'
 ```
 
 

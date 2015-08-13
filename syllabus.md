@@ -25,9 +25,9 @@ In this course, you will gain experience with several aspects of the data analys
 * Using exploratory data analysis to summarize and generate insights from your data; 
 * Producing both static and interactive visualizations to both explore your data and communicate your findings with a wider audience.  
 
-In order to perform these tasks, you will also learn the basics of the Python programming language, which you will use for all of the data analysis activities in this course.  Python has rapidly become one of the most popular languages for working with data and has numerous extensions for data wrangling, data analysis, and data visualization.  
+In order to perform these tasks, you will also learn the basics of the Python programming language, which you will use for most of the data analysis activities in this course.  Python has rapidly become one of the most popular languages for working with data and has numerous extensions for data wrangling, data analysis, and data visualization.  
 
-Writing code for data analysis is an essential skill, as it allows you to document your workflow and structure your analyses in a coherent, logical way.  That said, this is not a course in software development, nor is it a programming course per se.  Instead, think of Python as a tool you’ll be using to work in more flexible and powerful ways with data; in turn, you’ll be gaining skills in technical computing along the way.  
+Writing code for data analysis is an essential skill, as it allows you to document your workflow and structure your analyses in a coherent, logical way.  That said, this is not a course in software development, nor is it a programming course _per se_.  Instead, think of Python as a tool you’ll be using to work in more flexible and powerful ways with data; in turn, you’ll be gaining skills in technical computing along the way.  
 
 There are no prerequisites for this course; however, you should bring a curiosity about data and an eagerness to learn new technologies!
 
@@ -45,7 +45,7 @@ Yau, Nathan (2013).  _Data Points: Visualization that Means Something_.  Indiana
 
 ### Evaluation
 
-You will complete __three take-home examinations__, which collectively comprise __45 percent of your grade__.  Each examination will be comprised of a structured set of homework problems that test you on the computing and analytical skills you've learned to that point in the course.  Deliverables will be in the form of Jupyter Notebooks that show and describe the work you've done.  
+You will complete __three take-home examinations__, which collectively comprise __45 percent of your grade__.  Each examination will be comprised of a structured set of homework problems that test you on the computing and analytical skills you've learned to that point in the course.  Deliverables will be in the form of Jupyter Notebooks that show and describe the work you've done.  Take-home exams will be due on __Sunday, October 18__; __Sunday, November 22__; and __Tuesday, December 15__, which is the day of our scheduled final exam.  You'll receive the prompt for the take-home exam 2 weeks prior to the due date.  
 
 You will also have 14 __weekly assignments__ which in total make up __42 percent of your grade__.  Weekly assignments are assigned each Thursday, and due by the end of the day the following Thursday.  You'll have devoted class time each week to work on the assignments.  
 
@@ -119,6 +119,7 @@ This course will comply with TCU policies on academic conduct and plagiarism.  T
 * Cheating: Copying from another student’s test paper, laboratory report, other report, or computer files and listings; using, during any academic exercise, material and/or devices not authorized by the person in charge of the test; collaborating with or seeking aid from another student during a test or laboratory without permission; knowingly using, buying, selling, stealing, transporting, or soliciting in its entirety or in part, the contents of a test or other assignment unauthorized for release; substituting for another student or permitting another student to substitute for oneself. 
 * Plagiarism: The appropriation, theft, purchase or obtaining by any means another’s work, and the unacknowledged submission or incorporation of that work as one’s own offered for credit. Appropriation includes the quoting or paraphrasing of another’s work without giving credit therefore.  
 * Collusion: The unauthorized collaboration with another in preparing work offered for credit. 
+
 In short: please don’t cheat, as it is a very serious offense and you will get caught.  If you are in any way struggling in the course and tempted to cheat, please come talk to me so we can address your issues face to face.  
 
 Finally, the classroom is a place where diversity of opinions and perspectives is not only welcomed, but highly encouraged.  I ask you to always be mindful and respectful of the diversity (broadly defined) of your classmates.  
