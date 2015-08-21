@@ -94,7 +94,7 @@ Extensions to deadlines and make-up participation credit will only be permitted 
 |Week 10: Oct 27-29|Visualization best practices I|_Data Points_, Ch. 2|Visualization with `seaborn` I|
 |Week 11: Nov 3-5|Visualization best practices II|_Data Points_, Ch. 5|Visualization with `seaborn` II|
 |Week 12: Nov 10-12|Interactive data visualization|_Data Points_, Ch. 6|Interactive plots with `plotly` and `bokeh`|
-|Week 13-14: Nov 17-23|Geographic data & visualization|_The Nature of Geographic Information_, Ch. 1|Mapping with CartoDB|
+|Week 13-14: Nov 17-24|Geographic data & visualization|_The Nature of Geographic Information_, Ch. 1|Mapping with CartoDB|
 |Week 15: Dec 1-3|Communicating with data|TBD|Data dashboards with Tableau Public|
 |Week 16: Dec 8|Where to go from here?|TBD|N/A
 
