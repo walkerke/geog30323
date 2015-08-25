@@ -10,6 +10,8 @@ __Classroom: Tucker 353__
 
 __Instructor: Dr. Kyle Walker__ (<kyle.walker@tcu.edu>)
 
+Office hours: Thursday 11:30-12:30 or by appointment, SCHAR 2015D
+
 ---
 
 ### Course overview
@@ -33,7 +35,7 @@ There are no prerequisites for this course; however, you should bring a curiosit
 
 ### Course format
 
-Mondays will be devoted to lecture and discussion, and Wednesdays will be used for applied tutorials and assignment work, with a couple exceptions.  The class will be managed through its corresponding Learning Studio website, accessible through the portals at <http://my.tcu.edu> or <http://tcuglobal.edu>, and course materials will be available in the course GitHub repository at <https://github.com/walkerke/geog30323>.  You will submit your assignments and view your grades on the Learning Studio website.  
+Course time will be used for lecture, discussion, applied tutorials, and assignment work.  The class will be managed through its corresponding Learning Studio website, accessible through the portals at <http://my.tcu.edu> or <http://tcuglobal.edu>, and course materials will be available in the course GitHub repository at <https://github.com/walkerke/geog30323>.  You will submit your assignments and view your grades on the Learning Studio website.  
 
 ### Readings
 
