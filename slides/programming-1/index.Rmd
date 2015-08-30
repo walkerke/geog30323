@@ -112,8 +112,8 @@ print("Hello World")
 ### Launching the Jupyter Notebook
 
 > 1. Open your terminal/command prompt; on Windows, search for `cmd.exe`; on Mac, find it in __Utilities --> Applications__.
-> 2. Change into your project directory with `cd` - this is where you will save your notebooks.  Example: `cd C:\Users\kylewalker\geog30323`.  
-> 3. Enter the command `jupyter notebook`, and you are off!
+> 2. Change into your project directory with `cd` - this is where you will save your notebooks.  Example: `cd C:\Users\kylewalker\geog30323`.  If you need to change drives, add the `/D` option after `cd`.  
+> 3. Enter the command `ipython notebook`, and you are off!
 
 ---
 
