@@ -216,6 +216,13 @@ Let's try this out!
 ### The Python namespace
 
 * When you declare variables, define functions, import modules, etc., you are adding objects to the _Python namespace_
+* To remove objects from the Python namespace, use the `del` statement
+
+
+---
+
+### Imports and the namespace 
+
 * Imported modules can be referenced in multiple ways: 
 
 ```python
