@@ -118,7 +118,15 @@ Beware of the infinite `while` loop!
 
 * However - what if we don't want to do the same thing every time we run a loop?  Or a function, for that matter? 
 * Answer: __conditional logic__
-* Conditional operators in Python: 
+
+---
+
+## Conditional operators
+
+
+
+
+* Conditional statements in Python: 
     - `if`
     - `elif`
     - `else`
@@ -168,30 +176,52 @@ False
 
 ## Object-oriented programming
 
-(definitions here)
-
----
-
-## OOP in Python
-
+* Programming paradigm in which language is oriented around data objects
 * In Python, "everything is an object!"
-* 
 
 ---
 
 ## Classes
 
----
-
-## How classes work
-
----
-
-## Inheritance
-
-(explanation)
+* A __class__ is a special type of Python object that itself can have attributes and methods
+* Associated with object-oriented programming in Python
 
 ---
+
+### How classes work
+
+```python
+class Employee:
+    company = "TCU"
+    
+    def __init__(self, name, salary): 
+        self.name = name
+        self.salary = salary
+
+# Let's create a class instance
+doug = Employee(name = "Doug", salary = 50000) 
+
+doug.company
+
+'TCU' # the result
+```
+
+---
+
+### Class attributes and methods
+
+* Class __attributes__: attributes that are associated with a given class
+    + Attributes can be associated with the __class__ or class __instances__
+* Class __methods__: functions associated with the class
+
+```python
+
+def get_raise(self, raise_amount):
+    self.salary = self.salary + raise_amount
+    
+doug.get_raise(5000)
+    
+```
 
 
 

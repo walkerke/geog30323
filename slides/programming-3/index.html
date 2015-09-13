@@ -200,7 +200,12 @@ Blast-off!</code></pre>
 <ul>
 <li>However - what if we don’t want to do the same thing every time we run a loop? Or a function, for that matter?</li>
 <li>Answer: <strong>conditional logic</strong></li>
-<li>Conditional operators in Python:
+</ul>
+</section>
+<section id="conditional-operators" class="slide level2">
+<h1>Conditional operators</h1>
+<ul>
+<li>Conditional statements in Python:
 <ul>
 <li><code>if</code></li>
 <li><code>elif</code></li>
@@ -247,27 +252,51 @@ Blast-off!</code></pre>
 </section>
 <section id="object-oriented-programming" class="slide level2">
 <h1>Object-oriented programming</h1>
-<p>(definitions here)</p>
-</section>
-<section id="oop-in-python" class="slide level2">
-<h1>OOP in Python</h1>
 <ul>
+<li>Programming paradigm in which language is oriented around data objects</li>
 <li>In Python, “everything is an object!”</li>
-<li></li>
 </ul>
 </section>
 <section id="classes" class="slide level2">
 <h1>Classes</h1>
-</section>
-<section id="how-classes-work" class="slide level2">
-<h1>How classes work</h1>
-</section>
-<section id="inheritance" class="slide level2">
-<h1>Inheritance</h1>
-<p>(explanation)</p>
+<ul>
+<li>A <strong>class</strong> is a special type of Python object that itself can have attributes and methods</li>
+<li>Associated with object-oriented programming in Python</li>
+</ul>
 </section>
 <section class="slide level2">
 
+<h3 id="how-classes-work">How classes work</h3>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> Employee:
+    company = <span class="st">&quot;TCU&quot;</span>
+    
+    <span class="kw">def</span> <span class="ot">__init__</span>(<span class="ot">self</span>, name, salary): 
+        <span class="ot">self</span>.name = name
+        <span class="ot">self</span>.salary = salary
+
+<span class="co"># Let's create a class instance</span>
+doug = Employee(name = <span class="st">&quot;Doug&quot;</span>, salary = <span class="dv">50000</span>) 
+
+doug.company
+
+<span class="co">'TCU'</span> <span class="co"># the result</span></code></pre>
+</section>
+<section class="slide level2">
+
+<h3 id="class-attributes-and-methods">Class attributes and methods</h3>
+<ul>
+<li>Class <strong>attributes</strong>: attributes that are associated with a given class
+<ul>
+<li>Attributes can be associated with the <strong>class</strong> or class <strong>instances</strong></li>
+</ul></li>
+<li>Class <strong>methods</strong>: functions associated with the class</li>
+</ul>
+<pre class="sourceCode python"><code class="sourceCode python">
+<span class="kw">def</span> get_raise(<span class="ot">self</span>, raise_amount):
+    <span class="ot">self</span>.salary = <span class="ot">self</span>.salary + raise_amount
+    
+doug.get_raise(<span class="dv">5000</span>)
+    </code></pre>
 <style>
 
 .reveal section img {
