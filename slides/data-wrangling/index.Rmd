@@ -375,6 +375,7 @@ m5 = m1.merge(m4, on = 'type', how = 'outer')
 * Long format: 
 
 ```python
+from pandas.io import wb
 countries = ['ZA', 'BR', 'US']
 urban = wb.download(indicator = 'SP.URB.TOTL.IN.ZS', 
                     country = countries, start = 2007, 
