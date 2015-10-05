@@ -79,6 +79,7 @@ debt[0:10]
 ex1 = debt.set_index('name')
 ex1.ix['Amridge University':'Alabama State University']
 ```
+<img src=img/index_name.png>
 
 ---
 
@@ -96,6 +97,7 @@ ex1.ix['Amridge University':'Alabama State University']
 debt1 = debt[debt['debt'] != 'PrivacySuppressed']
 debt1.head()
 ```
+<img src=img/sub1.png>
 
 ---
 
@@ -110,6 +112,7 @@ tx_debt = debt[(debt['debt'] != 'PrivacySuppressed') & (debt['state'] == 'TX')]
 
 tx_debt.head()
 ```
+<img src=img/txdebt.png>
 
 ---
 
@@ -122,6 +125,7 @@ sw_debt = debt[(debt['debt'] != 'PrivacySuppressed') & (debt['state'].isin(state
 
 sw_debt.head()
 ```
+<img src=img/swdebt.png>
 
 ---
 
@@ -137,8 +141,6 @@ np.random.seed(1983)
 df1 = pd.DataFrame({'col1': np.random.randint(1, 100, 10), 
                     'col2': np.random.randint(1, 100, 10), 
                     'col3': np.random.randint(1, 100, 10)})
-
-df1
 ```
 
 ---
@@ -149,12 +151,11 @@ df1
 # Must use index-based labeling for this
 df1['col4'] = df1['col1'] + df1['col2']
 
-df1.head()
-
 df2 = df1.assign(col5 = df1['col3'] / df1['col4'])
 
 df2.head()
 ```
+<img src=img/assign.png>
 
 ---
 
@@ -170,6 +171,7 @@ sw_debt['debtnum'] = sw_debt.debt.astype(float)
 sw_debt.head()
 
 ```
+<img src=img/newcol.png>
 
 ---
 
@@ -192,6 +194,8 @@ sw2 = sw_debt.dropna()
 
 sw2.head()
 ```
+<img src=img/dropna.png>
+
 
 ---
 
@@ -200,10 +204,12 @@ sw2.head()
 * `.fillna()` method: fill in missing data with a specified value
 
 ```python
-sw3 = sw_debt.fillna(sw_debt.mean())
+sw3 = sw_debt.fillna(sw_debt.median())
 
 sw3.head()
 ```
+<img src=img/fillna.png>
+
 ---
 
 ### Group-wise data analysis
@@ -391,7 +397,8 @@ urban.head()
 * `.pivot()` method in `pandas`
 
 ```python
-urban_wide = urban.pivot(index = 'year', columns = 'country', values = 'pcturban')
+urban_wide = urban.pivot(index = 'year', columns = 'country', 
+                         values = 'pcturban')
 urban_wide.head()
 ```
 <img src=img/wide.png>
@@ -418,7 +425,7 @@ urban_long = pd.melt(urban_wide.reset_index(), id_vars = 'year',
 
 urban_long.head()
 ```
-
+<img src=img/melt.png>
 
 
 
