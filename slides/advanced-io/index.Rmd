@@ -1,0 +1,211 @@
+---
+title: "Advanced input and output"
+author: GEOG 30323
+date: October 20, 2015
+output: 
+  revealjs::revealjs_presentation: 
+    theme: "white"
+    transition: "none"
+    highlight: "zenburn"
+    center: TRUE
+    fig_caption: TRUE
+    
+---
+
+## The 'ins' and 'outs' of data
+
+* We've learned how to work with CSV files - which are probably the most common data format you'll come across
+* What if your data aren't available in CSV format?  
+* Possible formats: Excel, database, fixed-width text, statistics packages, JSON, XML, ...
+
+---
+
+### `pd.read_csv()`
+
+* Also: `pd.read_table()`
+* Designed for __delimited__ text data
+* Lots of options!
+
+<img src=img/csv_opts.png>
+
+---
+
+### Delimited text data
+
+* Generally: each record on a different line of the text file; columns separated in some consistent way (hopefully)
+* Common delimiters: 
+    * Comma `','`
+    * Semi-colon `';'`
+    * Pipe `'|'`
+    * Tab (expressed as `'\t'` in `pandas`)
+* Supplied to the `sep` parameter in `read_csv()`; defaults to comma
+
+---
+
+### Fixed-width text files
+
+* Each column in the text file a specified (fixed) number of characters; generally, a data dictionary will specify the column widths
+* Read into `pandas` with the `read_fwf()` function; supply a list of column widths to the `widths` parameter
+
+
+---
+
+### Excel files
+
+* Accessible via the `read_excel()` function in `pandas`
+
+---
+
+### Data on the web
+
+* Example: https://data.fortworthtexas.gov/
+
+---
+
+### Application programming interfaces (APIs)
+
+* API (general definition): the way in which you can access a particular software application programmatically
+    * For example: the `pandas` API comprises the functions, methods, etc. that you use in `pandas`
+* Data API: interface that allows you to access __data__ programmatically
+    * Often: requests are made via URL; interact with data via URL parameters
+    
+
+---
+
+### JavaScript Object Notation (JSON)
+
+* Example: https://data.fortworthtexas.gov/resource/kr8h-9zxd.json
+
+---
+
+### JSON in `pandas`
+
+* Convert JSON to data frames with the `read_json()` function
+* Be careful with what you get back!
+
+```python
+api_call = 'https://data.fortworthtexas.gov/resource/kr8h-9zxd.json?streetname=BERRY'
+
+berry = pd.read_json(api_call)
+
+berry.head()
+
+```
+
+---
+
+### Why use APIs? 
+
+* Your programming knowledge can give you even more flexibility...
+
+```python
+def get_accidents(street_name): 
+    part1 = 'https://data.fortworthtexas.gov/resource/kr8h-9zxd.json?streetname='
+    api_call = part1 + street_name
+    return pd.read_json(api_call)
+
+uni = get_accidents('UNIVERSITY')
+
+uni.head()
+```
+
+---
+
+### Data on websites
+
+<img src=img/espnfc.png style="width: 900px">
+
+---
+
+### Web scraping
+
+* Process of getting data __from__ websites __into__ your computing environment 
+* Python packages to accomplish this: `html5lib`, `BeautifulSoup`, `lxml`, `scrapy` (Python 2 only)
+* Web scraping built into `pandas` with the `read_html()` function (for tables)
+    * First: install `html5lib` and `beautiful-soup` from `conda`
+    * Then: "Expect to do some cleanup after you call this function."
+    
+
+---
+
+### Web scraping in `pandas`
+
+```python
+url = 'http://www.espnfc.us/barclays-premier-league/23/table'
+
+d1 = pd.read_html(url)
+
+d1 # A list of data frame objects
+```
+
+---
+
+```python
+d1[0].head()
+```
+<img src=img/head1.png>
+
+---
+
+```python
+d2 = pd.read_html(url, skiprows = 1)[0]
+
+d2.head()
+```
+<img src=img/head2.png>
+
+* We need to drop those columns with `'Unnamed'` in the header
+
+---
+
+* One way: 
+
+```python
+un = []
+
+for col in d2.columns: 
+    if 'Unnamed' in col: 
+        un.append(col)
+
+d3 = d2.drop(un, axis = 1)
+
+d3.head()
+```
+<img src=img/clean1.png>
+
+---
+
+* The "code golf" way: 
+
+```python
+d4 = d2.drop([col for col in d2.columns if 'Unnamed' in col], axis = 1)
+```
+
+---
+
+### Getting data out!
+
+* The `.to_xxx()` suite of methods allow you to write `pandas` data frames to a host of different formats
+
+For example: 
+
+```python
+d3.to_csv('premier.csv', index = False)
+```
+
+<style>
+
+.reveal section img {
+  background:none; 
+  border:none; 
+  box-shadow:none;
+  }
+
+h3 {
+
+
+
+}
+  
+</style>
+
