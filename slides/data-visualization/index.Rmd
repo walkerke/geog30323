@@ -1,0 +1,374 @@
+---
+title: "Data visualization best practices"
+author: GEOG 30323
+date: October 27, 2015
+output: 
+  revealjs::revealjs_presentation: 
+    theme: "white"
+    transition: "none"
+    highlight: "zenburn"
+    center: TRUE
+    fig_caption: TRUE
+    
+---
+
+## Data visualization
+
+* Thus far: we've learned how to use data visualization to explore our data
+* In the weeks to come: 
+    * Best practices in data visualization
+    * Advanced chart types
+    * Interactive visualization
+    * Geographic visualization (maps!)
+    * Putting it all together!
+
+---
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Minard.png" style="width: 900px"><figcaption>Source: Wikimedia Commons</figcaption>
+
+---
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/1/17/Nightingale-mortality.jpg" style="width: 850px"><figcaption>Source: Wikimedia Commons</figcaption>
+
+---
+
+<img src="http://flowingdata.com/wp-content/uploads/2015/06/age-detailed.png" style="width: 500px"><figcaption>Source: Nathan Yau/FlowingData</figcaption>
+
+---
+
+### Anscombe's Quartet
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Anscombe%27s_quartet_3.svg" style="width: 750px"><figcaption>Source: Wikimedia Commons</figcaption>
+
+---
+
+### Considerations when visualizing data
+
+* What are you visualizing? 
+* Who is your audience? 
+* In what format will you be presenting the visualization?  
+
+---
+
+### Visual variables
+
+<img src=img/vv.png style="width: 900px"><figcaption>Source: _Data Points_</figcaption>
+
+---
+
+## Color
+
+* Hue: color, commonly understood (red, blue, green)
+* Lightness or Value: extent to which color is light or dark
+* Saturation: vividness of the color
+
+<img src="https://dl.dropboxusercontent.com/u/128822645/introgis/cartography/assets/img/color1.png" style="width: 400px">
+
+---
+
+## Color schemes
+
+<img src=img/schemes.png><figcaption>Source: _Data Points_</figcaption>
+
+---
+
+### Color and context
+
+<img src="https://espnfivethirtyeight.files.wordpress.com/2014/04/silver-partisan-split-immigration.png" style="width: 350px"><figcaption>Source: [FiveThirtyEight.com](http://fivethirtyeight.com/datalab/our-33-weirdest-charts-from-2014/)</figcaption>
+
+---
+
+## Color-blindness
+
+<img src="https://pbs.twimg.com/media/BaSY069CYAAlHXY.jpg" style="width: 700px"><figcaption>SBNation.com</figcaption>
+
+---
+
+### Good use of color
+
+<img src=img/curry.jpg style="width: 750px"><figcaption>Source: Kirk Goldsberry/_Grantland_</figcaption>
+
+---
+
+### Poor use of color
+
+<img src=img/badmap.png style="width: 800px"><figcaption>Source: Jonathan Cohn via Kenneth Field/[Cartonerd](http://cartonerd.blogspot.com/2014/08/the-reason-for-cartography.html)</figcaption>
+
+---
+
+### Color and visual variables
+
+<img src="https://calconstructionlaw.files.wordpress.com/2012/04/trustworthiness-of-beards.jpg" style="width: 300px">
+
+---
+
+## Examples
+
+Let's fetch some data: 
+
+```python
+
+from pandas.io import wb
+
+eu_countries = ['BE', 'BG', 'CZ', 'DK', 'DE', 'EE', 'IE', 'GR', 'ES', 'FR', 'HR', 
+               'IT', 'CY', 'LV', 'LT', 'LU', 'HU', 'MT', 'NL', 'AT', 'PL', 'PT', 
+               'RO', 'SI', 'SK', 'FI', 'SE', 'GB']
+               
+ue = wb.download(indicator = "SL.UEM.TOTL.ZS", 
+                 country = eu_countries, start = 1991, 
+                 end = 2013)
+
+ue.reset_index(inplace = True)
+
+ue.columns = ['country', 'year', 'unemployment']
+
+```
+
+---
+
+## The 'heat map'
+
+<img src=img/measles.png style="width: 650px"><figcaption>Source: [_The Wall Street Journal_](http://graphics.wsj.com/infectious-diseases-and-vaccines/)</figcaption>
+
+---
+
+## Heat maps in `seaborn`
+
+* Available in `seaborn`'s `heatmap()` function; takes a wide data frame with x-values in the index and y-values as column headers
+
+```python
+ue_wide = ue.pivot(index = 'country', columns = 'year', 
+                   values = 'unemployment')
+
+sns.heatmap(ue_wide)
+```
+---
+
+### The `seaborn` 'heat map' 
+
+<img src=img/heatmap.jpg>
+
+---
+
+### Color palettes in `seaborn`
+
+* ColorBrewer: popular color schemes for visualization
+* Support for ColorBrewer built into `seaborn`
+* See more at http://colorbrewer2.org/
+
+---
+
+### Color in `seaborn`
+
+* Color palettes, available in the `color_palette()` function, can be viewed with the `palplot()` function
+```python
+sns.palplot(sns.color_palette('Greens', 7))
+```
+<img src=img/greens.png>
+
+* Colors can be reversed by adding `_r`: 
+```python
+sns.palplot(sns.color_palette('Greens_r', 7))
+```
+<img src=img/greens_r.png>
+
+---
+
+### Color in `seaborn`
+
+* `color_palette()` also allows for the creation of custom palettes!
+
+```python
+colors = ['#F5A422', '#3E22F5', '#3BF522', 
+          '#C722F5', '#F53E22']
+
+pal = sns.color_palette(colors)
+
+sns.palplot(pal)
+```
+<img src=img/colors.png>
+
+---
+
+### Color in `seaborn`
+
+```python
+mx = pd.read_csv('http://personal.tcu.edu/kylewalker/mexico.csv')
+sns.barplot(x = 'gdp08', y = 'name', data = mx.sort('gdp08', ascending = False), palette = "Greens_r")
+```
+<img src=img/mx.jpg style="width: 650px">
+
+---
+
+### Highlighting and annotation
+
+<img src=img/hotdog.png style="width: 750px"><figcaption>Source: _Data Points_</figcaption>
+
+---
+
+### The "spaghetti" chart
+
+<img src=img/spaghetti.png>
+
+---
+
+## Highlighting
+
+<img src=img/eu.jpg>
+
+---
+
+### Highlighting code
+
+```python
+sns.set_style('white')
+
+full = ue.pivot(index = 'year', columns = 'country', values = 'unemployment')
+
+greece = full['Greece']
+
+full.plot(legend = False, style = 'lightgrey')
+greece.plot(style = 'blue', legend = True)
+```
+---
+
+### Annotation in Python
+
+<img src=img/eu2.jpg>
+
+---
+
+### Annotation code
+
+```python
+plt.annotate('Global recession \nspreads to Europe', xy = (2009, 9.5), 
+             xycoords = 'data', xytext = (2005, 15), textcoords = 'data', 
+             arrowprops = dict(arrowstyle = 'simple', color = '#000000'))
+```
+
+---
+
+### Small multiples
+
+<img src=img/sm1.png style="width: 750px"><figcaption>Source: _Data Points_</figcaption>
+
+---
+
+### Small multiples in `pandas`
+
+```python
+full.plot(subplots = True, layout = (7, 4), figsize = (12, 10), sharey = True )
+```
+<img src=img/sm.jpg style="width: 725px">
+
+---
+
+### Faceted plots in `seaborn`
+
+* Plotting functions in `seaborn` can be "faceted" with `factorplot` or mapped onto a faceted plot with `FacetGrid`
+
+---
+
+### Modifying chart options
+
+* `.plot()` in `pandas` and `seaborn` are wrappers around `matplotlib`, the main plotting engine for Python
+* In turn, all `matplotlib` customization methods are available for your `pandas` and `seaborn` plots - and there are many!
+* To get access: `import matplotlib.pyplot as plt`
+
+---
+
+### Formatting axes & labels
+
+* Example: 
+
+```python
+import matplotlib.pyplot as plt
+
+plt.figure(figsize = (10, 7))
+
+sns.heatmap(ue_wide, cmap = 'YlGnBu')
+
+plt.ylabel("")
+plt.xlabel("")
+plt.title("Unemployment in Europe, 1991-2013")
+plt.xticks(rotation = 45)
+```
+
+---
+
+### `seaborn` and `matplotlib`
+
+* `seaborn` returns a `matplotlib` object that can be modified by the options in the `pyplot` module
+* Often, these options are wrapped by `seaborn` and `.plot()` in `pandas` and available as arguments - so check the documentation to see what you can do!  
+
+---
+
+### Logarithmic scales
+
+* Use of exponential scale (generally, $10^{n}$) to better show trends
+
+```python
+mx.plot(x = 'mus09', y = 'gdp08', kind = 'scatter', logy = True)
+```
+
+<img src=img/log.png>
+
+---
+
+### Scatterplot smoothing
+
+* _Local regression_ or _loess_ used to produce smooth curves through data
+
+```python
+sns.lmplot(data = mx, x = 'mus09', y = 'pri10', lowess = True)
+```
+<img src=img/lowess.png>
+
+---
+
+### Scatterplot matrices
+
+```python
+sns.pairplot(data = mx, vars = ['gdp08', 'mus09', 'pri10'])
+```
+<img src=img/pairs.jpg style="width: 550px">
+
+---
+
+### Image resolution
+
+* Higher __resolution__: greater detail in an image
+* Commonly: _dpi_ (dots per inch)
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Resolution_illustration.png"><figcaption>Source: Wikimedia Commons</figcaption>
+
+---
+
+### Exporting your visualizations
+
+* To save your visualizations from the Jupyter Notebook: 
+
+```python
+plt.savefig('destfile.jpg', dpi = XXX)
+```
+
+
+
+
+
+<style>
+
+.reveal section img {
+  background:none; 
+  border:none; 
+  box-shadow:none;
+  }
+
+h3 {
+
+
+
+}
+  
+</style>
+
