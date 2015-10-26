@@ -305,7 +305,7 @@ plt.xticks(rotation = 45)
 
 ### Logarithmic scales
 
-* Use of exponential scale (generally, $10^{n}$) to better show trends
+* Modification of scale (generally, $10^{n}$) to better show trends
 
 ```python
 mx.plot(x = 'mus09', y = 'gdp08', kind = 'scatter', logy = True)
