@@ -303,6 +303,37 @@ plt.xticks(rotation = 45)
 
 ---
 
+### Putting it all together
+
+```python
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+%matplotlib inline
+
+sns.set_style('white')
+
+ue['year2'] = ue.year.astype(float)
+
+full = ue.pivot(index = 'year2', columns = 'country', 
+                values = 'unemployment')
+
+greece = full['Greece']
+
+full.plot(style = 'lightgrey', legend = False, figsize = (10, 7))
+greece.plot(style = 'blue', legend = True)
+
+plt.xlabel("")
+plt.ylabel("Unemployment rate")
+plt.annotate('Global recession \nspreads to Europe', xy = (2009, 9.5), 
+             xycoords = 'data', xytext = (2005, 15), textcoords = 'data', 
+             arrowprops = dict(arrowstyle = 'simple', color = '#000000'))
+plt.yticks(range(0, 31, 5), [str(x) + '%' for x in range(0, 31, 5)])
+
+```
+
+---
+
 ### Logarithmic scales
 
 * Modification of scale (generally, $10^{n}$) to better show trends
