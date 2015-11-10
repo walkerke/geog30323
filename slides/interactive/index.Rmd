@@ -1,0 +1,248 @@
+---
+title: "Interactive data visualization"
+author: GEOG 30323
+date: November 10, 2015
+output: 
+  revealjs::revealjs_presentation: 
+    theme: "white"
+    transition: "none"
+    highlight: "zenburn"
+    center: TRUE
+    fig_caption: TRUE
+    
+---
+
+## Interactive visualization
+
+* Thus far: you've learned how to create static charts with `pandas` and `seaborn`
+* Our focus now turns to _interactive charts_
+
+---
+
+### Data storytelling
+
+<iframe width="853" height="480" src="https://www.youtube.com/embed/jbkSRLYSojo" frameborder="0" allowfullscreen></iframe>
+
+---
+
+### Applications for education
+
+[<img src=img/gaex.png style="width: 1000px">](https://walkerke.shinyapps.io/gender-age-explorer)
+
+---
+
+### Data journalism
+
+[<img src=img/nyt-migration.png style="width: 900px">](http://www.nytimes.com/interactive/2014/08/13/upshot/where-people-in-each-state-were-born.html?_r=0#Texas)<figcaption>Source: _The New York Times_</figcaption>
+
+---
+
+### Interactive visualization and the web
+
+* Analytical workflows have become increasingly connected to the web - or even completely web-based
+* Interactive data visualization: graphics not just _on_ the web, but _of_ the web
+
+---
+
+### The past: Java and Flash
+
+<img src="http://www.java-forums.org/attachments/java-applets/1332d1319003525t-remove-java-loader-jsp-page-java_logo.jpg" style="width: 600px"><img src="http://community.linuxmint.com/img/screenshots/adobe-flashplugin.png" style="width: 300px">
+
+
+---
+
+### The present: HTML5 and JavaScript
+
+<img src="http://www.w3.org/html/logo/downloads/HTML5_Logo_512.png" style="width: 300px"><img src="http://inspiredtoeducate.net/inspiredtoeducate/wp-content/uploads/2013/12/js-logo.png" style="width: 300px">
+
+* Examples: http://d3js.org/
+
+
+---
+
+### The future: WebGL
+
+<iframe width="900" height="550" src="https://meetar.github.io/bendy-map/#16.15/32.70976/-97.36807" frameborder="0"></iframe><figcaption>Source: Mapzen</figcaption>
+
+---
+
+### Why interactive visualization? 
+
+* User is an _active participant_ rather than a _passive observer_
+* Key points to consider: 
+    * What are you visualizing? 
+    * What is the purpose of your visualization? 
+    * Who is your audience? 
+    * In what format and venue will you be presenting the visualization?  
+    
+---
+
+### New libraries!
+
+* We're going to need some new Python libraries to chart interactively
+* Let's run the following commands at the command line: 
+    * `conda install ipywidgets`
+    * `pip install plotly`
+    * `pip install cufflinks`
+    
+---
+
+### Let's get some data!
+
+```python
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+%matplotlib inline
+
+mx = pd.read_csv('http://personal.tcu.edu/kylewalker/mexico.csv')
+```
+
+---
+
+### Our basic plot
+
+```python
+mx.plot(kind = 'scatter', x = 'pri10', y = 'mus09')
+```
+<img src=img/basic.png>
+
+---
+
+### Interactivity in the Notebook
+
+* Use the command `%matplotlib notebook`, and your plot becomes interactive!
+
+```python
+%matplotlib notebook
+mx.plot(kind = 'scatter', x = 'pri10', y = 'mus09')
+```
+
+---
+
+### Interactivity in the Notebook
+
+* The `ipywidgets` package allows you to build basic graphical user interfaces (GUIs) to explore your data in the Notebook
+
+```python
+from ipywidgets import *
+
+cols = ['mus09', 'pri10', 'sec10', 'ter10', 'gdp08']
+
+def make_plot(x = cols, y = cols, title = 'Enter a plot title!'): 
+    sns.lmplot(data = mx, x = x, y = y)
+    plt.title(title)    
+    
+interact(make_plot)
+```
+
+---
+
+### Widgets: not just for plots!
+
+```python
+def get_accidents(street_name): 
+    part1 = 'https://data.fortworthtexas.gov/resource/kr8h-9zxd.json?streetname='
+    api_call = part1 + street_name
+    return pd.read_json(api_call)
+
+def get_street(street = ['BERRY', 'UNIVERSITY', 'ROSEDALE']): 
+    df = get_accidents(street)
+    return df.head()
+    
+interact(get_street) 
+```
+
+---
+
+### Plotly
+
+* Plotly: Web-based platform for interactive charting; 
+* Walkthrough: signing up for Plotly account at https://plot.ly/ & using the web GUI
+
+---
+
+### Plotly in Python
+
+* The Plotly Python package can convert your `matplotlib` plots to Plotly charts!
+
+```python
+import plotly.plotly as py
+py.sign_in('your_user_name', 'your_api_key')
+mx.plot(kind = 'scatter', x = 'pri10', y = 'mus09')
+fig = plt.gcf()
+py.iplot_mpl(fig)
+```
+
+---
+
+### Plotly and `seaborn`
+
+* Plotly can convert some `seaborn` plots - though the styling will not always carry over
+
+```python
+sns.distplot(mx.pri10)
+f = plt.gcf()
+py.iplot_mpl(f)
+```
+
+---
+
+## Cufflinks
+
+* New Python library to create Plotly plots directly from `pandas` data frames!
+* Simply use `iplot` instead of `plot`!
+
+```python
+import cufflinks as cf
+
+mx.iplot(kind = 'scatter', mode = 'markers', x = 'pri10', 
+         y = 'mus09', text = 'name', colors = 'green', 
+         xTitle = '% of workforce in primary sector', 
+         yTitle = 'Out-migration rate to the United States')
+```
+
+---
+
+## Cufflinks
+
+```python
+mx[['pri10', 'gdp08', 'mus09']].scatter_matrix()
+```
+
+---
+
+## Cufflinks!
+
+```python
+mx.iplot(kind = 'scatter3d', x = 'mus09', y = 'gdp08', 
+         z = 'pri10', mode = 'markers', text = 'name')
+```
+
+---
+
+### Other libraries
+
+* Bokeh: http://bokeh.pydata.org/en/latest/
+* Lightning: http://lightning-viz.org/
+* If you are really into this: learn R (http://www.htmlwidgets.org/) and/or JavaScript...
+
+
+
+
+<style>
+
+.reveal section img {
+  background:none; 
+  border:none; 
+  box-shadow:none;
+  }
+
+h3 {
+
+
+
+}
+  
+</style>
+
