@@ -1,0 +1,174 @@
+---
+title: "Geographic data and visualization"
+author: GEOG 30323
+date: November 17, 2015
+output: 
+  revealjs::revealjs_presentation: 
+    theme: "white"
+    transition: "none"
+    highlight: "zenburn"
+    center: TRUE
+    fig_caption: TRUE
+    
+---
+
+## What is geographic data? 
+
+* Thus far: we've been working with data (largely) in tabular data frames, where each column represents data "attributes"
+* Geographic data: includes information on _location_ - specifically, where the observation is located on the Earth's surface
+
+---
+
+### Maps!
+
+<iframe src=http://personal.tcu.edu/kylewalker/age-of-fw.html height = "600" width = "900" frameborder = "0"></iframe>
+
+---
+
+### Longitude and latitude: the basics
+
+<img src=img/coordinates.png>
+
+---
+
+### Geographic coordinates
+
+* Longitude (X) and latitude (Y) coordinates can be expressed as:
+  + Degrees minutes seconds (e.g. $97^{\circ}21'37''W$, $32^{\circ}42'38''N$)
+  + Decimal degrees (e.g. $-97.36$, $32.71$)
+
+Conversion between DMS and decimal degrees:
+
+$$DD = D + \frac{M}{60} + \frac{S}{3600}$$
+
+---
+
+## Coordinate systems
+
+* __Geographic coordinate system__: coordinate system based on latitude and longitude (coordinates on a sphere)
+* __Projected coordinate system__: coordinate system projected onto a two-dimensional surface (coordinates on a plane)
+
+---
+
+### Spheres and planes
+
+<iframe src="http://bl.ocks.org/mbostock/raw/5731632/" width = "800" height = "600" frameBorder = "0"></iframe><figcaption>Source: Mike Bostock</figcaption>
+
+---
+
+## Map projections
+
+<iframe src="http://personal.tcu.edu/kylewalker/introgis/projections.html" width = "900" height = "700" frameBorder = "0"></iframe><figcaption>Original source: Mike Bostock</figcaption>
+
+---
+
+### Tiled mapping and Web Mercator
+
+<img src=img/tiled-mapping.png>
+
+---
+
+### Map projections and distortion
+
+<iframe src="http://bl.ocks.org/curran/raw/01aa2685f083b6c1b9fb/" height = "600" width = "900" frameborder = "0"></iframe><figcaption>Source: [Curran Kelleher](http://bl.ocks.org/curran/01aa2685f083b6c1b9fb)</figcaption>
+
+---
+
+### Map projections and distortion
+
+<iframe src="http://bl.ocks.org/enjalot/raw/bd552e711b8325c64729/" height = "600" width = "900" frameborder = "0"></iframe><figcaption>Source: [Ian Johnson](http://bl.ocks.org/enjalot/bd552e711b8325c64729)</figcaption>
+
+---
+
+## Vector data
+
+<img src=img/vector.png>
+
+---
+
+## Raster data
+
+<img src=img/raster.png>
+
+---
+
+### Vector data: CSV files
+
+* Example: Starbucks locations in Chicago 
+* Data download: http://personal.tcu.edu/kylewalker/data/chicago_starbucks.csv
+
+---
+
+### Let's make a map!
+
+* CartoDB: https://cartodb.com/signup
+
+---
+
+### Mapping point data
+
+<iframe width="100%" height="600" frameborder="0" src="https://kwalkertcu.cartodb.com/viz/1db3d680-8b10-11e5-8e7b-0ecfd53eb7d3/embed_map" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+
+---
+
+### Vector data: the _shapefile_
+
+* __Shapefile__: common format for encoding vector geographic data
+* Three __required__ files: .shp, .dbf, and .shx; .prj recommended  
+
+
+---
+
+### Vector data: GeoJSON
+
+* [Mexico's states as GeoJSON](https://gist.github.com/walkerke/76cb8cc5f949432f9555)
+
+---
+
+### Mapping polygons
+
+<iframe width="100%" height="600" frameborder="0" src="https://kwalkertcu.cartodb.com/viz/a70f62c4-8b00-11e5-8960-0e5db1731f59/embed_map" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+
+---
+
+### Should you map? 
+
+* Beware the "amazing map"...
+
+<img src=img/clickhole.png style="width: 500px"><figcaption>Source: [Clickhole (The Onion)](http://www.clickhole.com/article/we-put-700-red-dots-map-947)</figcaption>
+
+---
+
+### Maps vs. charts
+
+* For discussion: which visualization is more effective for showing differences in our data?   
+
+---
+
+### Chart for comparison
+
+<img src=img/primarydot.png style="width: 800px">
+
+
+
+
+
+
+
+
+<style>
+
+.reveal section img {
+  background:none; 
+  border:none; 
+  box-shadow:none;
+  }
+
+h3 {
+
+
+
+}
+  
+</style>
+
