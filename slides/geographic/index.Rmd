@@ -147,7 +147,7 @@ $$DD = D + \frac{M}{60} + \frac{S}{3600}$$
 
 ### Chart for comparison
 
-<img src=img/primarydot.png style="width: 800px">
+<img src=img/primarydot2.png style="width: 825px">
 
 
 
