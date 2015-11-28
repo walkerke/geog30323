@@ -1,0 +1,270 @@
+---
+title: "Data communication and data science"
+author: GEOG 30323
+date: December 1, 2015
+output: 
+  revealjs::revealjs_presentation: 
+    theme: "white"
+    transition: "none"
+    highlight: "zenburn"
+    center: TRUE
+    fig_caption: TRUE
+    
+---
+
+## Course recap
+
+* Thus far: we've focused on _exploratory data analysis_, which involves data wrangling, summarization, and visualization
+* Your data analysis journey shouldn't stop here!  Topics to consider: 
+    * _Explanatory_ vs. exploratory visualization
+    * Statistics and data science
+    * Data ethics and "big data" (next week)
+
+---
+
+### Communicating with data
+
+* Once you've done all of the hard work wrangling your data, you'll want to communicate insights to others!
+* This might include: 
+    * Polished data products or reports
+    * Models that can scale your insights
+
+---
+
+### Explanatory visualization
+
+* We've largely worked to this point with _exploratory visualization_, which refers to internally-facing visualizations that help us reveal insights about our data
+* Often, externally-facing data products will include _explanatory visualization_, which include a polished design and emphasize one or two key points
+
+---
+
+### Interactive reports
+
+* Example: a data journalism article - or your Jupyter Notebook!
+* Key distinction: your code, data exploration, etc. will likely be external to the report (this can vary depending on the context, however)
+
+---
+
+### Tableau
+
+<img src="http://s1.q4cdn.com/149179428/files/images/tableau_logo-optimized-2x.png">
+
+* Highly popular software for data visualization - both exploratory and explanatory
+* Intuitive, drag-and-drop interface
+* Key feature: the _dashboard_
+
+---
+
+
+### Data dashboards
+
+Examples: 
+
+* Your Salary vs. an MLB Player's Salary: http://www.osmguy.com/2014/03/salary-vs-mlb-players-salary-visualization/
+* Bay Area Bike Share: https://public.tableau.com/s/gallery/30-minutes-bay-area-bike-share
+* UN Population Data: http://dataremixed.com/2014/07/story-types-a-thought-starter/
+
+---
+
+### Demo: Tableau Public
+
+* Let's work with a (cleaned) obesity dataset you'll be familiar with from earlier in the semester; download it at http://personal.tcu.edu/kylewalker/data/overweight.csv
+
+---
+
+### Static vs. interactive
+
+For discussion: 
+
+* In what circumstances might a static plot be preferable to an interactive one? 
+* What about the other way around?  
+
+---
+
+### Infographics
+
+<img src="http://www.metro.us/news/infographic-interesting-facts-about-world-population-day/tmWngh---a721cjqn6Gez2/world-population-day-614x482.jpg" style = "width: 700px"><figcaption>Source: Metro.us</figcaption>
+
+---
+
+### Infographics
+
+Obesity infographics: 
+
+* http://visual.ly/72-million-obese-adults-united-states
+* https://s-media-cache-ak0.pinimg.com/736x/41/4b/1b/414b1b7627feca460785a8eb749c2f38.jpg
+
+---
+
+
+### Are infographics useful?
+
+* XKCD: https://xkcd.com/1273/
+
+---
+
+## Data Science
+
+* __Data science__: new(ish) field that has emerged to address the challenges of working with modern data
+* Fuses statistics, computer science, visualization, graphic design, and the humanities/social sciences/natural sciences...
+
+---
+
+### The data analysis process
+
+<img src=img/process.png>
+
+---
+
+### Visualization vs. modeling
+
+Hadley Wickham (paraphrased): 
+
+> Visualization can surprise you, but it doesn’t scale well.
+> Modeling scales well, but it doesn't (fundamentally) surprise.
+
+---
+
+### Statistical modeling
+
+* What is the mathematical relationship between an outcome variable $Y$ and one or more other "predictor" variables $X{1}...X{n}$?
+* Recall our use of `lmplot` in `seaborn` - `lm` stands for _linear model_
+
+---
+
+### Statistical modeling
+
+The linear model: 
+
+$$ Y = Xb + e $$
+
+where $Y$ represents the outcome variable, $X$ is a matrix of predictors, $b$ represents the "parameters", and $e$ represents the errors, or "residuals"
+
+* Linear models will not always be appropriate for modeling relationships between variables!
+
+---
+
+### Statistics in Python
+
+* Substantial statistical functionality available in the `statsmodels` package, which installs with Anaconda
+
+---
+
+### Statistics in Python
+
+Let's get an example ready: 
+
+```python
+import pandas as pd
+import seaborn as sns
+sns.set_context('notebook')
+import statsmodels.formula.api as smf
+%matplotlib inline
+
+df = pd.read_csv(' http://personal.tcu.edu/kylewalker/data/texas_colleges.csv')
+df['grad_rate'] = df.grad_rate * 100
+
+
+```
+
+---
+
+### Linear regression
+
+```
+f = smf.ols(formula = 'median_earn ~ grad_rate', data = df).fit()
+
+f.summary()
+```
+
+---
+
+### Multiple regression
+
+```
+f2 = smf.ols(formula = 'median_earn ~ grad_rate + sat_avg', data = df).fit()
+f2.summary()
+```
+---
+
+### Residuals and fitted values
+
+```python
+df['fitted'] = f2.predict()
+df['resid'] = f2.resid
+
+```
+
+---
+
+### Residuals and fitted values
+
+```python
+import cufflinks as cf
+import plotly.plotly as py
+
+py.sign_in('username', 'api_key')
+
+df.iplot(x = 'fitted', y = 'resid', kind = 'scatter', mode = 'markers', 
+        text = 'instnm', zerolinecolor = 'red', color = 'blue', 
+        xTitle = 'Fitted values', yTitle = 'Residuals')
+
+```
+
+---
+
+### Residuals and fitted values
+
+<iframe width="850" height="550" frameborder="0" scrolling="no" src="https://plot.ly/~walkerke/639.embed"></iframe>
+
+---
+
+### Machine learning
+
+* "The science of getting computers to act without being explicitly programmed"
+* Types of machine learning algorithms: _supervised_ and _unsupervised_
+* Topics in machine learning: _classification_, _clustering_, _regression_
+
+Visual introduction to machine learning: http://www.r2d3.us/visual-intro-to-machine-learning-part-1/
+
+---
+
+### Making predictions
+
+<img src=img/target.png><br></br>
+
+<img src=img/amazon.png>
+
+
+---
+
+
+### How to learn more
+
+* Take statistics and machine learning courses here at TCU!
+* Alternatively: [Coursera's Data Science Specialization](https://www.coursera.org/specializations/jhudatascience) is a great place to start...
+
+
+
+
+
+
+
+
+
+<style>
+
+.reveal section img {
+  background:none; 
+  border:none; 
+  box-shadow:none;
+  }
+
+h3 {
+
+
+
+}
+  
+</style>
+
