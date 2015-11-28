@@ -16,3 +16,5 @@ __Links to course lecture notes:__
 * Weeks 10-11: Data visualization best practices http://walkerke.github.io/geog30323/slides/data-visualization/#/
 * Week 12: Interactive data visualization http://walkerke.github.io/geog30323/slides/interactive/#/
 * Week 13: Geographic data and visualization http://walkerke.github.io/geog30323/slides/geographic/#/
+* Week 15: Data communication and data science http://walkerke.github.io/geog30323/slides/communicating/#/
+* Week 16: Data ethics
