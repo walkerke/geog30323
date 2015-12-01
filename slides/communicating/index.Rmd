@@ -127,7 +127,7 @@ Hadley Wickham (paraphrased):
 
 ### Statistical modeling
 
-* What is the mathematical relationship between an outcome variable $Y$ and one or more other "predictor" variables $X{1}...X{n}$?
+* What is the mathematical relationship between an outcome variable $Y$ and one or more other "predictor" variables $X_{1}...X_{n}$?
 * Recall our use of `lmplot` in `seaborn` - `lm` stands for _linear model_
 
 ---
