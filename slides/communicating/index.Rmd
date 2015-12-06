@@ -237,7 +237,7 @@ import pandas as pd
 from sklearn.cluster import KMeans
 from sklearn.neighbors import NearestNeighbors
 
-df = pd.read_csv('dec8.csv', index_col = 'name')
+df = pd.read_csv('http://personal.tcu.edu/kylewalker/data/dec8.csv', index_col = 'name')
 
 df.head()
 ```
