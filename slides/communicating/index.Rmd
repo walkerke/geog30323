@@ -229,6 +229,70 @@ Visual introduction to machine learning: http://www.r2d3.us/visual-intro-to-mach
 
 ---
 
+### In Python: `scikit-learn`
+
+```python
+import numpy as np
+import pandas as pd
+from sklearn.cluster import KMeans
+from sklearn.neighbors import NearestNeighbors
+
+df = pd.read_csv('dec8.csv', index_col = 'name')
+
+df.head()
+```
+
+---
+
+### Example: K-means clustering
+
+```python
+np.random.seed(1983)
+
+km = KMeans(n_clusters = 7).fit(df)
+
+df['clusters'] = km.labels_
+
+# Check TCU's cluster
+df.ix['Texas Christian University'] 
+
+```
+
+---
+
+### Example: nearest-neighbor search
+
+```python
+neigh = NearestNeighbors(n_neighbors = 5)
+
+# "Training" the model
+neigh.fit(df) 
+
+# Searching for neighbors
+model = neigh.kneighbors(df, return_distance = False)
+results = pd.DataFrame(model, columns = ['x1', 'x2', 'x3', 'x4', 'x5'])
+merged = pd.merge(df.reset_index(), results, right_index = True, left_index = True)
+```
+
+---
+
+### Example: nearest-neighbor search
+
+```python
+from ipywidgets import interact
+
+def find_neighbors(university): 
+    d = merged[merged.name == university].reset_index()
+    for x in ['x2', 'x3', 'x4', 'x5']: 
+        idx = d.iloc[0][x]
+        m = merged.ix[idx]
+        print(m['name'])
+
+interact(find_neighbors, university = 'Texas Christian University')
+```
+
+---
+
 ### Making predictions
 
 <img src=img/target.png><br></br>
