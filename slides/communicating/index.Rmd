@@ -161,7 +161,7 @@ sns.set_context('notebook')
 import statsmodels.formula.api as smf
 %matplotlib inline
 
-df = pd.read_csv(' http://personal.tcu.edu/kylewalker/data/texas_colleges.csv')
+df = pd.read_csv('http://personal.tcu.edu/kylewalker/data/texas_colleges.csv')
 df['grad_rate'] = df.grad_rate * 100
 
 
