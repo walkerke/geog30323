@@ -1,16 +1,16 @@
 Geography 30323: Data Analysis & Visualization
 ---
-__Fall 2015__
+__Fall 2016__
 
 __Texas Christian University__
 
-__Tuesday/Thursday 9:30-10:50__
+__Tuesday/Thursday 11:00-12:20__
 
-__Classroom: Tucker 353__
+__Classroom: Scharbauer 4022__
 
 __Instructor: Dr. Kyle Walker__ (<kyle.walker@tcu.edu>)
 
-Office hours: Thursday 11:30-12:30 or by appointment, SCHAR 2015D
+Office hours: Thursday 10:00-11:00 or by appointment, SCHAR 2004D
 
 ---
 
@@ -35,7 +35,7 @@ There are no prerequisites for this course; however, you should bring a curiosit
 
 ### Course format
 
-Course time will be used for lecture, discussion, applied tutorials, and assignment work.  The class will be managed through its corresponding Learning Studio website, accessible through the portals at <http://my.tcu.edu> or <http://tcuglobal.edu>, and course materials will be available in the course GitHub repository at <https://github.com/walkerke/geog30323>.  You will submit your assignments and view your grades on the Learning Studio website.  
+Course time will be used for lecture, discussion, applied tutorials, and assignment work.  The class will be managed through Sage Math Cloud, accessible at <http://cloud.sagemath.com>, and course materials will be available at the course website repository at <https://github.com/walkerke/geog30323>.  You will submit your assignments and view your grades on the Sage Math Cloud website.  
 
 ### Readings
 
@@ -45,13 +45,22 @@ Downey, Allen (2014).  _Think Python: How to Think Like a Computer Scientist_.  
 
 Yau, Nathan (2013).  _Data Points: Visualization that Means Something_.  Indianapolis, IN: Wiley.  This book is available for free as an e-book through the TCU Library.  If you would like a hard copy, you can purchase it from Amazon relatively inexpensively: <http://www.amazon.com/Data-Points-Visualization-Means-Something/dp/111846219X>.  
 
+Other course readings are freely available online: 
+
+Waltenburg, Eric, and William McLauchlan: Chs. 2-3 from _Exploratory Data Analysis: A Primer for Undergraduates_.  Available at http://docs.lib.purdue.edu/cgi/viewcontent.cgi?article=1003&context=pspubs.  
+
+Wickham, Hadley.  Tidy Data.  _Journal of Statistical Software_ 59(10).  Available at https://www.jstatsoft.org/index.php/jss/article/view/v059i10/v59i10.pdf.  
+
+DiBiase, David. Chapter 1: Data and Information.  In: _The Nature of Geographic Information_.  Available at https://www.e-education.psu.edu/natureofgeoinfo/c1.html.  
+
+
 ### Evaluation
 
-You will complete __three take-home examinations__, which collectively comprise __45 percent of your grade__.  Each examination will be comprised of a structured set of homework problems that test you on the computing and analytical skills you've learned to that point in the course.  Deliverables will be in the form of Jupyter Notebooks that show and describe the work you've done.  Take-home exams will be due on __Sunday, October 18__; __Sunday, November 22__; and __Tuesday, December 15__, which is the day of our scheduled final exam.  You'll receive the prompt for the take-home exam 2 weeks prior to the due date.  
+You will complete __three take-home examinations__, which collectively comprise __48 percent of your grade__.  Each examination will be comprised of a structured set of homework problems that test you on the computing and analytical skills you've learned to that point in the course.  Deliverables will be in the form of Jupyter Notebooks that show and describe the work you've done.  Take-home exams will be due on __Sunday, October 16__; __Sunday, November 20__; and __Thursday, December 15__, which is the day of our scheduled final exam.  You'll receive the prompt for the take-home exams 2 weeks prior to their due dates.  
 
-You will also have 14 __weekly assignments__ which in total make up __42 percent of your grade__.  Weekly assignments are assigned each Thursday, and due by the end of the day the following Thursday.  You'll have devoted class time each week to work on the assignments.  
+You will also have 12 __weekly assignments__ which in total make up __36 percent of your grade__.  Weekly assignments are assigned each Thursday, and due by the end of the day the following Thursday.  You'll have devoted class time each week to work on the assignments.  
 
-In-class tutorials and participation exercises will constitute the remaining __13 percent__ of your grade. 
+In-class tutorials and participation exercises will constitute the remaining __16 percent__ of your grade. 
 
 __The minimum percentages__ to achieve a specific grade are as follows: 
 
@@ -84,28 +93,28 @@ Extensions to deadlines and make-up participation credit will only be permitted 
 
 |__Week__           |__Topic__             |__Reading__                  |__Assignments__        |
 |-------------------|----------------------|-----------------------------|-----------------------|
-|Week 1: Aug 25-27  |What is data?         |_Data Points_, Ch.1          |Data journalism |
-|Week 2: Sept 1-3    |Programming I|_Think Python_, Chs. 1-2   |Python basics; intro to the Jupyter Notebook| 
-|Week 3: Sept 8-10 |Programming II|_Think Python_, Ch. 3         |Functions and modules in Python| 
-|Week 4: Sept 15-17|Programming III|_Think Python_, Chs. 7-8    |Loops/conditionals/object-oriented programming in Python|
-|Week 5: Sept 22-24|Exploratory data analysis I|_Exploratory Data Analysis_, Chs. 2-3 (on Learning Studio)|Introduction to `pandas`| 
-|Week 6: Sept 29-Oct 1|Exploratory data analysis II|_Data Points_, Ch. 4|Exploratory visualization with `pandas` and `seaborn`|
-|Week 7: Oct 6-8|Data wrangling I|Wickham (2014), "Tidy Data"|`pandas`: subsetting, indexing, merging|
-|Week 8: Oct 15|Data wrangling II||`pandas`: `groupby` operations, reshaping data|
-|Week 9: Oct 20-22|Advanced I/O: databases, web, APIs|TBD|Web scraping and APIs in Python|
-|Week 10: Oct 27-29|Visualization best practices I|_Data Points_, Ch. 2|Visualization with `seaborn` I|
-|Week 11: Nov 3-5|Visualization best practices II|_Data Points_, Ch. 5|Visualization with `seaborn` II|
-|Week 12: Nov 10-12|Interactive data visualization|_Data Points_, Ch. 6|Interactive plots with `plotly` and `bokeh`|
-|Week 13-14: Nov 17-24|Geographic data & visualization|_The Nature of Geographic Information_, Ch. 1|Mapping with CartoDB|
-|Week 15: Dec 1-3|Communicating with data|TBD|Data dashboards with Tableau Public|
-|Week 16: Dec 8|Where to go from here?|TBD|N/A
+|Week 1: Aug 23-25  |What is data?         |_Data Points_, Ch.1          |Data journalism |
+|Week 2: Aug 30-Sept 1  |Programming I|_Think Python_, Chs. 1-2   |Python basics; intro to the Jupyter Notebook| 
+|Week 3: Sept 6-8 |Programming II|_Think Python_, Ch. 3         |Functions and modules in Python| 
+|Week 4: Sept 13-15|Programming III|_Think Python_, Chs. 7-8    |Loops/conditionals/object-oriented programming in Python|
+|Week 5: Sept 20-22|Exploratory data analysis I|_Exploratory Data Analysis_, Chs. 2-3|Univariate data analysis| 
+|Week 6: Sept 27-29 |Exploratory data analysis II|_Data Points_, Ch. 4|Multivariate exploratory visualization|
+|Week 7: Oct 4-6|Data wrangling I|Wickham (2014), "Tidy Data"||
+|Week 8: Oct 13|Data wrangling II||`pandas`: subsetting, indexing, merging|
+|Week 9: Oct 18-20|Advanced I/O: databases, web, APIs|TBD|Wrangling data from APIs|
+|Week 10: Oct 25-27|Visualization best practices I|_Data Points_, Ch. 2|Data visualization|
+|Week 11: Nov 1-3|Visualization best practices II|_Data Points_, Ch. 5||
+|Week 12: Nov 8-10|Interactive data visualization|_Data Points_, Ch. 6|Interactive visualization|
+|Week 13-14: Nov 15-22|Geographic data & visualization|_The Nature of Geographic Information_, Ch. 1|Mapping with CARTO|
+|Week 15: Nov 29-Dec 1|Data dashboards & data science|TBD|Data dashboards with Tableau Public|
+|Week 16: Dec 6|Data ethics|TBD|N/A
 
 
 ### Software
 
-The main software used in this course is the Anaconda distribution of the Python programming language (version 3.4) from Continuum Analytics, which includes over 330 popular Python packages for data analysis, visualization, and scientific computing.  Anaconda is completely free and can be installed from this link: <http://continuum.io/downloads>, and works on the most popular operating systems (Windows, Mac OS, Linux).  I’ll show you how to install Anaconda on your own computer in class.  If you prefer to do your work on campus, Anaconda will also be available in our classroom (Tucker 353) and in the Center for Urban Studies computer lab, SCHAR 2015A.  Late in the course, we will also be using CartoDB and Tableau Public for interactive visualization.  
+The main software used in this course is the Anaconda distribution of the Python programming language (version 3.4) from Continuum Analytics, which includes over 330 popular Python packages for data analysis, visualization, and scientific computing.  Anaconda is available via Sage Math Cloud, which means that you can use it on any computer with an internet connection where you can access your Sage Math Cloud account.  If you would like to install a local version of Python on your own computer, Anaconda is completely free and can be installed from this link: <http://continuum.io/downloads>, and works on the most popular operating systems (Windows, Mac OS, Linux).  I’ll show you how to install Anaconda on your own computer in class.  If you prefer to do your work on campus, Anaconda will also be available in our classroom, in the Center for Urban Studies computer lab, SCHAR 2015A, and in the Giga Lab in the library.  Late in the course, we will also be using CARTO and Tableau Public for interactive visualization; CARTO is web-based and free, and Tableau Public can be installed for free and will be available on TCU computers.  
 
-All assignments and tutorials in this course will be completed in the Jupyter Notebook, which is an extension to Python that facilitates interactive computing.  The Jupyter Notebook exemplifies literate programming, which refers to a combination of textual description, code, and images/graphics in the same document.  In turn, you’ll use the Jupyter notebook to document your workflow and make your work reproducible.  
+All assignments and tutorials in this course will be completed in the Jupyter Notebook, which is an extension to Python that facilitates interactive computing.  The Jupyter Notebook exemplifies _literate programming_, which refers to a combination of textual description, code, and images/graphics in the same document.  In turn, you’ll use the Jupyter notebook to document your workflow and make your work reproducible.  
 
 
 ### Other issues
