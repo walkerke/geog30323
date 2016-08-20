@@ -1,7 +1,7 @@
 ---
 title: "What is data?"
 author: GEOG 30323
-date: August 25, 2015
+date: August 23, 2016
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
@@ -66,6 +66,14 @@ output:
 
 ---
 
+### Science and business: StitchFix
+
+<img src="http://corinanielsen.com/livefit/wp-content/uploads/2015/11/stitchfix.jpg">
+
+* [StitchFix](https://www.stitchfix.com/); [The Most Colorful State](http://multithreaded.stitchfix.com/blog/2015/06/02/the-most-colorful-state/)
+
+---
+
 ### What you will learn in this course
 
 This course covers the process of __exploratory data analysis__, which includes how to: 
@@ -113,8 +121,16 @@ This course covers the process of __exploratory data analysis__, which includes 
 ## Tools of the trade
 
 * Your main tool: the Python programming language
-* Guest appearances from: CartoDB, Tableau
+* Guest appearances from CARTO and Tableau
 * More to come on Python next week!
+
+---
+
+## SageMathCloud
+
+* SageMathCloud (http://cloud.sagemath.com): our course learning management system and Python interface
+* Let's explore... 
+
 
 ---
 

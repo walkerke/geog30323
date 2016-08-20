@@ -1,11 +1,14 @@
 # geog30323
 Materials for GEOG 30323: Data Analysis &amp; Visualization at TCU
 
-This repository contains course materials (syllabus, Jupyter notebooks, and datasets) for GEOG 30323: Data Analysis & Visualization, taught Fall 2015 at Texas Christian University.  
+This repository contains course materials (syllabus, Jupyter notebooks, and datasets) for GEOG 30323: Data Analysis & Visualization, taught Fall 2016 at Texas Christian University.  
 
 __Links to course lecture notes:__
 
 * Week 1: What is data?  http://walkerke.github.io/geog30323/slides/what-is-data/#/ 
+
+<!-- Add more week-by-week as the slides are ready
+
 * Week 2: Programming I: Intro to Python  http://walkerke.github.io/geog30323/slides/programming-1/#/ 
 * Week 3: Programming II: Functions and modules  http://walkerke.github.io/geog30323/slides/programming-2/#/ 
 * Week 4: Programming III: Loops, conditionals, and object-oriented programming  http://walkerke.github.io/geog30323/slides/programming-3/#/ 
@@ -18,3 +21,6 @@ __Links to course lecture notes:__
 * Week 13: Geographic data and visualization http://walkerke.github.io/geog30323/slides/geographic/#/
 * Week 15: Data communication and data science http://walkerke.github.io/geog30323/slides/communicating/#/
 * Week 16: Data ethics http://walkerke.github.io/geog30323/slides/ethics/#/
+
+-->
+
