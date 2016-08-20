@@ -121,7 +121,7 @@ This course covers the process of __exploratory data analysis__, which includes 
 ## Tools of the trade
 
 * Your main tool: the Python programming language
-* Guest appearances from: CARTO, Tableau
+* Guest appearances from CARTO and Tableau
 * More to come on Python next week!
 
 ---
@@ -129,7 +129,7 @@ This course covers the process of __exploratory data analysis__, which includes 
 ## SageMathCloud
 
 * SageMathCloud (http://cloud.sagemath.com): our course learning management system and Python interface
-* Let's explore...
+* Let's explore... 
 
 
 ---
