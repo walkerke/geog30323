@@ -3,6 +3,12 @@ Materials for GEOG 30323: Data Analysis &amp; Visualization at TCU
 
 This repository contains course materials (syllabus, Jupyter notebooks, and datasets) for GEOG 30323: Data Analysis & Visualization, taught Fall 2016 at Texas Christian University.  
 
+We'll be using the following platforms in this course: 
+
+* The Anaconda distribution of the Python (3.5) programming language, delivered by SageMathCloud: https://cloud.sagemath.com/.  
+* CARTO: https://carto.com/
+* Tableau Public 10: download for free from https://public.tableau.com/s/.  
+
 __Links to course lecture notes:__
 
 * Week 1: What is data?  http://walkerke.github.io/geog30323/slides/what-is-data/#/ 
