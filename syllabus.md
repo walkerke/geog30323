@@ -1,8 +1,3 @@
----
-output:
-  word_document: default
-  html_document: default
----
 Geography 30323: Data Analysis & Visualization
 ---
 __Fall 2016__
