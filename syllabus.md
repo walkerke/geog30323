@@ -105,14 +105,14 @@ Extensions to deadlines and make-up participation credit will only be permitted 
 |Week 5: Sept 20-22|Exploratory data analysis I|_Exploratory Data Analysis_, Chs. 2-3|Univariate data analysis| 
 |Week 6: Sept 27-29 |Exploratory data analysis II|_Data Points_, Ch. 4|Multivariate exploratory visualization|
 |Week 7: Oct 4-6|Data wrangling I|Wickham (2014), "Tidy Data"||
-|Week 8: Oct 13|Data wrangling II||`pandas`: subsetting, indexing, merging|
+|Week 8: Oct 13|Data wrangling II||`pandas`: subsetting, indexing, merging<br/><br/>Exam 1 due __Sunday, October 16__|
 |Week 9: Oct 18-20|Advanced I/O: databases, web, APIs||Wrangling data from APIs|
 |Week 10: Oct 25-27|Visualization best practices I|_Data Points_, Ch. 2|Data visualization|
 |Week 11: Nov 1-3|Visualization best practices II|_Data Points_, Ch. 5||
 |Week 12: Nov 8-10|Interactive data visualization|_Data Points_, Ch. 6|Interactive visualization|
-|Week 13-14: Nov 15-22|Geographic data & visualization|_The Nature of Geographic Information_, Ch. 1|Mapping with CARTO|
+|Week 13-14: Nov 15-22|Geographic data & visualization|_The Nature of Geographic Information_, Ch. 1|Mapping with CARTO<br/><br/>Exam 2 due __Sunday, November 20__|
 |Week 15: Nov 29-Dec 1|Data dashboards & data science||Data dashboards with Tableau Public|
-|Week 16: Dec 6|Data ethics|Articles TBD|
+|Week 16: Dec 6|Data ethics|Articles TBD|Exam 3 due __Thursday, December 15__
 
 
 ### Software
