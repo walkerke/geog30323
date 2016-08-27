@@ -1,7 +1,7 @@
 ---
 title: "Programming I - Intro to Python"
 author: GEOG 30323
-date: September 1, 2015
+date: August 30, 2016
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
@@ -10,6 +10,18 @@ output:
     center: TRUE
     fig_caption: TRUE
     
+---
+
+### Programming in Hollywood
+
+<iframe width="800" height="500" src="https://www.youtube.com/embed/0PxTAn4g20U" frameborder="0" allowfullscreen></iframe>
+
+---
+
+### Programming in Hollywood
+
+<img src=img/sv.gif style="width: 800px">
+
 ---
 
 ## Why code?  
@@ -34,16 +46,16 @@ output:
 >- A __high-level__, __object-oriented__, __general purpose__ programming language
 >- _Interpreted_ rather than _compiled_
 >- Rapidly becoming the language of choice for introductory programming courses around the world
->- One of the top languages for data analysis
+>- [One of the top languages for data analysis](http://www.indeed.com/jobtrends/q-python-data.html)
 
 ---
 
-<img src="https://store.continuum.io/static/img/anaconda_logo.png" style="width: 500px; border: none;">
+<img src="https://upload.wikimedia.org/wikipedia/en/c/cd/Anaconda_Logo.png" style="width: 500px; border: none;">
 
 >- Product of Austin-based [Continuum Analytics](http://www.continuum.io/)
 >- Over 330 packages for scientific and technical computing with Python
 >- Sane package management (you'll learn more about this next week)
->- Our version: __Python 3.4__
+>- Our version: __Python 3.5__
 >- [Download link](https://store.continuum.io/cshop/anaconda/)
 
 ---
@@ -101,19 +113,11 @@ print("Hello World")
 
 ### The Jupyter Notebook
 
-<img src="http://lambdaops.com/jupyter-environments-odsc2015/pictures/jupyter-logo.png" style="width: 700px; border: none;">
+<img src="https://raw.githubusercontent.com/jupyter/nature-demo/master/images/jupyter-logo.png" style="width: 700px; border: none;">
 
 * Browser-based notebooks for _literate programming_
 * Evolved out of the IPython project
 * Supports multiple languages; "home language" is Python
-
----
-
-### Launching the Jupyter Notebook
-
-> 1. Open your terminal/command prompt; on Windows, search for `cmd.exe`; on Mac, find it in __Utilities --> Applications__.
-> 2. Change into your project directory with `cd` - this is where you will save your notebooks.  Example: `cd C:\Users\kylewalker\geog30323`.  If you need to change drives, add the `/D` option after `cd`.  
-> 3. Enter the command `ipython notebook`, and you are off!
 
 ---
 
@@ -176,7 +180,7 @@ Example:
 
 ```python
 >>> x = 1
->>> print(x)
+>>> x
 1
 ```
 
