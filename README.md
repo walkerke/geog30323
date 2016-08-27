@@ -12,10 +12,10 @@ We'll be using the following platforms in this course:
 __Links to course lecture notes:__
 
 * Week 1: What is data?  http://walkerke.github.io/geog30323/slides/what-is-data/#/ 
+* Week 2: Programming I: Intro to Python  http://walkerke.github.io/geog30323/slides/programming-1/#/ 
 
 <!-- Add more week-by-week as the slides are ready
 
-* Week 2: Programming I: Intro to Python  http://walkerke.github.io/geog30323/slides/programming-1/#/ 
 * Week 3: Programming II: Functions and modules  http://walkerke.github.io/geog30323/slides/programming-2/#/ 
 * Week 4: Programming III: Loops, conditionals, and object-oriented programming  http://walkerke.github.io/geog30323/slides/programming-3/#/ 
 * Week 5: Univariate exploratory data analysis  http://walkerke.github.io/geog30323/slides/eda-1/#/ 
