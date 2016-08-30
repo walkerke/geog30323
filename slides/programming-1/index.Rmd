@@ -154,6 +154,12 @@ _This link_ is __truly__ must-see: [click here to view it!](http://personal.tcu.
 
 ---
 
+### More inspiration
+
+<img src="https://pbs.twimg.com/media/CqW0yh_VMAAEOta.jpg:large" width="800px">
+
+---
+
 ### Numbers and strings
 
 * At a basic level, Python can function like a calculator, or concatenate strings: 
