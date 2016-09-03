@@ -1,7 +1,7 @@
 ---
 title: "Programming II - Functions and Modules"
 author: GEOG 30323
-date: September 8, 2015
+date: September 6, 2016
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
@@ -179,7 +179,7 @@ SyntaxError: non-keyword arg after keyword arg
 
 * Python _script_: organized collection of code stored in a text file with a `.py` suffix
 * Generally, scripts authored in a text editor or integrated development environment (IDE)
-* IDE that comes packaged with Anaconda: __Spyder__
+* Recommended IDE: [Rodeo by Yhat](https://www.yhat.com/products/rodeo)
 
 ---
 
@@ -251,7 +251,7 @@ add_abc(tcu)
 
 ## Conda
 
-* Your Anaconda Python installation ships with over 330 packages for scientific computing
+* The Anaconda Python installation ships with over 330 packages for scientific computing
 * New packages added to Anaconda can be installed with `conda install` from the command line
 * To update all your packages, run `conda update --all`
 
