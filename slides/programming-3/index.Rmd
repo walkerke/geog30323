@@ -21,7 +21,7 @@ output:
 
 ## Iteration
 
-<img src=img/meme.jpg style="width: 600px">
+<img src=img/office_space.gif style="width: 600px">
 
 ---
 
@@ -51,7 +51,7 @@ output:
 
 ```python
 >>> for character in 'Kyle': 
-...   print("Give me a " + character + "!")
+...     print("Give me a " + character + "!")
 ... 
 Give me a K!
 Give me a y!
@@ -121,15 +121,18 @@ Beware of the infinite `while` loop!
 
 ---
 
-## Conditional operators
+### Conditional logic
 
-
-
-
-* Conditional statements in Python: 
-    - `if`
-    - `elif`
-    - `else`
+* Conditional statements in Python: `if`, `elif`, and `else`
+* Conditional operators: 
+    * `<` Less than
+    * `>` Greater than
+    * `<=` Less than or equal to
+    * `>=` Greater than or equal to
+    * `==` Is equal to
+    * `!=` Is not equal to
+* Booleans: `True` and `False`
+* Boolean operators: `and`, `or`, & `not`
 
 ---
 
