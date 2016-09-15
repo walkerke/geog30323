@@ -1,7 +1,7 @@
 ---
 title: "Univariate exploratory data analysis"
 author: GEOG 30323
-date: September 22, 2015
+date: September 20, 2016
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
@@ -20,7 +20,7 @@ output:
 
 ### The data analysis process
 
-<img src=img/diagram.png style="width: 650px"><figcaption>Adapted from H. Wickham</figcaption>
+<img src="http://r4ds.had.co.nz/diagrams/data-science.png"" style="width: 800px"><figcaption>Source: Wickham and Grolemund, [_R for Data Science_](http://r4ds.had.co.nz/introduction.html)</figcaption>
 
 ---
 
@@ -74,13 +74,11 @@ df = pd.DataFrame(y, columns = list('x' + str(num) for num in range(1, 7)))
 ## The pandas DataFrame
 
 * Commonly, DataFrames are created by reading in external data, like CSV files
+* Download link: <http://personal.tcu.edu/kylewalker/data/grad_rates.csv>
 
 ```python
 # To read in CSV files, we use the pd.read_csv function 
-
-grad = pd.read_csv('grad_rates.csv')
-
-
+grad = pd.read_csv("grad_rates.csv")
 ```
 
 ---
@@ -170,10 +168,8 @@ grad.describe()
 ### Visualization in Python
 
 * Core visualization package in Python: `matplotlib` - which comes pre-installed with Anaconda
-* To show matplotlib graphics in your Jupyter Notebook, type `%matplotlib inline`
-
-* `seaborn`: extension to `matplotlib` to make your graphics look nicer!  Seaborn is available from Anaconda but not pre-installed.  To install from the command line, type `conda install seaborn`
-* Standard import: I use `import seaborn as sb`, the creator uses `import seaborn as sns`.  
+* To show matplotlib graphics in your Jupyter Notebook, type `%matplotlib inline` (default in SageMathCloud)
+* `seaborn`: extension to `matplotlib` to make your graphics look nicer!  Standard import: `import seaborn as sns`.  
 
 
 ---
@@ -190,9 +186,9 @@ grad.describe()
 ### Example histogram
 
 ```python
-%matplotlib inline
+# %matplotlib inline
 
-import seaborn as sb
+import seaborn as sns
 
 grad.rate.hist()
 ```
@@ -206,7 +202,7 @@ grad.rate.hist()
 * Accessible from both `pandas` and `seaborn`
 
 ```python
-sb.kdeplot(grad.rate, shade = True)
+sns.kdeplot(grad.rate, shade = True)
 ```
 <img src=img/kde.png>
 
@@ -217,7 +213,7 @@ sb.kdeplot(grad.rate, shade = True)
 * Also termed "box and whisker plots" - alternative way to show distribution of values graphically
 
 ```python
-sb.boxplot(grad.rate, color = "green")
+sns.boxplot(grad.rate, color = "green", orient = "v")
 ```
 <img src=img/boxplot.png>
 
@@ -236,7 +232,7 @@ sb.boxplot(grad.rate, color = "green")
 * Combinations of box plots and kernel density plots
 
 ```python
-sb.violinplot(grad['rate'], color = 'cyan')
+sns.violinplot(grad['rate'], color = 'cyan')
 ```
 
 <img src=img/violin.png>
