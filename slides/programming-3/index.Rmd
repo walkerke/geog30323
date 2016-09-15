@@ -14,8 +14,7 @@ output:
 
 ## Python refresher
 
-* Exercise: write a function that calculates the sum of two numbers and returns that sum divided by 3
-* Discussion question: what is a _module_ in Python?  
+* Exercise available in SageMathCloud
 
 ---
 
