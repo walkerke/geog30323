@@ -57,7 +57,7 @@ Many, many more in these categories - these are just our focus for today!
 ```python
 import pandas as pd
 
-mx_csv = 'http://personal.tcu.edu/kylewalker/mexico.csv'
+mx_csv = "http://personal.tcu.edu/kylewalker/mexico.csv"
 mx = pd.read_csv(mx_csv)
 mx.head()
 ```
