@@ -1,7 +1,7 @@
 ---
 title: "Multivariate data exploration"
 author: GEOG 30323
-date: September 29, 2015
+date: September 27, 2016
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
@@ -70,7 +70,7 @@ mx.head()
 How about sorting our data?  
 
 ```python
-mx_sorted = mx.sort('gdp08', ascending = False)
+mx_sorted = mx.sort_values(by = 'gdp08', ascending = False)
 mx_sorted.head()
 ```
 <img src=img/mx_sort.png>
@@ -169,7 +169,7 @@ zac.plot(kind = 'pie', figsize = (6, 6))
 
 ### Problems with pie charts
 
-<img src="https://pbs.twimg.com/media/CHK0GWwUAAAffdU.png:large" style="width: 700px">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Piecharts.svg/2000px-Piecharts.svg.png" style="width: 700px"><figcaption>Source: Wikimedia Commons</figcaption>
 
 ---
 
@@ -183,7 +183,7 @@ zac.plot(kind = 'pie', figsize = (6, 6))
 
 ```python
 hs_drop = pd.read_csv('http://personal.tcu.edu/kylewalker/data/hs_drop.csv')
-hs_drop.sort('year', inplace = True)
+hs_drop.sort_values('year', inplace = True)
 hs_drop.set_index('year', inplace = True)
 hs_drop.plot() # pandas plotting defaults to line charts, infers x from index
 ```
