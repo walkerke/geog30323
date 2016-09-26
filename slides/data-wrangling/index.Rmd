@@ -1,7 +1,7 @@
 ---
 title: "Data wrangling"
 author: GEOG 30323
-date: October 6, 2015
+date: October 4, 2016
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
@@ -254,7 +254,6 @@ TX    15009.426582
 
 ```python
 import seaborn as sns
-%matplotlib inline
 
 sns.boxplot(x = 'state', y = 'debtnum', data = sw2, orient = 'v')
 ```
@@ -279,9 +278,9 @@ g.map(sns.distplot, 'debtnum')
 * We can also get creative with our code!
 
 ```python
-for st in sw2.state.unique(): 
-    data = sw2[sw2.state == st]
-    sns.kdeplot(data.debtnum, shade = True, label = st)
+for s in sw2.state.unique(): 
+    data = sw2[sw2.state == s]
+    sns.kdeplot(data.debtnum, shade = True, label = s)
 ```
 <img src=img/kde.png>
 
@@ -381,10 +380,10 @@ m5 = m1.merge(m4, on = 'type', how = 'outer')
 * Long format: 
 
 ```python
-from pandas.io import wb
+from pandas_datareader import wb
 countries = ['ZA', 'BR', 'US']
 urban = wb.download(indicator = 'SP.URB.TOTL.IN.ZS', 
-                    country = countries, start = 2007, 
+                    country = countries, start = 1960, 
                     end = 2011).reset_index()
 urban.head()
 ```
@@ -398,7 +397,7 @@ urban.head()
 
 ```python
 urban_wide = urban.pivot(index = 'year', columns = 'country', 
-                         values = 'pcturban')
+                         values = 'SP.URB.TOTL.IN.ZS')
 urban_wide.head()
 ```
 <img src=img/wide.png>
@@ -421,7 +420,7 @@ urban_wide.plot()
 
 ```python
 urban_long = pd.melt(urban_wide.reset_index(), id_vars = 'year', 
-                     var_name = 'country', value_name = 'pcturban')
+                     var_name = 'country', value_name = 'SP.URB.TOTL.IN.ZS')
 
 urban_long.head()
 ```
