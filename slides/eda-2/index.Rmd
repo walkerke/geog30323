@@ -100,7 +100,6 @@ mx_sorted.head()
 ### Bar charts in Python
 
 ```python
-%matplotlib inline
 import seaborn as sns
 
 mx.plot(x= 'name', y = 'gdp08', kind = 'bar')
