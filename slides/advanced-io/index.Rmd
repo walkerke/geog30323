@@ -122,10 +122,9 @@ uni.head()
 ### Web scraping
 
 * Process of getting data __from__ websites __into__ your computing environment 
-* Python packages to accomplish this: `html5lib`, `BeautifulSoup`, `lxml`, `scrapy` (Python 2 only)
+* Python packages to accomplish this: `html5lib`, `BeautifulSoup`, `lxml`, `scrapy`
 * Web scraping built into `pandas` with the `read_html()` function (for tables)
-    * First: install `html5lib` and `beautiful-soup` from `conda`
-    * Then: "Expect to do some cleanup after you call this function."
+    * "Expect to do some cleanup after you call this function."
     
 
 ---
