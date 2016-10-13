@@ -1,7 +1,7 @@
 ---
 title: "Advanced input and output"
 author: GEOG 30323
-date: October 20, 2015
+date: October 18, 2016
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
@@ -84,6 +84,8 @@ output:
 * Be careful with what you get back!
 
 ```python
+import pandas as pd
+
 api_call = 'https://data.fortworthtexas.gov/resource/kr8h-9zxd.json?streetname=BERRY'
 
 berry = pd.read_json(api_call)
@@ -131,7 +133,7 @@ uni.head()
 ### Web scraping in `pandas`
 
 ```python
-url = 'http://www.espnfc.us/barclays-premier-league/23/table'
+url = 'http://www.espnfc.us/english-premier-league/23/table'
 
 d1 = pd.read_html(url)
 
