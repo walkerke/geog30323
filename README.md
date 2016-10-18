@@ -19,10 +19,11 @@ __Links to course lecture notes:__
 * Week 6: Multivariate data exploration  http://walkerke.github.io/geog30323/slides/eda-2/#/ 
 * Weeks 7-8: Data wrangling  http://walkerke.github.io/geog30323/slides/data-wrangling/#/ 
 * Week 9: Advanced input/output http://walkerke.github.io/geog30323/slides/advanced-io/#/
+* Weeks 10-11: Data visualization best practices http://walkerke.github.io/geog30323/slides/data-visualization/#/
+
 
 <!-- Add more week-by-week as the slides are ready
 
-* Weeks 10-11: Data visualization best practices http://walkerke.github.io/geog30323/slides/data-visualization/#/
 * Week 12: Interactive data visualization http://walkerke.github.io/geog30323/slides/interactive/#/
 * Week 13: Geographic data and visualization http://walkerke.github.io/geog30323/slides/geographic/#/
 * Week 15: Data communication and data science http://walkerke.github.io/geog30323/slides/communicating/#/
