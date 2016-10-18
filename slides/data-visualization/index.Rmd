@@ -1,7 +1,7 @@
 ---
 title: "Data visualization best practices"
 author: GEOG 30323
-date: October 27, 2015
+date: October 25, 2016
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
@@ -107,8 +107,10 @@ output:
 Let's fetch some data: 
 
 ```python
-
-from pandas.io import wb
+import seaborn as sns
+import pandas as pd
+import matplotlib.pyplot as plt
+from pandas_datareader import wb
 
 eu_countries = ['BE', 'BG', 'CZ', 'DK', 'DE', 'EE', 'IE', 'GR', 'ES', 'FR', 'HR', 
                'IT', 'CY', 'LV', 'LT', 'LU', 'HU', 'MT', 'NL', 'AT', 'PL', 'PT', 
@@ -116,12 +118,11 @@ eu_countries = ['BE', 'BG', 'CZ', 'DK', 'DE', 'EE', 'IE', 'GR', 'ES', 'FR', 'HR'
                
 ue = wb.download(indicator = "SL.UEM.TOTL.ZS", 
                  country = eu_countries, start = 1991, 
-                 end = 2013)
+                 end = 2014)
 
 ue.reset_index(inplace = True)
 
 ue.columns = ['country', 'year', 'unemployment']
-
 ```
 
 ---
@@ -161,12 +162,14 @@ sns.heatmap(ue_wide)
 ### Color in `seaborn`
 
 * Color palettes, available in the `color_palette()` function, can be viewed with the `palplot()` function
+
 ```python
 sns.palplot(sns.color_palette('Greens', 7))
 ```
 <img src=img/greens.png>
 
 * Colors can be reversed by adding `_r`: 
+
 ```python
 sns.palplot(sns.color_palette('Greens_r', 7))
 ```
@@ -194,7 +197,9 @@ sns.palplot(pal)
 
 ```python
 mx = pd.read_csv('http://personal.tcu.edu/kylewalker/mexico.csv')
-sns.barplot(x = 'gdp08', y = 'name', data = mx.sort('gdp08', ascending = False), palette = "Greens_r")
+sns.barplot(x = 'gdp08', y = 'name', 
+            data = mx.sort_values('gdp08', ascending = False), 
+            palette = "Greens_r")
 ```
 <img src=img/mx.jpg style="width: 650px">
 
@@ -282,8 +287,6 @@ full.plot(subplots = True, layout = (7, 4), figsize = (12, 10), sharey = True )
 * Example: 
 
 ```python
-import matplotlib.pyplot as plt
-
 plt.figure(figsize = (10, 7))
 
 sns.heatmap(ue_wide, cmap = 'YlGnBu')
@@ -309,7 +312,6 @@ plt.xticks(rotation = 45)
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
-%matplotlib inline
 
 sns.set_style('white')
 
@@ -348,7 +350,7 @@ mx.plot(x = 'mus09', y = 'gdp08', kind = 'scatter', logy = True)
 
 ### Scatterplot smoothing
 
-* _Local regression_ or _loess_ used to produce smooth curves through data
+* _Local regression_ or _LOESS_ used to produce smooth curves through data
 
 ```python
 sns.lmplot(data = mx, x = 'mus09', y = 'pri10', lowess = True)
@@ -380,7 +382,7 @@ sns.pairplot(data = mx, vars = ['gdp08', 'mus09', 'pri10'])
 * To save your visualizations from the Jupyter Notebook: 
 
 ```python
-plt.savefig('destfile.jpg', dpi = XXX)
+plt.savefig('destfile.jpg', dpi = 300)
 ```
 
 
