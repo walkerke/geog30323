@@ -228,7 +228,9 @@ sns.barplot(x = 'gdp08', y = 'name',
 ```python
 sns.set_style('white')
 
-full = ue.pivot(index = 'year', columns = 'country', values = 'unemployment')
+ue['year2'] = ue.year.astype(float)
+
+full = ue.pivot(index = 'year2', columns = 'country', values = 'unemployment')
 
 greece = full['Greece']
 
