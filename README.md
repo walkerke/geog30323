@@ -20,12 +20,12 @@ __Links to course lecture notes:__
 * Weeks 7-8: Data wrangling  http://walkerke.github.io/geog30323/slides/data-wrangling/#/ 
 * Week 9: Advanced input/output http://walkerke.github.io/geog30323/slides/advanced-io/#/
 * Weeks 10-11: Data visualization best practices http://walkerke.github.io/geog30323/slides/data-visualization/#/
+* Week 12: Interactive data visualization http://walkerke.github.io/geog30323/slides/interactive/#/
 
 
 <!-- Add more week-by-week as the slides are ready
 
-* Week 12: Interactive data visualization http://walkerke.github.io/geog30323/slides/interactive/#/
-* Week 13: Geographic data and visualization http://walkerke.github.io/geog30323/slides/geographic/#/
+* Weeks 13-14: Geographic data and visualization http://walkerke.github.io/geog30323/slides/geographic/#/
 * Week 15: Data communication and data science http://walkerke.github.io/geog30323/slides/communicating/#/
 * Week 16: Data ethics http://walkerke.github.io/geog30323/slides/ethics/#/
 
