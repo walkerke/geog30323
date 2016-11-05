@@ -1,7 +1,7 @@
 ---
 title: "Interactive data visualization"
 author: GEOG 30323
-date: November 10, 2015
+date: November 8, 2016
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
@@ -22,12 +22,6 @@ output:
 ### Data storytelling
 
 <iframe width="853" height="480" src="https://www.youtube.com/embed/jbkSRLYSojo" frameborder="0" allowfullscreen></iframe>
-
----
-
-### Applications for education
-
-[<img src=img/gaex.png style="width: 1000px">](https://walkerke.shinyapps.io/gender-age-explorer)
 
 ---
 
@@ -79,11 +73,10 @@ output:
 
 ### New libraries!
 
-* We're going to need some new Python libraries to chart interactively
-* Let's run the following commands at the command line: 
-    * `conda install ipywidgets`
-    * `pip install plotly`
-    * `pip install cufflinks`
+* We're going to usesome new Python libraries to chart interactively.  They include: 
+    * `ipywidgets`: a package for interactive mini-apps in the Jupyter Notebook
+    * `plotly`: produces D3.js charts using Python, and can convert your Python charts as well
+    * `cufflinks`: binds `pandas` to `plotly`
     
 ---
 
@@ -93,7 +86,6 @@ output:
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
-%matplotlib inline
 
 mx = pd.read_csv('http://personal.tcu.edu/kylewalker/mexico.csv')
 ```
@@ -123,17 +115,30 @@ mx.plot(kind = 'scatter', x = 'pri10', y = 'mus09')
 ### Interactivity in the Notebook
 
 * The `ipywidgets` package allows you to build basic graphical user interfaces (GUIs) to explore your data in the Notebook
+* How it works: supply a function to the `interact` function in `ipywidgets`
 
 ```python
-from ipywidgets import *
+from ipywidgets import interact
 
+def add_five(x): 
+    print(x + 5)
+
+interact(add_five, x = (1, 100))
+
+```
+
+---
+
+## Interactivity with plots
+
+```python
 cols = ['mus09', 'pri10', 'sec10', 'ter10', 'gdp08']
 
-def make_plot(x = cols, y = cols, title = 'Enter a plot title!'): 
+def make_plot(x, y, title): 
     sns.lmplot(data = mx, x = x, y = y)
     plt.title(title)    
     
-interact(make_plot)
+interact(make_plot, x = cols, y = cols, title = "Enter a plot title!")
 ```
 
 ---
@@ -158,7 +163,7 @@ interact(get_street)
 ### Plotly
 
 * Plotly: Web-based platform for interactive charting; 
-* Walkthrough: signing up for Plotly account at https://plot.ly/ & using the web GUI
+* Includes both offline components (works in the Jupyter Notebook) and an online cloud/web GUI at  https://plot.ly/
 
 ---
 
@@ -167,10 +172,11 @@ interact(get_street)
 * The Plotly Python package can convert your `matplotlib` plots to Plotly charts!
 
 ```python
-import plotly.plotly as py
-py.sign_in('your_user_name', 'your_api_key')
+import plotly.offline as py
+py.init_notebook_mode()
+
 mx.plot(kind = 'scatter', x = 'pri10', y = 'mus09')
-fig = plt.gcf()
+fig = plt.gcf() # "Get current figure"
 py.iplot_mpl(fig)
 ```
 
@@ -195,13 +201,13 @@ py.iplot_mpl(f)
 
 ```python
 import cufflinks as cf
+cf.go_offline()
 
 mx.iplot(kind = 'scatter', mode = 'markers', x = 'pri10', 
          y = 'mus09', text = 'name', colors = 'green', 
          xTitle = '% of workforce in primary sector', 
          yTitle = 'Out-migration rate to the United States')
 ```
-
 ---
 
 ## Cufflinks
@@ -221,12 +227,109 @@ mx.iplot(kind = 'scatter3d', x = 'mus09', y = 'gdp08',
 
 ---
 
-### Other libraries
+## The Plotly cloud
 
-* Bokeh: http://bokeh.pydata.org/en/latest/
-* Lightning: http://lightning-viz.org/
-* If you are really into this: learn R (http://www.htmlwidgets.org/) and/or JavaScript...
+* Plotly plots are fully editable and saveable in the cloud if you have a Plotly account; click "Export to plot.ly" on your chart
+* Demo
 
+---
+
+## Plotly.py
+
+* More advanced visualizations can be developed with the Plotly Python library
+* How it works: specify a list of graph objects to be plotted, along with layout options (optional) to customize the chart appearance; supply to the `iplot()` function to view in the Jupyter Notebook
+
+---
+
+## 3-dimensional plots
+
+```python
+import numpy as np
+import plotly.graph_objects as go
+
+arr = np.random.randn(10, 10)
+
+data = [go.Surface(z = arr)]
+
+py.iplot(data)
+```
+
+---
+
+## 1 million points!
+
+```python
+# Run locally, not in SMC!
+N = 1000000
+trace = go.Scattergl(
+    x = np.random.randn(N),
+    y = np.random.randn(N),
+    mode = 'markers',
+    marker = dict(
+        color = 'rgb(152, 0, 0)',
+        line = dict(
+            width = 1,
+            color = 'rgb(0,0,0)')
+    )
+)
+data = [trace]
+py.iplot(data)
+```
+
+---
+
+### Widgets and range sliders
+
+* Step 1: Get the data
+
+```python
+from pandas_datareader import wb
+
+ind = "SP.DYN.TFRT.IN"
+
+tfr = wb.download(country = "all", indicator = ind, start = 1960, end = 2013)
+
+tfr.reset_index(inplace = True)
+```
+
+---
+
+### Widgets and range sliders
+
+* Step 2: build the plotting function
+
+```python
+def tfr_plot(country1, country2, country3):
+    countries = [country1, country2, country3]    
+    subset = tfr[tfr.country.isin(countries)]
+    subset_wide = subset.pivot(index = "year", columns = "country", 
+                               values = "SP.DYN.TFRT.IN")
+    plot_data = [
+        go.Scatter(x = subset_wide.index, 
+                  y = subset_wide[country], 
+                  name = country, 
+                  mode = "lines")
+        for country in countries
+    ]
+    plot_layout = go.Layout(title = "Total fertility rate", 
+                           xaxis = dict(rangeslider = dict()), 
+                           yaxis = dict(title = "TFR"))
+    fig = dict(data = plot_data, layout = plot_layout)
+    py.iplot(fig)
+```
+
+---
+
+### Widgets and range sliders
+
+* Step 3: interact with the plot
+
+```python
+country_list = list(tfr.country.unique())
+    
+interact(tfr_plot, country1 = country_list, 
+         country2 = country_list, country3 = country_list)
+```
 
 
 
