@@ -245,7 +245,7 @@ mx.iplot(kind = 'scatter3d', x = 'mus09', y = 'gdp08',
 
 ```python
 import numpy as np
-import plotly.graph_objects as go
+import plotly.graph_objs as go
 
 arr = np.random.randn(10, 10)
 
@@ -331,7 +331,26 @@ interact(tfr_plot, country1 = country_list,
          country2 = country_list, country3 = country_list)
 ```
 
+---
 
+## Saving your plots
+
+* If you have a Plotly account, you can save plots with the default styling to Plotly's cloud by clicking "Export to plot.ly"
+* Otherwise: plots can be saved as standalone HTML outside of the notebook
+
+---
+
+### Saving your plots (cufflinks example)
+
+```python
+myplot = mx.iplot(kind = 'scatter', mode = 'markers', x = 'pri10', 
+         y = 'mus09', text = 'name', colors = 'green', 
+         xTitle = '% of workforce in primary sector', 
+         yTitle = 'Out-migration rate to the United States', 
+         asFigure = True)
+         
+py.plot(myplot, filename = 'mexico_plot.html')
+```
 
 <style>
 
