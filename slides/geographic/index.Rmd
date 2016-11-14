@@ -1,7 +1,7 @@
 ---
 title: "Geographic data and visualization"
 author: GEOG 30323
-date: November 17, 2015
+date: November 15, 2016
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
@@ -21,7 +21,7 @@ output:
 
 ### Maps!
 
-<iframe src=http://personal.tcu.edu/kylewalker/age-of-fw.html height = "600" width = "900" frameborder = "0"></iframe>
+<iframe src=http://personal.tcu.edu/kylewalker/maps/dfw_election.html height = "600" width = "900" frameborder = "0"></iframe>
 
 ---
 
@@ -47,12 +47,7 @@ $$DD = D + \frac{M}{60} + \frac{S}{3600}$$
 
 * __Geographic coordinate system__: coordinate system based on latitude and longitude (coordinates on a sphere)
 * __Projected coordinate system__: coordinate system projected onto a two-dimensional surface (coordinates on a plane)
-
----
-
-### Spheres and planes
-
-<iframe src="http://bl.ocks.org/mbostock/raw/5731632/" width = "800" height = "600" frameBorder = "0"></iframe><figcaption>Source: Mike Bostock</figcaption>
+* Example: http://bl.ocks.org/mbostock/raw/5731632
 
 ---
 
@@ -70,13 +65,10 @@ $$DD = D + \frac{M}{60} + \frac{S}{3600}$$
 
 ### Map projections and distortion
 
-<iframe src="http://bl.ocks.org/curran/raw/01aa2685f083b6c1b9fb/" height = "600" width = "900" frameborder = "0"></iframe><figcaption>Source: [Curran Kelleher](http://bl.ocks.org/curran/01aa2685f083b6c1b9fb)</figcaption>
+Examples: 
 
----
-
-### Map projections and distortion
-
-<iframe src="http://bl.ocks.org/enjalot/raw/bd552e711b8325c64729/" height = "600" width = "900" frameborder = "0"></iframe><figcaption>Source: [Ian Johnson](http://bl.ocks.org/enjalot/bd552e711b8325c64729)</figcaption>
+* http://bl.ocks.org/curran/raw/01aa2685f083b6c1b9fb
+* http://bl.ocks.org/enjalot/raw/bd552e711b8325c64729
 
 ---
 
@@ -101,7 +93,7 @@ $$DD = D + \frac{M}{60} + \frac{S}{3600}$$
 
 ### Let's make a map!
 
-* CartoDB: https://cartodb.com/signup
+* CARTO: https://carto.com/signup
 
 ---
 
@@ -148,6 +140,28 @@ $$DD = D + \frac{M}{60} + \frac{S}{3600}$$
 ### Chart for comparison
 
 <img src=img/primarydot2.png style="width: 825px">
+
+---
+
+### Code to reproduce the chart
+
+```python
+import pandas as pd, seaborn as sns, matplotlib.pyplot as plt
+sns.set(style="whitegrid")
+df = pd.read_csv("http://personal.tcu.edu/kylewalker/mexico.csv")
+
+plt.figure(figsize = (10, 8))
+
+p = sns.stripplot(data = df.sort_values('pri10', ascending = False), 
+                  x = 'pri10', y = 'name', palette = "RdPu_d", 
+                  orient = 'h', size = 8)
+p.set(xlabel = "% of workforce in primary sector", 
+      xlim = (0, 50), ylabel = "")
+p.axes.xaxis.grid(False)
+p.axes.yaxis.grid(True)
+sns.despine(left = True, bottom = True)
+
+```
 
 
 
