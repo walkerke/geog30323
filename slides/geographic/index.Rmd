@@ -99,7 +99,7 @@ Examples:
 
 ### Mapping point data
 
-<iframe width="100%" height="600" frameborder="0" src="https://kwalkertcu.cartodb.com/viz/1db3d680-8b10-11e5-8e7b-0ecfd53eb7d3/embed_map" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+<iframe width="100%" height="600" frameborder="0" src="https://kwalkertcu-demo.carto.com/builder/0c04cfaa-ab41-11e6-95be-0e3ebc282e83/embed" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
 ---
 
