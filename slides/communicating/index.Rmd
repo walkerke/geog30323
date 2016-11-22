@@ -199,7 +199,7 @@ df.iplot(x = 'fitted', y = 'resid', kind = 'scatter', mode = 'markers',
 
 ### Residuals and fitted values
 
-<iframe width="850" height="550" frameborder="0" scrolling="no" src="https://plot.ly/~walkerke/639.embed"></iframe>
+<iframe width="900" height="650" frameborder="0" scrolling="no" src="residuals.html"></iframe>
 
 ---
 
