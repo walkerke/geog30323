@@ -1,7 +1,7 @@
 ---
 title: "Data communication and data science"
 author: GEOG 30323
-date: December 1, 2015
+date: November 29, 2016
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
@@ -58,26 +58,13 @@ output:
 
 ### Data dashboards
 
-Examples: 
-
-* Your Salary vs. an MLB Player's Salary: http://www.osmguy.com/2014/03/salary-vs-mlb-players-salary-visualization/
-* Bay Area Bike Share: https://public.tableau.com/s/gallery/30-minutes-bay-area-bike-share
-* UN Population Data: http://dataremixed.com/2014/07/story-types-a-thought-starter/
+* [Tableau public gallery](https://public.tableau.com/en-us/s/gallery?qt-overview_gallery=0)
 
 ---
 
 ### Demo: Tableau Public
 
 * Let's work with a (cleaned) obesity dataset you'll be familiar with from earlier in the semester; download it at http://personal.tcu.edu/kylewalker/data/overweight.csv
-
----
-
-### Static vs. interactive
-
-For discussion: 
-
-* In what circumstances might a static plot be preferable to an interactive one? 
-* What about the other way around?  
 
 ---
 
@@ -159,7 +146,6 @@ import pandas as pd
 import seaborn as sns
 sns.set_context('notebook')
 import statsmodels.formula.api as smf
-%matplotlib inline
 
 df = pd.read_csv('http://personal.tcu.edu/kylewalker/data/texas_colleges.csv')
 df['grad_rate'] = df.grad_rate * 100
@@ -201,9 +187,7 @@ df['resid'] = f2.resid
 
 ```python
 import cufflinks as cf
-import plotly.plotly as py
-
-py.sign_in('username', 'api_key')
+cf.go_offline()
 
 df.iplot(x = 'fitted', y = 'resid', kind = 'scatter', mode = 'markers', 
         text = 'instnm', zerolinecolor = 'red', color = 'blue', 
@@ -260,6 +244,20 @@ df.ix['Texas Christian University']
 
 ---
 
+### Example: K-means clustering
+
+```python
+from ipywidgets import interact
+
+def glimpse_clusters(cluster_id):
+    sub = df[df.clusters == cluster_id]
+    print(sub.head(20))
+    
+interact(glimpse_clusters, cluster_id = (0, 6))
+```
+
+---
+
 ### Example: nearest-neighbor search
 
 ```python
@@ -279,8 +277,6 @@ merged = pd.merge(df.reset_index(), results, right_index = True, left_index = Tr
 ### Example: nearest-neighbor search
 
 ```python
-from ipywidgets import interact
-
 def find_neighbors(university): 
     d = merged[merged.name == university].reset_index()
     for x in ['x2', 'x3', 'x4', 'x5']: 
