@@ -59,6 +59,7 @@ output:
 ### Data dashboards
 
 * [Tableau public gallery](https://public.tableau.com/en-us/s/gallery?qt-overview_gallery=0)
+* [Integration with Mapbox GL JS](https://www.ryanbaumann.com/blog/2016/11/21/tableau-with-next-nen-gl-maps-today)
 
 ---
 
