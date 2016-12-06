@@ -1,7 +1,7 @@
 ---
-title: "Ethics and data"
+title: "Big data and data ethics"
 author: GEOG 30323
-date: December 8, 2015
+date: December 6, 2016
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
@@ -14,14 +14,9 @@ output:
 
 ## Reminders
 
-* Exam 3 due by the  end of the day on __Tuesday, December 15__
-* Tucker 002 available from 8:00-10:30 to work on the exam; I'll be there!
-
----
-
-## Ethics
-
-* Discuss: what does "ethics" mean to you?
+* Assignment 12 due __tomorrow (December 7)__
+* Exam 3 due by the  end of the day on __Thursday, December 15__
+* Our classroom is available from 11:30-2:00 to work on the exam; I'll be there!
 
 ---
 
@@ -31,9 +26,39 @@ output:
 
 ---
 
+### Big data
+
+<iframe width="800" height="500" src="https://www.youtube.com/embed/avP5d16wEp0" frameborder="0" allowfullscreen></iframe>
+
+---
+
+### Big data management
+
+<img src="http://www-01.ibm.com/software/ebusiness/jstart/graphics/hadoopDiagram.png" style="width: 600px">
+
+---
+
+## Ethics
+
+* Discuss: what does "ethics" mean to you?
+
+---
+
 ### The Ashley Madison hack
 
 <iframe width='100%' height='600' frameborder='0' src='https://tecnilogica.cartodb.com/viz/56e702fe-4693-11e5-8f79-0e853d047bba/embed_map' allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+
+---
+
+### Predictive policing
+
+<iframe width="800" height="550" src="http://abc7chicago.com/video/embed/?pid=1486730" frameborder="0" allowfullscreen></iframe>
+
+---
+
+### Predictive policing
+
+* For further reading: https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing
 
 ---
 
