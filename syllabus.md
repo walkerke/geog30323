@@ -1,6 +1,6 @@
 Geography 30323: Data Analysis & Visualization
 ---
-__Fall 2016__
+__Fall 2017__
 
 __Texas Christian University__
 
@@ -35,7 +35,7 @@ There are no prerequisites for this course; however, you should bring a curiosit
 
 ### Course format
 
-Course time will be used for lecture, discussion, applied tutorials, and assignment work.  The class will be managed through SageMathCloud, accessible at <http://cloud.sagemath.com>, and course materials will be available at the course website repository at <https://github.com/walkerke/geog30323>.  You will submit your assignments and view your grades on the Sage Math Cloud website.  
+Course time will be used for lecture, discussion, applied tutorials, and assignment work.  The class will be managed through CoCalc, accessible at <https://cocalc.com/app>, and course materials will be available at the course website repository at <https://github.com/walkerke/geog30323>.  You will submit your assignments and view your grades on the Sage Math Cloud website.  
 
 ### Readings
 
@@ -62,24 +62,24 @@ You will also have 12 __weekly assignments__ which in total make up __36 percent
 
 In-class tutorials and participation exercises will constitute the remaining __16 percent__ of your grade. 
 
-__The minimum percentages__ to achieve a specific grade are as follows: 
+__The percentage ranges__ to achieve a specific grade are as follows: 
 
 |Percentage|Grade|
 |----------|-----|
-|94|A|
-|90|A-|
-|87|B+|
-|83|B|
-|80|B-|
-|77|C+|
-|73|C|
-|70|C- or Pass|
-|67|D+|
-|63|D|
-|60|D-|
+|94 and up|A|
+|90.00-93.99|A-|
+|87.00-89.99|B+|
+|83.00-86.99|B|
+|80.00-82.99|B-|
+|77.00-79.99|C+|
+|73.00-76.99|C|
+|70.00-72.99|C- or Pass|
+|67.00-69.99|D+|
+|63.00-66.99|D|
+|60.00-62.99|D-|
 |Below 60|F|
 
-I do not round, curve, or negotiate grades with students.  I will award an incomplete (I) only in the most extreme and exceptional circumstances.  Please notify me as soon as possible if you are in a situation where you feel you require an I.  
+__I do not negotiate grades with students.__  I will award an incomplete (I) only in the most extreme and exceptional circumstances.  Please notify me as soon as possible if you are in a situation where you feel you require an I.  
 
 The attendance policy for this course corresponds to the official TCU attendance policy, which reads: 
 
@@ -93,26 +93,26 @@ Extensions to deadlines and make-up participation credit will only be permitted 
 
 |__Week__           |__Topic__             |__Reading__                  |__Assignments__        |
 |-------------------|----------------------|-----------------------------|-----------------------|
-|Week 1: Aug 23-25  |What is data?         |_Data Points_, Ch.1          |Data journalism |
-|Week 2: Aug 30-Sept 1  |Programming I|_Think Python_, Chs. 1-2   |Python basics; intro to the Jupyter Notebook| 
-|Week 3: Sept 6-8 |Programming II|_Think Python_, Ch. 3         |Functions and modules in Python| 
-|Week 4: Sept 13-15|Programming III|_Think Python_, Chs. 7-8    |Loops/conditionals/object-oriented programming in Python|
-|Week 5: Sept 20-22|Exploratory data analysis I|_Exploratory Data Analysis_, Chs. 2-3|Univariate data analysis| 
-|Week 6: Sept 27-29 |Exploratory data analysis II|_Data Points_, Ch. 4|Multivariate exploratory visualization|
-|Week 7: Oct 4-6|Data wrangling I|Wickham (2014), "Tidy Data"||
-|Week 8: Oct 13|Data wrangling II||`pandas`: subsetting, indexing, merging<br/><br/>Exam 1 due __Sunday, October 16__|
-|Week 9: Oct 18-20|Advanced I/O: databases, web, APIs||Wrangling data from APIs|
-|Week 10: Oct 25-27|Visualization best practices I|_Data Points_, Ch. 2|Data visualization|
-|Week 11: Nov 1-3|Visualization best practices II|_Data Points_, Ch. 5||
-|Week 12: Nov 8-10|Interactive data visualization|_Data Points_, Ch. 6|Interactive visualization|
-|Week 13-14: Nov 15-22|Geographic data & visualization|_The Nature of Geographic Information_, Ch. 1|Mapping with CARTO<br/><br/>Exam 2 due __Sunday, November 20__|
-|Week 15: Nov 29-Dec 1|Data dashboards & data science||Data dashboards with Tableau Public|
-|Week 16: Dec 6|Data ethics|Articles TBD|Exam 3 due __Thursday, December 15__
+|Week 1: Aug 22-24  |What is data?         |_Data Points_, Ch.1          |Data journalism |
+|Week 2: Aug 29-31  |Programming I|_Think Python_, Chs. 1-2   |Python basics; intro to the Jupyter Notebook| 
+|Week 3: Sept 5-7 |Programming II|_Think Python_, Ch. 3         |Functions and modules in Python| 
+|Week 4: Sept 14 |Programming III|_Think Python_, Chs. 7-8    |Loops/conditionals/object-oriented programming in Python|
+|Week 5: Sept 19-21|Exploratory data analysis I|_Exploratory Data Analysis_, Chs. 2-3|Univariate data analysis| 
+|Week 6: Sept 26-28 |Exploratory data analysis II|_Data Points_, Ch. 4|Multivariate exploratory visualization|
+|Week 7: Oct 3-5|Data wrangling I|Wickham (2014), "Tidy Data"||
+|Week 8: Oct 10-12|Data wrangling II||`pandas`: subsetting, indexing, merging<br/><br/>Exam 1 due __Sunday, October 15__|
+|Week 9: Oct 19|Advanced I/O: databases, web, APIs||Wrangling data from APIs|
+|Week 10: Oct 24-26|Visualization best practices I|_Data Points_, Ch. 2|Data visualization|
+|Week 11: Oct 31-Nov 2|Visualization best practices II|_Data Points_, Ch. 5||
+|Week 12: Nov 7-9|Interactive data visualization|_Data Points_, Ch. 6|Interactive visualization|
+|Week 13-14: Nov 14-21|Geographic data & visualization|_The Nature of Geographic Information_, Ch. 1|Mapping with CARTO<br/><br/>Exam 2 due __Sunday, November 19__|
+|Week 15: Nov 28-30|Data dashboards & data science||Data dashboards with Tableau Public|
+|Week 16: Dec 5|Data ethics|Articles TBD|Exam 3 due __Thursday, December 14__
 
 
 ### Software
 
-The main software used in this course is the Anaconda distribution of the Python programming language (version 3.5) from Continuum Analytics, which includes over 330 popular Python packages for data analysis, visualization, and scientific computing.  Anaconda is available via SageMathCloud, which means that you can use it on any computer with an internet connection where you can access your SageMathCloud account.  If you would like to install a local version of Python on your own computer, Anaconda is completely free and can be installed from this link: <http://continuum.io/downloads>, and works on the most popular operating systems (Windows, Mac OS, Linux).  I’ll show you how to install Anaconda on your own computer in class.  If you prefer to do your work on campus, Anaconda will also be available in our classroom, in the Center for Urban Studies computer lab, SCHAR 2015A, and in the Giga Lab in the library.  Late in the course, we will also be using CARTO and Tableau Public for interactive visualization; CARTO is web-based and free, and Tableau Public can be installed for free and will be available on TCU computers.  
+The main software used in this course is the Anaconda distribution of the Python programming language (version 3.5.3) from Continuum Analytics, which includes over 330 popular Python packages for data analysis, visualization, and scientific computing.  Anaconda is available via CoCalc, which means that you can use it on any computer with an internet connection where you can access your CoCalc account.  If you would like to install a local version of Python on your own computer, Anaconda is completely free and can be installed from this link: <http://continuum.io/downloads>, and works on the most popular operating systems (Windows, Mac OS, Linux).  I’ll show you how to install Anaconda on your own computer in class.  If you prefer to do your work on campus, Anaconda will also be available in our classroom, in the Center for Urban Studies computer lab, SCHAR 2015A, and in the Giga Lab in the library.  Late in the course, we will also be using CARTO and Tableau Public for interactive visualization; CARTO is web-based and free, and Tableau Public can be installed for free and will be available on TCU computers.  
 
 All assignments and tutorials in this course will be completed in the Jupyter Notebook, which is an extension to Python that facilitates interactive computing.  The Jupyter Notebook exemplifies _literate programming_, which refers to a combination of textual description, code, and images/graphics in the same document.  In turn, you’ll use the Jupyter notebook to document your workflow and make your work reproducible.  
 
