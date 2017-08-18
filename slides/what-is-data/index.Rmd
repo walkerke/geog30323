@@ -1,7 +1,7 @@
 ---
 title: "What is data?"
 author: GEOG 30323
-date: August 23, 2016
+date: August 22, 2017
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
@@ -128,7 +128,7 @@ This course covers the process of __exploratory data analysis__, which includes 
 
 ## SageMathCloud
 
-* SageMathCloud (http://cloud.sagemath.com): our course learning management system and Python interface
+* CoCalc (http://cocalc.com): our course learning management system and Python interface
 * Let's explore... 
 
 
