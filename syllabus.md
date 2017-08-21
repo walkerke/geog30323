@@ -1,3 +1,8 @@
+---
+output:
+  word_document: default
+  html_document: default
+---
 Geography 30323: Data Analysis & Visualization
 ---
 __Fall 2017__
@@ -56,7 +61,7 @@ DiBiase, David. Chapter 1: Data and Information.  In: _The Nature of Geographic 
 
 ### Evaluation
 
-You will complete __three take-home examinations__, which collectively comprise __48 percent of your grade__.  Each examination will be comprised of a structured set of homework problems that test you on the computing and analytical skills you've learned to that point in the course.  Deliverables will be in the form of Jupyter Notebooks that show and describe the work you've done.  Take-home exams will be due on __Sunday, October 16__; __Sunday, November 20__; and __Thursday, December 15__, which is the day of our scheduled final exam.  You'll receive the prompt for the take-home exams 2 weeks prior to their due dates.  
+You will complete __three take-home examinations__, which collectively comprise __48 percent of your grade__.  Each examination will be comprised of a structured set of homework problems that test you on the computing and analytical skills you've learned to that point in the course.  Deliverables will be in the form of Jupyter Notebooks that show and describe the work you've done.  Take-home exams will be due on __Sunday, October 15__; __Sunday, November 19__; and __Thursday, December 15__, which is the day of our scheduled final exam.  You'll receive the prompt for the take-home exams 2 weeks prior to their due dates.  
 
 You will also have 12 __weekly assignments__ which in total make up __36 percent of your grade__.  Weekly assignments are assigned each Thursday, and due by the end of the day the following Thursday.  You'll have devoted class time each week to work on the assignments.  
 
@@ -100,7 +105,7 @@ Extensions to deadlines and make-up participation credit will only be permitted 
 |Week 5: Sept 19-21|Exploratory data analysis I|_Exploratory Data Analysis_, Chs. 2-3|Univariate data analysis| 
 |Week 6: Sept 26-28 |Exploratory data analysis II|_Data Points_, Ch. 4|Multivariate exploratory visualization|
 |Week 7: Oct 3-5|Data wrangling I|Wickham (2014), "Tidy Data"||
-|Week 8: Oct 10-12|Data wrangling II||`pandas`: subsetting, indexing, merging<br/><br/>Exam 1 due __Sunday, October 15__|
+|Week 8: Oct 10-12|Data wrangling II||`pandas`: subsetting, indexing, merging<br/>Exam 1 due __Sunday, October 15__|
 |Week 9: Oct 19|Advanced I/O: databases, web, APIs||Wrangling data from APIs|
 |Week 10: Oct 24-26|Visualization best practices I|_Data Points_, Ch. 2|Data visualization|
 |Week 11: Oct 31-Nov 2|Visualization best practices II|_Data Points_, Ch. 5||
