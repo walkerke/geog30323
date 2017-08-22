@@ -143,7 +143,7 @@ Your task:
 
 * Find an example of data journalism from the past two years in a recognized publication
 * Write a response that 1) summarizes the article, 2) discusses its data sources, and 3) discusses its methods of analysis and visualization.  
-* At least one paragraph, no longer than three paragraphs
+* At least one paragraph, no longer than four paragraphs
 
   
 <style>
