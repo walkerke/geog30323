@@ -1,7 +1,7 @@
 ---
 title: "Programming I - Intro to Python"
 author: GEOG 30323
-date: August 30, 2016
+date: August 29, 2017
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
@@ -46,7 +46,6 @@ output:
 >- A __high-level__, __object-oriented__, __general purpose__ programming language
 >- _Interpreted_ rather than _compiled_
 >- Rapidly becoming the language of choice for introductory programming courses around the world
->- [One of the top languages for data analysis](http://www.indeed.com/jobtrends/q-python-data.html)
 
 ---
 
@@ -165,10 +164,11 @@ _This link_ is __truly__ must-see: [click here to view it!](http://personal.tcu.
 * At a basic level, Python can function like a calculator, or concatenate strings: 
 
 ```python
->>> 2 + 3
-5
->>> 'x' + 'y'
-'xy'
+2 + 3
+# 5
+
+'x' + 'y'
+# 'xy'
 
 ```
 
@@ -185,9 +185,9 @@ _This link_ is __truly__ must-see: [click here to view it!](http://personal.tcu.
 Example: 
 
 ```python
->>> x = 1
->>> x
-1
+x = 1
+x
+# 1
 ```
 
 ---
@@ -199,9 +199,9 @@ Example:
 Example: 
 
 ```python
->>> tcu = 'Texas Christian University'
->>> tcu.swapcase()
-'tEXAS cHRISTIAN uNIVERSITY'
+tcu = 'Texas Christian University'
+tcu.swapcase()
+# 'tEXAS cHRISTIAN uNIVERSITY'
 ```
 
 ---
@@ -225,10 +225,10 @@ Example list: `mylist = [2, 4, 6, 8, 10, 12]`
 Example: 
 
 ```python
->>> tcu[0]
-'T'
->>> tcu[6:15]
-'Christian'
+tcu[0]
+# 'T'
+tcu[6:15]
+# 'Christian'
 ```
 
 
