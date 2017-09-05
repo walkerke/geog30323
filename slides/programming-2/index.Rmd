@@ -1,7 +1,7 @@
 ---
 title: "Programming II - Functions and Modules"
 author: GEOG 30323
-date: September 6, 2016
+date: September 5, 2017
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
@@ -52,11 +52,11 @@ myfunction(arg1, arg2, arg3)
 Example: 
 
 ```python
->>> def drwalker(): 
-...     print("The best professor!")
-... 
->>> drwalker()
-The best professor!
+def drwalker(): 
+    print("The best professor!")
+
+drwalker()
+# The best professor!
 ```
 
 ---
@@ -66,31 +66,31 @@ The best professor!
 __Parameters__ are components of your function that can vary based on user input.  Example: 
 
 ```python
->>> def make_big(x):
-...     print(x.upper())
-... 
->>> make_big('abcdefg')
-ABCDEFG
->>> make_big('the quick brown fox jumped over the lazy dog')
-THE QUICK BROWN FOX JUMPED OVER THE LAZY DOG
->>> x = 'hijklmn'
->>> make_big(x)
-HIJKLMN
+def make_big(x):
+    print(x.upper())
+
+make_big('abcdefg')
+# ABCDEFG
+make_big('the quick brown fox jumped over the lazy dog')
+# THE QUICK BROWN FOX JUMPED OVER THE LAZY DOG
+x = 'hijklmn'
+make_big(x)
+# HIJKLMN
 ```
 
-## The "return" statement
+## The `return` statement
 
 * The output of functions can be assigned to variables if a `return` statement is provided
 
 Example: 
 
 ```python
->>> def add_five(x):
-...     return x + 5
-... 
->>> y = add_five(10)
->>> y
-15
+def add_five(x):
+    return x + 5
+
+y = add_five(10)
+y
+# 15
 ```
 
 ---
@@ -102,8 +102,9 @@ Example:
 * Code that is not indented properly will cause an error
 
 ```python
->>> def add_six(x):
-... return x + 6
+def add_six(x):
+return x + 6
+    
   File "<stdin>", line 2
     return x + 6
          ^
@@ -114,7 +115,7 @@ IndentationError: expected an indented block
 
 ### Comments
 
-* _Comments_, preceded by a hashtag (`#`), can be included in your code but are not run
+* _Comments_, preceded by a hash (`#`), can be included in your code but are not run
 * _Commenting_ your code is useful for describing what you are doing, or keeping experimental/old code you don't want to run during the development process
 
 ```python
@@ -162,13 +163,13 @@ Arguments can be supplied to functions in two ways:
 * "Named" in any order.  Be careful, however, if you mix the two!
 
 ```python
->>> concat_numbers(7, 3)
-'73'
->>> concat_numbers(num2 = 7, num1 = 3)
-'37'
->>> concat_numbers(7, num2 = 3)
-'73'
->>> concat_numbers(num2 = 7, 3)
+concat_numbers(7, 3)
+# '73'
+concat_numbers(num2 = 7, num1 = 3)
+# '37'
+concat_numbers(7, num2 = 3)
+# '73'
+# concat_numbers(num2 = 7, 3)
   File "<stdin>", line 1
 SyntaxError: non-keyword arg after keyword arg
 ```
@@ -245,7 +246,7 @@ add_abc(tcu)
 ## Built-in packages
 
 * Many packages are included in `stdlib`, the standard library that ships with Python
-* Popular modules: `re` for regular expressions; `os` for operating system functions; `random` for random-number generation; and many more.  Full list: <https://docs.python.org/2/library/>
+* Popular modules: `re` for regular expressions; `os` for operating system functions; `random` for random-number generation; and many more.  Full list: <https://docs.python.org/3/library/>
 
 ---
 
@@ -286,11 +287,7 @@ add_abc(tcu)
 * Software is generally free to purchase and update; some services under a "freemium" model
 * Reliant on the user community for support
 
----
 
-## How open-source software works
-
-* Example: my R package, `tigris`: https://github.com/walkerke/tigris
 
 
 

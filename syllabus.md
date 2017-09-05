@@ -40,7 +40,7 @@ There are no prerequisites for this course; however, you should bring a curiosit
 
 ### Course format
 
-Course time will be used for lecture, discussion, applied tutorials, and assignment work.  The class will be managed through CoCalc, accessible at <https://cocalc.com/app>, and course materials will be available at the course website repository at <https://github.com/walkerke/geog30323>.  You will submit your assignments and view your grades on the Sage Math Cloud website.  
+Course time will be used for lecture, discussion, applied tutorials, and assignment work.  The class will be managed through CoCalc, accessible at <https://cocalc.com/app>, and course materials will all be available through CoCalc and at the course website repository at <https://github.com/walkerke/geog30323>.  You will submit your assignments and view your grades on the CoCalc website; grades will also be kept on TCU Online.  
 
 ### Readings
 
