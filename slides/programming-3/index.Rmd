@@ -1,7 +1,7 @@
 ---
 title: "Programming III - Loops, conditionals, & OOP"
 author: GEOG 30323
-date: September 15, 2016
+date: September 14, 2017
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
@@ -14,7 +14,7 @@ output:
 
 ## Python refresher
 
-* Exercise available in SageMathCloud
+* Exercise available in CoCalc
 
 ---
 
@@ -49,9 +49,9 @@ output:
 * Example: 
 
 ```python
->>> for character in 'Kyle': 
-...     print("Give me a " + character + "!")
-... 
+for character in 'Kyle': 
+   print("Give me a " + character + "!")
+
 Give me a K!
 Give me a y!
 Give me a l!
@@ -85,13 +85,13 @@ print("Give me a e!")
 * Example: 
 
 ```python
-In [1]: i = 5
-   ...: 
-   ...: while i > 0: 
-   ...:     print(str(i) + "...")
-   ...:     i = i - 1
-   ...: 
-   ...: print("Blast-off!")
+i = 5
+
+while i > 0: 
+    print(str(i) + "...")
+    i = i - 1
+
+print("Blast-off!")
 5...
 4...
 3...
@@ -140,13 +140,13 @@ Beware of the infinite `while` loop!
 * Example: 
 
 ```python
->>> mylist = [2, 4, 6, 8, 10, 12]
->>> for number in mylist: 
-...     if number > 7: 
-...         print(str(number) + " is greater than 7!")
-...     else: 
-...         print(str(number) + " is less than 7!")
-... 
+mylist = [2, 4, 6, 8, 10, 12]
+for number in mylist: 
+    if number > 7: 
+        print(str(number) + " is greater than 7!")
+    else: 
+        print(str(number) + " is less than 7!")
+
 2 is less than 7!
 4 is less than 7!
 6 is less than 7!
@@ -168,9 +168,9 @@ def is_even(x):
     else: 
         return(False)
 
->>> is_even(8)
+is_even(8)
 True
->>> is_even(99)
+is_even(99)
 False
 ```
 
