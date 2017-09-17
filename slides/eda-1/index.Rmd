@@ -1,7 +1,7 @@
 ---
 title: "Univariate exploratory data analysis"
 author: GEOG 30323
-date: September 20, 2016
+date: September 19, 2017
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
@@ -168,7 +168,6 @@ grad.describe()
 ### Visualization in Python
 
 * Core visualization package in Python: `matplotlib` - which comes pre-installed with Anaconda
-* To show matplotlib graphics in your Jupyter Notebook, type `%matplotlib inline` (default in SageMathCloud)
 * `seaborn`: extension to `matplotlib` to make your graphics look nicer!  Standard import: `import seaborn as sns`.  
 
 
@@ -189,10 +188,11 @@ grad.describe()
 # %matplotlib inline
 
 import seaborn as sns
+sns.set_style("darkgrid")
 
 grad.rate.hist()
 ```
-<img src=img/hist1.png>
+<img src=img/hist1.png style="width:600px">
 
 ---
 
