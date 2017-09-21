@@ -1,7 +1,7 @@
 ---
 title: "Multivariate data exploration"
 author: GEOG 30323
-date: September 27, 2016
+date: September 26, 2017
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
@@ -101,17 +101,17 @@ mx_sorted.head()
 
 ```python
 import seaborn as sns
+sns.set_style("darkgrid")
 
 mx.plot(x= 'name', y = 'gdp08', kind = 'bar')
 ```
-<img src=img/pandas_bar.png>
+<img src=img/pandas_bar.png style="width:650px">
 
 ---
 
 ### Bar charts in `seaborn`
 
 ```python
-sns.set(style = 'whitegrid')
 sns.barplot(x = 'gdp08', y = 'name', data = mx_sorted)
 ```
 <img src=img/seaborn_bar.png>
@@ -156,7 +156,7 @@ zac = mx[mx.name == 'Zacatecas'].drop(['name', 'FID', 'gdp08', 'mus09'], axis = 
 zac.name = 'Zacatecas'
 zac.plot(kind = 'pie', figsize = (6, 6))
 ```
-<img src=img/zpie.png>
+<img src=img/zpie.png style="width:500px">
 
 ---
 
@@ -186,31 +186,7 @@ hs_drop.sort_values('year', inplace = True)
 hs_drop.set_index('year', inplace = True)
 hs_drop.plot() # pandas plotting defaults to line charts, infers x from index
 ```
-<img src=img/pandas_line.png>
-
----
-
-### Line charts in `seaborn`
-
-* Connected points available in `pointplot` and `factorplot`
-* Requires long-form data! (More to come on this in the next two weeks)
-
-```python
-hs_drop.reset_index(inplace = True)
-hs_long = pd.melt(hs_drop, id_vars = 'year', 
-                  value_vars = ['m_rate', 'f_rate'], 
-                  value_name = 'percent_drop', var_name = 'gender')
-# We use factorplot because it gives us greater control over the axes
-chart = sns.factorplot(data = hs_long, x = 'year', 
-                       y = 'percent_drop', hue = 'gender', size = 8)
-chart.set_xticklabels(rotation = 45, step = 3)
-```
-
----
-
-### Line charts in `seaborn`
-
-<img src=img/seaborn_line.png>
+<img src=img/pandas_line.png style="width:650px">
 
 ---
 
