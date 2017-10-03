@@ -1,7 +1,7 @@
 ---
 title: "Data wrangling"
 author: GEOG 30323
-date: October 4, 2016
+date: October 3, 2017
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
@@ -10,12 +10,6 @@ output:
     center: TRUE
     fig_caption: TRUE
     
----
-
-## Data wrangling
-
-<img src="http://radiusintel.wpengine.netdna-cdn.com/wp-content/uploads/2015/03/data-wrangling-by-adam-mcauley.jpg" style="width: 450px"><figcaption>Source: [CustomerThink](http://customerthink.com/5-things-marketers-need-to-know-about-data-science/)</figcaption>
-
 ---
 
 ### Data wrangling
@@ -73,11 +67,11 @@ debt[0:10]
 
 ### By row or column index
 
-* Selecting by row or column index available in the `.ix[]` method (note the brackets)
+* Selecting by row or column index available in the `.loc[]` method (note the brackets)
 
 ```python
 ex1 = debt.set_index('name')
-ex1.ix['Amridge University':'Alabama State University']
+ex1.loc['Amridge University':'Alabama State University']
 ```
 <img src=img/index_name.png>
 
@@ -148,10 +142,11 @@ df1 = pd.DataFrame({'col1': np.random.randint(1, 100, 10),
 ### Creating new columns
 
 ```python
-# Must use index-based labeling for this
+# Must use index-based labeling in this new column definition
 df1['col4'] = df1['col1'] + df1['col2']
 
-df2 = df1.assign(col5 = df1['col3'] / df1['col4'])
+# With .assign()
+df2 = df1.assign(col5 = df1.col3 / df1.col4)
 
 df2.head()
 ```
@@ -254,10 +249,11 @@ TX    15009.426582
 
 ```python
 import seaborn as sns
+sns.set_style("darkgrid")
 
 sns.boxplot(x = 'state', y = 'debtnum', data = sw2, orient = 'v')
 ```
-<img src=img/box1.png>
+<img src=img/box1.png style="width:700px">
 
 ---
 
@@ -269,7 +265,7 @@ sns.boxplot(x = 'state', y = 'debtnum', data = sw2, orient = 'v')
 g = sns.FacetGrid(data = sw2, col = 'state', col_wrap = 2)
 g.map(sns.distplot, 'debtnum')
 ```
-<img src=img/facet.png>
+<img src=img/facet.png style="width:400px">
 
 ---
 
@@ -282,7 +278,7 @@ for s in sw2.state.unique():
     data = sw2[sw2.state == s]
     sns.kdeplot(data.debtnum, shade = True, label = s)
 ```
-<img src=img/kde.png>
+<img src=img/kde.png style="width:650px">
 
 ---
 
@@ -384,7 +380,7 @@ from pandas_datareader import wb
 countries = ['ZA', 'BR', 'US']
 urban = wb.download(indicator = 'SP.URB.TOTL.IN.ZS', 
                     country = countries, start = 1960, 
-                    end = 2011).reset_index()
+                    end = 2015).reset_index()
 urban.head()
 ```
 <img src=img/long.png>
