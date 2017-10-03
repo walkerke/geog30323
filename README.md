@@ -5,7 +5,7 @@ This repository contains course materials (syllabus, Jupyter notebooks, and data
 
 We'll be using the following platforms in this course: 
 
-* The Anaconda distribution of the Python (3.5) programming language, delivered by SageMathCloud: https://cloud.sagemath.com/.  
+* The Anaconda distribution of the Python (3.5) programming language, delivered by CoCalc: https://cocalc.com/.  
 * CARTO: https://carto.com/
 * Tableau Public 10: download for free from https://public.tableau.com/s/.  
 
