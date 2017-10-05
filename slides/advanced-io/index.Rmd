@@ -1,7 +1,7 @@
 ---
 title: "Advanced input and output"
 author: GEOG 30323
-date: October 18, 2016
+date: October 19, 2017
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
@@ -184,7 +184,20 @@ d4 = d2.drop([col for col in d2.columns if 'Unnamed' in col], axis = 1)
 
 ---
 
-### Getting data out!
+### Explore your data!
+
+```python
+import seaborn as sns
+sns.set_style("darkgrid")
+
+sns.lmplot(data = d3, x = "A", y = "PTS")
+```
+
+<img src=img/epl.png style="width:450px">
+
+---
+
+### Getting data out
 
 * The `.to_xxx()` suite of methods allow you to write `pandas` data frames to a host of different formats
 
