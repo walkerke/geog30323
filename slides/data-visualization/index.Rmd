@@ -1,7 +1,7 @@
 ---
 title: "Data visualization best practices"
 author: GEOG 30323
-date: October 25, 2016
+date: October 24, 2017
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
@@ -264,9 +264,10 @@ plt.annotate('Global recession \nspreads to Europe', xy = (2009, 9.5),
 ### Small multiples in `pandas`
 
 ```python
-full.plot(subplots = True, layout = (7, 4), figsize = (12, 10), sharey = True )
+full.plot(subplots = True, layout = (7, 4), 
+          figsize = (12, 10), sharey = True)
 ```
-<img src=img/sm.jpg style="width: 725px">
+<img src=img/sm.png style="width: 675px">
 
 ---
 
