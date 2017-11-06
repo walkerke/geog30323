@@ -1,7 +1,7 @@
 ---
 title: "Interactive data visualization"
 author: GEOG 30323
-date: November 8, 2016
+date: November 7, 2017
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
@@ -77,6 +77,8 @@ output:
     * `ipywidgets`: a package for interactive mini-apps in the Jupyter Notebook
     * `plotly`: produces D3.js charts using Python, and can convert your Python charts as well
     * `cufflinks`: binds `pandas` to `plotly`
+
+* In CoCalc, interactivity only available in the __Classical Notebook__: change the format to get this code to work
     
 ---
 
@@ -103,6 +105,7 @@ mx.plot(kind = 'scatter', x = 'pri10', y = 'mus09')
 
 ### Interactivity in the Notebook
 
+* In CoCalc: interactivity requires the __Classical__ rather than the __Modern__ notebook
 * Use the command `%matplotlib notebook`, and your plot becomes interactive!
 
 ```python
@@ -251,28 +254,6 @@ arr = np.random.randn(10, 10)
 
 data = [go.Surface(z = arr)]
 
-py.iplot(data)
-```
-
----
-
-## 1 million points!
-
-```python
-# Run locally, not in SMC!
-N = 1000000
-trace = go.Scattergl(
-    x = np.random.randn(N),
-    y = np.random.randn(N),
-    mode = 'markers',
-    marker = dict(
-        color = 'rgb(152, 0, 0)',
-        line = dict(
-            width = 1,
-            color = 'rgb(0,0,0)')
-    )
-)
-data = [trace]
 py.iplot(data)
 ```
 
