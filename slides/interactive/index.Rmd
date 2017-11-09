@@ -56,7 +56,7 @@ output:
 
 ### The future: WebGL
 
-<iframe width="900" height="550" src="https://meetar.github.io/bendy-map/#16.15/32.70976/-97.36807" frameborder="0"></iframe><figcaption>Source: Mapzen</figcaption>
+<iframe width="900" height="550" src="https://labs.strava.com/heatmap/#11.55/-97.30973/32.75073/hot/all" frameborder="0"></iframe><figcaption>[Direct link to map](https://labs.strava.com/heatmap/#11.55/-97.30973/32.75073/hot/all)</figcaption>
 
 ---
 
