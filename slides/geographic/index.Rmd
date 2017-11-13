@@ -1,7 +1,7 @@
 ---
 title: "Geographic data and visualization"
 author: GEOG 30323
-date: November 15, 2016
+date: November 14, 2017
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
