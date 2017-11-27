@@ -1,7 +1,7 @@
 ---
 title: "Data communication and data science"
 author: GEOG 30323
-date: November 29, 2016
+date: November 28, 2017
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
@@ -66,12 +66,6 @@ output:
 ### Demo: Tableau Public
 
 * Let's work with a (cleaned) obesity dataset you'll be familiar with from earlier in the semester; download it at http://personal.tcu.edu/kylewalker/data/overweight.csv
-
----
-
-### Infographics
-
-<img src="http://www.metro.us/news/infographic-interesting-facts-about-world-population-day/tmWngh---a721cjqn6Gez2/world-population-day-614x482.jpg" style = "width: 700px"><figcaption>Source: Metro.us</figcaption>
 
 ---
 
@@ -158,7 +152,7 @@ df['grad_rate'] = df.grad_rate * 100
 
 ### Linear regression
 
-```
+```python
 f = smf.ols(formula = 'median_earn ~ grad_rate', data = df).fit()
 
 f.summary()
@@ -168,7 +162,7 @@ f.summary()
 
 ### Multiple regression
 
-```
+```python
 f2 = smf.ols(formula = 'median_earn ~ grad_rate + sat_avg', data = df).fit()
 f2.summary()
 ```
@@ -179,20 +173,6 @@ f2.summary()
 ```python
 df['fitted'] = f2.predict()
 df['resid'] = f2.resid
-
-```
-
----
-
-### Residuals and fitted values
-
-```python
-import cufflinks as cf
-cf.go_offline()
-
-df.iplot(x = 'fitted', y = 'resid', kind = 'scatter', mode = 'markers', 
-        text = 'instnm', zerolinecolor = 'red', color = 'blue', 
-        xTitle = 'Fitted values', yTitle = 'Residuals')
 
 ```
 
@@ -239,7 +219,7 @@ km = KMeans(n_clusters = 7).fit(df)
 df['clusters'] = km.labels_
 
 # Check TCU's cluster
-df.ix['Texas Christian University'] 
+df.loc['Texas Christian University'] 
 
 ```
 
@@ -248,13 +228,10 @@ df.ix['Texas Christian University']
 ### Example: K-means clustering
 
 ```python
-from ipywidgets import interact
-
 def glimpse_clusters(cluster_id):
     sub = df[df.clusters == cluster_id]
     print(sub.head(20))
     
-interact(glimpse_clusters, cluster_id = (0, 6))
 ```
 
 ---
@@ -282,10 +259,9 @@ def find_neighbors(university):
     d = merged[merged.name == university].reset_index()
     for x in ['x2', 'x3', 'x4', 'x5']: 
         idx = d.iloc[0][x]
-        m = merged.ix[idx]
+        m = merged.loc[idx]
         print(m['name'])
 
-interact(find_neighbors, university = 'Texas Christian University')
 ```
 
 ---
