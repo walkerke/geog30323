@@ -1,7 +1,7 @@
 ---
 title: "What is data?"
 author: GEOG 30323
-date: August 22, 2017
+date: August 21, 2018
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
@@ -50,7 +50,7 @@ output:
 
 ## Retail
 
-<img src="http://cdn.shopify.com/s/files/1/0070/7032/files/image5.png?6023"><figcaption>Source: [Humayun Khan/Shopify](http://www.shopify.com/blog/14254569-why-all-sale-signs-are-red-the-science-of-color-in-retail)</figcaption>
+<img src="http://cdn.shopify.com/s/files/1/0070/7032/files/image5.png"><figcaption>Source: [Humayun Khan/Shopify](http://www.shopify.com/blog/14254569-why-all-sale-signs-are-red-the-science-of-color-in-retail)</figcaption>
 
 ---
 
@@ -70,7 +70,7 @@ output:
 
 <img src="http://corinanielsen.com/livefit/wp-content/uploads/2015/11/stitchfix.jpg">
 
-* [StitchFix](https://www.stitchfix.com/); [The Most Colorful State](http://multithreaded.stitchfix.com/blog/2015/06/02/the-most-colorful-state/)
+* [StitchFix](https://www.stitchfix.com/); [Seasonal Trends at StitchFix](https://multithreaded.stitchfix.com/blog/2016/08/23/seasonal-trends/)
 
 ---
 
