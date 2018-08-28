@@ -1,7 +1,7 @@
 ---
 title: "Programming I - Intro to Python"
 author: GEOG 30323
-date: August 29, 2017
+date: August 28, 2018
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
@@ -41,7 +41,7 @@ output:
 
 ---
 
-<img src="https://www.python.org/static/community_logos/python-logo-master-v3-TM.png" style="width: 800px; border: none;">
+<img src="http://pluspng.com/img-png/python-logo-png--728.png" style="width: 600px; border: none;">
 
 >- A __high-level__, __object-oriented__, __general purpose__ programming language
 >- _Interpreted_ rather than _compiled_
@@ -51,11 +51,11 @@ output:
 
 <img src="https://upload.wikimedia.org/wikipedia/en/c/cd/Anaconda_Logo.png" style="width: 500px; border: none;">
 
->- Product of Austin-based [Continuum Analytics](http://www.continuum.io/)
->- Over 330 packages for scientific and technical computing with Python
+>- Product of Austin-based Anaconda, Inc.
+>- Distribution of hundreds of packages for scientific and technical computing with Python
 >- Sane package management (you'll learn more about this next week)
->- Our version: __Python 3.5__
->- [Download link](https://store.continuum.io/cshop/anaconda/)
+>- Our version: __Python 3.6__
+>- [Download link](https://www.anaconda.com/download/)
 
 ---
 
@@ -153,12 +153,6 @@ _This link_ is __truly__ must-see: [click here to view it!](http://personal.tcu.
 
 ---
 
-### More inspiration
-
-<img src="https://pbs.twimg.com/media/CqW0yh_VMAAEOta.jpg:large" width="800px">
-
----
-
 ### Numbers and strings
 
 * At a basic level, Python can function like a calculator, or concatenate strings: 
@@ -221,6 +215,10 @@ Example list: `mylist = [2, 4, 6, 8, 10, 12]`
 * Elements in Python can be accessed by position using __indexing__; covers characters in strings, objects in lists, and much more
 * Python indexing starts at 0 - meaning that the first element is referenced with `0`, the second with `1`, and so forth
 * __Slicing__: extract subset `a:b` starting with position `a` up to __but not including__ position `b`
+
+---
+
+### Indexing and slicing 
 
 Example: 
 
