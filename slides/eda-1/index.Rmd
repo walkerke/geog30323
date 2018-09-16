@@ -1,12 +1,12 @@
 ---
 title: "Univariate exploratory data analysis"
 author: GEOG 30323
-date: September 19, 2017
+date: September 18, 2018
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
     transition: "none"
-    highlight: "zenburn"
+    highlight: "tango"
     center: TRUE
     fig_caption: TRUE
     
@@ -14,13 +14,13 @@ output:
 
 ## Time for data!
 
-<img src="http://40.media.tumblr.com/3d0477bad4077debabcdbf29a2df3670/tumblr_n6cjvqfzgr1td9006o1_1280.jpg" style="width: 850px"><figcaption>Source: [bigdatapix.tumblr.com](http://bigdatapix.tumblr.com/)</figcaption>
+<img src="img/data.jpg" style="width: 850px"><figcaption>Source: [bigdatapix.tumblr.com](http://bigdatapix.tumblr.com/)</figcaption>
 
 ---
 
 ### The data analysis process
 
-<img src="http://r4ds.had.co.nz/diagrams/data-science.png"" style="width: 800px"><figcaption>Source: Wickham and Grolemund, [_R for Data Science_](http://r4ds.had.co.nz/introduction.html)</figcaption>
+<img src="http://r4ds.had.co.nz/diagrams/data-science.png" style="width: 800px"><figcaption>Source: Wickham and Grolemund, [_R for Data Science_](http://r4ds.had.co.nz/introduction.html)</figcaption>
 
 ---
 
@@ -154,7 +154,7 @@ or, in simpler terms, the average of the squared deviations of the values of a s
 ```python
 grad.describe()
 ```
-<img src=img/describe.png>
+<img src=img/describe.png style="width: 200px">
 
 ---
 
@@ -185,8 +185,6 @@ grad.describe()
 ### Example histogram
 
 ```python
-# %matplotlib inline
-
 import seaborn as sns
 sns.set_style("darkgrid")
 
