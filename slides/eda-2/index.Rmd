@@ -101,11 +101,11 @@ mx_sorted.head()
 
 ```python
 import seaborn as sns
-sns.set_style("darkgrid")
+sns.set(style = "darkgrid", rc = {"figure.figsize": (10, 8)})
 
 mx.plot(x= 'name', y = 'gdp08', kind = 'bar')
 ```
-<img src=img/pandas_bar.png style="width:650px">
+<img src=img/pandas_bar.png style="width:450px">
 
 ---
 
@@ -178,15 +178,15 @@ zac.plot(kind = 'pie', figsize = (6, 6))
 
 ---
 
-### Line charts in `pandas`
+### Line charts in `seaborn`
 
 ```python
-hs_drop = pd.read_csv('http://personal.tcu.edu/kylewalker/data/hs_drop.csv')
-hs_drop.sort_values('year', inplace = True)
-hs_drop.set_index('year', inplace = True)
-hs_drop.plot() # pandas plotting defaults to line charts, infers x from index
+dfw = pd.read_csv('http://personal.tcu.edu/kylewalker/data/pct_college.csv')
+
+sns.lineplot(x = "year", y = "pct_college", 
+             hue = "county", data = dfw)
 ```
-<img src=img/pandas_line.png style="width:650px">
+<img src=img/dfw_college.png style="width:500px">
 
 ---
 
@@ -204,18 +204,18 @@ hs_drop.plot() # pandas plotting defaults to line charts, infers x from index
 
 ---
 
-### Scatter plots in `pandas`
+### Scatter plots in `seaborn`
 
 ```python
-mx.plot(x = 'mus09', y = 'pri10', kind = 'scatter')
+sns.scatterplot(x = "mus09", y = "pri10", data = mx)
 ```
-<img src=img/pandas_scatter.png style="width: 600px">
+<img src=img/seaborn_scatter.png style="width: 600px">
 
 ---
 
 ### Scatter plots in `seaborn`
 
-* Available in the `lmplot` and `regplot` functions
+* Also available in the `lmplot` and `regplot` functions
 
 ```python
 sns.lmplot(data = mx, x = 'mus09', y = 'pri10')
