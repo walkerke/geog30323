@@ -253,7 +253,7 @@ sns.set(style = "darkgrid", rc = {"figure.figsize": (8, 6)})
 
 sns.boxplot(x = 'state', y = 'debtnum', data = sw2, orient = 'v')
 ```
-<img src=img/box1.png style="width:700px">
+<img src=img/box1.png style="width:600px">
 
 ---
 
@@ -278,7 +278,7 @@ for s in sw2.state.unique():
     data = sw2[sw2.state == s]
     sns.kdeplot(data.debtnum, shade = True, label = s)
 ```
-<img src=img/kde.png style="width:650px">
+<img src=img/kde.png style="width:500px">
 
 ---
 
