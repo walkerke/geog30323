@@ -1,12 +1,12 @@
 ---
 title: "Advanced input and output"
 author: GEOG 30323
-date: October 19, 2017
+date: October 23, 2018
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
     transition: "none"
-    highlight: "zenburn"
+    highlight: "tango"
     center: TRUE
     fig_caption: TRUE
     
@@ -115,7 +115,7 @@ uni.head()
 
 ### Data on websites
 
-<img src=img/espnfc.png style="width: 900px">
+<img src=img/espnfc.png style="width: 800px">
 
 ---
 
@@ -132,7 +132,7 @@ uni.head()
 ### Web scraping in `pandas`
 
 ```python
-url = 'http://www.espnfc.us/english-premier-league/23/table'
+url = 'http://www.espn.com/soccer/table/_/league/eng.1'
 
 d1 = pd.read_html(url)
 
@@ -141,46 +141,39 @@ d1 # A list of data frame objects
 
 ---
 
+## Regular expressions
+
+<img src="img/xkcd.png" style="width: 800px">
+
+---
+
 ```python
-d1[0].head()
+d2 = d1[0]
+
+d2["NAME"] = d2["2018-2019"].str.replace("[0-9]", "")
+
+d2.head()
 ```
 <img src=img/head1.png>
 
 ---
 
 ```python
-d2 = pd.read_html(url, skiprows = 1)[0]
+d2["NAME"] = d2["NAME"].str[:-3]
 
 d2.head()
 ```
 <img src=img/head2.png>
 
-* We need to drop those columns with `'Unnamed'` in the header
 
 ---
 
-* One way: 
-
 ```python
-un = []
+d2.drop("2018-2019", axis = 1, inplace = True)
 
-for col in d2.columns: 
-    if 'Unnamed' in col: 
-        un.append(col)
-
-d3 = d2.drop(un, axis = 1)
-
-d3.head()
+d2.head()
 ```
 <img src=img/clean1.png>
-
----
-
-* The "code golf" way: 
-
-```python
-d4 = d2.drop([col for col in d2.columns if 'Unnamed' in col], axis = 1)
-```
 
 ---
 
@@ -188,12 +181,22 @@ d4 = d2.drop([col for col in d2.columns if 'Unnamed' in col], axis = 1)
 
 ```python
 import seaborn as sns
-sns.set_style("darkgrid")
+sns.set(style = "darkgrid", rc = {"figure.figsize": (8, 6)})
 
-sns.lmplot(data = d3, x = "A", y = "PTS")
+sns.lmplot(data = d2, x = "A", y = "P")
 ```
 
-<img src=img/epl.png style="width:450px">
+<img src=img/lmplot.png style="width:425px">
+
+---
+
+```python
+sns.barplot(x = "F", y = "NAME", 
+            data = d2.sort_values("F", ascending = False))
+```
+
+<img src=img/barplot.png style="width:650px">
+
 
 ---
 
@@ -204,7 +207,7 @@ sns.lmplot(data = d3, x = "A", y = "PTS")
 For example: 
 
 ```python
-d3.to_csv('premier.csv', index = False)
+d2.to_csv('premier.csv', index = False)
 ```
 
 <style>
