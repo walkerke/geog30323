@@ -1,12 +1,12 @@
 ---
 title: "Data visualization best practices"
 author: GEOG 30323
-date: October 24, 2017
+date: October 30, 2018
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
     transition: "none"
-    highlight: "zenburn"
+    highlight: "tango"
     center: TRUE
     fig_caption: TRUE
     
@@ -52,7 +52,7 @@ output:
 
 ### Visual variables
 
-<img src=img/vv.png style="width: 900px"><figcaption>Source: _Data Points_</figcaption>
+<img src=img/vv.PNG style="width: 900px"><figcaption>Source: _Data Points_</figcaption>
 
 ---
 
@@ -62,13 +62,12 @@ output:
 * Lightness or Value: extent to which color is light or dark
 * Saturation: vividness of the color
 
-<img src="https://dl.dropboxusercontent.com/u/128822645/introgis/cartography/assets/img/color1.png" style="width: 400px">
 
 ---
 
 ## Color schemes
 
-<img src=img/schemes.png><figcaption>Source: _Data Points_</figcaption>
+<img src=img/schemes.PNG><figcaption>Source: _Data Points_</figcaption>
 
 ---
 
@@ -111,6 +110,7 @@ import seaborn as sns
 import pandas as pd
 import matplotlib.pyplot as plt
 from pandas_datareader import wb
+sns.set(style = "whitegrid", rc = {"figure.figsize": (10, 8)})
 
 eu_countries = ['BE', 'BG', 'CZ', 'DK', 'DE', 'EE', 'IE', 'GR', 'ES', 'FR', 'HR', 
                'IT', 'CY', 'LV', 'LT', 'LU', 'HU', 'MT', 'NL', 'AT', 'PL', 'PT', 
@@ -118,7 +118,7 @@ eu_countries = ['BE', 'BG', 'CZ', 'DK', 'DE', 'EE', 'IE', 'GR', 'ES', 'FR', 'HR'
                
 ue = wb.download(indicator = "SL.UEM.TOTL.ZS", 
                  country = eu_countries, start = 1991, 
-                 end = 2014)
+                 end = 2016)
 
 ue.reset_index(inplace = True)
 
@@ -129,7 +129,7 @@ ue.columns = ['country', 'year', 'unemployment']
 
 ## The 'heat map'
 
-<img src=img/measles.png style="width: 650px"><figcaption>Source: [_The Wall Street Journal_](http://graphics.wsj.com/infectious-diseases-and-vaccines/)</figcaption>
+<img src=img/measles.PNG style="width: 650px"><figcaption>Source: [_The Wall Street Journal_](http://graphics.wsj.com/infectious-diseases-and-vaccines/)</figcaption>
 
 ---
 
@@ -147,7 +147,7 @@ sns.heatmap(ue_wide)
 
 ### The `seaborn` 'heat map' 
 
-<img src=img/heatmap.jpg>
+<img src=img/heatmap.png>
 
 ---
 
@@ -161,14 +161,12 @@ sns.heatmap(ue_wide)
 
 ### Color in `seaborn`
 
-* Color palettes, available in the `color_palette()` function, can be viewed with the `palplot()` function
+* Color palettes, available in the `color_palette()` function, can be viewed with the `palplot()` function, and reversed by adding `_r`
 
 ```python
 sns.palplot(sns.color_palette('Greens', 7))
 ```
 <img src=img/greens.png>
-
-* Colors can be reversed by adding `_r`: 
 
 ```python
 sns.palplot(sns.color_palette('Greens_r', 7))
@@ -201,53 +199,73 @@ sns.barplot(x = 'gdp08', y = 'name',
             data = mx.sort_values('gdp08', ascending = False), 
             palette = "Greens_r")
 ```
-<img src=img/mx.jpg style="width: 650px">
+<img src=img/mx.png style="width: 650px">
 
 ---
 
 ### Highlighting and annotation
 
-<img src=img/hotdog.png style="width: 750px"><figcaption>Source: _Data Points_</figcaption>
+<img src=img/hotdog.PNG style="width: 750px"><figcaption>Source: _Data Points_</figcaption>
 
 ---
 
 ### The "spaghetti" chart
 
-<img src=img/spaghetti.png>
+```python
+sns.lineplot(data = ue, x = "year", y = "unemployment", 
+             hue = "country")
+```
+
+<img src=img/spaghetti.png style="width: 500px">
 
 ---
 
 ## Highlighting
 
-<img src=img/eu.jpg>
+<img src=img/greece.png>
 
+---
+
+### Highlighting code setup
+
+```python
+# Convert the year to integer for better labels
+ue["year"] = ue["year"].astype(int)
+
+# Create a recoded column where all values are "Other" besides Greece
+ue["country2"] = ue.country.where(ue.country == "Greece", "Other")
+
+# Sort on the recoded column to plot Greece last
+ue.sort_values("country2", ascending = False, inplace = True)
+```
 ---
 
 ### Highlighting code
 
 ```python
-sns.set_style('white')
-
-ue['year2'] = ue.year.astype(float)
-
-full = ue.pivot(index = 'year2', columns = 'country', values = 'unemployment')
-
-greece = full['Greece']
-
-full.plot(legend = False, style = 'lightgrey')
-greece.plot(style = 'blue', legend = True)
+for c in ue.country.unique():
+    sub = ue[ue.country == c]
+    if c != "Greece":
+        sns.lineplot(data = sub, x = "year", y = "unemployment", 
+                     hue = "country", palette = ["grey"], legend = False)
+    else: 
+        sns.lineplot(data = sub, x = "year", y = "unemployment", 
+                     hue = "country", palette = ["blue"], 
+                     linewidth = 3)
 ```
+
 ---
 
 ### Annotation in Python
 
-<img src=img/eu2.jpg>
+<img src=img/greece2.png>
 
 ---
 
 ### Annotation code
 
 ```python
+
 plt.annotate('Global recession \nspreads to Europe', xy = (2009, 9.5), 
              xycoords = 'data', xytext = (2005, 15), textcoords = 'data', 
              arrowprops = dict(arrowstyle = 'simple', color = '#000000'))
@@ -257,30 +275,30 @@ plt.annotate('Global recession \nspreads to Europe', xy = (2009, 9.5),
 
 ### Small multiples
 
-<img src=img/sm1.png style="width: 750px"><figcaption>Source: _Data Points_</figcaption>
+<img src=img/sm1.PNG style="width: 750px"><figcaption>Source: _Data Points_</figcaption>
 
 ---
 
-### Small multiples in `pandas`
+### Small multiples in Python
 
 ```python
-full.plot(subplots = True, layout = (7, 4), 
-          figsize = (12, 10), sharey = True)
-```
-<img src=img/sm.png style="width: 675px">
+ue.sort_values("country", inplace = True)
 
+facets = sns.FacetGrid(ue, col = "country", col_wrap = 7)
+facets.map(sns.lineplot, "year", "unemployment")
+```
 ---
 
-### Faceted plots in `seaborn`
+### Small multiples in Python
 
-* Plotting functions in `seaborn` can be "faceted" with `factorplot` or mapped onto a faceted plot with `FacetGrid`
+<img src=img/small_multiples.png style="width: 675px">
 
 ---
 
 ### Modifying chart options
 
-* `.plot()` in `pandas` and `seaborn` are wrappers around `matplotlib`, the main plotting engine for Python
-* In turn, all `matplotlib` customization methods are available for your `pandas` and `seaborn` plots - and there are many!
+* `seaborn` is a wrapper around `matplotlib`, the main plotting engine for Python
+* In turn, all `matplotlib` customization methods are available for your `seaborn` plots - and there are many!
 * To get access: `import matplotlib.pyplot as plt`
 
 ---
@@ -296,58 +314,22 @@ sns.heatmap(ue_wide, cmap = 'YlGnBu')
 
 plt.ylabel("")
 plt.xlabel("")
-plt.title("Unemployment in Europe, 1991-2013")
+plt.title("Unemployment in Europe, 1991-2016")
 plt.xticks(rotation = 45)
 ```
+
+---
+
+### Modified heatmap
+
+<img src="img/modified.png">
 
 ---
 
 ### `seaborn` and `matplotlib`
 
 * `seaborn` returns a `matplotlib` object that can be modified by the options in the `pyplot` module
-* Often, these options are wrapped by `seaborn` and `.plot()` in `pandas` and available as arguments - so check the documentation to see what you can do!  
-
----
-
-### Putting it all together
-
-```python
-import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
-
-sns.set_style('white')
-
-ue['year2'] = ue.year.astype(float)
-
-full = ue.pivot(index = 'year2', columns = 'country', 
-                values = 'unemployment')
-
-greece = full['Greece']
-
-full.plot(style = 'lightgrey', legend = False, figsize = (10, 7))
-greece.plot(style = 'blue', legend = True)
-
-plt.xlabel("")
-plt.ylabel("Unemployment rate")
-plt.annotate('Global recession \nspreads to Europe', xy = (2009, 9.5), 
-             xycoords = 'data', xytext = (2005, 15), textcoords = 'data', 
-             arrowprops = dict(arrowstyle = 'simple', color = '#000000'))
-plt.yticks(range(0, 31, 5), [str(x) + '%' for x in range(0, 31, 5)])
-
-```
-
----
-
-### Logarithmic scales
-
-* Modification of scale (generally, $10^{n}$) to better show trends
-
-```python
-mx.plot(x = 'mus09', y = 'gdp08', kind = 'scatter', logy = True)
-```
-
-<img src=img/log.png>
+* Often, these options are wrapped by `seaborn` and available as arguments - so check the documentation to see what you can do!  
 
 ---
 
