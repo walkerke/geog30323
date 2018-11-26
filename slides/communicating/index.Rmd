@@ -1,12 +1,12 @@
 ---
 title: "Data communication and data science"
 author: GEOG 30323
-date: November 28, 2017
+date: November 27, 2018
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
     transition: "none"
-    highlight: "zenburn"
+    highlight: "tango"
     center: TRUE
     fig_caption: TRUE
     
@@ -47,7 +47,7 @@ output:
 
 ### Tableau
 
-<img src="http://s1.q4cdn.com/149179428/files/images/tableau_logo-optimized-2x.png">
+<img src="https://www.senturus.com/wp-content/uploads/2016/04/Tableau-New-Logo-April-12-2016.jpg">
 
 * Highly popular software for data visualization - both exploratory and explanatory
 * Intuitive, drag-and-drop interface
@@ -139,7 +139,6 @@ Let's get an example ready:
 ```python
 import pandas as pd
 import seaborn as sns
-sns.set_context('notebook')
 import statsmodels.formula.api as smf
 
 df = pd.read_csv('http://personal.tcu.edu/kylewalker/data/texas_colleges.csv')
@@ -268,9 +267,9 @@ def find_neighbors(university):
 
 ### Making predictions
 
-<img src=img/target.png><br></br>
+<img src=img/target.PNG><br></br>
 
-<img src=img/amazon.png>
+<img src=img/amazon.PNG>
 
 
 ---
@@ -279,7 +278,7 @@ def find_neighbors(university):
 ### How to learn more
 
 * Take statistics and machine learning courses here at TCU!
-* Alternatively: [Coursera's Data Science Specialization](https://www.coursera.org/specializations/jhudatascience) is a great place to start...
+* Check out [DataCamp](https://www.datacamp.com/) for hundreds of courses on data science in Python and R
 
 
 
