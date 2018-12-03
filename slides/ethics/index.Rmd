@@ -1,7 +1,7 @@
 ---
 title: "Big data and data ethics"
 author: GEOG 30323
-date: December 5, 2017
+date: December 4, 2018
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
@@ -14,8 +14,9 @@ output:
 
 ## Reminders
 
-* Assignment 12 due __tomorrow (December 6)__
-* Exam 3 due by the  end of the day on __Thursday, December 14__
+* Assignments 10 and 11 due __tomorrow (December 5)__
+* Exam 3 due by the  end of the day on __Thursday, December 13__
+    * Graduating seniors: __Tuesday, December 11__
 * Our classroom is available from 11:30-2:00 to work on the exam; I'll be there!
 
 ---
