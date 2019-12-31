@@ -1,7 +1,7 @@
 ---
 title: "What is data?"
 author: GEOG 30323
-date: August 21, 2018
+date: January 14, 2020
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
@@ -12,12 +12,6 @@ output:
 ---
 
 ## Introductions
-
----
-
-## My data journey
-
-<img src=img/cpg.jpg style="width: 400px">
 
 ---
 
@@ -56,13 +50,13 @@ output:
 
 ## Sports
 
-<img src="https://espngrantland.files.wordpress.com/2015/04/joshsmith1152.jpg?w=694" style="width: 500px"><figcaption>Source: [Kirk Goldsberry/_Grantland_](http://grantland.com/the-triangle/nba-least-efficient-shooters-josh-smith-michael-carter-williams-trey-burke-nerlens-noel-dion-waiters/)</figcaption>
+<img src="https://pbs.twimg.com/media/EJYQ7i1UUAAxIJr?format=jpg&name=4096x4096" style="width: 500px"><figcaption>Source: [Kirk Goldsberry/ESPN](https://twitter.com/kirkgoldsberry/status/1195161371437961217)</figcaption>
 
 ---
 
 ## Data science
 
-<img src=img/onion.png style="width: 800px"><figcaption>Source: [_The Onion_](http://www.theonion.com/article/amazoncom-recommendations-understand-area-woman-be-2121)</figcaption>
+<img src=img/onion.PNG style="width: 800px"><figcaption>Source: [_The Onion_](http://www.theonion.com/article/amazoncom-recommendations-understand-area-woman-be-2121)</figcaption>
 
 ---
 
@@ -70,7 +64,7 @@ output:
 
 <img src="http://corinanielsen.com/livefit/wp-content/uploads/2015/11/stitchfix.jpg">
 
-* [StitchFix](https://www.stitchfix.com/); [Seasonal Trends at StitchFix](https://multithreaded.stitchfix.com/blog/2016/08/23/seasonal-trends/)
+* [StitchFix](https://www.stitchfix.com/); [Recommender systems for styles](https://multithreaded.stitchfix.com/blog/2018/06/28/latent-style/)
 
 ---
 
@@ -90,19 +84,19 @@ This course covers the process of __exploratory data analysis__, which includes 
 
 ## Finding data
 
-<img src=img/ssa.png style="width: 500px"><figcaption>Source: [Social Security Administration](http://www.ssa.gov/oact/babynames/limits.html)</figcaption>
+<img src=img/ssa.PNG style="width: 500px"><figcaption>Source: [Social Security Administration](http://www.ssa.gov/oact/babynames/limits.html)</figcaption>
 
 ---
 
 ### Loading and cleaning data
 
-<img src=img/csv.png>
+<img src=img/csv.PNG>
 
 ---
 
 ## Summarizing data
 
-<img src=img/names_table.png>
+<img src=img/names_table.PNG>
 
 ---
 
@@ -118,10 +112,9 @@ This course covers the process of __exploratory data analysis__, which includes 
 
 ---
 
-## Tools of the trade
+## Python
 
 * Your main tool: the Python programming language
-* Guest appearances from CARTO and Tableau
 * More to come on Python next week!
 
 ---
