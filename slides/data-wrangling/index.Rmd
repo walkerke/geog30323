@@ -1,12 +1,12 @@
 ---
 title: "Data wrangling"
 author: GEOG 30323
-date: October 3, 2017
+date: October 2, 2018
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
     transition: "none"
-    highlight: "zenburn"
+    highlight: "tango"
     center: TRUE
     fig_caption: TRUE
     
@@ -249,11 +249,11 @@ TX    15009.426582
 
 ```python
 import seaborn as sns
-sns.set_style("darkgrid")
+sns.set(style = "darkgrid", rc = {"figure.figsize": (8, 6)})
 
 sns.boxplot(x = 'state', y = 'debtnum', data = sw2, orient = 'v')
 ```
-<img src=img/box1.png style="width:700px">
+<img src=img/box1.png style="width:600px">
 
 ---
 
@@ -265,7 +265,7 @@ sns.boxplot(x = 'state', y = 'debtnum', data = sw2, orient = 'v')
 g = sns.FacetGrid(data = sw2, col = 'state', col_wrap = 2)
 g.map(sns.distplot, 'debtnum')
 ```
-<img src=img/facet.png style="width:400px">
+<img src=img/facet.png style="width:350px">
 
 ---
 
@@ -278,7 +278,7 @@ for s in sw2.state.unique():
     data = sw2[sw2.state == s]
     sns.kdeplot(data.debtnum, shade = True, label = s)
 ```
-<img src=img/kde.png style="width:650px">
+<img src=img/kde.png style="width:500px">
 
 ---
 
@@ -380,7 +380,7 @@ from pandas_datareader import wb
 countries = ['ZA', 'BR', 'US']
 urban = wb.download(indicator = 'SP.URB.TOTL.IN.ZS', 
                     country = countries, start = 1960, 
-                    end = 2015).reset_index()
+                    end = 2016).reset_index()
 urban.head()
 ```
 <img src=img/long.png>
@@ -406,7 +406,7 @@ urban_wide.head()
 urban_wide.plot()
 ```
 
-<img src=img/linechart.png>
+<img src=img/linechart.png style="width:550px">
 
 ---
 
@@ -416,12 +416,23 @@ urban_wide.plot()
 
 ```python
 urban_long = pd.melt(urban_wide.reset_index(), id_vars = 'year', 
-                     var_name = 'country', value_name = 'SP.URB.TOTL.IN.ZS')
+                     var_name = 'country', value_name = 'pcturban')
 
 urban_long.head()
 ```
-<img src=img/melt.png>
+<img src=img/long2.png>
 
+---
+
+### Plotting long-form data
+
+```python
+urban_long['year'] = urban_long['year'].astype(int)
+sns.lineplot(x = "year", y = "pcturban",
+            hue = "country", data = urban_long)
+```
+
+<img src=img/seaborn_line.PNG style="width:550px">
 
 
 <style>

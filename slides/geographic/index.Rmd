@@ -1,12 +1,12 @@
 ---
 title: "Geographic data and visualization"
 author: GEOG 30323
-date: November 14, 2017
+date: November 13, 2018
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
     transition: "none"
-    highlight: "zenburn"
+    highlight: "tango"
     center: TRUE
     fig_caption: TRUE
     
@@ -94,6 +94,7 @@ Examples:
 ### Let's make a map!
 
 * CARTO: https://carto.com/signup
+* CARTO (free) student edition: https://carto.com/students-access/
 
 ---
 
@@ -119,6 +120,26 @@ Examples:
 
 ### Mapping polygons
 
+```python
+import geopandas as gp
+
+mxgeo = gp.read_file("https://gist.githubusercontent.com/walkerke/76cb8cc5f949432f9555/raw/363c297ce82a4dcb9bdf003d82aa4f64bc695cf1/mx.geojson")
+
+
+sns.set(style = "white", rc = {"figure.figsize": (10, 8)})
+mxgeo.plot(column = "pri10", cmap = "RdPu")
+```
+
+---
+
+### Mapping polygons
+
+<img src="img/mexico_map.png" style="width: 750px">
+
+---
+
+### Mapping polygons (CARTO)
+
 <iframe width="100%" height="600" frameborder="0" src="https://kwalkertcu.cartodb.com/viz/a70f62c4-8b00-11e5-8960-0e5db1731f59/embed_map" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
 ---
@@ -127,7 +148,7 @@ Examples:
 
 * Beware the "amazing map"...
 
-<img src=img/clickhole.png style="width: 500px"><figcaption>Source: [Clickhole (The Onion)](http://www.clickhole.com/article/we-put-700-red-dots-map-947)</figcaption>
+<img src=img/clickhole.PNG style="width: 500px"><figcaption>Source: [Clickhole (The Onion)](http://www.clickhole.com/article/we-put-700-red-dots-map-947)</figcaption>
 
 ---
 
