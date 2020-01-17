@@ -1,7 +1,6 @@
 # geog30323
-Materials for GEOG 30323: Data Analysis & Visualization at TCU
 
-This repository contains course materials (syllabus, Jupyter notebooks, and datasets) for GEOG 30323: Data Analysis & Visualization, taught by Dr. Kyle Walker at Texas Christian University.  
+This repository contains course materials for GEOG 30323: Data Analysis & Visualization, taught by Dr. Kyle Walker at Texas Christian University.  
 
 Course assignments can be viewed and downloaded from the `notebooks` folder.  Source code for slide decks is found in the `slides` folder; rendered decks are viewable from the links below.  
 
