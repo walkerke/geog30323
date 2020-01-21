@@ -1,7 +1,7 @@
 ---
 title: "Programming I - Intro to Python"
 author: GEOG 30323
-date: August 28, 2018
+date: January 21, 2020
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
@@ -49,16 +49,6 @@ output:
 
 ---
 
-<img src="https://upload.wikimedia.org/wikipedia/en/c/cd/Anaconda_Logo.png" style="width: 500px; border: none;">
-
->- Product of Austin-based Anaconda, Inc.
->- Distribution of hundreds of packages for scientific and technical computing with Python
->- Sane package management (you'll learn more about this next week)
->- Our version: __Python 3.6__
->- [Download link](https://www.anaconda.com/download/)
-
----
-
 ## Why Python? (XKCD)
 
 <img src="http://imgs.xkcd.com/comics/python.png" style="width:400px"><figcaption>Source: [Randall Munroe/XKCD](https://xkcd.com/353/)</figcaption>
@@ -91,7 +81,7 @@ print("Hello World")
 
 * Just ask these companies!
 
-<img src=img/companies.png style="width: 800px"><figcaption>Source: [Peter Wang - PyData Dallas Keynote](http://www.slideshare.net/misterwang/pydata-texas-2015-keynote)</figcaption>
+<img src=img/companies.PNG style="width: 800px"><figcaption>Source: [Peter Wang - PyData Dallas Keynote](http://www.slideshare.net/misterwang/pydata-texas-2015-keynote)</figcaption>
 
 ---
 
@@ -106,7 +96,7 @@ print("Hello World")
 
 ### Python on the command line
 
-<img src=img/hello.png>
+<img src=img/hello.PNG>
 
 ---
 
