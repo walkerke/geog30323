@@ -223,7 +223,7 @@ grad.describe()
 
 ### Visualization in Python
 
-* Core visualization package in Python: `matplotlib` - which comes pre-installed with Anaconda
+* Core visualization package in Python: `matplotlib`
 * `seaborn`: extension to `matplotlib` to make your graphics look nicer!  Standard import: `import seaborn as sns`.  
 
 
