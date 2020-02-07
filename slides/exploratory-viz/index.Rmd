@@ -79,7 +79,7 @@ mx_sorted.head()
 
 ## Bar charts
 
-<img src="https://espnfivethirtyeight.files.wordpress.com/2015/02/hickey-datalab-snl-4.png?w=610&h=478" style="width: 600px"><figcaption>Source: [FiveThirtyEight.com](http://fivethirtyeight.com/datalab/who-really-had-the-best-movie-career-after-snl/)</figcaption>
+<img src="https://fivethirtyeight.com/wp-content/uploads/2015/02/hickey-datalab-snl-4.png?w=575" style="width: 600px"><figcaption>Source: [FiveThirtyEight.com](http://fivethirtyeight.com/datalab/who-really-had-the-best-movie-career-after-snl/)</figcaption>
 
 ---
 
@@ -120,7 +120,7 @@ sns.barplot(x = 'gdp08', y = 'name', data = mx_sorted)
 
 ## Dot plots
 
-<img src="https://espnfivethirtyeight.files.wordpress.com/2015/08/enten-datalab-clintonlead-1.png?w=610&h=562" style="width: 550px"><figcaption>Source: [FiveThirtyEight.com](http://fivethirtyeight.com/datalab/bernie-sanders-youre-no-barack-obama/)</figcaption>
+<img src="https://fivethirtyeight.com/wp-content/uploads/2015/08/enten-datalab-clintonlead-1.png?w=575" style="width: 550px"><figcaption>Source: [FiveThirtyEight.com](http://fivethirtyeight.com/datalab/bernie-sanders-youre-no-barack-obama/)</figcaption>
 
 ---
 
@@ -174,7 +174,7 @@ zac.plot(kind = 'pie', figsize = (6, 6))
 
 ### Line charts
 
-<img src="https://espnfivethirtyeight.files.wordpress.com/2014/10/casselman-feature-dropout-2.png?w=610&h=475" style="width: 700px"><figcaption>Source: [FiveThirtyEight.com](http://fivethirtyeight.com/features/u-s-high-school-dropout-rates-fall-especially-among-latinos/)</figcaption>
+<img src="https://fivethirtyeight.com/wp-content/uploads/2014/10/casselman-feature-dropout-2.png?w=575" style="width: 700px"><figcaption>Source: [FiveThirtyEight.com](http://fivethirtyeight.com/features/u-s-high-school-dropout-rates-fall-especially-among-latinos/)</figcaption>
 
 ---
 
@@ -200,7 +200,7 @@ sns.lineplot(x = "year", y = "pct_college",
 
 ### Scatter plots
 
-<img src="https://espnfivethirtyeight.files.wordpress.com/2014/11/morris-feature-moss-wowy1.png?w=610&h=626" style="width: 600px"><figcaption>Source: [FiveThirtyEight.com](http://fivethirtyeight.com/features/randy-moss-may-well-have-been-the-greatest-receiver-of-all-time/)</figcaption>
+<img src="https://fivethirtyeight.com/wp-content/uploads/2014/11/morris-feature-moss-wowy1.png?w=575" style="width: 600px"><figcaption>Source: [FiveThirtyEight.com](http://fivethirtyeight.com/features/randy-moss-may-well-have-been-the-greatest-receiver-of-all-time/)</figcaption>
 
 ---
 
