@@ -6,10 +6,11 @@ Course assignments can be viewed and downloaded from the `notebooks` folder.  So
 
 __Links to course lecture notes:__
 
-* Week 1: What is data?  http://walkerke.github.io/geog30323/slides/what-is-data/#/ 
-* Week 2: Programming I: Intro to Python  http://walkerke.github.io/geog30323/slides/programming-1/#/ 
-* Week 3: Programming II: Functions and iteration http://walkerke.github.io/geog30323/slides/functions-and-iteration/#/
-* Week 4: Modules, packages, and exploratory data analysis https://walkerke.github.io/geog30323/slides/modules-and-eda/#/
+* Week 1: [What is data?](http://walkerke.github.io/geog30323/slides/what-is-data/#/)
+* Week 2: [Programming I: Intro to Python](http://walkerke.github.io/geog30323/slides/programming-1/#/) 
+* Week 3: [Programming II: Functions and iteration](http://walkerke.github.io/geog30323/slides/functions-and-iteration/#/)
+* Week 4: [Modules, packages, and exploratory data analysis](https://walkerke.github.io/geog30323/slides/modules-and-eda/#/)
+* Week 5: [Multivariate data exploration](https://walkerke.github.io/geog30323/slides/exploratory-viz/#/)
 
 
 <!-- Add more week-by-week as the slides are ready
