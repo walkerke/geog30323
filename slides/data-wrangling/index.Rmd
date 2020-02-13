@@ -1,7 +1,7 @@
 ---
 title: "Data wrangling"
 author: GEOG 30323
-date: October 2, 2018
+date: February 18, 2020
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
@@ -50,7 +50,7 @@ debt = full[cols_to_keep]
 debt.columns = ['name', 'state', 'debt']
 debt.head()
 ```
-<img src=img/drop_cols.png>
+<img src=img/drop_cols.PNG>
 
 ---
 
@@ -61,7 +61,7 @@ debt.head()
 ```python
 debt[0:10]
 ```
-<img src=img/ex1.png>
+<img src=img/ex1.PNG>
 
 ---
 
@@ -73,7 +73,7 @@ debt[0:10]
 ex1 = debt.set_index('name')
 ex1.loc['Amridge University':'Alabama State University']
 ```
-<img src=img/index_name.png>
+<img src=img/index_name.PNG>
 
 ---
 
@@ -91,7 +91,7 @@ ex1.loc['Amridge University':'Alabama State University']
 debt1 = debt[debt['debt'] != 'PrivacySuppressed']
 debt1.head()
 ```
-<img src=img/sub1.png>
+<img src=img/sub1.PNG>
 
 ---
 
@@ -106,7 +106,7 @@ tx_debt = debt[(debt['debt'] != 'PrivacySuppressed') & (debt['state'] == 'TX')]
 
 tx_debt.head()
 ```
-<img src=img/txdebt.png>
+<img src=img/txdebt.PNG>
 
 ---
 
@@ -119,7 +119,7 @@ sw_debt = debt[(debt['debt'] != 'PrivacySuppressed') & (debt['state'].isin(state
 
 sw_debt.head()
 ```
-<img src=img/swdebt.png>
+<img src=img/swdebt.PNG>
 
 ---
 
@@ -150,7 +150,7 @@ df2 = df1.assign(col5 = df1.col3 / df1.col4)
 
 df2.head()
 ```
-<img src=img/assign.png>
+<img src=img/assign.PNG>
 
 ---
 
@@ -166,7 +166,7 @@ sw_debt['debtnum'] = sw_debt.debt.astype(float)
 sw_debt.head()
 
 ```
-<img src=img/newcol.png>
+<img src=img/newcol.PNG>
 
 ---
 
@@ -189,7 +189,7 @@ sw2 = sw_debt.dropna()
 
 sw2.head()
 ```
-<img src=img/dropna.png>
+<img src=img/dropna.PNG>
 
 
 ---
@@ -203,7 +203,7 @@ sw3 = sw_debt.fillna(sw_debt.median())
 
 sw3.head()
 ```
-<img src=img/fillna.png>
+<img src=img/fillna.PNG>
 
 ---
 
@@ -383,7 +383,7 @@ urban = wb.download(indicator = 'SP.URB.TOTL.IN.ZS',
                     end = 2016).reset_index()
 urban.head()
 ```
-<img src=img/long.png>
+<img src=img/long.PNG>
 
 ---
 
@@ -396,7 +396,7 @@ urban_wide = urban.pivot(index = 'year', columns = 'country',
                          values = 'SP.URB.TOTL.IN.ZS')
 urban_wide.head()
 ```
-<img src=img/wide.png>
+<img src=img/wide.PNG>
 
 ---
 
@@ -420,7 +420,7 @@ urban_long = pd.melt(urban_wide.reset_index(), id_vars = 'year',
 
 urban_long.head()
 ```
-<img src=img/long2.png>
+<img src=img/long2.PNG>
 
 ---
 
@@ -432,7 +432,7 @@ sns.lineplot(x = "year", y = "pcturban",
             hue = "country", data = urban_long)
 ```
 
-<img src=img/seaborn_line.PNG style="width:550px">
+<img src=img/seaborn_line.png style="width:550px">
 
 
 <style>
