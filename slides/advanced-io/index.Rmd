@@ -1,7 +1,7 @@
 ---
 title: "Advanced input and output"
 author: GEOG 30323
-date: October 23, 2018
+date: March 4, 2020
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
@@ -26,7 +26,7 @@ output:
 * Designed for __delimited__ text data
 * Lots of options!
 
-<img src=img/csv_opts.png>
+<img src=img/csv_opts.PNG>
 
 ---
 
@@ -115,7 +115,7 @@ uni.head()
 
 ### Data on websites
 
-<img src=img/espnfc.png style="width: 800px">
+<img src=img/epl_standings.png style="width: 800px">
 
 ---
 
@@ -134,46 +134,76 @@ uni.head()
 ```python
 url = 'http://www.espn.com/soccer/table/_/league/eng.1'
 
-d1 = pd.read_html(url)
+epl = pd.read_html(url)
 
-d1 # A list of data frame objects
+epl
 ```
+
+We get back a list of data frame objects with team names (with clean-up required) in the first data frame and team performance in the second
 
 ---
 
 ## Regular expressions
 
-<img src="img/xkcd.png" style="width: 800px">
+<img src="https://johnfraney.ca/images/commitstrip-650.jpg" style="width: 550px"><figcaption>[Image source](https://www.commitstrip.com/en/2016/04/08/fing-patterns/)</figcaption>
 
 ---
 
 ```python
-d2 = d1[0]
+teams = epl[0]
 
-d2["NAME"] = d2["2018-2019"].str.replace("[0-9]", "")
+teams["name"] = teams["2019-2020"].str.replace("[0-9]", "")
 
-d2.head()
+teams[6:12]
 ```
-<img src=img/head1.png>
+<img src=img/epl_snippet_1.png>
 
 ---
 
-```python
-d2["NAME"] = d2["NAME"].str[:-3]
+* `np.where()`: If the specified condition is `True`, return the first supplied outcome; otherwise return the second supplied outcome
 
-d2.head()
+```python
+import numpy as np
+
+teams["firstfive"] = teams["name"].str[0:5]
+
+teams["name"] = np.where(teams["firstfive"].str.isupper(),
+                         teams["name"].str[4:], 
+                         teams["name"].str[3:])
+
 ```
-<img src=img/head2.png>
+
+---
+
+```python
+teams[6:12]
+```
+
+<img src=img/epl_snippet_2.png>
 
 
 ---
 
 ```python
-d2.drop("2018-2019", axis = 1, inplace = True)
+teams.drop(["2019-2020", "firstfive"], axis = 1, inplace = True)
 
-d2.head()
+teams.head()
 ```
 <img src=img/clean1.png>
+
+---
+
+### Combining data frames by position
+
+* The `concat()` function in __pandas__: stitches together data frames vertically (`axis = 0`) or horizontally (`axis = 1`); relies on row/column indices rather than key field value
+
+```python
+epl_cleaned = pd.concat([teams, epl[1]], axis = 1)
+
+epl_cleaned.head()
+```
+
+<img src="img/pandas_concat.png">
 
 ---
 
@@ -183,7 +213,7 @@ d2.head()
 import seaborn as sns
 sns.set(style = "darkgrid", rc = {"figure.figsize": (8, 6)})
 
-sns.lmplot(data = d2, x = "A", y = "P")
+sns.lmplot(data = epl_cleaned, x = "A", y = "P")
 ```
 
 <img src=img/lmplot.png style="width:425px">
@@ -192,7 +222,7 @@ sns.lmplot(data = d2, x = "A", y = "P")
 
 ```python
 sns.barplot(x = "F", y = "NAME", 
-            data = d2.sort_values("F", ascending = False))
+            data = epl_cleaned.sort_values("F", ascending = False))
 ```
 
 <img src=img/barplot.png style="width:650px">
@@ -207,7 +237,7 @@ sns.barplot(x = "F", y = "NAME",
 For example: 
 
 ```python
-d2.to_csv('premier.csv', index = False)
+epl_cleaned.to_csv('epl_standings.csv', index = False)
 ```
 
 <style>
