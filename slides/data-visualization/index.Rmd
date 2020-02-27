@@ -1,7 +1,7 @@
 ---
 title: "Data visualization best practices"
 author: GEOG 30323
-date: October 30, 2018
+date: March 17, 2020
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
@@ -73,7 +73,7 @@ output:
 
 ### Color and context
 
-<img src="https://espnfivethirtyeight.files.wordpress.com/2014/04/silver-partisan-split-immigration.png" style="width: 350px"><figcaption>Source: [FiveThirtyEight.com](http://fivethirtyeight.com/datalab/our-33-weirdest-charts-from-2014/)</figcaption>
+<img src="https://fivethirtyeight.com/wp-content/uploads/2014/04/silver-partisan-split-immigration.png?w=1150" style="width: 350px"><figcaption>Source: [FiveThirtyEight.com](http://fivethirtyeight.com/datalab/our-33-weirdest-charts-from-2014/)</figcaption>
 
 ---
 
@@ -118,7 +118,7 @@ eu_countries = ['BE', 'BG', 'CZ', 'DK', 'DE', 'EE', 'IE', 'GR', 'ES', 'FR', 'HR'
                
 ue = wb.download(indicator = "SL.UEM.TOTL.ZS", 
                  country = eu_countries, start = 1991, 
-                 end = 2016)
+                 end = 2019)
 
 ue.reset_index(inplace = True)
 
@@ -147,7 +147,7 @@ sns.heatmap(ue_wide)
 
 ### The `seaborn` 'heat map' 
 
-<img src=img/heatmap.png>
+<img src=img/heatmap.png style="width: 700px">
 
 ---
 
@@ -167,6 +167,8 @@ sns.heatmap(ue_wide)
 sns.palplot(sns.color_palette('Greens', 7))
 ```
 <img src=img/greens.png>
+
+---
 
 ```python
 sns.palplot(sns.color_palette('Greens_r', 7))
@@ -199,7 +201,7 @@ sns.barplot(x = 'gdp08', y = 'name',
             data = mx.sort_values('gdp08', ascending = False), 
             palette = "Greens_r")
 ```
-<img src=img/mx.png style="width: 650px">
+<img src=img/mx.png style="width: 600px">
 
 ---
 
@@ -222,7 +224,7 @@ sns.lineplot(data = ue, x = "year", y = "unemployment",
 
 ## Highlighting
 
-<img src=img/greece.png>
+<img src=img/greece.png style="width: 550px">
 
 ---
 
@@ -258,7 +260,7 @@ for c in ue.country.unique():
 
 ### Annotation in Python
 
-<img src=img/greece2.png>
+<img src=img/greece2.png style="width: 550px">
 
 ---
 
@@ -267,7 +269,7 @@ for c in ue.country.unique():
 ```python
 
 plt.annotate('Global recession \nspreads to Europe', xy = (2009, 9.5), 
-             xycoords = 'data', xytext = (2005, 15), textcoords = 'data', 
+             xycoords = 'data', xytext = (2005, 23), textcoords = 'data', 
              arrowprops = dict(arrowstyle = 'simple', color = '#000000'))
 ```
 
@@ -275,7 +277,7 @@ plt.annotate('Global recession \nspreads to Europe', xy = (2009, 9.5),
 
 ### Small multiples
 
-<img src=img/sm1.PNG style="width: 750px"><figcaption>Source: _Data Points_</figcaption>
+<img src=img/sm1.PNG style="width: 700px"><figcaption>Source: _Data Points_</figcaption>
 
 ---
 
@@ -291,7 +293,7 @@ facets.map(sns.lineplot, "year", "unemployment")
 
 ### Small multiples in Python
 
-<img src=img/small_multiples.png style="width: 675px">
+<img src=img/small_multiples.png style="width: 850px">
 
 ---
 
@@ -314,7 +316,7 @@ sns.heatmap(ue_wide, cmap = 'YlGnBu')
 
 plt.ylabel("")
 plt.xlabel("")
-plt.title("Unemployment in Europe, 1991-2016")
+plt.title("Unemployment in Europe, 1991-2019")
 plt.xticks(rotation = 45)
 ```
 
@@ -322,7 +324,7 @@ plt.xticks(rotation = 45)
 
 ### Modified heatmap
 
-<img src="img/modified.png">
+<img src=img/modified.png style="width: 700px">
 
 ---
 
@@ -349,7 +351,7 @@ sns.lmplot(data = mx, x = 'mus09', y = 'pri10', lowess = True)
 ```python
 sns.pairplot(data = mx, vars = ['gdp08', 'mus09', 'pri10'])
 ```
-<img src=img/pairs.jpg style="width: 550px">
+<img src=img/pairs.jpg style="width: 450px">
 
 ---
 
