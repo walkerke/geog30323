@@ -47,6 +47,7 @@ notebooks/.ipynb_checkpoints/eda-1-checkpoint.ipynb
 .Rproj.user/**
 
 .Rproj.user
+.Rhistory
 
 # Data folder
 data/*
