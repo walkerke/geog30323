@@ -12,6 +12,7 @@ __Links to course lecture notes:__
 * Week 4: [Modules, packages, and exploratory data analysis](https://walkerke.github.io/geog30323/slides/modules-and-eda/#/)
 * Week 5: [Multivariate data exploration](https://walkerke.github.io/geog30323/slides/exploratory-viz/#/)
 * Weeks 6-7: [Data wrangling](http://walkerke.github.io/geog30323/slides/data-wrangling/#/)
+* Week 8: [Advanced input & output](https://walkerke.github.io/geog30323/slides/advanced-io/#/)
 
 
 <!-- Add more week-by-week as the slides are ready
