@@ -1,7 +1,7 @@
 ---
-title: "Geographic data and visualization"
+title: "Geographic data in Python"
 author: GEOG 30323
-date: November 13, 2018
+date: March 31, 2020
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
@@ -87,32 +87,90 @@ Examples:
 ### Vector data: CSV files
 
 * Example: Starbucks locations in Chicago 
-* Data download: http://personal.tcu.edu/kylewalker/data/chicago_starbucks.csv
+
+```python
+import pandas as pd
+
+starbucks = pd.read_csv("http://personal.tcu.edu/kylewalker/data/chicago_starbucks.csv")
+
+starbucks.head()
+```
 
 ---
 
-### Let's make a map!
+## GeoPandas
 
-* CARTO: https://carto.com/signup
-* CARTO (free) student edition: https://carto.com/students-access/
+* __GeoPandas__: Python package that extends __pandas__ to represent geographic objects as _GeoDataFrames_
+
+* Key column: `geometry`, which represents the geometry type of the data (point, line, or polygon) and the sequence of coordinates
+
+---
+
+### Making a GeoDataFrame
+
+```python
+import geopandas as gp
+
+sbgeo = gp.GeoDataFrame(starbucks,
+                        geometry = gp.points_from_xy(starbucks.Longitude,
+                                                     starbucks.Latitude),
+                        crs = 4326)
+```
+
+---
+
+### Making a GeoDataFrame
+
+* `gp.GeoDataFrame()`: function used to generate the GeoDataFrame, which can take an existing __pandas__ DataFrame as its first argument
+
+* Parameters: 
+  - `geometry`: how to represent the data as a geographic object. We use the `gp.points_from_xy()` function here to "make" the geometry from existing `Longitude` and `Latitude` columns. 
+  - `crs`: a code that specifies the dataset's _coordinate reference system_. Most coordinate systems can be represented by 4- or 5-digit codes (see https://spatialreference.org/)
 
 ---
 
 ### Mapping point data
 
-<iframe width="100%" height="600" frameborder="0" src="https://kwalkertcu-demo.carto.com/builder/0c04cfaa-ab41-11e6-95be-0e3ebc282e83/embed" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+```python
+sbgeo.plot()
+```
+
+<img src=img/starbucks1.png style="width: 450px">
 
 ---
 
-### Vector data: the _shapefile_
+### Adding a "basemap"
 
-* __Shapefile__: common format for encoding vector geographic data
-* Three __required__ files: .shp, .dbf, and .shx; .prj recommended  
+```python
+import contextily as ctx
 
+# "Project" to Web Mercator, used by tiled mapping services
+sbgeo2 = sbgeo.to_crs(3857)
+
+# Use the basemap function found at https://share.cocalc.com/share/56cef78b3fda5e0338c2da71b222e6b275a9193e/contextily.ipynb?viewer=share
+def add_basemap(ax, zoom, url='http://tile.stamen.com/terrain/tileZ/tileX/tileY.png'):
+    xmin, xmax, ymin, ymax = ax.axis()
+    basemap, extent = ctx.bounds2img(xmin, ymin, xmax, ymax, zoom=zoom, url=url)
+    ax.imshow(basemap, extent=extent, interpolation='bilinear')
+    # restore original x/y limits
+    ax.axis((xmin, xmax, ymin, ymax))
+```
+
+---
+
+### Adding a "basemap"
+
+```python
+p = sbgeo2.plot()
+cx.add_basemap(p, zoom = 11)
+```
+<img src=img/starbucks2.png style="width: 400px">
 
 ---
 
 ### Vector data: GeoJSON
+
+* Extension to the JSON format that encodes geographic coordinates for datasets
 
 * [Mexico's states as GeoJSON](https://gist.github.com/walkerke/76cb8cc5f949432f9555)
 
@@ -126,8 +184,8 @@ import geopandas as gp
 mxgeo = gp.read_file("https://gist.githubusercontent.com/walkerke/76cb8cc5f949432f9555/raw/363c297ce82a4dcb9bdf003d82aa4f64bc695cf1/mx.geojson")
 
 
-sns.set(style = "white", rc = {"figure.figsize": (10, 8)})
-mxgeo.plot(column = "pri10", cmap = "RdPu")
+sns.set(style = "white")
+mxgeo.plot(column = "pri10", cmap = "RdPu", figsize = (10, 8))
 ```
 
 ---
@@ -135,12 +193,6 @@ mxgeo.plot(column = "pri10", cmap = "RdPu")
 ### Mapping polygons
 
 <img src="img/mexico_map.png" style="width: 750px">
-
----
-
-### Mapping polygons (CARTO)
-
-<iframe width="100%" height="600" frameborder="0" src="https://kwalkertcu.cartodb.com/viz/a70f62c4-8b00-11e5-8960-0e5db1731f59/embed_map" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
 ---
 
@@ -168,7 +220,7 @@ mxgeo.plot(column = "pri10", cmap = "RdPu")
 
 ```python
 import pandas as pd, seaborn as sns, matplotlib.pyplot as plt
-sns.set(style="whitegrid")
+sns.set(style="whitegrid", font_scale = 1.3)
 df = pd.read_csv("http://personal.tcu.edu/kylewalker/mexico.csv")
 
 plt.figure(figsize = (10, 8))
@@ -184,8 +236,39 @@ sns.despine(left = True, bottom = True)
 
 ```
 
+## Raster data in Python
+
+* To work with raster data in Python, use the [rasterio](https://rasterio.readthedocs.io/en/latest/index.html) package
+
+```python
+import rasterio as rio
+
+# Dataset of elevation in the Tarrant County area
+elev = rio.open("http://personal.tcu.edu/kylewalker/data/tarrant_elevation.tif")
+```
+
+---
+
+### Plotting raster data
+
+```python
+from rasterio.plot import show, show_hist
+sns.set(style = "white")
+show(elev)
+```
+
+<img src=img/elevation.png style="width: 400px">
+
+---
 
 
+### Raster data: histograms
+
+```python
+show_hist(elev, bins = 100)
+```
+
+<img src=img/histogram.png style="width: 650px">
 
 
 
@@ -198,12 +281,11 @@ sns.despine(left = True, bottom = True)
   border:none; 
   box-shadow:none;
   }
-
-h3 {
-
-
-
-}
   
+
+
+
 </style>
+
+
 
