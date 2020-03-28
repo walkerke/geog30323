@@ -162,7 +162,7 @@ def add_basemap(ax, zoom, url='http://tile.stamen.com/terrain/tileZ/tileX/tileY.
 
 ```python
 p = sbgeo2.plot()
-cx.add_basemap(p, zoom = 11)
+add_basemap(p, zoom = 11)
 ```
 <img src=img/starbucks2.png style="width: 400px">
 
@@ -179,11 +179,9 @@ cx.add_basemap(p, zoom = 11)
 ### Mapping polygons
 
 ```python
-import geopandas as gp
-
 mxgeo = gp.read_file("https://gist.githubusercontent.com/walkerke/76cb8cc5f949432f9555/raw/363c297ce82a4dcb9bdf003d82aa4f64bc695cf1/mx.geojson")
 
-
+import seaborn as sns
 sns.set(style = "white")
 mxgeo.plot(column = "pri10", cmap = "RdPu", figsize = (10, 8))
 ```
