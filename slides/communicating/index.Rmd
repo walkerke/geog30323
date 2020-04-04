@@ -1,7 +1,7 @@
 ---
-title: "Data communication and data science"
+title: "Data communication and interactive visualization"
 author: GEOG 30323
-date: November 27, 2018
+date: April 14, 2020
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
@@ -18,7 +18,7 @@ output:
 * Your data analysis journey shouldn't stop here!  Topics to consider: 
     * _Explanatory_ vs. exploratory visualization
     * Statistics and data science
-    * Data ethics and "big data" (next week)
+    * Data ethics and "big data" 
 
 ---
 
@@ -38,11 +38,178 @@ output:
 
 ---
 
+### Infographics
+
+Obesity infographics: 
+
+* [Example #1](http://visual.ly/72-million-obese-adults-united-states)
+* [Example #2](https://s-media-cache-ak0.pinimg.com/736x/41/4b/1b/414b1b7627feca460785a8eb749c2f38.jpg)
+
+---
+
+
+### Are infographics useful?
+
+* XKCD: https://xkcd.com/1273/
+
+---
+
 ### Interactive reports
 
 * Example: a data journalism article - or your Jupyter Notebook!
 * Key distinction: your code, data exploration, etc. will likely be external to the report (this can vary depending on the context, however)
 
+---
+
+### Data storytelling
+
+<iframe width="853" height="480" src="https://www.youtube.com/embed/jbkSRLYSojo" frameborder="0" allowfullscreen></iframe>
+
+---
+
+### Why interactive visualization? 
+
+* User is an _active participant_ rather than a _passive observer_
+* Key points to consider: 
+    * What are you visualizing? 
+    * What is the purpose of your visualization? 
+    * Who is your audience? 
+    * In what format and venue will you be presenting the visualization?  
+
+---
+
+### Interactive data journalism
+
+[<img src=img/nyt-migration.PNG style="width: 900px">](http://www.nytimes.com/interactive/2014/08/13/upshot/where-people-in-each-state-were-born.html?_r=0#Texas)<figcaption>Source: _The New York Times_</figcaption>
+
+---
+
+### Interactivity in the Notebook
+
+* The `ipywidgets` package allows you to build basic graphical user interfaces (GUIs) to explore your data in the Notebook
+* How it works: supply a function to the `interact` function in `ipywidgets`
+
+```python
+from ipywidgets import interact
+
+def add_five(x): 
+    print(x + 5)
+
+interact(add_five, x = (1, 100))
+
+```
+
+---
+
+## Interactivity with plots
+
+```python
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+mx = pd.read_csv('http://personal.tcu.edu/kylewalker/mexico.csv')
+
+cols = ['mus09', 'pri10', 'sec10', 'ter10', 'gdp08']
+
+def make_plot(x, y, title): 
+    sns.lmplot(data = mx, x = x, y = y)
+    plt.title(title)    
+    
+interact(make_plot, x = cols, y = cols, title = "Enter a plot title!")
+```
+
+---
+
+### Widgets: not just for plots!
+
+```python
+def get_accidents(street_name): 
+    part1 = 'https://data.fortworthtexas.gov/resource/kr8h-9zxd.json?streetname='
+    api_call = part1 + street_name
+    return pd.read_json(api_call)
+
+def get_street(street = ['BERRY', 'UNIVERSITY', 'ROSEDALE']): 
+    df = get_accidents(street)
+    return df.head()
+    
+interact(get_street) 
+```
+
+---
+
+## Ipywidgets fundamentals
+
+Arguments used in `interact()` correspond to the following: 
+
+* A __boolean__ (`True` or `False`) returns a __checkbox__
+* A __string__ returns a __text input__
+* A __number__ (integer or float) returns a __slider__
+* A __tuple of numbers__ (start, end, step size) returns a __range slider__
+* A __list__ returns a __drop-down menu__
+
+Experiment with the functions you've written this semester!
+
+---
+
+### Interactive visualization and the web
+
+* Analytical workflows have become increasingly connected to the web - or even completely web-based
+* Interactive data visualization: graphics not just _on_ the web, but _of_ the web
+
+---
+
+### Filtering & highlighting
+
+<img src=img/cases.gif style="width: 500px"><figcaption>[Image source: [_The New York Times_](https://www.nytimes.com/interactive/2020/04/03/upshot/coronavirus-metro-area-tracker.html)</figcaption>
+
+---
+
+### Linked charts
+
+<img src=img/nigeria.gif style="width: 800px"><figcaption>[Link to live example](https://rpubs.com/walkerke/nigeria-tfr)</figcaption>
+
+---
+
+### Interactive visualization in Python
+
+* [Altair](https://altair-viz.github.io/)
+
+* [Bokeh](https://docs.bokeh.org/en/latest/index.html)
+
+* [Plotly](https://plotly.com/python/)
+
+To use these libraries in CoCalc, the __Classical Notebook__, not the default CoCalc notebook, must be used
+
+---
+
+## Altair example
+
+```python
+import altair as alt
+
+alt.Chart(mx).mark_circle(size = 60).encode(
+    x = "pri10",
+    y = "mus09",
+    tooltip = ["name", "mus09", "pri10"]
+).interactive()
+```
+
+---
+
+## Plotly example
+
+* Plotly can convert existing matplotlib or seaborn plots to interactive charts
+* The seaborn styling will not always carry over perfectly
+
+```python
+import plotly.offline as py
+py.init_notebook_mode()
+
+sns.scatterplot(data = mx, x = 'pri10', y = 'mus09')
+fig = plt.gcf() # "Get current figure"
+py.iplot_mpl(fig)
+```
 ---
 
 ### Tableau
@@ -59,226 +226,13 @@ output:
 ### Data dashboards
 
 * [Tableau public gallery](https://public.tableau.com/en-us/s/gallery?qt-overview_gallery=0)
-* [Integration with Mapbox GL JS](https://www.ryanbaumann.com/blog/2016/11/21/tableau-with-next-nen-gl-maps-today)
+* [Integration with Mapbox](https://public.tableau.com/views/TheTurtle/Tester?:embed=y&:display_count=yes&publish=yes&:origin=viz_share_link&:showVizHome=no#1)
 
 ---
 
 ### Demo: Tableau Public
 
 * Let's work with a (cleaned) obesity dataset you'll be familiar with from earlier in the semester; download it at http://personal.tcu.edu/kylewalker/data/overweight.csv
-
----
-
-### Infographics
-
-Obesity infographics: 
-
-* http://visual.ly/72-million-obese-adults-united-states
-* https://s-media-cache-ak0.pinimg.com/736x/41/4b/1b/414b1b7627feca460785a8eb749c2f38.jpg
-
----
-
-
-### Are infographics useful?
-
-* XKCD: https://xkcd.com/1273/
-
----
-
-## Data Science
-
-* __Data science__: new(ish) field that has emerged to address the challenges of working with modern data
-* Fuses statistics, computer science, visualization, graphic design, and the humanities/social sciences/natural sciences...
-
----
-
-### The data analysis process
-
-<img src=img/process.png>
-
----
-
-### Visualization vs. modeling
-
-Hadley Wickham (paraphrased): 
-
-> Visualization can surprise you, but it doesn’t scale well.
-> Modeling scales well, but it doesn't (fundamentally) surprise.
-
----
-
-### Statistical modeling
-
-* What is the mathematical relationship between an outcome variable $Y$ and one or more other "predictor" variables $X_{1}...X_{n}$?
-* Recall our use of `lmplot` in `seaborn` - `lm` stands for _linear model_
-
----
-
-### Statistical modeling
-
-The linear model: 
-
-$$ Y = Xb + e $$
-
-where $Y$ represents the outcome variable, $X$ is a matrix of predictors, $b$ represents the "parameters", and $e$ represents the errors, or "residuals"
-
-* Linear models will not always be appropriate for modeling relationships between variables!
-
----
-
-### Statistics in Python
-
-* Substantial statistical functionality available in the `statsmodels` package, which installs with Anaconda
-
----
-
-### Statistics in Python
-
-Let's get an example ready: 
-
-```python
-import pandas as pd
-import seaborn as sns
-import statsmodels.formula.api as smf
-
-df = pd.read_csv('http://personal.tcu.edu/kylewalker/data/texas_colleges.csv')
-df['grad_rate'] = df.grad_rate * 100
-
-
-```
-
----
-
-### Linear regression
-
-```python
-f = smf.ols(formula = 'median_earn ~ grad_rate', data = df).fit()
-
-f.summary()
-```
-
----
-
-### Multiple regression
-
-```python
-f2 = smf.ols(formula = 'median_earn ~ grad_rate + sat_avg', data = df).fit()
-f2.summary()
-```
----
-
-### Residuals and fitted values
-
-```python
-df['fitted'] = f2.predict()
-df['resid'] = f2.resid
-
-```
-
----
-
-### Residuals and fitted values
-
-<iframe width="900" height="550" frameborder="0" scrolling="no" src="residuals.html"></iframe>
-
----
-
-### Machine learning
-
-* "The science of getting computers to act without being explicitly programmed"
-* Types of machine learning algorithms: _supervised_ and _unsupervised_
-* Topics in machine learning: _classification_, _clustering_, _regression_
-
-Visual introduction to machine learning: http://www.r2d3.us/visual-intro-to-machine-learning-part-1/
-
----
-
-### In Python: `scikit-learn`
-
-```python
-import numpy as np
-import pandas as pd
-from sklearn.cluster import KMeans
-from sklearn.neighbors import NearestNeighbors
-
-df = pd.read_csv('http://personal.tcu.edu/kylewalker/data/dec8.csv', index_col = 'name')
-
-df.head()
-```
-
----
-
-### Example: K-means clustering
-
-```python
-np.random.seed(1983)
-
-km = KMeans(n_clusters = 7).fit(df)
-
-df['clusters'] = km.labels_
-
-# Check TCU's cluster
-df.loc['Texas Christian University'] 
-
-```
-
----
-
-### Example: K-means clustering
-
-```python
-def glimpse_clusters(cluster_id):
-    sub = df[df.clusters == cluster_id]
-    print(sub.head(20))
-    
-```
-
----
-
-### Example: nearest-neighbor search
-
-```python
-neigh = NearestNeighbors(n_neighbors = 5)
-
-# "Training" the model
-neigh.fit(df) 
-
-# Searching for neighbors
-model = neigh.kneighbors(df, return_distance = False)
-results = pd.DataFrame(model, columns = ['x1', 'x2', 'x3', 'x4', 'x5'])
-merged = pd.merge(df.reset_index(), results, right_index = True, left_index = True)
-```
-
----
-
-### Example: nearest-neighbor search
-
-```python
-def find_neighbors(university): 
-    d = merged[merged.name == university].reset_index()
-    for x in ['x2', 'x3', 'x4', 'x5']: 
-        idx = d.iloc[0][x]
-        m = merged.loc[idx]
-        print(m['name'])
-
-```
-
----
-
-### Making predictions
-
-<img src=img/target.PNG><br></br>
-
-<img src=img/amazon.PNG>
-
-
----
-
-
-### How to learn more
-
-* Take statistics and machine learning courses here at TCU!
-* Check out [DataCamp](https://www.datacamp.com/) for hundreds of courses on data science in Python and R
 
 
 

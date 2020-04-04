@@ -1,0 +1,233 @@
+---
+title: "Introduction to machine learning"
+author: GEOG 30323
+date: April 21, 2020
+output: 
+  revealjs::revealjs_presentation: 
+    theme: "white"
+    transition: "none"
+    highlight: "tango"
+    center: TRUE
+    fig_caption: TRUE
+    
+---
+
+## Data Science
+
+* __Data science__: new(ish) field that has emerged to address the challenges of working with modern data
+* Fuses statistics, computer science, visualization, graphic design, and the humanities/social sciences/natural sciences...
+
+---
+
+### The data analysis process
+
+<img src=img/process.png>
+
+---
+
+### Visualization vs. modeling
+
+Hadley Wickham (paraphrased): 
+
+> Visualization can surprise you, but it doesn’t scale well.
+> Modeling scales well, but it doesn't (fundamentally) surprise.
+
+---
+
+### Statistical modeling
+
+* What is the mathematical relationship between an outcome variable $Y$ and one or more other "predictor" variables $X_{1}...X_{n}$?
+* Recall our use of `lmplot` in `seaborn` - `lm` stands for _linear model_
+
+---
+
+### Statistical modeling
+
+The linear model: 
+
+$$ Y = Xb + e $$
+
+where $Y$ represents the outcome variable, $X$ is a matrix of predictors, $b$ represents the "parameters", and $e$ represents the errors, or "residuals"
+
+* Linear models will not always be appropriate for modeling relationships between variables!
+
+---
+
+### Statistics in Python
+
+* Substantial statistical functionality available in the `statsmodels` package, which installs with Anaconda
+
+---
+
+### Statistics in Python
+
+Let's get an example ready: 
+
+```python
+import pandas as pd
+import seaborn as sns
+import statsmodels.formula.api as smf
+
+df = pd.read_csv('http://personal.tcu.edu/kylewalker/data/texas_colleges.csv')
+df['grad_rate'] = df.grad_rate * 100
+
+
+```
+
+---
+
+### Linear regression
+
+```python
+f = smf.ols(formula = 'median_earn ~ grad_rate', data = df).fit()
+
+f.summary()
+```
+
+---
+
+### Multiple regression
+
+```python
+f2 = smf.ols(formula = 'median_earn ~ grad_rate + sat_avg', data = df).fit()
+f2.summary()
+```
+---
+
+### Residuals and fitted values
+
+```python
+df['fitted'] = f2.predict()
+df['resid'] = f2.resid
+
+```
+
+---
+
+### Residuals and fitted values
+
+<iframe width="900" height="550" frameborder="0" scrolling="no" src="residuals.html"></iframe>
+
+---
+
+### Machine learning
+
+* "The science of getting computers to act without being explicitly programmed"
+* Types of machine learning algorithms: _supervised_ and _unsupervised_
+* Topics in machine learning: _classification_, _clustering_, _regression_
+
+Visual introduction to machine learning: http://www.r2d3.us/visual-intro-to-machine-learning-part-1/
+
+---
+
+### In Python: `scikit-learn`
+
+```python
+import numpy as np
+import pandas as pd
+from sklearn.cluster import KMeans
+from sklearn.neighbors import NearestNeighbors
+
+df = pd.read_csv('http://personal.tcu.edu/kylewalker/data/dec8.csv', index_col = 'name')
+
+df.head()
+```
+
+---
+
+### Example: K-means clustering
+
+```python
+np.random.seed(1983)
+
+km = KMeans(n_clusters = 7).fit(df)
+
+df['clusters'] = km.labels_
+
+# Check TCU's cluster
+df.loc['Texas Christian University'] 
+
+```
+
+---
+
+### Example: K-means clustering
+
+```python
+def glimpse_clusters(cluster_id):
+    sub = df[df.clusters == cluster_id]
+    print(sub.head(20))
+    
+```
+
+---
+
+### Example: nearest-neighbor search
+
+```python
+neigh = NearestNeighbors(n_neighbors = 5)
+
+# "Training" the model
+neigh.fit(df) 
+
+# Searching for neighbors
+model = neigh.kneighbors(df, return_distance = False)
+results = pd.DataFrame(model, columns = ['x1', 'x2', 'x3', 'x4', 'x5'])
+merged = pd.merge(df.reset_index(), results, right_index = True, left_index = True)
+```
+
+---
+
+### Example: nearest-neighbor search
+
+```python
+def find_neighbors(university): 
+    d = merged[merged.name == university].reset_index()
+    for x in ['x2', 'x3', 'x4', 'x5']: 
+        idx = d.iloc[0][x]
+        m = merged.loc[idx]
+        print(m['name'])
+
+```
+
+---
+
+### Making predictions
+
+<img src=img/target.PNG><br></br>
+
+<img src=img/amazon.PNG>
+
+
+---
+
+
+### How to learn more
+
+* Take statistics and machine learning courses here at TCU!
+* Check out [DataCamp](https://www.datacamp.com/) for hundreds of courses on data science in Python and R
+
+
+
+
+
+
+
+
+
+<style>
+
+.reveal section img {
+  background:none; 
+  border:none; 
+  box-shadow:none;
+  }
+
+h3 {
+
+
+
+}
+  
+</style>
+
