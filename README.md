@@ -13,6 +13,9 @@ __Links to course lecture notes:__
 * Week 5: [Multivariate data exploration](https://walkerke.github.io/geog30323/slides/exploratory-viz/#/)
 * Weeks 6-7: [Data wrangling](http://walkerke.github.io/geog30323/slides/data-wrangling/#/)
 * Week 8: [Advanced input & output](https://walkerke.github.io/geog30323/slides/advanced-io/#/)
+* Week 11: [Data visualization best practices](https://walkerke.github.io/geog30323/slides/data-visualization/#/)
+* Week 12: [Geographic data in Python](https://walkerke.github.io/geog30323/slides/geographic/#/)
+* Week 14: [Data communication & interactive visualization](https://walkerke.github.io/geog30323/slides/communicating/#/)
 
 
 <!-- Add more week-by-week as the slides are ready
