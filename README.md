@@ -16,6 +16,7 @@ __Links to course lecture notes:__
 * Week 11: [Data visualization best practices](https://walkerke.github.io/geog30323/slides/data-visualization/#/)
 * Week 12: [Geographic data in Python](https://walkerke.github.io/geog30323/slides/geographic/#/)
 * Week 14: [Data communication & interactive visualization](https://walkerke.github.io/geog30323/slides/communicating/#/)
+* Week 15: [Introduction to machine learning](https://walkerke.github.io/geog30323/slides/intro-to-ml/#/)
 
 
 <!-- Add more week-by-week as the slides are ready
