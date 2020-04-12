@@ -114,6 +114,7 @@ Visual introduction to machine learning: http://www.r2d3.us/visual-intro-to-mach
 
 * _Classification problem_: predicting a categorical outcome
 
+
 ---
 
 ### Regression for prediction
@@ -211,7 +212,7 @@ rf2.fit(X = train[features2], y = train["is_private"])
 
 ```python
 from sklearn.metrics import confusion_matrix
-predicted_class = rf2.predict(test[features])
+predicted_class = rf2.predict(test[features2])
 
 # Prediction accuracy on test set
 rf2.score(test[features2], test['is_private'])
