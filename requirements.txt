@@ -2,5 +2,3 @@ numpy
 pandas
 seaborn
 matplotlib
-urllib2
-jupyter
