@@ -17,6 +17,7 @@ __Links to course lecture notes:__
 * Week 12: [Geographic data in Python](https://walkerke.github.io/geog30323/slides/geographic/#/)
 * Week 14: [Data communication & interactive visualization](https://walkerke.github.io/geog30323/slides/communicating/#/)
 * Week 15: [Introduction to machine learning](https://walkerke.github.io/geog30323/slides/intro-to-ml/#/)
+* Week 16: [Big data and data ethics](https://walkerke.github.io/geog30323/slides/ethics/#/)
 
 
 <!-- Add more week-by-week as the slides are ready
