@@ -34,13 +34,62 @@ output:
 
 ### Big data management
 
-<img src="http://www-01.ibm.com/software/ebusiness/jstart/graphics/hadoopDiagram.png" style="width: 600px">
+* Software solutions: Apache Hadoop, Apache Spark
+* General principle: __MapReduce__
+
+<img src="https://databricks.com/wp-content/uploads/2014/03/spark-devs1.png" style="width: 600px"><figcaption>Image source: [DataBricks](https://databricks.com/blog/2014/03/20/apache-spark-a-delight-for-developers.html)</figcaption>
 
 ---
 
-## Ethics
+## Weekly exercise/extra credit
 
-* Discuss: what does "ethics" mean to you?
+* This week's exercise: for _one_ of the three ethical scenarios that follow: 
+  - Read the "reaction article" for that ethical scenario
+  - Write up a short response (around 250 words) summarizing the article and your reactions to it
+  
+* For extra credit (equivalent in value to an "extra" weekly exercise): complete the weekly exercise prompt for _all three ethical scenarios._  
+
+---
+
+## Ethical scenarios
+
+* Location-based services and mobile data analysis
+
+* Contact tracing for public health: COVID-19
+
+* Predictive policing
+
+---
+
+## Location-based services
+
+* [Example: Uber Movement data](https://movement.uber.com/?lang=en-US)
+
+<img src="https://image.cnbcfm.com/api/v1/image/106170365-1570549735005uber-tracking.jpg?v=1570549772?w=720&h=405"><figcaption>Source: CNBC</figcaption>
+
+---
+
+## Location-based services
+
+* Reaction article: [Your Apps Know Where You Were Last Night, and They're Not Keeping It Secret (_New York Times_)](https://www.nytimes.com/interactive/2018/12/10/business/location-data-privacy-apps.html)
+
+---
+
+### Contact tracing for public health
+
+<img src=img/contact_tracing.jpg style="width: 750px"><figcaption>[More information from Google](https://blog.google/inside-google/company-announcements/apple-and-google-partner-covid-19-contact-tracing-technology)</figcaption>
+
+---
+
+### Contact tracing for public health
+
+* Reaction article: [Big Data Is Helping Us Fight The Coronavirus — But At What Cost To Our Privacy? (_FiveThirtyEight_)](https://fivethirtyeight.com/features/big-data-is-helping-us-fight-the-coronavirus-but-at-what-cost-to-our-privacy/)
+
+---
+
+## Predictive policing
+
+<img src="https://www.pluggedin.com/wp-content/uploads/2019/12/minority-report-2048x1354.jpg" style="width: 650px"></figcaption>
 
 ---
 
@@ -52,26 +101,10 @@ output:
 
 ### Predictive policing
 
-* For further reading: https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing
+* Reaction article: [Machine Bias (_ProPublica_)](https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing)
 
----
 
-### 'Microtargeting' and elections
 
-> "Nix says his database has between 4,000 and 5,000 data points on every registered voter in the U.S. — from where you shop to websites you’ve visited, cars you’ve driven, magazines you’ve subscribed to and your all-important voter registration history."
-
-https://www.yahoo.com/politics/neurotic-extroverted-disagreeable-political-campaigns-1291656824504374.html
-
----
-
-### Terrorism and privacy
-
-> "After the Paris attacks, democratic societies can reasonably ask whether the right to remain
-anonymous, be it online or travelling around Europe, should remain near-absolute. As long as
-there is proper democratic oversight of those handling the data, Europeans will have to give up
-some anonymity to preserve the liberty and security that matter." [(From _The Economist_)](http://www.economist.com/news/briefing/21679266-how-balance-security-privacy-after-paris-attacks-terrorist-data?fsrc=scn/tw/te/pe/ed/theterroristinthedata) 
-
-What do you think? 
 
 
 
