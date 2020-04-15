@@ -95,7 +95,7 @@ output:
 
 ### Predictive policing
 
-<iframe width="800" height="550" src="http://abc7chicago.com/video/embed/?pid=1486730" frameborder="0" allowfullscreen></iframe>
+* [Video: use of predictive policing in Chicago](http://abc7chicago.com/video/embed/?pid=1486730)
 
 ---
 
