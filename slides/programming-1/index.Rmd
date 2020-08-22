@@ -1,7 +1,7 @@
 ---
 title: "Programming I - Intro to Python"
 author: GEOG 30323
-date: January 21, 2020
+date: August 25, 2020
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
