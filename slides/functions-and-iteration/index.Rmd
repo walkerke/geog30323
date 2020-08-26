@@ -1,7 +1,7 @@
 ---
 title: "Programming II - Functions and Iteration"
 author: GEOG 30323
-date: January 28, 2020
+date: September 1, 2020
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
@@ -207,7 +207,7 @@ SyntaxError: non-keyword arg after keyword arg
 * Example: 
 
 ```python
-for character in 'Kyle': 
+for character in "Kyle": 
    print("Give me a " + character + "!")
 
 Give me a K!
@@ -222,9 +222,9 @@ Give me a e!
 
 So what is going on here?  
 
-1. The `for` loop looks at what it will iterate through - in this case it is a string, `Kyle`
-2. We are referring to each element of our string, `Kyle`, as `character`.  
-3. The loop evaluates the expression passed to the `print` function __for__ each `character` in `Kyle` successively
+1. The `for` loop looks at what it will iterate through - in this case it is a string, `"Kyle"`
+2. We are referring to each element of our string, `"Kyle"`, as `character`.  
+3. The loop evaluates the expression passed to the `print` function __for__ each `character` in `"Kyle"` successively
 
 So the `for` loop is equivalent to: 
 
