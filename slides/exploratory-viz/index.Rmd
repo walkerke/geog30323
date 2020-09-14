@@ -51,7 +51,7 @@ Many, many more in these categories - these are just our focus for today!
 
 ### Python and the web
 
-* A brief aside: With Python, data on the web is at your fingertips (our topic for Week 9)
+* A brief aside: With Python, data on the web is at your fingertips (our topic for Week 8)
 * This week, you will get a preview
 
 ```python
