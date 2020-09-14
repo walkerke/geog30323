@@ -101,7 +101,7 @@ mx_sorted.head()
 
 ```python
 import seaborn as sns
-sns.set(style = "darkgrid", rc = {"figure.figsize": (10, 8)})
+sns.set(style = "darkgrid")
 
 mx.plot(x= 'name', y = 'gdp08', kind = 'bar')
 ```
