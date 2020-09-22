@@ -132,7 +132,7 @@ uni.head()
 ### Web scraping in `pandas`
 
 ```python
-url = 'http://www.espn.com/soccer/table/_/league/eng.1'
+url = 'https://www.espn.com/soccer/standings/_/league/ENG.1/season/2019'
 
 epl = pd.read_html(url)
 
@@ -189,7 +189,7 @@ teams.drop(["2019-2020", "firstfive"], axis = 1, inplace = True)
 
 teams.head()
 ```
-<img src=img/clean1.png>
+<img src=img/clean1.PNG>
 
 ---
 
@@ -211,7 +211,7 @@ epl_cleaned.head()
 
 ```python
 import seaborn as sns
-sns.set(style = "darkgrid", rc = {"figure.figsize": (8, 6)})
+sns.set(style = "darkgrid")
 
 sns.lmplot(data = epl_cleaned, x = "A", y = "P")
 ```
@@ -221,7 +221,7 @@ sns.lmplot(data = epl_cleaned, x = "A", y = "P")
 ---
 
 ```python
-sns.barplot(x = "F", y = "NAME", 
+sns.barplot(x = "F", y = "name", 
             data = epl_cleaned.sort_values("F", ascending = False))
 ```
 
