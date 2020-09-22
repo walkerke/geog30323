@@ -1,7 +1,7 @@
 ---
 title: "Data wrangling"
 author: GEOG 30323
-date: February 18, 2020
+date: September 22, 2020
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
@@ -35,8 +35,8 @@ Fortunately, `pandas` can help you with all of this!
 import pandas as pd
 
 full_url = 'http://personal.tcu.edu/kylewalker/data/colleges.csv'
-full = pd.read_csv(full_url, encoding = 'latin_1')
-full.shape
+full_df = pd.read_csv(full_url, encoding = 'latin_1')
+full_df.shape
 ```
 ---
 
@@ -46,9 +46,9 @@ full.shape
 
 ```python
 cols_to_keep = ['INSTNM', 'STABBR', 'GRAD_DEBT_MDN_SUPP']
-debt = full[cols_to_keep]
-debt.columns = ['name', 'state', 'debt']
-debt.head()
+debt_df = full_df[cols_to_keep]
+debt_df.columns = ['name', 'state', 'debt']
+debt_df.head()
 ```
 <img src=img/drop_cols.PNG>
 
@@ -59,8 +59,9 @@ debt.head()
 * Data frames can be _sliced_ like lists and strings
 
 ```python
-debt[0:10]
+debt_df[0:10]
 ```
+
 <img src=img/ex1.PNG>
 
 ---
@@ -70,8 +71,8 @@ debt[0:10]
 * Selecting by row or column index available in the `.loc[]` method (note the brackets)
 
 ```python
-ex1 = debt.set_index('name')
-ex1.loc['Amridge University':'Alabama State University']
+example1 = debt.set_index('name')
+example1.loc['Amridge University':'Alabama State University']
 ```
 <img src=img/index_name.PNG>
 
@@ -88,8 +89,8 @@ ex1.loc['Amridge University':'Alabama State University']
 ### By value
 
 ```python
-debt1 = debt[debt['debt'] != 'PrivacySuppressed']
-debt1.head()
+debt_df1 = debt_df[debt_df['debt'] != 'PrivacySuppressed']
+debt_df1.head()
 ```
 <img src=img/sub1.PNG>
 
@@ -98,13 +99,12 @@ debt1.head()
 ### By value
 
 ```python
-tx_debt = debt[(debt['debt'] != 'PrivacySuppressed') & (debt['state'] == 'TX')]
+tx_debt_df = debt_df[(debt_df['debt'] != 'PrivacySuppressed') & (debt_df['state'] == 'TX')]
 
 # Alternatively, use the .query() method
 
-# tx_debt = debt.query('debt != "PrivacySuppressed" & state == "TX" ')
+# tx_debt_df = debt_df.query('debt != "PrivacySuppressed" & state == "TX" ')
 
-tx_debt.head()
 ```
 <img src=img/txdebt.PNG>
 
@@ -115,9 +115,9 @@ tx_debt.head()
 ```python
 states = ['OK', 'NM', 'TX', 'LA']
 
-sw_debt = debt[(debt['debt'] != 'PrivacySuppressed') & (debt['state'].isin(states))]
+sw_debt_df = debt_df[(debt_df['debt'] != 'PrivacySuppressed') & (debt_df['state'].isin(states))]
 
-sw_debt.head()
+sw_debt_df.head()
 ```
 <img src=img/swdebt.PNG>
 
@@ -161,9 +161,9 @@ df2.head()
 * Note: `SettingWithCopyWarning`
 
 ```python
-sw_debt['debtnum'] = sw_debt.debt.astype(float)
+sw_debt_df['debtnum'] = sw_debt_df.debt.astype(float)
 
-sw_debt.head()
+sw_debt_df.head()
 
 ```
 <img src=img/newcol.PNG>
@@ -185,9 +185,9 @@ sw_debt.head()
 * `.dropna()` method: delete all rows (or columns) that have any missing values (`NaN` in `pandas`)
 
 ```python
-sw2 = sw_debt.dropna()
+sw_debt_df2 = sw_debt_df.dropna()
 
-sw2.head()
+sw_debt_df2.head()
 ```
 <img src=img/dropna.PNG>
 
@@ -199,9 +199,9 @@ sw2.head()
 * `.fillna()` method: fill in missing data with a specified value
 
 ```python
-sw3 = sw_debt.fillna(sw_debt.median())
+sw_debt_df3 = sw_debt_df.fillna(sw_debt_df.median())
 
-sw3.head()
+sw_debt_df3.head()
 ```
 <img src=img/fillna.PNG>
 
@@ -230,7 +230,7 @@ Process:
 ### `.groupby()` in `pandas`
 
 ```python
-sw_grouped = sw2.groupby('state')
+sw_grouped = sw_debt_df2.groupby('state')
 
 sw_grouped['debtnum'].mean()
 
@@ -249,9 +249,9 @@ TX    15009.426582
 
 ```python
 import seaborn as sns
-sns.set(style = "darkgrid", rc = {"figure.figsize": (8, 6)})
+sns.set(style = "darkgrid")
 
-sns.boxplot(x = 'state', y = 'debtnum', data = sw2, orient = 'v')
+sns.boxplot(x = 'state', y = 'debtnum', data = sw_debt_df2)
 ```
 <img src=img/box1.png style="width:600px">
 
@@ -262,23 +262,10 @@ sns.boxplot(x = 'state', y = 'debtnum', data = sw2, orient = 'v')
 * __Faceting__ or __small multiples__: breaking down a plot by a grouping variable into multiple plots
 
 ```python
-g = sns.FacetGrid(data = sw2, col = 'state', col_wrap = 2)
-g.map(sns.distplot, 'debtnum')
+grid = sns.FacetGrid(data = sw_debt_df2, col = 'state', col_wrap = 2)
+grid.map(sns.kdeplot, 'debtnum')
 ```
 <img src=img/facet.png style="width:350px">
-
----
-
-### Grouped visualization in `seaborn`
-
-* We can also get creative with our code!
-
-```python
-for s in sw2.state.unique(): 
-    data = sw2[sw2.state == s]
-    sns.kdeplot(data.debtnum, shade = True, label = s)
-```
-<img src=img/kde.png style="width:500px">
 
 ---
 
@@ -378,10 +365,10 @@ m5 = m1.merge(m4, on = 'type', how = 'outer')
 ```python
 from pandas_datareader import wb
 countries = ['ZA', 'BR', 'US']
-urban = wb.download(indicator = 'SP.URB.TOTL.IN.ZS', 
+tfr = wb.download(indicator = 'SP.DYN.TFRT.IN', 
                     country = countries, start = 1960, 
-                    end = 2016).reset_index()
-urban.head()
+                    end = 2018).reset_index()
+tfr.head()
 ```
 <img src=img/long.PNG>
 
@@ -392,9 +379,10 @@ urban.head()
 * `.pivot()` method in `pandas`
 
 ```python
-urban_wide = urban.pivot(index = 'year', columns = 'country', 
-                         values = 'SP.URB.TOTL.IN.ZS')
-urban_wide.head()
+tfr_wide = tfr.pivot(index = 'year', columns = 'country',
+                    values = 'SP.DYN.TFRT.IN')
+
+tfr_wide.head()
 ```
 <img src=img/wide.PNG>
 
@@ -403,7 +391,7 @@ urban_wide.head()
 ### Plotting "wide" data
 
 ```python
-urban_wide.plot()
+tfr_wide.plot()
 ```
 
 <img src=img/linechart.png style="width:550px">
@@ -415,10 +403,10 @@ urban_wide.plot()
 * `pd.melt()` function in `pandas`
 
 ```python
-urban_long = pd.melt(urban_wide.reset_index(), id_vars = 'year', 
-                     var_name = 'country', value_name = 'pcturban')
+tfr_long = pd.melt(tfr_wide.reset_index(), id_vars = 'year', 
+                   var_name = 'country', value_name = 'tfr')
 
-urban_long.head()
+tfr_long.head()
 ```
 <img src=img/long2.PNG>
 
