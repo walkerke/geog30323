@@ -1,7 +1,7 @@
 ---
 title: "Data visualization best practices"
 author: GEOG 30323
-date: March 24, 2020
+date: October 13, 2020
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
@@ -10,18 +10,6 @@ output:
     center: TRUE
     fig_caption: TRUE
     
----
-
-## Course updates
-
-* No Exam 2; Exam 3 due during finals week as scheduled
-
-* Assignment due dates: April 15 (6, 7, 8); April 22 (9); April 29 (10)
-
-* P/NC option available for all students (majors/minors included)
-
-* CoCalc updates
-
 ---
 
 ## Data visualization
