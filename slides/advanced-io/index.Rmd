@@ -189,7 +189,7 @@ teams.drop(["2019-2020", "firstfive"], axis = 1, inplace = True)
 
 teams.head()
 ```
-<img src=img/clean1.PNG>
+<img src=img/clean1.png>
 
 ---
 
