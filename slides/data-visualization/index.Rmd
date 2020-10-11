@@ -101,9 +101,7 @@ output:
 
 ---
 
-## Examples
-
-Let's fetch some data: 
+## Data for examples
 
 ```python
 import seaborn as sns
