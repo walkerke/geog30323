@@ -416,7 +416,7 @@ tfr_long.head()
 
 ```python
 urban_long['year'] = urban_long['year'].astype(int)
-sns.lineplot(x = "year", y = "pcturban",
+sns.lineplot(x = "year", y = "tfr",
             hue = "country", data = urban_long)
 ```
 
