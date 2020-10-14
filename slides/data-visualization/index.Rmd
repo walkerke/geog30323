@@ -192,32 +192,20 @@ sns.lineplot(data = ue, x = "year", y = "unemployment",
 
 ---
 
-### Highlighting code setup
+### Highlighting code
 
 ```python
 # Convert the year to integer for better labels
 ue["year"] = ue["year"].astype(int)
-
-# Create a recoded column where all values are "Other" besides Greece
-ue["country2"] = ue.country.where(ue.country == "Greece", "Other")
-
-# Sort on the recoded column to plot Greece last
-ue.sort_values("country2", ascending = False, inplace = True)
-```
----
-
-### Highlighting code
-
-```python
-for c in ue.country.unique():
-    sub = ue[ue.country == c]
-    if c != "Greece":
-        sns.lineplot(data = sub, x = "year", y = "unemployment", 
-                     hue = "country", palette = ["grey"], legend = False)
-    else: 
-        sns.lineplot(data = sub, x = "year", y = "unemployment", 
-                     hue = "country", palette = ["blue"], 
-                     linewidth = 3)
+# Make a Greece-only dataset
+greece = ue[ue.country == "Greece"]
+# Plot everything as grey, first
+sns.lineplot(data = ue, x = "year", y = "unemployment",
+             hue = "country", palette = ["grey"] * 28,
+             legend = False)
+# Then, plot Greece on top
+sns.lineplot(data = greece, x = "year", y = "unemployment",
+             hue = "country", palette = ["blue"], linewidth = 3)
 ```
 
 ---
