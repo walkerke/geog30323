@@ -250,8 +250,9 @@ plt.annotate('Global recession \nspreads to Europe', xy = (2009, 9.5),
 ```python
 ue.sort_values("country", inplace = True)
 
-facets = sns.FacetGrid(ue, col = "country", col_wrap = 7)
-facets.map(sns.lineplot, "year", "unemployment")
+sns.relplot(data = ue, x = "year", y = "unemployment", 
+            col = "country", col_wrap = 7,
+            kind = "line", height = 2.5)
 ```
 ---
 
