@@ -415,9 +415,9 @@ tfr_long.head()
 ### Plotting long-form data
 
 ```python
-urban_long['year'] = urban_long['year'].astype(int)
+tfr_long['year'] = tfr_long['year'].astype(int)
 sns.lineplot(x = "year", y = "tfr",
-            hue = "country", data = urban_long)
+            hue = "country", data = tfr_long)
 ```
 
 <img src=img/seaborn_line.png style="width:550px">
