@@ -1,7 +1,7 @@
 ---
 title: "Geographic data in Python"
 author: GEOG 30323
-date: October 20, 2020
+date: October 29, 2020
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
@@ -21,7 +21,7 @@ output:
 
 ### Maps!
 
-<iframe src=http://personal.tcu.edu/kylewalker/maps/dfw_election.html height = "600" width = "900" frameborder = "0"></iframe>
+<iframe src=http://personal.tcu.edu/kylewalker/immigrant-america height = "600" width = "900" frameborder = "0"></iframe>
 
 ---
 
@@ -142,28 +142,21 @@ sbgeo.plot()
 ### Adding a "basemap"
 
 ```python
-import contextily as ctx
+# contextily: package for adding basemaps to plots
+import contextily as cx
 
 # "Project" to Web Mercator, used by tiled mapping services
 sbgeo2 = sbgeo.to_crs(3857)
 
-# Use the basemap function found at https://share.cocalc.com/share/56cef78b3fda5e0338c2da71b222e6b275a9193e/contextily.ipynb?viewer=share
-def add_basemap(ax, zoom, url='http://tile.stamen.com/terrain/tileZ/tileX/tileY.png'):
-    xmin, xmax, ymin, ymax = ax.axis()
-    basemap, extent = ctx.bounds2img(xmin, ymin, xmax, ymax, zoom=zoom, url=url)
-    ax.imshow(basemap, extent=extent, interpolation='bilinear')
-    # restore original x/y limits
-    ax.axis((xmin, xmax, ymin, ymax))
+# Assign the Starbucks map to a variable, then add the basemap to it
+p = sbgeo2.plot()
+cx.add_basemap(p, zoom = 11)
 ```
 
 ---
 
 ### Adding a "basemap"
 
-```python
-p = sbgeo2.plot()
-add_basemap(p, zoom = 11)
-```
 <img src=img/starbucks2.png style="width: 400px">
 
 ---
