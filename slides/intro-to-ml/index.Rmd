@@ -1,7 +1,7 @@
 ---
 title: "Introduction to machine learning"
 author: GEOG 30323
-date: April 21, 2020
+date: November 10, 2020
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
@@ -70,7 +70,7 @@ import pandas as pd
 import seaborn as sns
 import statsmodels.formula.api as smf
 
-colleges = pd.read_csv("us_colleges_2019.csv")
+colleges = pd.read_csv("http://personal.tcu.edu/kylewalker/data/us_colleges_2019.csv")
 
 
 ```

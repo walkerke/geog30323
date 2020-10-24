@@ -1,7 +1,7 @@
 ---
 title: "Big data and data ethics"
 author: GEOG 30323
-date: April 28, 2020
+date: November 12, 2020
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
@@ -14,40 +14,17 @@ output:
 
 ## Reminders
 
-* Assignment 10 due __Thursday, April 30__
-* Exam 2 due by the end of the day on __Thursday, May 7__
-* I'll be available for live chat during your scheduled exam times to answer questions
+* Next week: no formal class (Exam #2 work week)
+* Exam 2 due by the end of the day on __Thursday, May 19__
+* I'll be available in the classroom and on CoCalc during your scheduled exam times to answer questions
 
 ---
 
-### Big data
+## Extra credit assignment
 
-<iframe width="100%" height="600px" frameBorder="0" src="https://a.tiles.mapbox.com/v4/enf.c3a2de35.html?access_token=pk.eyJ1IjoiZW5mIiwiYSI6IkNJek92bnMifQ.xn2_Uj9RkYTGRuCGg4DXZQ"></iframe><figcaption>Map by Eric Fischer, Mapbox</figcaption>
-
----
-
-### Big data
-
-<iframe width="800" height="500" src="https://www.youtube.com/embed/avP5d16wEp0" frameborder="0" allowfullscreen></iframe>
-
----
-
-### Big data management
-
-* Software solutions: Apache Hadoop, Apache Spark
-* General principle: __MapReduce__
-
-<img src="https://databricks.com/wp-content/uploads/2014/03/spark-devs1.png" style="width: 600px"><figcaption>Image source: [DataBricks](https://databricks.com/blog/2014/03/20/apache-spark-a-delight-for-developers.html)</figcaption>
-
----
-
-## Weekly exercise/extra credit
-
-* This week's exercise: for _one_ of the three ethical scenarios that follow: 
+* For each of the three ethical scenarios that follow: 
   - Read the "reaction article" for that ethical scenario
   - Write up a short response (around 250 words) summarizing the article and your reactions to it
-  
-* For extra credit (equivalent in value to an "extra" weekly exercise): complete the weekly exercise prompt for _all three ethical scenarios._  
 
 ---
 
