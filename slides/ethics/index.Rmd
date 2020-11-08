@@ -1,5 +1,5 @@
 ---
-title: "Big data and data ethics"
+title: "Data ethics"
 author: GEOG 30323
 date: November 12, 2020
 output: 
@@ -10,14 +10,6 @@ output:
     center: TRUE
     fig_caption: TRUE
     
----
-
-## Reminders
-
-* Next week: no formal class (Exam #2 work week)
-* Exam 2 due by the end of the day on __Thursday, May 19__
-* I'll be available in the classroom and on CoCalc during your scheduled exam times to answer questions
-
 ---
 
 ## Extra credit assignment
