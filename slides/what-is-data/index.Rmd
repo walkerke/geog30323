@@ -1,7 +1,7 @@
 ---
 title: "What is data?"
 author: GEOG 30323
-date: August 18, 2020
+date: August 24, 2021
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
@@ -108,7 +108,7 @@ This course covers the process of __exploratory data analysis__, which includes 
 
 ## Presenting data
 
-<iframe width="1000" height="550" frameborder="0" seamless="seamless" scrolling="no" src="https://plot.ly/~walkerke/110.embed?width=800&height=550" ></iframe>
+<iframe width="900" height="800" frameborder="0" scrolling="no" src="https://plotly.com/~walkerke/110.embed"></iframe>
 
 ---
 
@@ -121,7 +121,7 @@ This course covers the process of __exploratory data analysis__, which includes 
 
 ## CoCalc
 
-* CoCalc (http://cocalc.com): our course learning management system and Python interface
+* [Google Colaboratory](https://colab.research.google.com/): our tool for using Python in the cloud
 * Let's explore... 
 
 
@@ -134,7 +134,7 @@ This course covers the process of __exploratory data analysis__, which includes 
 
 Your task: 
 
-* Find an example of data journalism from the past two years in a recognized publication
+* Find an example of data journalism from the past five years in a recognized publication
 * Write a response that 1) summarizes the article, 2) discusses its data sources, and 3) discusses its methods of analysis and visualization.  
 * At least one paragraph, no longer than four paragraphs
 
