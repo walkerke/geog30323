@@ -1,7 +1,7 @@
 ---
 title: "Programming I - Intro to Python"
 author: GEOG 30323
-date: August 25, 2020
+date: August 31, 2021
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
@@ -107,6 +107,13 @@ print("Hello World")
 * Browser-based notebooks for _literate programming_
 * Evolved out of the IPython project
 * Supports multiple languages; "home language" is Python
+
+---
+
+## Google Colaboratory
+
+* Cloud-based platform for hosted Jupyter Notebooks that connects to your Google account & Google Drive.  
+* Let's try it out!  https://colab.research.google.com/
 
 ---
 
