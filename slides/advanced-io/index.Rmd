@@ -1,7 +1,7 @@
 ---
 title: "Advanced input and output"
 author: GEOG 30323
-date: October 13, 2020
+date: October 19, 2021
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"

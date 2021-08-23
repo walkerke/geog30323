@@ -1,7 +1,7 @@
 ---
 title: "Data communication and interactive visualization"
 author: GEOG 30323
-date: November 3, 2020
+date: November 16, 2021
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"

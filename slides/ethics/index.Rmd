@@ -1,7 +1,7 @@
 ---
 title: "Data ethics"
 author: GEOG 30323
-date: November 12, 2020
+date: December 7, 2021
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
