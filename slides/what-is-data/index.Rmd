@@ -8,6 +8,7 @@ output:
     transition: "none"
     center: TRUE
     fig_caption: TRUE
+    self_contained: false
     
 ---
 
@@ -108,7 +109,7 @@ This course covers the process of __exploratory data analysis__, which includes 
 
 ## Presenting data
 
-<iframe width="900" height="800" frameborder="0" scrolling="no" src="https://plotly.com/~walkerke/110.embed"></iframe>
+<iframe width="800" height="600" frameborder="0" scrolling="no" src="img/babynames.html"></iframe>
 
 ---
 
