@@ -109,7 +109,7 @@ This course covers the process of __exploratory data analysis__, which includes 
 
 ## Presenting data
 
-<iframe width="800" height="600" frameborder="0" scrolling="no" src="img/babynames.html"></iframe>
+<iframe width="750px" height="500px" frameborder="0" scrolling="no" src="img/babynames.html"></iframe>
 
 ---
 
