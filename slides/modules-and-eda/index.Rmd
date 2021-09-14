@@ -95,7 +95,7 @@ df = pd.DataFrame(y, columns = ['x' + str(num) for num in range(1, 7)])
 ## The pandas DataFrame
 
 * Commonly, DataFrames are created by reading in external data, like CSV files
-* Download link: <http://personal.tcu.edu/kylewalker/data/grad_rates.csv>
+* Download link: <https://personal.tcu.edu/kylewalker/data/grad_rates.csv>
 
 ```python
 # To read in CSV files, we use the pd.read_csv function 
