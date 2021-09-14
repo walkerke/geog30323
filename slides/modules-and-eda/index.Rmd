@@ -252,7 +252,7 @@ grad.rate.hist()
 * Accessible from both `pandas` and `seaborn`
 
 ```python
-sns.kdeplot(grad.rate, shade = True)
+sns.kdeplot(data = grad, x = "rate", shade = True)
 ```
 <img src=img/kde.png>
 
@@ -263,7 +263,7 @@ sns.kdeplot(grad.rate, shade = True)
 * Also termed "box and whisker plots" - alternative way to show distribution of values graphically
 
 ```python
-sns.boxplot(grad.rate, color = "green", orient = "v")
+sns.boxplot(data = grad, y = "rate", color = "green")
 ```
 <img src=img/boxplot.png>
 
@@ -282,7 +282,7 @@ sns.boxplot(grad.rate, color = "green", orient = "v")
 * Combinations of box plots and kernel density plots
 
 ```python
-sns.violinplot(grad['rate'], color = 'cyan')
+sns.violinplot(data = grad, x = "rate", color = "cyan")
 ```
 
 <img src=img/violin.png>
