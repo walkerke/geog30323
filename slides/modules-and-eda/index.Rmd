@@ -47,41 +47,6 @@ Your core Python tools for EDA: NumPy, pandas, and seaborn/matplotlib
 
 ---
 
-## Creating your own module
-
-Let's try this out!
-
----
-
-### The Python namespace
-
-* When you declare variables, define functions, import modules, etc., you are adding objects to the _Python namespace_
-* To remove objects from the Python namespace, use the `del` statement
-
-
----
-
-### Imports and the namespace 
-
-* Imported modules can be referenced in multiple ways: 
-
-```python
-# All of these are equivalent
-
-import mymodule
-mymodule.add_abc(mymodule.tcu)
-
-import mymodule as mm
-
-mm.add_abc(mm.tcu)
-
-from mymodule import *
-
-add_abc(tcu)
-```
-
----
-
 ## Built-in packages
 
 * Many packages are included in `stdlib`, the standard library that ships with Python
@@ -139,6 +104,10 @@ grad = pd.read_csv("grad_rates.csv")
 
 ---
 
+## Tutorial: working with external data in Colab
+
+---
+
 ### The pandas DataFrame
 
 * Each observation forms a __row__, defined by an __index__; attributes of those observations are found in the __columns__ of the DataFrame
@@ -146,6 +115,33 @@ grad = pd.read_csv("grad_rates.csv")
 <img src=img/df1.PNG style="width: 300px">
 
 * Columns are accessible as indices, e.g. `grad['rate']`, or as attributes of the data frame, e.g. `grad.rate`
+
+---
+
+### The Python namespace
+
+* When you declare variables, define functions, import modules, etc., you are adding objects to the _Python namespace_
+* To remove objects from the Python namespace, use the `del` statement
+
+
+---
+
+### Imports and the namespace 
+
+* Imported modules can be referenced in multiple ways: 
+
+```python
+# All of these are equivalent
+
+import pandas
+pandas.read_csv("grad_rates.csv")
+
+import pandas as pd
+pd.read_csv("grad_rates.csv")
+
+from pandas import *
+read_csv("grad_rates.csv")
+```
 
 ---
 
