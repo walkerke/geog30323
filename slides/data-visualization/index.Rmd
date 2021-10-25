@@ -28,7 +28,7 @@ output:
 
 ---
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/1/17/Nightingale-mortality.jpg" style="width: 850px"><figcaption>Source: Wikimedia Commons</figcaption>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Nightingale-mortality.jpg/800px-Nightingale-mortality.jpg" style="width: 850px"><figcaption>Source: Wikimedia Commons</figcaption>
 
 ---
 
@@ -38,7 +38,7 @@ output:
 
 ### Anscombe's Quartet
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Anscombe%27s_quartet_3.svg" style="width: 750px"><figcaption>Source: Wikimedia Commons</figcaption>
+<img src="img/anscombe.png" style="width: 750px"><figcaption>Source: Wikimedia Commons</figcaption>
 
 ---
 
