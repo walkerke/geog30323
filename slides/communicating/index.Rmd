@@ -9,6 +9,7 @@ output:
     highlight: "tango"
     center: TRUE
     fig_caption: TRUE
+    self_contained: false
     
 ---
 
@@ -215,7 +216,7 @@ alt.Chart(mx).mark_circle(size = 60).encode(
 
 ### Demo: Tableau Public
 
-* Let's work with a (cleaned) obesity dataset you'll be familiar with from earlier in the semester; download it at http://personal.tcu.edu/kylewalker/data/overweight.csv
+* Let's work with a (cleaned) obesity dataset you'll be familiar with from earlier in the semester; download it at https://personal.tcu.edu/kylewalker/data/overweight.csv
 
 
 
