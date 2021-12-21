@@ -1,0 +1,890 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment 2: Introduction to Python &#8212; GEOG 30323: Data Analysis &amp; Visualization</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Assignment 3: Functions, conditional statements, and iteration in Python" href="03-functions-and-iteration.html" />
+    <link rel="prev" title="geog30323" href="README.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">GEOG 30323: Data Analysis & Visualization</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="README.html">
+   geog30323
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Assignment 2: Introduction to Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03-functions-and-iteration.html">
+   Assignment 3: Functions, conditional statements, and iteration in Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04-univariate-data-analysis.html">
+   Assignment 4: Univariate data analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05-multivariate-visualization.html">
+   Assignment 5: Multivariate exploratory visualization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06-data-wrangling.html">
+   Assignment 6: Data wrangling I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07-wrangling-data-from-apis.html">
+   Assignment 7: Wrangling data from APIs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08-data-visualization.html">
+   Assignment 8: Data visualization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09-geographic-mapbox.html">
+   Assignment 9: Geographic visualization with Mapbox Studio
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10-tableau.html">
+   Assignment 10: Building a dashboard with Tableau
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/02-intro-to-python.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/walkerke/geog30323/master?urlpath=tree/02-intro-to-python.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/walkerke/geog30323/blob/master/02-intro-to-python.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Assignment 2: Introduction to Python
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python-basics">
+   Python basics
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#variables">
+   Variables
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lists">
+   Lists
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#strings">
+   Strings
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="assignment-2-introduction-to-python">
+<h1>Assignment 2: Introduction to Python<a class="headerlink" href="#assignment-2-introduction-to-python" title="Permalink to this headline">¶</a></h1>
+<p>Welcome to your first notebook of the semester!  Throughout the semester, you’ll be using Jupyter Notebooks like this one to learn practical skills in data analysis.  The notebooks will consist of brief tutorials that reiterate some of the concepts you’ve learned in class, along with some basic exercises that test you on some of these skills.  Notebooks will be assigned most weeks during the semester, and are due the following week.</p>
+<p>To get started, click <strong>File &gt; Save a copy in Drive</strong> to save your assignment in your personal Google Drive.  By default, the notebook will be found in a “Colab Notebooks” folder in your Drive.  Rename the notebook by clicking the name of the notebook at the top of the screen and replacing “Copy of” with your last name.</p>
+<p>This notebook includes a series of exercises to introduce you to the basics of programming in Python.  You’ll learn, in general terms, about data types in Python, and how to make basic manipulations of these data types.</p>
+<p>Python is rapidly becoming the introductory programming language of choice at universities across the country, and for good reason.  This is aptly summed up in the popular web comic <a class="reference external" href="http://xkcd.com">XKCD</a>:</p>
+<p><img alt="xkcd" src="http://imgs.xkcd.com/comics/python.png" /></p>
+<p>Python combines simplicity of syntax with relative computational power, which makes it an attractive language of choice for many programmers.  The classic introductory programming problem is how to get a language to return the phrase, “Hello world.”  In the Java language, for example, it looks something like this:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloWorld</span> <span class="p">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Hello, World&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Compare that with Python:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello, World!
+</pre></div>
+</div>
+</div>
+</div>
+<p>Much simpler!  Now, Python is not always going to be your language of choice for every application.  Python is an example of an <em>interpreted</em> programming language, which means that it is converted on-the-fly to machine code - that is, code your computer can understand.  This can make development simpler, but generally executes slower than <em>compiled</em> languages, in which the source code must be run through a compiler before it is executed.  This additional step, however, can speed up execution substantially, which is why compiled languages like Java, C, or C++ are sometimes preferred for software development.</p>
+<p>However, Python is an outstanding choice for data analysis, which is highly interactive and requires the testing of many different ideas on-the-fly.  Indeed, the Python community has built a robust infrastructure for data analysis with the language, which includes the Jupyter Notebook, which we are working in right now.</p>
+<p>The Jupyter Notebook is an example of <em>literate programming</em>, in which documentation and computer code are tightly integrated.  The notebook itself is comprised of “cells” that either accept Python code, or text written in <strong>Markdown</strong>, a highly-simplified syntax for writing HTML code.  To choose a Python or Markdown cell, simply change the option from the drop-down menu at the top of the screen.  To “run” the contents of your cell, click the “run cell” button from the menu at the top of the screen, or use the keyboard shortcut Shift+Enter.</p>
+<p>Tools like the Jupyter Notebook are an excellent way to document your workflow, and make your work reproducible.  Over the course of a data analysis, it is often challenging to remember every small step you have taken, or the rationale behind those steps.  With the notebook, you can include descriptions of your workflow along with the actual code you used to do your data analysis.</p>
+</div>
+<div class="section" id="python-basics">
+<h1>Python basics<a class="headerlink" href="#python-basics" title="Permalink to this headline">¶</a></h1>
+<p>You already saw how to print text using Python using the <code class="docutils literal notranslate"><span class="pre">print</span></code> command.  Now, I’m going to take you through a few of Python’s basic data structures.  At its most basic level, Python can function like a calculator.  For example, I can type in a simple calculation…</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+</pre></div>
+</div>
+</div>
+</div>
+<p>…and I get 4.  Try it out yourself!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Type in a calculation below and run it!</span>
+
+<span class="c1"># By the way: this is an example of a comment.  Comments in Python are preceded by the hash (#) operator.  All text that follows</span>
+<span class="c1"># the hash will be bypassed at runtime - so this is a good way to make notes about your code, or to &quot;comment out&quot; code that you want</span>
+<span class="c1"># to keep, but don&#39;t want to run.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In addition, Python can work with <em>strings</em>, which are textual representations of data.  Strings are enclosed in single quotes <code class="docutils literal notranslate"><span class="pre">'</span> <span class="pre">'</span></code> or double quotes <code class="docutils literal notranslate"><span class="pre">&quot;</span> <span class="pre">&quot;</span></code>.  Like numbers, strings can be “added” together; however, instead of performing a numeric computation, Python will <em>concatenate</em> the strings, combining them.  Take the following example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;a&quot;</span> <span class="o">+</span> <span class="s2">&quot;b&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;ab&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, let’s see what happens when we try to combine a string and a number:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;a&quot;</span> <span class="o">+</span> <span class="mi">4</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">5</span><span class="o">-</span><span class="mi">3</span><span class="n">d99485a6381</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="s2">&quot;a&quot;</span> <span class="o">+</span> <span class="mi">4</span>
+
+<span class="ne">TypeError</span>: can only concatenate str (not &quot;int&quot;) to str
+</pre></div>
+</div>
+</div>
+</div>
+<p>We get an error message back - ‘str’ and ‘int’ objects cannot be concatenated, as they are different data types.  However, we can convert between different data types by <strong>converting</strong> our objects.  For example, the <code class="docutils literal notranslate"><span class="pre">str</span></code> command converts to a string, the <code class="docutils literal notranslate"><span class="pre">int</span></code> command converts to an integer, and the <code class="docutils literal notranslate"><span class="pre">float</span></code> command converts to a floating-point number, if possible.  Let’s try it out:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;a&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;a4&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="variables">
+<h1>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h1>
+<p>You now have a very basic sense of how Python works.  To this point, every cell that we’ve run has directly accepted content.  However, in  your work with Python, you are going to want to store information that you’ll need to come back to later, or re-use certain objects in your code.  As such, you will want to work with <strong>variables</strong>.</p>
+<p>Variables are Python objects that represent some other thing.  They can be just about any Python data type (more on these data types later) and are defined through <strong>assignment</strong> with the equals (=) operator.  Let’s give it a try:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">4</span> 
+
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the above cell, I <strong>assigned</strong> the integer 4 to the variable x.  When I asked Python to print the variable x, it returns the integer 4, which is what is represented by x.</p>
+<p>If you’ve programmed in other languages before, you probably noticed that I didn’t have to declare the type of my variable when creating it.  Python is an example of a <strong>dynamically typed</strong> language, which means that the types of objects are mutable (can change) and do not need to be declared.  Instead, Python detects the type of the object based on the assignment I made.  Let’s check it out with the <code class="docutils literal notranslate"><span class="pre">type</span></code> command.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>int
+</pre></div>
+</div>
+</div>
+</div>
+<p>Python knows that x is an <code class="docutils literal notranslate"><span class="pre">int</span></code> (integer) as I assigned an integer, 4, to x.  Other languages, like Java, are known as <strong>statically typed</strong> programming languages, as object types need to be declared.  For example, assignment in a statically typed language might look like this:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>In my opinion, the dynamic typing of Python makes it well-suited for the exploratory nature of data analysis.</p>
+<p>As my variable <strong>x</strong> is an integer, I can perform mathematical operations with it.  For example, I can multiply it by two with the * operator, or raise it to the second power with the ** operator:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">*</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Now you try!  Write an expression that adds 5 to x, then divides the result by 2.  What do you get?</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Variable types can also be converted to other types through <strong>conversion</strong>, like I showed your earlier.  Conversion operators in Python include <code class="docutils literal notranslate"><span class="pre">int</span></code> (integer), <code class="docutils literal notranslate"><span class="pre">long</span></code> (long integer), <code class="docutils literal notranslate"><span class="pre">float</span></code> (floating-point number), and <code class="docutils literal notranslate"><span class="pre">str</span></code> (string/text).</p>
+<p>Let’s give it a try.  In the space below, we’ll create a new variable <strong>y</strong> by converting your variable <strong>x</strong> to a string.  Then, we’ll type <strong>y</strong> and run the code to see what we get.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;4&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>We see a ‘4’ returned in quotations – this means that your variable y stores the value 4, but in string rather than number format. As such, we cannot do math with our new variable…</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">+</span> <span class="mi">12</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">13</span><span class="o">-</span><span class="mi">57</span><span class="n">c9e32a130f</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">y</span> <span class="o">+</span> <span class="mi">12</span>
+
+<span class="ne">TypeError</span>: can only concatenate str (not &quot;int&quot;) to str
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;OMG I heart U &quot;</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="s2">&quot;ever!!!111&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>OMG I heart U 4ever!!!111
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, try it out yourself!  Create a new variable, <strong>z</strong>, by converting <strong>y</strong> to a floating-point number, and then divide <strong>z</strong> by 3.  What do you get?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Run your code here!</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="lists">
+<h1>Lists<a class="headerlink" href="#lists" title="Permalink to this headline">¶</a></h1>
+<p>You should have a sense to this point of the flexibility of variable assignment in Python.  However, to this point we’ve only been working with variables that store one value - and you’ll be working a lot with multiple values in Python.</p>
+<p>The most common data structure for multiple values in Python is the <strong>list</strong>.  Lists are enclosed in brackets [], and can contain a series of values, objects, variables, etc.  Objects in a list need not be of the same type; however, keeping the types within lists consistent will maximize what you can do with them.</p>
+<p>Let’s take a look at a sample list of numbers, and assign it to the variable <strong>mylist</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mylist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2, 4, 6, 8, 10, 12]
+</pre></div>
+</div>
+</div>
+</div>
+<p>To retrieve specific elements within my list, I can use <strong>indexing</strong>.  Indexing is a common operation in Python to subset your data - this will be very important for you when working with datasets later on.  Indices are similarly enclosed in brackets.  In Python, the index starts at zero; as such, 0 returns the first element, 1 the second element, and so on.  Let’s try it:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## This should give me the second element of my list, 4.</span>
+
+<span class="n">mylist</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+</pre></div>
+</div>
+</div>
+</div>
+<p>Chunks of your list can also be retrieved through <strong>slicing</strong>.  To slice a list, index with the first element you want, followed by a colon : operator, then the index of the first element you <strong>do not want</strong>.  For example, let’s retrieve the second through fourth elements of <code class="docutils literal notranslate"><span class="pre">mylist</span></code>, which should give us back 4, 6, and 8.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mylist</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[4, 6, 8]
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can also add other lists to your lists.  Let’s try it:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mylist</span> <span class="o">+</span> <span class="p">[</span><span class="mi">14</span><span class="p">,</span> <span class="mi">16</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2, 4, 6, 8, 10, 12, 14, 16]
+</pre></div>
+</div>
+</div>
+</div>
+<p>This can also be achieved with the <code class="docutils literal notranslate"><span class="pre">append</span></code> command, which will modify the existing list.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mylist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">18</span><span class="p">)</span>
+
+<span class="n">mylist</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2, 4, 6, 8, 10, 12, 18]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice that the <code class="docutils literal notranslate"><span class="pre">append</span></code> command shows up as a property of your list - that is, a method you can use to modify it.  In the Jupyter Notebook, you can get a list of possible methods for your list by pressing Tab after typing a period after your list’s name.  Try it out:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Press &quot;Tab&quot; after the period to see what I&#39;m talking about!</span>
+<span class="c1"># Be sure that you&#39;ve run the above cell defining mylist beforehand.</span>
+
+<span class="n">mylist</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-21-4f7874aa55b1&gt;&quot;</span><span class="gt">, line </span><span class="mi">4</span>
+    <span class="n">mylist</span><span class="o">.</span>
+           <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice a series of methods available to you to manipulate the contents of your list.  You can read more about the different list methods <a class="reference external" href="https://docs.python.org/3.4/tutorial/datastructures.html">here</a>.</p>
+<p>Let’s try a couple:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mylist</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+
+<span class="n">mylist</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[18, 12, 10, 8, 6, 4, 2]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mylist</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mi">22</span><span class="p">,</span> <span class="mi">44</span><span class="p">])</span>
+
+<span class="n">mylist</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[18, 12, 10, 8, 6, 4, 2, 22, 44]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mylist</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">99</span><span class="p">)</span> <span class="c1"># The insert command here will place, at index 5, the number 99</span>
+
+<span class="n">mylist</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[18, 12, 10, 8, 6, 99, 4, 2, 22, 44]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, try working with a list of your own!  Do the following:</p>
+<ol class="simple">
+<li><p>Create a list of four numbers - one through four - and assign it to a variable.</p></li>
+<li><p>Index the list to return only 3 and 4</p></li>
+<li><p>Add a second list of 5, 6, and 7 to your list</p></li>
+<li><p>Insert the number 12 at position 3 of your list</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Run your code here!</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="strings">
+<h1>Strings<a class="headerlink" href="#strings" title="Permalink to this headline">¶</a></h1>
+<p>Strings, or textual representations of data, have a series of special methods that allow for their manipulation.  In the Jupyter Notebook, these methods are available by pressing the Tab key after typing a period after the variable that stores the string.  Let’s test it out.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tcu</span> <span class="o">=</span> <span class="s2">&quot;Texas Christian University&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Place your cursor after the period, and press the tab key to view the methods</span>
+<span class="c1"># Be sure that you&#39;ve run the previous cell first!</span>
+
+<span class="n">tcu</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-27-8d2ac65c1eb1&gt;&quot;</span><span class="gt">, line </span><span class="mi">4</span>
+    <span class="n">tcu</span><span class="o">.</span>
+        <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice all the different methods available to you; <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#string-methods">you can view them in detail here</a>.  In the IPython notebook, you can also see the parameters of the different methods by typing Shift + Tab after typing the first parenthesis.  Let’s try a few.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tcu1</span> <span class="o">=</span> <span class="n">tcu</span><span class="o">.</span><span class="n">swapcase</span><span class="p">()</span>
+
+<span class="n">tcu1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;tEXAS cHRISTIAN uNIVERSITY&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tcu2</span> <span class="o">=</span> <span class="n">tcu</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;Christian&#39;</span><span class="p">,</span> <span class="s1">&#39;Construction&#39;</span><span class="p">)</span>
+
+<span class="n">tcu2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Texas Construction University&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tcu3</span> <span class="o">=</span> <span class="n">tcu</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+
+<span class="n">tcu3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;TEXAS CHRISTIAN UNIVERSITY&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Here, we are retrieving the second word of the string (indexed at 1) with the &#39;split&#39; command.  </span>
+
+<span class="n">tcu4</span> <span class="o">=</span> <span class="n">tcu</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">tcu4</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Christian&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Like lists, strings can also be indexed or sliced; in this instance, the index refers to the different characters in the string.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tcu</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Texas&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="exercises">
+<h1>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h1>
+<p>Every notebook you are assigned each week will culminate with a series of exercises to help you solidify your skills in programming, data analysis, and visualization.  You are welcome to work together on these exercises.  However, if someone is giving you help, be sure that you can replicate it yourself!  Also, recall our course discussions about frustration: getting frustrated just means that you are pushing your limits!</p>
+<p><strong>Exercise 1</strong>: Create a new cell below with the “Add text cell” option.  Change the cell type to <strong>Markdown</strong> from the drop-down menu at the top of the screen.  Practice writing some Markdown in the cell.  The cell should include a numbered list of links to your five favorite websites, with an H2 header for the title.  The links should not simply be the website URLs, but should instead show the name of the website, which you can click to get to the website.  Also, make the name of the first entry in bold, and the name of the second entry in italics.</p>
+<p>For Markdown tips, take a look at <a class="reference external" href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">the Markdown cheatsheet at this link</a>.  <em>Also, a tip</em>: you can view how I wrote Markdown in any of the cells in this notebook by double-clicking the cells!</p>
+<p><a class="reference external" href="http://www.tcu.edu">TCU Website</a></p>
+<ol class="simple">
+<li><p><a class="reference external" href="http://www.espn.com/"><strong>ESPN</strong></a></p></li>
+<li><p>Second element</p></li>
+<li><p>Third element</p></li>
+</ol>
+<p><strong>Exercise 2</strong>: Assign the number 31 to a new variable, <code class="docutils literal notranslate"><span class="pre">q</span></code>.  Write an expression that raises q to the 4th power and run the cell.</p>
+<p><strong>Exercise 3</strong>: Create a new variable named <code class="docutils literal notranslate"><span class="pre">smu</span></code> by assigning the lowercase string ‘southern methodist university’ to it.  Use Python string methods to capitalize your string appropriately.  Add a comment in your code that explains what you did.</p>
+<p><strong>Exercise 4</strong>: Assign the list <code class="docutils literal notranslate"><span class="pre">['a',</span> <span class="pre">'b',</span> <span class="pre">'c',</span> <span class="pre">'d',</span> <span class="pre">'e']</span></code> to a variable.  Reverse the list, then insert ‘z’ at index 3, and finally append ‘o’ to the end.</p>
+<p><strong>Exercise 5</strong>: (Modified from your textbook): A string slice can use an optional third index to specify the ‘step size’, which refers to the number of spaces between characters.  Your textbook gives the following example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fruit</span> <span class="o">=</span> <span class="s1">&#39;banana&#39;</span>
+
+<span class="n">fruit</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;bnn&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>The same result could be achieved, however, by omitting the 5, as the above example uses the whole string:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fruit</span><span class="p">[</span><span class="mi">0</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;bnn&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the cell below, I will provide you with a string of characters that may appear quite random at first.  Run the cell to assign the string to the variable <code class="docutils literal notranslate"><span class="pre">code</span></code>.  However, the string is in reality an encoded message, in which the character to keep is at <strong>every fourth character</strong>.</p>
+<p>Use Python string slicing to decode the message, and print the result to your notebook.  The result is a familar expression, so if you are not getting a result that makes sense, try again!</p>
+<p><strong>Hint</strong>: remember rules about Python indexing, which starts at 0, not 1!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">code</span> <span class="o">=</span> <span class="s1">&#39;varCjjlopaxntrrgnbXrOPraiiItUuUuzaQlliyaxx*t#rgiffFoce&amp;ntPls87C!&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your answer goes here!</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To submit your assignment, click the <strong>Share</strong> button and share your assignment with <a class="reference external" href="mailto:kwalkertcu&#37;&#52;&#48;gmail&#46;com">kwalkertcu<span>&#64;</span>gmail<span>&#46;</span>com</a>.</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="README.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">geog30323</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="03-functions-and-iteration.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Assignment 3: Functions, conditional statements, and iteration in Python</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Kyle Walker<br/>
+        
+            &copy; Copyright 2022.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

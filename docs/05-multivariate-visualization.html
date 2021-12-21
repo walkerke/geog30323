@@ -1,0 +1,669 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment 5: Multivariate exploratory visualization &#8212; GEOG 30323: Data Analysis &amp; Visualization</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Assignment 6: Data wrangling I" href="06-data-wrangling.html" />
+    <link rel="prev" title="Assignment 4: Univariate data analysis" href="04-univariate-data-analysis.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">GEOG 30323: Data Analysis & Visualization</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="README.html">
+   geog30323
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="02-intro-to-python.html">
+   Assignment 2: Introduction to Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03-functions-and-iteration.html">
+   Assignment 3: Functions, conditional statements, and iteration in Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04-univariate-data-analysis.html">
+   Assignment 4: Univariate data analysis
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Assignment 5: Multivariate exploratory visualization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06-data-wrangling.html">
+   Assignment 6: Data wrangling I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07-wrangling-data-from-apis.html">
+   Assignment 7: Wrangling data from APIs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08-data-visualization.html">
+   Assignment 8: Data visualization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09-geographic-mapbox.html">
+   Assignment 9: Geographic visualization with Mapbox Studio
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10-tableau.html">
+   Assignment 10: Building a dashboard with Tableau
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/05-multivariate-visualization.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/walkerke/geog30323/master?urlpath=tree/05-multivariate-visualization.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/walkerke/geog30323/blob/master/05-multivariate-visualization.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Assignment 5: Multivariate exploratory visualization
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bar-charts-and-dot-plots">
+     Bar charts and dot plots
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#scatter-plots">
+     Scatter plots
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="assignment-5-multivariate-exploratory-visualization">
+<h1>Assignment 5: Multivariate exploratory visualization<a class="headerlink" href="#assignment-5-multivariate-exploratory-visualization" title="Permalink to this headline">¶</a></h1>
+<p>In Assignment 4, you got a feel for the basic analytic capabilites of <code class="docutils literal notranslate"><span class="pre">pandas</span></code> and <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>, and learned how to calculate descriptive statistics and generate univariate plots.  In many cases, however, you are going to want to explore interrelationships between multiple characteristics of your data.  In this course, we are going to address this with <strong>multivariate exploratory visualization</strong>.</p>
+<p>Multivariate visualization can take a lot of forms, and can get quite complex!  We’re just going to start with the basics here and work our way up to more complicated visualizations - and fortunately <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> can do quite a lot of things.</p>
+<p>Our data for today’s notebook are going to come from the 2012-2016 <strong>American Community Survey</strong>.  The American Community Survey, or ACS, is an annual survey conducted by the US Census Bureau that covers demographic characteristics of the US population such as income, education, and much more.</p>
+<p>To get started, download the required data for this assignment from TCU Online, then upload the data to Colab.  Run the cell below to load the required packages and data for this assignment, which are for counties in New Mexico.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="c1"># Assumes the data are in local session storage; </span>
+<span class="c1"># modify if the data are in your Drive</span>
+<span class="n">nm</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/new_mexico.csv&quot;</span><span class="p">)</span>
+
+<span class="n">nm</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>county</th>
+      <th>hhincome</th>
+      <th>pct_college</th>
+      <th>median_age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Bernalillo</td>
+      <td>48994.0</td>
+      <td>32.8</td>
+      <td>36.8</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Catron</td>
+      <td>38142.0</td>
+      <td>24.8</td>
+      <td>58.1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Chaves</td>
+      <td>41356.0</td>
+      <td>19.3</td>
+      <td>35.1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Cibola</td>
+      <td>36160.0</td>
+      <td>12.4</td>
+      <td>35.8</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Colfax</td>
+      <td>32693.0</td>
+      <td>22.1</td>
+      <td>48.3</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>We note that our dataset has four columns: <code class="docutils literal notranslate"><span class="pre">&quot;county&quot;</span></code>, for the county name; <code class="docutils literal notranslate"><span class="pre">&quot;hhincome&quot;</span></code>, which refers to the median annual income for households in the county; <code class="docutils literal notranslate"><span class="pre">&quot;pct_college&quot;</span></code>, which refers to the percent of the population age 25 and up with at least a 4-year degree; and <code class="docutils literal notranslate"><span class="pre">&quot;median_age&quot;</span></code>, which refers to the median age of county residents.</p>
+<div class="section" id="bar-charts-and-dot-plots">
+<h2>Bar charts and dot plots<a class="headerlink" href="#bar-charts-and-dot-plots" title="Permalink to this headline">¶</a></h2>
+<p>Two common types of charts for comparing quantities, as we discussed in class, are bar charts and dot plots.  <strong>Bar charts</strong> represent values as proportional to the height of bars, and <strong>dot plots</strong> represent values as dots along a given axis.</p>
+<p>Many plot types are available in <code class="docutils literal notranslate"><span class="pre">pandas</span></code> through the built-in <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> data frame method, and also have equivalent functions in <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>.  In <code class="docutils literal notranslate"><span class="pre">pandas</span></code> plotting, if no data arguments are passed to the <code class="docutils literal notranslate"><span class="pre">plot</span></code> method, <code class="docutils literal notranslate"><span class="pre">pandas</span></code> will assume that the x-axis values are in the index, and then will plot numeric columns as data series.  For example, we can create a bar plot below.  Also notice the use of the <code class="docutils literal notranslate"><span class="pre">sns.set()</span></code> function.  Within <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>, you can choose from a variety of built-in plot templates: <code class="docutils literal notranslate"><span class="pre">&quot;white&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;dark</span></code>”, <code class="docutils literal notranslate"><span class="pre">&quot;darkgrid&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;whitegrid&quot;</span></code>, and <code class="docutils literal notranslate"><span class="pre">&quot;ticks&quot;</span></code>, and you can use the <code class="docutils literal notranslate"><span class="pre">set</span></code> function to make all of your plots in this particular style.</p>
+<p>Additionally, we can modify underlying figure characteristics with the <code class="docutils literal notranslate"><span class="pre">rc</span></code> parameter in <code class="docutils literal notranslate"><span class="pre">sns.set()</span></code>. This allows you to specify the output figure width and height in inches; the code below will tell seaborn to make 10 inch by 8 inch plots, which will be more legible than the defaults.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">style</span> <span class="o">=</span> <span class="s2">&quot;whitegrid&quot;</span><span class="p">,</span> <span class="n">rc</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">)})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As we’ve covered in class, <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> is an excellent choice for creating publication-quality plots with a minimum of code.  Bar charts in <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> are available from the <code class="docutils literal notranslate"><span class="pre">barplot</span></code> function.  The function has a lot of optional parameters; however, to get a bar chart to display, all you need are columns to map onto the x and y axes, and a dataset you’d like to plot.  Let’s try a horizontal bar plot with the county name on the y-axis and median age on the x-axis:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;median_age&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;county&#39;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">nm</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;median_age&#39;, ylabel=&#39;county&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/05-multivariate-visualization_6_1.png" src="_images/05-multivariate-visualization_6_1.png" />
+</div>
+</div>
+<p>Looks good!  There is much more you can do with the plot - customizing colors, axis labels, and beyond.  We’ll be addressing plot customization beginning in Week 10.  However, there are still some small things that we can do to make our plots more readable.  Recall from class our discussion of the <code class="docutils literal notranslate"><span class="pre">.sort_values()</span></code> data frame method, in which we can arrange our data based on one or more column values.  When creating bar charts, it is a good idea to show sorted data values, which makes it easier for the reader to make comparisons.</p>
+<p>We have a few options here.  We could sort our data frame in place, then supply it to the <code class="docutils literal notranslate"><span class="pre">data</span></code> parameter of <code class="docutils literal notranslate"><span class="pre">barplot</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nm</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;median_age&#39;</span><span class="p">,</span> <span class="n">ascending</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;median_age&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;county&#39;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">nm</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We could create a new sorted data frame from the <code class="docutils literal notranslate"><span class="pre">sort</span></code> operation and use it instead:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nm_sorted</span> <span class="o">=</span> <span class="n">nm</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;median_age&#39;</span><span class="p">,</span> <span class="n">ascending</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;median_age&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;county&#39;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">nm_sorted</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Or, we could tell <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> to work with a sorted data frame within the function call.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;median_age&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;county&#39;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">nm</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;median_age&#39;</span><span class="p">,</span> <span class="n">ascending</span> <span class="o">=</span> <span class="kc">False</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>All of these will work.  Recall that the <code class="docutils literal notranslate"><span class="pre">sort</span></code> method takes either a single column or a list of columns, and defaults to sorting in ascending order; if you want descending order you will need to tell the method <code class="docutils literal notranslate"><span class="pre">ascending</span> <span class="pre">=</span> <span class="pre">False</span></code>.  Let’s try the second option I discussed.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nm_sorted</span> <span class="o">=</span> <span class="n">nm</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;median_age&#39;</span><span class="p">,</span> <span class="n">ascending</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;median_age&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;county&#39;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">nm_sorted</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;median_age&#39;, ylabel=&#39;county&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/05-multivariate-visualization_8_1.png" src="_images/05-multivariate-visualization_8_1.png" />
+</div>
+</div>
+<p>Sorting the data allows us to more clearly see how the values vary.  However, as we discussed in class, it is essential that bar charts have an origin of 0, as bar heights are used to make comparisons.  For values that are similar - but for which the differences are still significant - the <strong>dot plot</strong> may be preferable, which represents values by the position of dots along a a value axis.  Indeed, many data visualization experts prefer dot plots to bar charts, as they argue that it is easier for humans to perceive dot position instead of bar heights.  Further, dot plots are not constrained by the zero-axis-origin rule.</p>
+<p>Dot plots in <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> are available via the <code class="docutils literal notranslate"><span class="pre">stripplot</span></code> function; for reference, “strip plot” is another name for dot plot.  The syntax you’ll use is identical to <code class="docutils literal notranslate"><span class="pre">barplot</span></code> in this example aside from a <code class="docutils literal notranslate"><span class="pre">size</span></code> parameter that governs the size of the points on the plot.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">stripplot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;median_age&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;county&#39;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">nm_sorted</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;median_age&#39;, ylabel=&#39;county&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/05-multivariate-visualization_10_1.png" src="_images/05-multivariate-visualization_10_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="scatter-plots">
+<h2>Scatter plots<a class="headerlink" href="#scatter-plots" title="Permalink to this headline">¶</a></h2>
+<p>Bar charts and dot plots are excellent choices for visualizing quantitative variations amongst different categories, like countries.  However: what if you want to visualize how two quantitative attributes might covary?  The most common exploratory visualization technique for this type of scenario is the <strong>scatter plot</strong>.</p>
+<p>Scatter plots most closely resemble the base <strong>Cartesian coordinate system</strong> that underpins the charts we’ve learned how to make to this point.  In fact, scatter plots are likely familiar to you from grade-school mathematics in the way they represent the joint distributions of two attributes.  The value for one attribute is represented by the x-coordinate (the horizontal axis) on the chart, and the other attribute is represented by the y-coordinate (the vertical axis).</p>
+<p>Let’s give this a try.  We’ll be comparing the distributions of counties’ educational attainment, as measured by the percentage of residents age 25 and up with at least a 4-year college degree, and the median annual income for households in New Mexico’s counties.  Briefly, let’s examine the characteristics of our data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nm</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>hhincome</th>
+      <th>pct_college</th>
+      <th>median_age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>33.000000</td>
+      <td>33.000000</td>
+      <td>33.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>40088.818182</td>
+      <td>21.384848</td>
+      <td>41.321212</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>15328.603075</td>
+      <td>10.455744</td>
+      <td>7.637193</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>21190.000000</td>
+      <td>9.500000</td>
+      <td>29.700000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>32067.000000</td>
+      <td>15.400000</td>
+      <td>35.800000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>36160.000000</td>
+      <td>18.100000</td>
+      <td>40.400000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>41788.000000</td>
+      <td>25.800000</td>
+      <td>46.400000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>105902.000000</td>
+      <td>64.600000</td>
+      <td>58.100000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>You can get a sense here of the wide variations among counties.  Median household income varies from $21,190 to $105,902; the percentage of residents age 25+ with a 4-year degree varies from 9.5 percent to 64.6 percent.</p>
+<p>So how do these two distributions of values covary?  We can draw a scatterplot with <strong>seaborn</strong>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;pct_college&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;hhincome&#39;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">nm</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;pct_college&#39;, ylabel=&#39;hhincome&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/05-multivariate-visualization_14_1.png" src="_images/05-multivariate-visualization_14_1.png" />
+</div>
+</div>
+<p>Notice the shape formed by the distribution of dots.  It appears from our plot that as educational attainment increases, household income increases as well, suggesting a <strong>positive relationship</strong> between the two distributions.  Recall from class that this statistical relationship can be quantified with a <strong>correlation coefficient</strong>.  Let’s check this out by using the <code class="docutils literal notranslate"><span class="pre">.corr()</span></code> method available to us in <code class="docutils literal notranslate"><span class="pre">pandas</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nm</span><span class="p">[</span><span class="s1">&#39;hhincome&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">nm</span><span class="p">[</span><span class="s1">&#39;pct_college&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7568558159158861
+</pre></div>
+</div>
+</div>
+</div>
+<p>As we discussed in class, Pearson’s correlation coefficient (which is used here) ranges between -1 and +1, with positive values suggestive of a positive correlation and vice versa.  This statistic conforms with what we see in the scatter plot.  However: remember to beware of spurious correlations!  We’ll learn some more methods for investigating this graphically throughout the semester.</p>
+<p>Scatter plots are also available in <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> with additional options. For example, we can try the <code class="docutils literal notranslate"><span class="pre">lmplot()</span></code> function (don’t worry about the warning message):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;pct_college&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;hhincome&#39;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">nm</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f6992a98550&gt;
+</pre></div>
+</div>
+<img alt="_images/05-multivariate-visualization_18_1.png" src="_images/05-multivariate-visualization_18_1.png" />
+</div>
+</div>
+<p>The plot is similar, but notice the superimposition of a <strong>regression line</strong> over the dots.  You can think of this line as a visual representation of the correlation between the two variables; the upward slope, again, suggests a positive relationship.  This line also presumes that the relationship between the two variables is <strong>linear</strong>, which is not always the case; we’ll discuss this a bit more later in the semester.</p>
+<p><code class="docutils literal notranslate"><span class="pre">seaborn</span></code> also has additional options for drawing multi-dimensional plots.  You’ll learn much more about this in the second half of the semester, but here’s a preview of the <code class="docutils literal notranslate"><span class="pre">jointplot</span></code> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;pct_college&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;hhincome&#39;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">nm</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.JointGrid at 0x7f6993721f10&gt;
+</pre></div>
+</div>
+<img alt="_images/05-multivariate-visualization_20_1.png" src="_images/05-multivariate-visualization_20_1.png" />
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">seaborn</span></code> draws a scatter plot, but with histograms of the two data distributions on the margins!  Additionally, the <code class="docutils literal notranslate"><span class="pre">sns.scatterplot()</span></code> function can map other variables onto the hue, style, or size of the points drawn.  For example, we can visualize our relationship as we did before, but this time with dots sized by county median age:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;pct_college&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;hhincome&#39;</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="s2">&quot;median_age&quot;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">nm</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;pct_college&#39;, ylabel=&#39;hhincome&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/05-multivariate-visualization_22_1.png" src="_images/05-multivariate-visualization_22_1.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="exercises">
+<h1>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h1>
+<p>As usual, I’ll ask you to do some of this on your own now in the form of a few small exercises.  Take care to answer all of the questions!</p>
+<p><strong>Exercise 1</strong>: Explain, in your own words, the differences between a bar chart and a dot plot.  When might one of these charts be preferable to the other?  Write your response below in this Markdown cell.</p>
+<hr class="docutils" />
+<p>Exercises 2 and 3 will re-use the New Mexico data that the assignment’s instructions were based on.  Answer the following questions:</p>
+<p><strong>Exercise 2</strong>: Sort your data frame by median household income in descending order.  Which county in New Mexico has the lowest median household income?  Which county has the highest median household income?</p>
+<p><strong>Exercise 3</strong>: Use <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> to create either a dot plot or bar chart of the <code class="docutils literal notranslate"><span class="pre">&quot;pct_college&quot;</span></code> column for counties in New Mexico, with bars or dots sorted in descending order of educational attainment.</p>
+<hr class="docutils" />
+<p>In Exercises 4 and 5, you are going to examine the (potential) relationship between the percentage of the population in poverty and the percentage of households with broadband internet access for counties in Texas with populations 65,000 and up.  This information comes from the 1-year American Community Survey for 2017.</p>
+<p>Use the cell below to read in the dataset <code class="docutils literal notranslate"><span class="pre">texas.csv</span></code>, which is located in your assignment folder.</p>
+<p><strong>Exercise 4</strong>: Use <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> to draw a scatter plot that shows the relationship between poverty rates and broadband internet access.</p>
+<p><strong>Exercise 5:</strong> Calculate the correlation coefficient for counties’ poverty rates and broadband internet access.  What appears to be the relationship between the two variables?  Does this represent a <em>spurious</em> correlation, in your opinion?</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="04-univariate-data-analysis.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Assignment 4: Univariate data analysis</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="06-data-wrangling.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Assignment 6: Data wrangling I</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Kyle Walker<br/>
+        
+            &copy; Copyright 2022.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

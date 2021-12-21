@@ -1,0 +1,1339 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment 7: Wrangling data from APIs &#8212; GEOG 30323: Data Analysis &amp; Visualization</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Assignment 8: Data visualization" href="08-data-visualization.html" />
+    <link rel="prev" title="Assignment 6: Data wrangling I" href="06-data-wrangling.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">GEOG 30323: Data Analysis & Visualization</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="README.html">
+   geog30323
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="02-intro-to-python.html">
+   Programming I - Intro to Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03-functions-and-iteration.html">
+   Programming II: Functions, conditional statements, and iteration in Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04-univariate-data-analysis.html">
+   Assignment 4: Univariate data analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05-multivariate-visualization.html">
+   Assignment 5: Multivariate exploratory visualization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06-data-wrangling.html">
+   Assignment 6: Data wrangling I
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Assignment 7: Wrangling data from APIs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08-data-visualization.html">
+   Assignment 8: Data visualization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09-geographic-mapbox.html">
+   Assignment 9: Geographic visualization with Mapbox Studio
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10-tableau.html">
+   Assignment 10: Building a dashboard with Tableau
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/07-wrangling-data-from-apis.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/walkerke/geog30323/master?urlpath=tree/07-wrangling-data-from-apis.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/walkerke/geog30323/blob/master/07-wrangling-data-from-apis.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Assignment 7: Wrangling data from APIs
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="assignment-7-wrangling-data-from-apis">
+<h1>Assignment 7: Wrangling data from APIs<a class="headerlink" href="#assignment-7-wrangling-data-from-apis" title="Permalink to this headline">¶</a></h1>
+<p>The previous assignment gave you some experience with the data wrangling functionality of <code class="docutils literal notranslate"><span class="pre">pandas</span></code>; this are skills you’ll be returning to throughout the semester.  In this assignment, you’ll be expanding upon those skills by working with data from the City of Fort Worth’s Open Data API.  As you learned in class, data APIs are interfaces that allow you to access data programmatically.  In turn, data APIs allow data to be accessed by applications such as websites, or in this case a data analysis pipeline.</p>
+<p>Fort Worth’s Open Data API is powered by <a class="reference external" href="http://www.socrata.com/">Socrata</a>, a start-up that helps cities open up their data catalogs to the public.  Many other cities, including <a class="reference external" href="https://nycopendata.socrata.com/">New York City</a> and <a class="reference external" href="https://www.dallasopendata.com/">Dallas</a>, use Socrata as well.  Fort Worth’s open data catalog is small, but growing, and the city’s use of Socrata makes its data available in many different ways.</p>
+<p>In this assignment we’ll be working with Fort Worth Police crime data, available at this link: <a class="reference external" href="https://data.fortworthtexas.gov/Public-Safety-Courts/Crime-Data/k6ic-7kp7">https://data.fortworthtexas.gov/Public-Safety-Courts/Crime-Data/k6ic-7kp7</a>.  The data include observations going back more than 100 years!  However, we’ll be working with more recent data as we can presume that they are more complete.</p>
+<p>The Socrata web interface includes a lot of options for filtering, manipulating, and visualizing the data.  As we want to be able to access it inside our data analysis environment in <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, however, we’ll want to be able to access it directly.  Socrata gives several options for exporting the data in a variety of formats, including CSV; however, you are going to learn in this assignment how to access the data through Socrata’s open data API.</p>
+<p>Generally, data APIs make data available in one of two formats: JSON (<strong>J</strong>ava<strong>S</strong>cript <strong>O</strong>bject <strong>N</strong>otation) or XML (e<strong>X</strong>tensible <strong>M</strong>arkup <strong>L</strong>anguage).  JSON is becoming the more common of the two, as it fits well within the structure of modern websites, which rely heavily on the JavaScript programming language.</p>
+<p>JSON is a way of encoding data objects with JavaScript, and organizes data as a series objects represented by key-value pairs.  In terms of how you are used to thinking about data, the <strong>object</strong> represents a record, the <strong>key</strong> represents a column header, and the <strong>value</strong> represents a data value.  Let’s take a look at a single JSON record from the crime database (run the cell to display it if it doesn’t show):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">IFrame</span>
+
+<span class="n">IFrame</span><span class="p">(</span><span class="s1">&#39;https://data.fortworthtexas.gov/resource/k6ic-7kp7.json?case_no=180003105&#39;</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">700</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">450</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="700"
+    height="450"
+    src="https://data.fortworthtexas.gov/resource/k6ic-7kp7.json?case_no=180003105"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+<p>The code you see above is new: I’m using the capabilities of the Jupyter Notebook to display an embedded web page.  Trust me, we haven’t even scratched the surface of what the Notebook can do; it can display animated GIFs, YouTube videos, interactive charts/maps, and much more!  Here, I’m showing the contents of the URL <a class="reference external" href="https://data.fortworthtexas.gov/resource/k6ic-7kp7.json?case_no=63560">https://data.fortworthtexas.gov/resource/k6ic-7kp7.json?case_no=63560</a> - click it to take a look if you want - which queries Fort Worth’s open data API and returns a single record from the crime dataset.  Let’s break the URL down a little bit.</p>
+<p>The first part, <a class="reference external" href="https://data.fortworthtexas.gov/resource/k6ic-7kp7.json">https://data.fortworthtexas.gov/resource/k6ic-7kp7.json</a>, is the <strong>API endpoint</strong>.  This is the root directory of the data API; if you were to follow that link, you’d see the entire dataset in JSON format.  The second part, <code class="docutils literal notranslate"><span class="pre">?case_no=63560</span></code>, is a <strong>filter</strong>; the question mark signifies that I am going to query the data, and the string that follows, <code class="docutils literal notranslate"><span class="pre">case_no=63560</span></code>, specifies how the data are to be subsetted.  I’ve done this all in the URL of the API call!</p>
+<p>Additionally, the Socrata API recognizes a query language they call “SoQL”, which operates against the API in a similar way to how SQL (Structured Query Language) allows users to access databases.  More information is here: <a class="reference external" href="http://dev.socrata.com/docs/queries.html">http://dev.socrata.com/docs/queries.html</a>.  For example, the following query will return thefts in Fort Worth for 2019:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This is the API endpoint - the source of our data</span>
+<span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;https://data.fortworthtexas.gov/resource/k6ic-7kp7.json&quot;</span>
+
+<span class="c1"># Here is the first part of the SoQL query - denoting what type of offense we want</span>
+<span class="n">type_query</span> <span class="o">=</span> <span class="s2">&quot;?$where=nature_of_call=&#39;THEFT&#39;&quot;</span>
+
+<span class="c1"># Here is the second part of the query - we are taking offenses after midnight on December 1, </span>
+<span class="c1"># and prior to midnight on January 1</span>
+<span class="n">date_query</span> <span class="o">=</span> <span class="s2">&quot; AND reported_date&gt;&#39;2019-01-01T00:00:00&#39; AND reported_date&lt;&#39;2020-01-01T00:00:00&#39; &amp;$limit=50000&quot;</span>
+
+<span class="c1"># We then concatenate together the endpoint and the two components of the SoQL query</span>
+<span class="c1"># to get our API call.</span>
+<span class="n">theft_call</span> <span class="o">=</span> <span class="n">endpoint</span> <span class="o">+</span> <span class="n">type_query</span> <span class="o">+</span> <span class="n">date_query</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">read_json()</span></code> function in <code class="docutils literal notranslate"><span class="pre">pandas</span></code> can then translate JSON to a nice data frame.  However, we’ll first need to translate our long query to a URL-appropriate string that <code class="docutils literal notranslate"><span class="pre">pandas</span></code> can use.  Currently, our API call looks like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">theft_call</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;https://data.fortworthtexas.gov/resource/k6ic-7kp7.json?$where=nature_of_call=&#39;THEFT&#39; AND reported_date&gt;&#39;2019-01-01T00:00:00&#39; AND reported_date&lt;&#39;2020-01-01T00:00:00&#39; &amp;$limit=50000&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<p>However, as there are spaces and special characters in the query, <code class="docutils literal notranslate"><span class="pre">pandas</span></code> needs the string as it will be translated in the web browser.  Fortunately, Python has a built-in library, <code class="docutils literal notranslate"><span class="pre">urllib</span></code>, that can assist with this.  The <code class="docutils literal notranslate"><span class="pre">quote</span></code> function in the <code class="docutils literal notranslate"><span class="pre">parse</span></code> module gets this done, so let’s import it and format the URL accordingly.  Note the argument supplied to the <code class="docutils literal notranslate"><span class="pre">safe</span></code> parameter, which denotes characters we don’t want to convert.  Take a look at how the URL changes:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="n">quote</span>
+
+<span class="n">quote</span><span class="p">(</span><span class="n">theft_call</span><span class="p">,</span> <span class="n">safe</span> <span class="o">=</span> <span class="s2">&quot;/:?$=&lt;-&gt;&amp;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;https://data.fortworthtexas.gov/resource/k6ic-7kp7.json?$where=nature_of_call=%27THEFT%27%20AND%20reported_date&gt;%272019-01-01T00:00:00%27%20AND%20reported_date&lt;%272020-01-01T00:00:00%27%20&amp;$limit=50000&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can use this formatted URL in a <code class="docutils literal notranslate"><span class="pre">read_json</span></code> call now using <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, creating a new data frame called <code class="docutils literal notranslate"><span class="pre">theft_df</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">formatted_call</span> <span class="o">=</span> <span class="n">quote</span><span class="p">(</span><span class="n">theft_call</span><span class="p">,</span> <span class="n">safe</span> <span class="o">=</span> <span class="s2">&quot;/:?$=&lt;-&gt;&amp;&quot;</span><span class="p">)</span>
+
+<span class="n">theft_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="n">formatted_call</span><span class="p">)</span>
+
+<span class="n">theft_df</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(11633, 17)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Our API call has returned 11632 theft calls in Fort Worth in 2019.  Let’s take a quick peek at the data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">theft_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>case_no_offense</th>
+      <th>case_no</th>
+      <th>reported_date</th>
+      <th>nature_of_call</th>
+      <th>from_date</th>
+      <th>offense</th>
+      <th>offense_desc</th>
+      <th>block_address</th>
+      <th>city</th>
+      <th>state</th>
+      <th>beat</th>
+      <th>division</th>
+      <th>councildistrict</th>
+      <th>attempt_complete</th>
+      <th>location_type</th>
+      <th>locationtypedescription</th>
+      <th>location_1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>190000007-23B</td>
+      <td>190000007</td>
+      <td>2019-01-01T01:15:00.000</td>
+      <td>THEFT</td>
+      <td>2018-12-31T23:00:00.000</td>
+      <td>23B</td>
+      <td>PC 31.03 (E) (4)(B) Theft from Person 23B PURS...</td>
+      <td>2500 RODEO PLZ</td>
+      <td>FORT WORTH</td>
+      <td>TX</td>
+      <td>C11</td>
+      <td>Northwest</td>
+      <td>2.0</td>
+      <td>C</td>
+      <td>3.0</td>
+      <td>03 BAR/NIGHT CLUB</td>
+      <td>{'latitude': '32.7901994394112', 'longitude': ...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>190000038-23C</td>
+      <td>190000038</td>
+      <td>2019-01-01T03:12:00.000</td>
+      <td>THEFT</td>
+      <td>2019-01-01T03:10:00.000</td>
+      <td>23C</td>
+      <td>PC 31.03 Theft - Shoplifting 23C SHOPLIFTING 23C</td>
+      <td>5900 CROMWELL MARINE CREEK RD</td>
+      <td>FORT WORTH</td>
+      <td>TX</td>
+      <td>D15</td>
+      <td>Northwest</td>
+      <td>2.0</td>
+      <td>C</td>
+      <td>7.0</td>
+      <td>07 CONVENIENCE STORE</td>
+      <td>{'latitude': '32.85229787039639', 'longitude':...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>190000094-23H</td>
+      <td>190000094</td>
+      <td>2019-01-01T04:01:56.000</td>
+      <td>THEFT</td>
+      <td>2019-01-01T04:01:56.000</td>
+      <td>23H</td>
+      <td>PC 31.03(E)(3)  2015 Theft prop&gt;=$750&lt;$2500 23...</td>
+      <td>2700 BRYAN AVE</td>
+      <td>FORT WORTH</td>
+      <td>TX</td>
+      <td>B16</td>
+      <td>Central</td>
+      <td>9.0</td>
+      <td>C</td>
+      <td>20.0</td>
+      <td>20 RESIDENCE/HOME</td>
+      <td>{'latitude': '32.71288719925991', 'longitude':...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>190000086-23H</td>
+      <td>190000086</td>
+      <td>2019-01-01T07:18:00.000</td>
+      <td>THEFT</td>
+      <td>2018-12-31T21:00:00.000</td>
+      <td>23H</td>
+      <td>PC 31.03 - Others Theft - Others 23H ALL OTHER...</td>
+      <td>8600 VANDERBILT LN</td>
+      <td>FORT WORTH</td>
+      <td>TX</td>
+      <td>H15</td>
+      <td>East</td>
+      <td>5.0</td>
+      <td>C</td>
+      <td>20.0</td>
+      <td>20 RESIDENCE/HOME</td>
+      <td>{'latitude': '32.75935727949581', 'longitude':...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>190000109-240</td>
+      <td>190000109</td>
+      <td>2019-01-01T09:44:01.000</td>
+      <td>THEFT</td>
+      <td>2019-01-01T09:44:01.000</td>
+      <td>240</td>
+      <td>PC 31.03 - AUTO Auto Theft 240 MOTOR VEHICLE T...</td>
+      <td>900 W ROSEDALE ST</td>
+      <td>FORT WORTH</td>
+      <td>TX</td>
+      <td>B11</td>
+      <td>Central</td>
+      <td>9.0</td>
+      <td>C</td>
+      <td>7.0</td>
+      <td>07 CONVENIENCE STORE</td>
+      <td>{'latitude': '32.73324537143886', 'longitude':...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Notice how <code class="docutils literal notranslate"><span class="pre">pandas</span></code> has translated the JSON into a data frame with columns that make sense to us.  There is a lot we can do with the data here!  We have information about the date of the crime; the location - including lat/long coordinates, that need some additional parsing - the police beat, and the city council district.  Using the methods we’ve learned to this point, we can do some basic analysis of the data.  For example: how did theft vary by city council district in 2019?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">theft_by_district</span> <span class="o">=</span> <span class="n">theft_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;councildistrict&#39;</span><span class="p">)</span>
+
+<span class="n">theft_by_district</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>councildistrict
+2.0     925
+3.0    1152
+4.0    1149
+5.0    1251
+6.0    1194
+7.0     747
+8.0    1543
+9.0    1497
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Looks like District 8 had the most thefts, followed by District 9.  Let’s try plotting this with <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">style</span> <span class="o">=</span> <span class="s2">&quot;darkgrid&quot;</span><span class="p">,</span> <span class="n">rc</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">)})</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">theft_df</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;councildistrict&#39;</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;count&#39;, ylabel=&#39;councildistrict&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/07-wrangling-data-from-apis_15_1.png" src="_images/07-wrangling-data-from-apis_15_1.png" />
+</div>
+</div>
+<p>A trained observer, however, would notice that that data are not normalized for population.  As data analysts, always be mindful of whether your analysis accurately represents the underlying variation in your data.  Data can easily mislead if not presented correctly; for example, while the largest cities in the United States will usually have the most crimes, they won’t necessarily have the highest crime <strong>rates</strong>.</p>
+<p>However, we don’t have city council district population in our dataset; in turn, we’ll need to fetch it from somewhere else and <strong>merge</strong> it to our existing data.  As we discussed in class, merges are based on <strong>key fields</strong> that match between two different tables.  Also, recall from class our discussion of the four types of merges available to you in <code class="docutils literal notranslate"><span class="pre">pandas</span></code> via the <code class="docutils literal notranslate"><span class="pre">.merge()</span></code> method, which can be passed as arguments to the <code class="docutils literal notranslate"><span class="pre">how</span></code> parameter:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">'inner'</span></code> (the default): only the matching rows are retained</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'left'</span></code>: all rows from the first table are retained; only matching rows from the second table are retained</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'right'</span></code>: all rows from the second table are retained; only matching rows from the first table are retained</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'outer'</span></code>: all rows are retained, regardless of a match between the two tables</p></li>
+</ul>
+<p>We’ll be conducting a very simple merge here, in which all rows will match between the two tables.  Let’s read in the city council population data from my website:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">council</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;http://personal.tcu.edu/kylewalker/data/cd_population.csv&#39;</span><span class="p">)</span>
+
+<span class="n">council</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>total</th>
+      <th>district</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2 - Carlos Flores</td>
+      <td>107649</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>3 - Brian Byrd</td>
+      <td>98711</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4 - Cary Moon</td>
+      <td>112074</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>5 - Gyna Bivens</td>
+      <td>104732</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>6 - Jungus Jordan</td>
+      <td>98986</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>7 - Dennis Shingleton</td>
+      <td>124235</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>8 - Kelly Allen Gray</td>
+      <td>103432</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>9 - Ann Zadeh</td>
+      <td>95479</td>
+      <td>9</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>We can now create a data frame from our <code class="docutils literal notranslate"><span class="pre">groupby</span></code> result (resetting the index, as <code class="docutils literal notranslate"><span class="pre">pandas</span></code> places the group name in the index), to get it ready for a merge.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">theft_by_district_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">theft_by_district</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">())</span>
+
+<span class="n">theft_by_district_df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;district&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">]</span>
+
+<span class="n">theft_by_district_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>district</th>
+      <th>count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2.0</td>
+      <td>925</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>3.0</td>
+      <td>1152</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4.0</td>
+      <td>1149</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>5.0</td>
+      <td>1251</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>6.0</td>
+      <td>1194</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>7.0</td>
+      <td>747</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>8.0</td>
+      <td>1543</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>9.0</td>
+      <td>1497</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>We’ll be able to merge on the “district” column, which I’ve renamed in the second data frame for clarity.  First, let’s check our <code class="docutils literal notranslate"><span class="pre">dtypes</span></code> to make sure they match up:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">council</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>name        object
+total        int64
+district     int64
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">theft_by_district_df</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>district    float64
+count         int64
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, we can do the merge with the <code class="docutils literal notranslate"><span class="pre">.merge()</span></code> method in <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">council_merged</span> <span class="o">=</span> <span class="n">council</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">theft_by_district_df</span><span class="p">,</span> <span class="n">on</span> <span class="o">=</span> <span class="s1">&#39;district&#39;</span><span class="p">,</span> <span class="n">how</span> <span class="o">=</span> <span class="s2">&quot;left&quot;</span><span class="p">)</span>
+
+<span class="n">council_merged</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>total</th>
+      <th>district</th>
+      <th>count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2 - Carlos Flores</td>
+      <td>107649</td>
+      <td>2</td>
+      <td>925</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>3 - Brian Byrd</td>
+      <td>98711</td>
+      <td>3</td>
+      <td>1152</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4 - Cary Moon</td>
+      <td>112074</td>
+      <td>4</td>
+      <td>1149</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>5 - Gyna Bivens</td>
+      <td>104732</td>
+      <td>5</td>
+      <td>1251</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>6 - Jungus Jordan</td>
+      <td>98986</td>
+      <td>6</td>
+      <td>1194</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>7 - Dennis Shingleton</td>
+      <td>124235</td>
+      <td>7</td>
+      <td>747</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>8 - Kelly Allen Gray</td>
+      <td>103432</td>
+      <td>8</td>
+      <td>1543</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>9 - Ann Zadeh</td>
+      <td>95479</td>
+      <td>9</td>
+      <td>1497</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Perfect!  We can now calculate a new column that measures rate per 1000 residents for thefts in 2019.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">council_merged</span><span class="p">[</span><span class="s1">&#39;rate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">council_merged</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">council_merged</span><span class="p">[</span><span class="s1">&#39;total&#39;</span><span class="p">])</span> <span class="o">*</span> <span class="mi">1000</span>
+
+<span class="n">council_merged</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>total</th>
+      <th>district</th>
+      <th>count</th>
+      <th>rate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2 - Carlos Flores</td>
+      <td>107649</td>
+      <td>2</td>
+      <td>925</td>
+      <td>8.592741</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>3 - Brian Byrd</td>
+      <td>98711</td>
+      <td>3</td>
+      <td>1152</td>
+      <td>11.670432</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4 - Cary Moon</td>
+      <td>112074</td>
+      <td>4</td>
+      <td>1149</td>
+      <td>10.252155</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>5 - Gyna Bivens</td>
+      <td>104732</td>
+      <td>5</td>
+      <td>1251</td>
+      <td>11.944773</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>6 - Jungus Jordan</td>
+      <td>98986</td>
+      <td>6</td>
+      <td>1194</td>
+      <td>12.062312</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>7 - Dennis Shingleton</td>
+      <td>124235</td>
+      <td>7</td>
+      <td>747</td>
+      <td>6.012798</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>8 - Kelly Allen Gray</td>
+      <td>103432</td>
+      <td>8</td>
+      <td>1543</td>
+      <td>14.918014</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>9 - Ann Zadeh</td>
+      <td>95479</td>
+      <td>9</td>
+      <td>1497</td>
+      <td>15.678840</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>And we can plot the results:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">council_sort</span> <span class="o">=</span> <span class="n">council_merged</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;rate&#39;</span><span class="p">,</span> <span class="n">ascending</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">stripplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">council_sort</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;rate&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;rate&#39;, ylabel=&#39;name&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/07-wrangling-data-from-apis_28_1.png" src="_images/07-wrangling-data-from-apis_28_1.png" />
+</div>
+</div>
+<p>Just in case you were wondering: TCU is split across council districts 3 and 9.</p>
+<p>The last thing we’re going to do is look at how thefts varied by date in 2019.  We have two columns that represent dates: <code class="docutils literal notranslate"><span class="pre">from_date</span></code> and <code class="docutils literal notranslate"><span class="pre">reported_date</span></code>; however they are not currently formatted as dates.  Dates are very tricky types to work with in data analysis - there are many different ways that dates can be written!  Fortunately, ours are currently fairly consistent - we just need to do a little work with them.</p>
+<p>The date fields in our data frame include a substring, <code class="docutils literal notranslate"><span class="pre">'T00:00:00'</span></code>; this means that the Socrata date field type supports time of day, but we don’t have this information in our dataset.  As such, we’re going to remove it from the string.</p>
+<p>The steps below will do the following:</p>
+<ul class="simple">
+<li><p>Remove the unnecessary time information, creating a new column <code class="docutils literal notranslate"><span class="pre">d1</span></code>;</p></li>
+<li><p>Create a new column formatted as a date, <code class="docutils literal notranslate"><span class="pre">date2</span></code>, from <code class="docutils literal notranslate"><span class="pre">date1</span></code>, using the <code class="docutils literal notranslate"><span class="pre">to_datetime()</span></code> function in <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">theft_df</span><span class="p">[</span><span class="s1">&#39;date1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">theft_df</span><span class="p">[</span><span class="s1">&#39;reported_date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+
+<span class="n">theft_df</span><span class="p">[</span><span class="s1">&#39;date2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">theft_df</span><span class="p">[</span><span class="s1">&#39;date1&#39;</span><span class="p">])</span>
+
+<span class="n">theft_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>case_no_offense</th>
+      <th>case_no</th>
+      <th>reported_date</th>
+      <th>nature_of_call</th>
+      <th>from_date</th>
+      <th>offense</th>
+      <th>offense_desc</th>
+      <th>block_address</th>
+      <th>city</th>
+      <th>state</th>
+      <th>beat</th>
+      <th>division</th>
+      <th>councildistrict</th>
+      <th>attempt_complete</th>
+      <th>location_type</th>
+      <th>locationtypedescription</th>
+      <th>location_1</th>
+      <th>date1</th>
+      <th>date2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>190000007-23B</td>
+      <td>190000007</td>
+      <td>2019-01-01T01:15:00.000</td>
+      <td>THEFT</td>
+      <td>2018-12-31T23:00:00.000</td>
+      <td>23B</td>
+      <td>PC 31.03 (E) (4)(B) Theft from Person 23B PURS...</td>
+      <td>2500 RODEO PLZ</td>
+      <td>FORT WORTH</td>
+      <td>TX</td>
+      <td>C11</td>
+      <td>Northwest</td>
+      <td>2.0</td>
+      <td>C</td>
+      <td>3.0</td>
+      <td>03 BAR/NIGHT CLUB</td>
+      <td>{'latitude': '32.7901994394112', 'longitude': ...</td>
+      <td>2019-01-01</td>
+      <td>2019-01-01</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>190000038-23C</td>
+      <td>190000038</td>
+      <td>2019-01-01T03:12:00.000</td>
+      <td>THEFT</td>
+      <td>2019-01-01T03:10:00.000</td>
+      <td>23C</td>
+      <td>PC 31.03 Theft - Shoplifting 23C SHOPLIFTING 23C</td>
+      <td>5900 CROMWELL MARINE CREEK RD</td>
+      <td>FORT WORTH</td>
+      <td>TX</td>
+      <td>D15</td>
+      <td>Northwest</td>
+      <td>2.0</td>
+      <td>C</td>
+      <td>7.0</td>
+      <td>07 CONVENIENCE STORE</td>
+      <td>{'latitude': '32.85229787039639', 'longitude':...</td>
+      <td>2019-01-01</td>
+      <td>2019-01-01</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>190000094-23H</td>
+      <td>190000094</td>
+      <td>2019-01-01T04:01:56.000</td>
+      <td>THEFT</td>
+      <td>2019-01-01T04:01:56.000</td>
+      <td>23H</td>
+      <td>PC 31.03(E)(3)  2015 Theft prop&gt;=$750&lt;$2500 23...</td>
+      <td>2700 BRYAN AVE</td>
+      <td>FORT WORTH</td>
+      <td>TX</td>
+      <td>B16</td>
+      <td>Central</td>
+      <td>9.0</td>
+      <td>C</td>
+      <td>20.0</td>
+      <td>20 RESIDENCE/HOME</td>
+      <td>{'latitude': '32.71288719925991', 'longitude':...</td>
+      <td>2019-01-01</td>
+      <td>2019-01-01</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>190000086-23H</td>
+      <td>190000086</td>
+      <td>2019-01-01T07:18:00.000</td>
+      <td>THEFT</td>
+      <td>2018-12-31T21:00:00.000</td>
+      <td>23H</td>
+      <td>PC 31.03 - Others Theft - Others 23H ALL OTHER...</td>
+      <td>8600 VANDERBILT LN</td>
+      <td>FORT WORTH</td>
+      <td>TX</td>
+      <td>H15</td>
+      <td>East</td>
+      <td>5.0</td>
+      <td>C</td>
+      <td>20.0</td>
+      <td>20 RESIDENCE/HOME</td>
+      <td>{'latitude': '32.75935727949581', 'longitude':...</td>
+      <td>2019-01-01</td>
+      <td>2019-01-01</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>190000109-240</td>
+      <td>190000109</td>
+      <td>2019-01-01T09:44:01.000</td>
+      <td>THEFT</td>
+      <td>2019-01-01T09:44:01.000</td>
+      <td>240</td>
+      <td>PC 31.03 - AUTO Auto Theft 240 MOTOR VEHICLE T...</td>
+      <td>900 W ROSEDALE ST</td>
+      <td>FORT WORTH</td>
+      <td>TX</td>
+      <td>B11</td>
+      <td>Central</td>
+      <td>9.0</td>
+      <td>C</td>
+      <td>7.0</td>
+      <td>07 CONVENIENCE STORE</td>
+      <td>{'latitude': '32.73324537143886', 'longitude':...</td>
+      <td>2019-01-01</td>
+      <td>2019-01-01</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Scroll to the end; we see that <code class="docutils literal notranslate"><span class="pre">date1</span></code> and <code class="docutils literal notranslate"><span class="pre">date2</span></code> look similar; however, <code class="docutils literal notranslate"><span class="pre">date2</span></code> is formatted as a date, which means that <code class="docutils literal notranslate"><span class="pre">pandas</span></code> recognizes how to work with it in sequence.  In turn, we can plot how burglaries varied by day in Fort Worth last December:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">theft_by_date</span> <span class="o">=</span> <span class="p">(</span><span class="n">theft_df</span>
+                <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;date2&#39;</span><span class="p">)</span>
+                <span class="o">.</span><span class="n">size</span><span class="p">()</span>
+                <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+                <span class="p">)</span>
+
+<span class="n">theft_by_date</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Date&quot;</span><span class="p">,</span> <span class="s2">&quot;Number&quot;</span><span class="p">]</span>
+
+
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;Date&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;Number&quot;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">theft_by_date</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;Date&#39;, ylabel=&#39;Number&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/07-wrangling-data-from-apis_32_1.png" src="_images/07-wrangling-data-from-apis_32_1.png" />
+</div>
+</div>
+<p>Read through the code to understand what it does.  I’m introducing you here to a new process of operations called <em>method chaining</em> which is very popular in data programming. Rather than writing out a separate command for each method, generating new objects along the way, e.g.:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">theft_groupby</span> <span class="o">=</span> <span class="n">theft_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;date2&#39;</span><span class="p">)</span>
+<span class="n">theft_size</span> <span class="o">=</span> <span class="n">theft_groupby</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+<span class="n">theft_reset</span> <span class="o">=</span> <span class="n">theft_size</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Method chaining allows for the specification of a data wrangling process as a series of steps.  The code we use -</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">theft_by_date</span> <span class="o">=</span> <span class="p">(</span><span class="n">theft_df</span>
+                <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;date2&#39;</span><span class="p">)</span>
+                <span class="o">.</span><span class="n">size</span><span class="p">()</span>
+                <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+                <span class="p">)</span>
+</pre></div>
+</div>
+<p>can be read as “To generate the object <code class="docutils literal notranslate"><span class="pre">theft_by_date</span></code>, we first take the <code class="docutils literal notranslate"><span class="pre">theft_df</span></code> data frame, then we group it by the <code class="docutils literal notranslate"><span class="pre">&quot;date2&quot;</span></code> column, then we compute the size, then we reset the index.”  Method chains over multiple lines like these must be wrapped in parentheses so Python knows that the methods belong to a multi-line chain.  This is the style that I often use in my projects as it helps me keep my thoughts organized.</p>
+<p>Once we’ve generated an appropriate object using the method chain, we can give it sensible column names and plot the result with <code class="docutils literal notranslate"><span class="pre">sns.lineplot()</span></code>.</p>
+<p>One thing you may notice with the plot, however, is that it appears choppy, making it difficult to discern trends for the entire year.  An alternative way to visualize this is by re-calculating the data as a <em>rolling mean</em>, where the number associated with each date represents an average of the days around it.  <strong>pandas</strong> is designed specifically for this type of time-series analysis.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">theft_by_date</span><span class="p">[</span><span class="s1">&#39;Weekly_Avg&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">theft_by_date</span><span class="p">[</span><span class="s1">&#39;Number&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span> <span class="o">=</span> <span class="mi">7</span><span class="p">,</span> <span class="n">min_periods</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="n">theft_by_date</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Date</th>
+      <th>Number</th>
+      <th>Weekly_Avg</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2019-01-01</td>
+      <td>30</td>
+      <td>30.000000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2019-01-02</td>
+      <td>34</td>
+      <td>32.000000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2019-01-03</td>
+      <td>42</td>
+      <td>35.333333</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2019-01-04</td>
+      <td>34</td>
+      <td>35.000000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2019-01-05</td>
+      <td>31</td>
+      <td>34.200000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Above, we use the <code class="docutils literal notranslate"><span class="pre">.rolling()</span></code> method to specify a “window” of observations around each row for a given column.  We can then compute a statistic (e.g. sum, mean) over that rolling window and we get back the appropriate result.  The <code class="docutils literal notranslate"><span class="pre">min_periods</span></code> argument is necessary here as the default will return <code class="docutils literal notranslate"><span class="pre">NaN</span></code> (missing data) for rows with fewer observations in their windows than the specified size.</p>
+<p>As we’ve now computed the seven-day average for theft in 2019 by day, we can visualize it on a chart.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;Date&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;Weekly_Avg&quot;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">theft_by_date</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;Date&#39;, ylabel=&#39;Weekly_Avg&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/07-wrangling-data-from-apis_36_1.png" src="_images/07-wrangling-data-from-apis_36_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="exercises">
+<h1>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h1>
+<p>Data APIs are complicated topics and we’re only scratching the surface here of what you can do with them.  In turn, your exercises for this assignment will be a little different.</p>
+<p>Your job here is to replicate the above analysis for <strong>another type of offense</strong> and <strong>optionally another time period</strong> in Fort Worth.  Visit the Fort Worth dataset on the web here: <a class="reference external" href="https://data.fortworthtexas.gov/Public-Safety/Crime-Data/k6ic-7kp7/data">https://data.fortworthtexas.gov/Public-Safety/Crime-Data/k6ic-7kp7/data</a> and look at the “Nature of Call” column to see what other options there are.  Some tips: some crimes like murder are relatively rare, so you might be better served choosing an offense that is more frequent.  Also, values in the “Description” column have changed somewhat over time, so be mindful of this when selecting a type of crime.</p>
+<p>What this basically involves is re-using the code I’ve already written for this assignment, and modifying it slightly for your chosen type of offense and your chosen time period.  To do this, you’ll modify the API call at the beginning of the code accordingly.  I want you to get a sense of how you can “change parameters” in an API call, and in turn get different results.  Indeed, an enterprising analysis like this could wrap everything in a function and re-produce analyses by parameterizing these inputs in Python; you don’t have to do that here, but hopefully this gives you a sense of why it is useful to write everything out with code.</p>
+<p>To get full credit for this assignment, your results should include responses to the following questions:</p>
+<ol class="simple">
+<li><p>How did crime incidents for your chosen offense in your chosen time period vary by city council district?</p></li>
+<li><p>Draw a chart that shows these variations.</p></li>
+<li><p>How did crime rates per 1000 residents in your chosen time period vary by city council district for your chosen offense?</p></li>
+<li><p>Draw a chart that shows variations in rates by council district.</p></li>
+<li><p>Draw a line chart that shows how incidents of your chosen offense varied by day in the time period that you chose.</p></li>
+</ol>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="06-data-wrangling.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Assignment 6: Data wrangling I</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="08-data-visualization.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Assignment 8: Data visualization</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Kyle Walker<br/>
+        
+            &copy; Copyright 2022.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
