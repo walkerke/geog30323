@@ -1,0 +1,12 @@
+format: jb-book
+root: README.md
+chapters:
+- file: 02-intro-to-python.ipynb
+- file: 03-functions-and-iteration.ipynb
+- file: 04-univariate-data-analysis.ipynb
+- file: 05-multivariate-visualization.ipynb
+- file: 06-data-wrangling.ipynb
+- file: 07-wrangling-data-from-apis.ipynb
+- file: 08-data-visualization.ipynb
+- file: 09-geographic-mapbox.ipynb
+- file: 10-tableau.ipynb

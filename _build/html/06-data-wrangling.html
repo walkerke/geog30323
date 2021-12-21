@@ -1,0 +1,1405 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment 6: Data wrangling I &#8212; GEOG 30323: Data Analysis &amp; Visualization</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Assignment 7: Wrangling data from APIs" href="07-wrangling-data-from-apis.html" />
+    <link rel="prev" title="Assignment 5: Multivariate exploratory visualization" href="05-multivariate-visualization.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">GEOG 30323: Data Analysis & Visualization</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="README.html">
+   geog30323
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="02-intro-to-python.html">
+   Programming I - Intro to Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03-functions-and-iteration.html">
+   Programming II: Functions, conditional statements, and iteration in Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04-univariate-data-analysis.html">
+   Assignment 4: Univariate data analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05-multivariate-visualization.html">
+   Assignment 5: Multivariate exploratory visualization
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Assignment 6: Data wrangling I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07-wrangling-data-from-apis.html">
+   Assignment 7: Wrangling data from APIs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08-data-visualization.html">
+   Assignment 8: Data visualization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09-geographic-mapbox.html">
+   Assignment 9: Geographic visualization with Mapbox Studio
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10-tableau.html">
+   Assignment 10: Building a dashboard with Tableau
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/06-data-wrangling.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/walkerke/geog30323/master?urlpath=tree/06-data-wrangling.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/walkerke/geog30323/blob/master/06-data-wrangling.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Assignment 6: Data wrangling I
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="assignment-6-data-wrangling-i">
+<h1>Assignment 6: Data wrangling I<a class="headerlink" href="#assignment-6-data-wrangling-i" title="Permalink to this headline">¶</a></h1>
+<p>In the last two assignments you’ve explored data with both basic statistical methods and different types of data visualization.  While this is a key part of the data analysis process, datasets need to be in the right format before analysts can start drawing meaningful conclusions.  The process of preparing data for analysis is called <strong>data wrangling</strong>, and often takes the bulk of an analysts’ time during a data project.  Possible issues might include:</p>
+<ul class="simple">
+<li><p>Missing data or problematic/incorrect values in a dataset;</p></li>
+<li><p>Data are formatted incorrectly, preventing the analyst from working with the data in the right way;</p></li>
+<li><p>Data are spread across multiple files or data tables;</p></li>
+<li><p>Data are in the wrong “shape” for analysis and visualization</p></li>
+<li><p>All of the above, in varying capacities!</p></li>
+</ul>
+<p>A major reason why you are learning to work with <code class="docutils literal notranslate"><span class="pre">pandas</span></code> in this course is because it can flexibly handle all of these tasks.  In this notebook, we’ll be going over some basic examples of how this works, which you’ll then put into practice with the Exercises at the end.</p>
+<p>In this notebook, we’ll be working primarily with the US Department of Education’s College Scorecard dataset. Read in the full dataset with the code below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">full_url</span> <span class="o">=</span> <span class="s1">&#39;http://personal.tcu.edu/kylewalker/data/colleges.csv&#39;</span>
+<span class="n">full</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">full_url</span><span class="p">,</span> <span class="n">encoding</span> <span class="o">=</span> <span class="s1">&#39;latin_1&#39;</span><span class="p">)</span>
+<span class="n">full</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(7804, 122)
+</pre></div>
+</div>
+</div>
+</div>
+<p>We see that our data have over 7800 rows, and a whopping 122 columns!  At this point, while you might not know yet what insights are contained in the data, you will have some sense of the research questions that you are interested in.  As your research questions don’t likely require all 122 columns, you can safely restrict your dataset to only those columns that you need for your analysis.  Our core research question is as follows:</p>
+<ul class="simple">
+<li><p>How does the proportion of non-traditional students - defined as undergraduate students aged 25 and above - vary among comparable bachelor’s-granting colleges and universities?</p></li>
+</ul>
+<p>To accomplish this, we’ll need to identify some columns that we need and subset our data accordingly.  The columns we’ll be keeping are as follows:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">INSTNM</span></code>: The name of the institution;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">STABBR</span></code>: The state the institution is located in;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PREDDEG</span></code>: The primary type of degree granted by the institution; codes include 1 for certificates, 2 for associate’s degrees, 3 for bachelor’s degrees, and 4 for graduate degrees;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CONTROL</span></code>: The ownership of the institution, coded as 1 for public non-profit, 2 for private non-profit, and 3 for private for-profit;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UGDS</span></code>: The number of undergraduates enrolled at the institution;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UG25abv</span></code>: The percentage of undergraduates at the institution aged 25 and above.</p></li>
+</ul>
+<p><strong>Subsetting and indexing data</strong></p>
+<p>As we discussed in class, <code class="docutils literal notranslate"><span class="pre">pandas</span></code> includes many different methods for subsetting data; I encourage you to review the corresponding lecture notes for the full set of methods that we discussed.  In this notebook, we’ll be focusing on the methods that allow us to accomplish the task at hand, and you’ll be learning a few new methods as well.</p>
+<p>To subset our data column-wise, we can <em>index</em> our data frame with a list of columns.  The code below gets this done.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">keep</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;INSTNM&#39;</span><span class="p">,</span> <span class="s1">&#39;STABBR&#39;</span><span class="p">,</span> <span class="s1">&#39;PREDDEG&#39;</span><span class="p">,</span> <span class="s1">&#39;CONTROL&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS&#39;</span><span class="p">,</span> <span class="s1">&#39;UG25abv&#39;</span><span class="p">]</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">full</span><span class="p">[</span><span class="n">keep</span><span class="p">]</span> <span class="c1"># Notice how the indexing works here; I&#39;m assigning the result to a new dataframe called `df`.</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>INSTNM</th>
+      <th>STABBR</th>
+      <th>PREDDEG</th>
+      <th>CONTROL</th>
+      <th>UGDS</th>
+      <th>UG25abv</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Alabama A &amp; M University</td>
+      <td>AL</td>
+      <td>3</td>
+      <td>1</td>
+      <td>4051.0</td>
+      <td>0.1049</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>University of Alabama at Birmingham</td>
+      <td>AL</td>
+      <td>3</td>
+      <td>1</td>
+      <td>11200.0</td>
+      <td>0.2422</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Amridge University</td>
+      <td>AL</td>
+      <td>3</td>
+      <td>2</td>
+      <td>322.0</td>
+      <td>0.8540</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>University of Alabama in Huntsville</td>
+      <td>AL</td>
+      <td>3</td>
+      <td>1</td>
+      <td>5525.0</td>
+      <td>0.2640</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Alabama State University</td>
+      <td>AL</td>
+      <td>3</td>
+      <td>1</td>
+      <td>5354.0</td>
+      <td>0.1270</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Our data are much simpler to work with now!  We can already see some noticeable variations in the data; over 85 percent of students at Amridge University are over age 25; however, the university itself is quite small with only 322 undergraduates.  These are the types of things we’ll want to account for in our analysis.</p>
+<p>You may have noticed that I decided to assign the result of the subsetting operation to a new data frame.  Certainly, I could have assigned the result back to the original frame:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">full</span> <span class="o">=</span> <span class="n">full</span><span class="p">[</span><span class="n">keep</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>My personal preference when doing data programming is to assign the results of major operations to new data frames, creating a data frame object that represents each step of the analysis, and do minor operations in place.  For example, had I assigned the results of the subsetting operation back to <code class="docutils literal notranslate"><span class="pre">full</span></code>, and I later decided that I needed an additional column from the original data frame, I’d need to read the whole thing in again rather than just add a column name to the list <code class="docutils literal notranslate"><span class="pre">keep</span></code>.  Python will hold all of our data <code class="docutils literal notranslate"><span class="pre">in</span> <span class="pre">memory</span></code>, so it will be accessible to us throughout our Python session; given that our data are relatively small, this won’t cause us any problems.  Bigger data workflows might require different methods, however.</p>
+<p>There are small things, however, that you can do to your data frame in place to make your lives easier.  For example, I don’t really want to hit Caps Lock or the Shift key every time I am typing out column names, but my column names are capitalized.  Our column names in our data frame are simply a list of strings, which we’ve learned how to work with already with string methods. As such, we can use <strong>list comprehension</strong> to convert all of the column names to lower case:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>instnm</th>
+      <th>stabbr</th>
+      <th>preddeg</th>
+      <th>control</th>
+      <th>ugds</th>
+      <th>ug25abv</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Alabama A &amp; M University</td>
+      <td>AL</td>
+      <td>3</td>
+      <td>1</td>
+      <td>4051.0</td>
+      <td>0.1049</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>University of Alabama at Birmingham</td>
+      <td>AL</td>
+      <td>3</td>
+      <td>1</td>
+      <td>11200.0</td>
+      <td>0.2422</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Amridge University</td>
+      <td>AL</td>
+      <td>3</td>
+      <td>2</td>
+      <td>322.0</td>
+      <td>0.8540</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>University of Alabama in Huntsville</td>
+      <td>AL</td>
+      <td>3</td>
+      <td>1</td>
+      <td>5525.0</td>
+      <td>0.2640</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Alabama State University</td>
+      <td>AL</td>
+      <td>3</td>
+      <td>1</td>
+      <td>5354.0</td>
+      <td>0.1270</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>You’ve also already learned to modify the column names of your data frame by passing in a list of new names. Individual names can be modified as well.  For example, I think <code class="docutils literal notranslate"><span class="pre">'state'</span></code> makes a lot more sense as a column name than <code class="docutils literal notranslate"><span class="pre">'stabbr'</span></code>, so I’m going to change it.  The following code gets this done:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;stabbr&#39;</span><span class="p">:</span> <span class="s1">&#39;state&#39;</span><span class="p">})</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>instnm</th>
+      <th>state</th>
+      <th>preddeg</th>
+      <th>control</th>
+      <th>ugds</th>
+      <th>ug25abv</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Alabama A &amp; M University</td>
+      <td>AL</td>
+      <td>3</td>
+      <td>1</td>
+      <td>4051.0</td>
+      <td>0.1049</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>University of Alabama at Birmingham</td>
+      <td>AL</td>
+      <td>3</td>
+      <td>1</td>
+      <td>11200.0</td>
+      <td>0.2422</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Amridge University</td>
+      <td>AL</td>
+      <td>3</td>
+      <td>2</td>
+      <td>322.0</td>
+      <td>0.8540</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>University of Alabama in Huntsville</td>
+      <td>AL</td>
+      <td>3</td>
+      <td>1</td>
+      <td>5525.0</td>
+      <td>0.2640</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Alabama State University</td>
+      <td>AL</td>
+      <td>3</td>
+      <td>1</td>
+      <td>5354.0</td>
+      <td>0.1270</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">rename</span></code> data frame method takes a <strong>dictionary</strong> of values, which is a Python data structure that we haven’t discussed yet.  Dictionaries, or <code class="docutils literal notranslate"><span class="pre">dict</span></code> objects as they are often called, are enclosed by curly braces (<code class="docutils literal notranslate"><span class="pre">{}</span></code>) and are made up of <strong>key/value pairs</strong>.  In turn, they can really come in handy when working with paired values; we may return to them later in the semester.</p>
+<p>We now want to subset our data even further.  As mentioned above, the <code class="docutils literal notranslate"><span class="pre">preddeg</span></code> column designates the primary degree granted by the colleges and universities in the dataset.  We’re interested in comparing primarily bachelor’s-granting universities, which have the code of <code class="docutils literal notranslate"><span class="pre">3</span></code>; in turn, we want to tell <code class="docutils literal notranslate"><span class="pre">pandas</span></code> to keep only those rows where the <code class="docutils literal notranslate"><span class="pre">preddeg</span></code> column is equal to 3.  First, let’s check our <code class="docutils literal notranslate"><span class="pre">dtypes</span></code> to see if the columns is formatted as a string or number:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>instnm      object
+state       object
+preddeg      int64
+control      int64
+ugds       float64
+ug25abv    float64
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>It appears as though <code class="docutils literal notranslate"><span class="pre">preddeg</span></code> is an integer, so we will work with the values as numbers.  Subsetting rows in a <code class="docutils literal notranslate"><span class="pre">pandas</span></code> data frame works similarly to how we subsetted columns; the main difference is that we supply an <strong>expression</strong> to be evaluated by <code class="docutils literal notranslate"><span class="pre">pandas</span></code> using boolean/logical operators.  <code class="docutils literal notranslate"><span class="pre">pandas</span></code> will then return those rows for which the result of the expression is <code class="docutils literal notranslate"><span class="pre">True</span></code>, and drop those rows that return <code class="docutils literal notranslate"><span class="pre">False</span></code>.  In this case, we want all of those rows for which the value of the <code class="docutils literal notranslate"><span class="pre">preddeg</span></code> column is equal to 3.  Let’s create a new dataframe, called <code class="docutils literal notranslate"><span class="pre">ug</span></code> for undergraduate, from this expression.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ug</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">preddeg</span> <span class="o">==</span> <span class="mi">3</span><span class="p">]</span>
+
+<span class="n">ug</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2133, 6)
+</pre></div>
+</div>
+</div>
+</div>
+<p>We’ve gone from over 7800 colleges &amp; universities down to 2133.</p>
+<p><strong>Missing data</strong></p>
+<p>As mentioned in class, missing data in <code class="docutils literal notranslate"><span class="pre">pandas</span></code> are designated with the value <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, which refers to “not a number.”  Data analysts need to take missing data seriously, as they could be representative of a systematic flaw in the dataset.  You can check for missing values in <code class="docutils literal notranslate"><span class="pre">pandas</span></code> with the <code class="docutils literal notranslate"><span class="pre">isnull()</span></code> function.  Let’s check to see how many rows in our dataset have missing values for our column of interest, <code class="docutils literal notranslate"><span class="pre">ug25abv</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">null_rows</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">isnull</span><span class="p">(</span><span class="n">ug</span><span class="o">.</span><span class="n">ug25abv</span><span class="p">)</span>
+
+<span class="n">ugnull</span> <span class="o">=</span> <span class="n">ug</span><span class="p">[</span><span class="n">null_rows</span><span class="p">]</span>
+
+<span class="n">ugnull</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(36, 6)
+</pre></div>
+</div>
+</div>
+</div>
+<p>It looks like we have 36 rows with null values for the <code class="docutils literal notranslate"><span class="pre">ug25abv</span></code> column.  Let’s see what universities they are:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ugnull</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>instnm</th>
+      <th>state</th>
+      <th>preddeg</th>
+      <th>control</th>
+      <th>ugds</th>
+      <th>ug25abv</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>104</th>
+      <td>Frank Lloyd Wright School of Architecture</td>
+      <td>AZ</td>
+      <td>3</td>
+      <td>2</td>
+      <td>2.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>649</th>
+      <td>Yeshiva Ohr Elchonon Chabad West Coast Talmudi...</td>
+      <td>CA</td>
+      <td>3</td>
+      <td>2</td>
+      <td>131.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1171</th>
+      <td>Rosalind Franklin University of Medicine and S...</td>
+      <td>IL</td>
+      <td>3</td>
+      <td>2</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1893</th>
+      <td>New England College of Optometry</td>
+      <td>MA</td>
+      <td>3</td>
+      <td>2</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2598</th>
+      <td>Beth Hatalmud Rabbinical College</td>
+      <td>NY</td>
+      <td>3</td>
+      <td>2</td>
+      <td>47.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2599</th>
+      <td>Beth Hamedrash Shaarei Yosher Institute</td>
+      <td>NY</td>
+      <td>3</td>
+      <td>2</td>
+      <td>49.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2668</th>
+      <td>Yeshiva of Far Rockaway Derech Ayson Rabbinica...</td>
+      <td>NY</td>
+      <td>3</td>
+      <td>2</td>
+      <td>57.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2707</th>
+      <td>Kehilath Yakov Rabbinical Seminary</td>
+      <td>NY</td>
+      <td>3</td>
+      <td>2</td>
+      <td>120.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2733</th>
+      <td>Mesivtha Tifereth Jerusalem of America</td>
+      <td>NY</td>
+      <td>3</td>
+      <td>2</td>
+      <td>50.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2767</th>
+      <td>Ohr Hameir Theological Seminary</td>
+      <td>NY</td>
+      <td>3</td>
+      <td>2</td>
+      <td>94.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2781</th>
+      <td>Rabbinical College Bobover Yeshiva Bnei Zion</td>
+      <td>NY</td>
+      <td>3</td>
+      <td>2</td>
+      <td>263.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2783</th>
+      <td>Rabbinical College Beth Shraga</td>
+      <td>NY</td>
+      <td>3</td>
+      <td>2</td>
+      <td>47.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2785</th>
+      <td>Rabbinical College of Long Island</td>
+      <td>NY</td>
+      <td>3</td>
+      <td>2</td>
+      <td>96.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2854</th>
+      <td>Talmudical Seminary Oholei Torah</td>
+      <td>NY</td>
+      <td>3</td>
+      <td>2</td>
+      <td>321.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2859</th>
+      <td>Torah Temimah Talmudical Seminary</td>
+      <td>NY</td>
+      <td>3</td>
+      <td>2</td>
+      <td>180.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2875</th>
+      <td>Webb Institute</td>
+      <td>NY</td>
+      <td>3</td>
+      <td>2</td>
+      <td>82.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2882</th>
+      <td>Yeshiva Karlin Stolin</td>
+      <td>NY</td>
+      <td>3</td>
+      <td>2</td>
+      <td>119.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2886</th>
+      <td>Yeshiva Shaar Hatorah</td>
+      <td>NY</td>
+      <td>3</td>
+      <td>2</td>
+      <td>75.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2889</th>
+      <td>Yeshivath Zichron Moshe</td>
+      <td>NY</td>
+      <td>3</td>
+      <td>2</td>
+      <td>164.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2920</th>
+      <td>Davidson College</td>
+      <td>NC</td>
+      <td>3</td>
+      <td>2</td>
+      <td>1782.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3657</th>
+      <td>Talmudical Yeshiva of Philadelphia</td>
+      <td>PA</td>
+      <td>3</td>
+      <td>2</td>
+      <td>124.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4268</th>
+      <td>Washington and Lee University</td>
+      <td>VA</td>
+      <td>3</td>
+      <td>2</td>
+      <td>1846.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4622</th>
+      <td>Yeshiva Gedolah of Greater Detroit</td>
+      <td>MI</td>
+      <td>3</td>
+      <td>2</td>
+      <td>58.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4915</th>
+      <td>Yeshiva Gedolah Imrei Yosef D'spinka</td>
+      <td>NY</td>
+      <td>3</td>
+      <td>2</td>
+      <td>125.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5066</th>
+      <td>Rabbi Jacob Joseph School</td>
+      <td>NJ</td>
+      <td>3</td>
+      <td>2</td>
+      <td>86.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5152</th>
+      <td>Yeshivas Novominsk</td>
+      <td>NY</td>
+      <td>3</td>
+      <td>2</td>
+      <td>118.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5433</th>
+      <td>Yeshiva D'monsey Rabbinical College</td>
+      <td>NY</td>
+      <td>3</td>
+      <td>2</td>
+      <td>48.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5585</th>
+      <td>Yeshiva of the Telshe Alumni</td>
+      <td>NY</td>
+      <td>3</td>
+      <td>2</td>
+      <td>126.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5884</th>
+      <td>Yeshiva Shaarei Torah of Rockland</td>
+      <td>NY</td>
+      <td>3</td>
+      <td>2</td>
+      <td>116.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5909</th>
+      <td>Franklin W Olin College of Engineering</td>
+      <td>MA</td>
+      <td>3</td>
+      <td>2</td>
+      <td>343.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>6061</th>
+      <td>Beis Medrash Heichal Dovid</td>
+      <td>NY</td>
+      <td>3</td>
+      <td>2</td>
+      <td>96.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>6566</th>
+      <td>Yeshiva Toras Chaim</td>
+      <td>NJ</td>
+      <td>3</td>
+      <td>2</td>
+      <td>182.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>7520</th>
+      <td>Bais HaMedrash and Mesivta of Baltimore</td>
+      <td>MD</td>
+      <td>3</td>
+      <td>2</td>
+      <td>49.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>7528</th>
+      <td>Be'er Yaakov Talmudic Seminary</td>
+      <td>NY</td>
+      <td>3</td>
+      <td>2</td>
+      <td>298.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>7689</th>
+      <td>Yeshiva Gedolah Kesser Torah</td>
+      <td>NY</td>
+      <td>3</td>
+      <td>2</td>
+      <td>70.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>7691</th>
+      <td>Yeshiva Yesodei Hatorah</td>
+      <td>NJ</td>
+      <td>3</td>
+      <td>2</td>
+      <td>64.0</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Interesting!  It looks like primarily we’ve returned Jewish <em>yeshivas</em> as well as a few graduate colleges - e.g. New England College of Optometry which is designated as a bachelor’s granting institution but has no undergraduates - that appear to have been mis-coded.  This reveals why careful inspection of your data is important.  Missing values often aren’t at random, but instead may be systematic or clustered amongst a particular type of record in your dataset.  Additionally, it looks like we’ve uncovered some errors in the original data as well.</p>
+<p>In this case, let’s go ahead and drop these records from our dataset.  Recall from class that there are other options available for missing data as well; you can <strong>fill</strong> the <code class="docutils literal notranslate"><span class="pre">Nan</span></code> values with some other value if appropriate, such as <code class="docutils literal notranslate"><span class="pre">0</span></code> or the mean of the column.  I can do this a couple different ways.  As I’ve already identified the rows with null values and assigned it to the <code class="docutils literal notranslate"><span class="pre">null_rows</span></code> variable, I can use the <em>tilde</em> operator, which means “not” or “inverse”, and index my data frame accordingly:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ug_nonull</span> <span class="o">=</span> <span class="n">ug</span><span class="p">[</span><span class="o">~</span><span class="n">null_rows</span><span class="p">]</span>
+
+<span class="n">ug_nonull</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2097, 6)
+</pre></div>
+</div>
+</div>
+</div>
+<p>I can also use the <code class="docutils literal notranslate"><span class="pre">.dropna()</span></code> method, which we learned in class.  One thing about <code class="docutils literal notranslate"><span class="pre">.dropna()</span></code> is that it can operate over the entire data frame if we don’t pass it any columns.  Let’s check it out:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ug1</span> <span class="o">=</span> <span class="n">ug</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+
+<span class="n">ug1</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2097, 6)
+</pre></div>
+</div>
+</div>
+</div>
+<p>We get the same result, which means that we’ve also removed any of the rows that had null values in the <code class="docutils literal notranslate"><span class="pre">ugds</span></code> column.</p>
+<p><strong>Group-wise data analysis</strong></p>
+<p>In class, we discussed the “split-apply-combine” approach to data analysis.  This approach involves:</p>
+<ol class="simple">
+<li><p><strong>Splitting</strong> the data into groups based on some common characteristic;</p></li>
+<li><p><strong>Applying</strong> some function to each group;</p></li>
+<li><p><strong>Combining</strong> the results back into a single dataset, allowing for group-wise comparisons.</p></li>
+</ol>
+<p>While conceptually simple, this approach to data analysis is extraordinarily powerful - and extremely common!  For example, let’s say you are working in analytics for a business, and your supervisor wants you to compare sales results of your stores by region.  This is a very common request when working with data professionally, and fortunately <code class="docutils literal notranslate"><span class="pre">pandas</span></code> can help you out with this with minimal code.</p>
+<p>Let’s start with a couple guiding questions.</p>
+<ol class="simple">
+<li><p>How does the proportion of undergraduate students above age 25 vary among public, private, and for-profit universities?</p></li>
+<li><p>How does the proportion of undergraduate students above age 25 vary by institution size?</p></li>
+</ol>
+<p>Group-wise data analysis in <code class="docutils literal notranslate"><span class="pre">pandas</span></code> is conducted by the creation of a <code class="docutils literal notranslate"><span class="pre">groupby</span></code> object, in which you tell <code class="docutils literal notranslate"><span class="pre">pandas</span></code> exactly how the data should be grouped.  To address the first question, we’ll want to group our data by institution type.  The code below gets this done.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">groups1</span> <span class="o">=</span> <span class="n">ug1</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;control&#39;</span><span class="p">)</span>
+
+<span class="nb">type</span><span class="p">(</span><span class="n">groups1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.groupby.generic.DataFrameGroupBy
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice the object <code class="docutils literal notranslate"><span class="pre">type</span></code> - Python knows that our new object, <code class="docutils literal notranslate"><span class="pre">groups1</span></code>, represents grouped data.  In turn, anything we calculate over this object will apply to each of our groups, defined by unique values of the <code class="docutils literal notranslate"><span class="pre">control</span></code> column.  Let’s try:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">groups1</span><span class="o">.</span><span class="n">ug25abv</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>control
+1    0.215475
+2    0.235799
+3    0.670381
+Name: ug25abv, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Interesting stuff - whereas public and private non-profit colleges and universities are pretty similar in their age composition, with 21-23 percent of their student bodies above age 25, private for-profit universities are quite different, with over two-thirds of their undergraduates aged over 25.</p>
+<p>Let’s visualize this with <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>, which also sets up very nicely for group-wise data analysis.  Box plots and violin plots, for example, can be extended by specifying a second column for the plot.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">style</span> <span class="o">=</span> <span class="s2">&quot;darkgrid&quot;</span><span class="p">)</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">ug1</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;control&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;ug25abv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;control&#39;, ylabel=&#39;ug25abv&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/06-data-wrangling_25_1.png" src="_images/06-data-wrangling_25_1.png" />
+</div>
+</div>
+<p>We can get a clear sense here of the variations of the distributions between the groups.  While the mean percentage of undergraduates above 25 at public non-profits was below that of private non-profits, it appears as though the median for private non-profits is lower; there is simply a longer tail of private non-profits with large proportions of their student bodies above 25.  For private for-profits, the distribution is quite evident - with the median value above 70 percent and the peak of the density curve above 80 percent.</p>
+<p><code class="docutils literal notranslate"><span class="pre">seaborn</span></code> includes even more functionality for group-wise visualization - incorporating, in some instances, multiple groups!  We’ll learn more about this in a couple weeks when we focus on data visualization; however we can take a look right now.  The <code class="docutils literal notranslate"><span class="pre">catplot</span></code> function in <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> allows you to split categorical plots such as point (the default), box, violin, bar, or strip plots into separate smaller charts, to facilitate comparisons across groups.</p>
+<p>Let’s create a new subsetted data frame, <code class="docutils literal notranslate"><span class="pre">sub1</span></code>, by indexing our <code class="docutils literal notranslate"><span class="pre">ug1</span></code> data frame for only those colleges and universities that are located in New York, Texas, and California.  We then call the <code class="docutils literal notranslate"><span class="pre">catplot</span></code> function, specifying how to divide our plots into <strong>small multiples</strong> with the <code class="docutils literal notranslate"><span class="pre">col</span> <span class="pre">=</span> <span class="pre">'state'</span></code> argument.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sub1</span> <span class="o">=</span> <span class="n">ug1</span><span class="p">[</span><span class="n">ug1</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s1">&#39;NY&#39;</span><span class="p">,</span> <span class="s1">&#39;TX&#39;</span><span class="p">,</span> <span class="s1">&#39;CA&#39;</span><span class="p">])]</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">sub1</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;control&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;ug25abv&#39;</span><span class="p">,</span> 
+               <span class="n">col</span> <span class="o">=</span> <span class="s1">&#39;state&#39;</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="s1">&#39;violin&#39;</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f8cb0d00730&gt;
+</pre></div>
+</div>
+<img alt="_images/06-data-wrangling_27_1.png" src="_images/06-data-wrangling_27_1.png" />
+</div>
+</div>
+<p>Now, we want to look at how the percentage of undergraduates over age 25 varies by institution size.  Certainly, we could create a scatter plot as both the <code class="docutils literal notranslate"><span class="pre">ug25abv</span></code> and <code class="docutils literal notranslate"><span class="pre">ugds</span></code> columns are numeric:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">ug1</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;ugds&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;ug25abv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f8ca80c8820&gt;
+</pre></div>
+</div>
+<img alt="_images/06-data-wrangling_29_1.png" src="_images/06-data-wrangling_29_1.png" />
+</div>
+</div>
+<p>The regression line suggests an inverse relationship; however the clustering of dots suggests (potentially) a non-linear relationship, and there are several outliers.  For example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ug1</span><span class="p">[</span><span class="n">ug1</span><span class="o">.</span><span class="n">ugds</span> <span class="o">&gt;</span> <span class="mi">150000</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>instnm</th>
+      <th>state</th>
+      <th>preddeg</th>
+      <th>control</th>
+      <th>ugds</th>
+      <th>ug25abv</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>4880</th>
+      <td>University of Phoenix-Online Campus</td>
+      <td>AZ</td>
+      <td>3</td>
+      <td>3</td>
+      <td>166816.0</td>
+      <td>0.8368</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The University of Phoenix-Online, with over 160,000 students, stands out as a distinct outlier.  Additionally, a scatter plot is not the only way that we can assess this relationship.  We can convert our data from quantitative to categorical, and in turn assess variations amongst the categories.</p>
+<p>Creating a categorical column from a quantitative column requires computing a new column in our data frame, which will be a common part of your workflow in <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.  As you learned in class, you can use basic mathematical operations to create new columns from existing ones.  In this example, we are going to organize our universities into <strong>bins</strong> based on their size, and then compare universities across those bins.</p>
+<p><code class="docutils literal notranslate"><span class="pre">pandas</span></code> includes a lot of methods for creating new columns; we’re going to discuss here options for organizing our data into bins.  The three options are as follows:</p>
+<ul class="simple">
+<li><p>Equal interval: all bins have the same width, regardless of the number of observations in each bin.</p></li>
+<li><p>Manual breaks: the analyst specifies where the bin breaks should be located</p></li>
+<li><p>Quantile: An equal number of observations are organized into a specified number of bins; bins widths will in turn be irregular.</p></li>
+</ul>
+<p>Equal interval and manual breaks are available via the <code class="docutils literal notranslate"><span class="pre">cut()</span></code> function in <code class="docutils literal notranslate"><span class="pre">pandas</span></code>; quantiles are available from the <code class="docutils literal notranslate"><span class="pre">qcut()</span></code> function.  Let’s create a new column that organizes the values in <code class="docutils literal notranslate"><span class="pre">ugds</span></code> into five quantiles, labeled with 1 through 5 which we accomplish with <code class="docutils literal notranslate"><span class="pre">range</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ug1</span><span class="p">[</span><span class="s1">&#39;quant5&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">qcut</span><span class="p">(</span><span class="n">ug1</span><span class="o">.</span><span class="n">ugds</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="n">ug1</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-17-f25108fc6474&gt;:1: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  ug1[&#39;quant5&#39;] = pd.qcut(ug1.ugds, 5, labels = range(1, 6))
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>instnm</th>
+      <th>state</th>
+      <th>preddeg</th>
+      <th>control</th>
+      <th>ugds</th>
+      <th>ug25abv</th>
+      <th>quant5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Alabama A &amp; M University</td>
+      <td>AL</td>
+      <td>3</td>
+      <td>1</td>
+      <td>4051.0</td>
+      <td>0.1049</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>University of Alabama at Birmingham</td>
+      <td>AL</td>
+      <td>3</td>
+      <td>1</td>
+      <td>11200.0</td>
+      <td>0.2422</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Amridge University</td>
+      <td>AL</td>
+      <td>3</td>
+      <td>2</td>
+      <td>322.0</td>
+      <td>0.8540</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>University of Alabama in Huntsville</td>
+      <td>AL</td>
+      <td>3</td>
+      <td>1</td>
+      <td>5525.0</td>
+      <td>0.2640</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Alabama State University</td>
+      <td>AL</td>
+      <td>3</td>
+      <td>1</td>
+      <td>5354.0</td>
+      <td>0.1270</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>We get the warning that we are modifying a copy, rather than the original data frame, which we discussed in class; we are OK with this in this instance.  We can now make comparisons by quantile if we want.  Let’s try a bar chart; <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>’s <code class="docutils literal notranslate"><span class="pre">barplot</span></code> function will calculate group means and plot them, and give us an indication of the uncertainty around that mean with an error bar:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;ug25abv&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;quant5&#39;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">ug1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;ug25abv&#39;, ylabel=&#39;quant5&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/06-data-wrangling_35_1.png" src="_images/06-data-wrangling_35_1.png" />
+</div>
+</div>
+<p>Evidently, smaller universities tend to have greater proportions of their undergraduate populations aged over 25.  Let’s use <code class="docutils literal notranslate"><span class="pre">catplot</span></code> to break this up by university type (public, private, for-profit):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">ug1</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;ug25abv&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;quant5&#39;</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="s1">&#39;control&#39;</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f8ca6886f70&gt;
+</pre></div>
+</div>
+<img alt="_images/06-data-wrangling_37_1.png" src="_images/06-data-wrangling_37_1.png" />
+</div>
+</div>
+<p>Our results appear quite different when we break them out by college type!  This starts to reveal the importance of detailed investigation of your data through visualization; we’ll be exploring this much more in the next few weeks.  We can also take a look at the numbers behind these plots by creating a <code class="docutils literal notranslate"><span class="pre">groupby</span></code> object that groups by <code class="docutils literal notranslate"><span class="pre">control</span></code> and the quantiles:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">groups2</span> <span class="o">=</span> <span class="n">ug1</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;control&#39;</span><span class="p">,</span> <span class="s1">&#39;quant5&#39;</span><span class="p">])</span>
+
+<span class="n">groups2</span><span class="o">.</span><span class="n">ug25abv</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>control  quant5
+1        1         0.427675
+         2         0.304788
+         3         0.259221
+         4         0.223859
+         5         0.184010
+2        1         0.404142
+         2         0.221490
+         3         0.163974
+         4         0.171220
+         5         0.212974
+3        1         0.698030
+         2         0.640063
+         3         0.596576
+         4         0.620975
+         5         0.787532
+Name: ug25abv, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="exercises">
+<h1>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h1>
+<p>You’ll now complete some exercises so you can practice what you’ve learned.  Your job, in general, is to replicate the analysis above, but for a different column in the dataset.  You’ll be analyzing the column <code class="docutils literal notranslate"><span class="pre">PCTPELL</span></code>, which denotes the percentages of students receiving Pell Grants, a federal grant program to help students pay for college.  Unlike loans, Pell Grants do not need to be repaid.</p>
+<p>While you’ll be using a lot of the code I provided for you and modifying it slightly, make sure that you know what the code is doing at every step!</p>
+<hr class="docutils" />
+<p><strong>Exercise 1</strong>:  Similar to what you did earlier in the notebook, create a data frame that is subsetted for the columns <code class="docutils literal notranslate"><span class="pre">'INSTNM',</span> <span class="pre">'STABBR',</span> <span class="pre">'PREDDEG',</span> <span class="pre">'CONTROL',</span> <span class="pre">'UGDS',</span></code> and <code class="docutils literal notranslate"><span class="pre">'PCTPELL'</span></code>, and that retains only those rows where <code class="docutils literal notranslate"><span class="pre">PREDDEG</span></code> is equal to <code class="docutils literal notranslate"><span class="pre">3</span></code>, representing primarily bachelor’s-granting universities.  What is the mean, median, maximum value, and minimum value of the <code class="docutils literal notranslate"><span class="pre">PCTPELL</span></code> column?</p>
+<p><strong>Exercise 2:</strong> How many null values are contained in the <code class="docutils literal notranslate"><span class="pre">PCTPELL</span></code> column in your subsetted data frame?  Once you’ve found this out, drop them from your data frame.</p>
+<p><strong>Exercise 3:</strong> Compare the means of <code class="docutils literal notranslate"><span class="pre">PCTPELL</span></code> by the different groups of <code class="docutils literal notranslate"><span class="pre">CONTROL</span></code> (the college/university type).  Draw a visualization that shows how the distributions vary.</p>
+<p><strong>Exercise 4:</strong> Draw a visualization that breaks your visualization from Exercise 3 down by state with <code class="docutils literal notranslate"><span class="pre">catplot</span></code>, similar to what you did earlier in the notebook; in this instance, however, compare Texas with Florida and Illinois.</p>
+<p><strong>Exercise 5</strong>: Show how the percent of students receiving Pell Grants varies by institution size and institution type (public, private, for-profit).  Break up the <code class="docutils literal notranslate"><span class="pre">UGDS</span></code> column into five quantiles in your data frame as you did before, and then compare the means of <code class="docutils literal notranslate"><span class="pre">PCTPELL</span></code> by institution type by institution size.  Draw a visualization with <code class="docutils literal notranslate"><span class="pre">catplot</span></code> to show this graphically.</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="05-multivariate-visualization.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Assignment 5: Multivariate exploratory visualization</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="07-wrangling-data-from-apis.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Assignment 7: Wrangling data from APIs</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Kyle Walker<br/>
+        
+            &copy; Copyright 2022.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

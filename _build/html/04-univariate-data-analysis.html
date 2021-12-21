@@ -1,0 +1,939 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment 4: Univariate data analysis &#8212; GEOG 30323: Data Analysis &amp; Visualization</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Assignment 5: Multivariate exploratory visualization" href="05-multivariate-visualization.html" />
+    <link rel="prev" title="Assignment 3: Functions, conditional statements, and iteration in Python" href="03-functions-and-iteration.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">GEOG 30323: Data Analysis & Visualization</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="README.html">
+   geog30323
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="02-intro-to-python.html">
+   Assignment 2: Introduction to Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03-functions-and-iteration.html">
+   Assignment 3: Functions, conditional statements, and iteration in Python
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Assignment 4: Univariate data analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05-multivariate-visualization.html">
+   Assignment 5: Multivariate exploratory visualization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06-data-wrangling.html">
+   Assignment 6: Data wrangling I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07-wrangling-data-from-apis.html">
+   Assignment 7: Wrangling data from APIs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08-data-visualization.html">
+   Assignment 8: Data visualization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09-geographic-mapbox.html">
+   Assignment 9: Geographic visualization with Mapbox Studio
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10-tableau.html">
+   Assignment 10: Building a dashboard with Tableau
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/04-univariate-data-analysis.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/walkerke/geog30323/master?urlpath=tree/04-univariate-data-analysis.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/walkerke/geog30323/blob/master/04-univariate-data-analysis.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Assignment 4: Univariate data analysis
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#working-with-external-data-in-google-colab">
+   Working with external data in Google Colab
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#storing-data-persistently-in-google-drive">
+     Storing data persistently in Google Drive
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exploring-data-with-descriptive-statistics">
+   Exploring data with descriptive statistics
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#univariate-visualization">
+   Univariate visualization
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="assignment-4-univariate-data-analysis">
+<h1>Assignment 4: Univariate data analysis<a class="headerlink" href="#assignment-4-univariate-data-analysis" title="Permalink to this headline">¶</a></h1>
+<p>Now that you’ve successfully navigated our “crash course” in Python programming, it is time to put those skills to use working with real data, the focus of this course.  Python is an extraordinarily powerful tool for working with data, facilitated in large part by the external libraries of code produced by the Python community for data analysis and visualization.  We’re going to be working with a few of those libraries this semester, starting with this notebook.</p>
+<p>In our data analysis assignments, you’ll be working with real-live data - as in many real-world projects!  Further, the data that we find on the web often needs a little bit - or a lot - of modification before we can do anything analytically useful with it.  You will start to get some experience with that today, and things will get progressively more challenging throughout the semester.</p>
+</div>
+<div class="section" id="working-with-external-data-in-google-colab">
+<h1>Working with external data in Google Colab<a class="headerlink" href="#working-with-external-data-in-google-colab" title="Permalink to this headline">¶</a></h1>
+<p>Our data for this assignment, adult overweight/obesity rates by state, come from the <a class="reference external" href="http://kff.org/other/state-indicator/adult-overweightobesity-rate/">Kaiser Family Foundation</a>.  The data file, a comma-separated values file called <code class="docutils literal notranslate"><span class="pre">adult_data.csv</span></code>, can be downloaded from TCU Online.</p>
+<p>There are a couple ways to get external data into your Google Colab session.  The quickest way is to upload data directly to your Colab session by clicking the <strong>Files</strong> icon on the left-hand side of the screen then clicking the “Upload to session storage” icon (the one on the left).  You can then navigate to where you’ve downloaded the <code class="docutils literal notranslate"><span class="pre">adult_data.csv</span></code> file and upload it to your session.</p>
+<p>Once you’ve uploaded the data, you should see your file <code class="docutils literal notranslate"><span class="pre">adult_data.csv</span></code> appear in the file browser.  This allows you to read in the data that you’ve downloaded as a <code class="docutils literal notranslate"><span class="pre">pandas</span></code> DataFrame.  In class, we discussed the Python package <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, which allows uses to work with data in a tabular structure, with individual observations organized as <strong>rows</strong> and data attributes organized as <strong>columns</strong>.  Use the cell below to load pandas with the <code class="docutils literal notranslate"><span class="pre">import</span></code> statement and read in your data.  We’ll be calling our data frame here <code class="docutils literal notranslate"><span class="pre">df</span></code>, short for data frame.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/adult_data.csv&quot;</span><span class="p">)</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>state</th>
+      <th>all_adults</th>
+      <th>male</th>
+      <th>female</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Alabama</td>
+      <td>0.697</td>
+      <td>0.721</td>
+      <td>0.674</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Alaska</td>
+      <td>0.642</td>
+      <td>0.703</td>
+      <td>0.568</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Arizona</td>
+      <td>0.647</td>
+      <td>0.710</td>
+      <td>0.583</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Arkansas</td>
+      <td>0.705</td>
+      <td>0.721</td>
+      <td>0.688</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>California</td>
+      <td>0.622</td>
+      <td>0.681</td>
+      <td>0.560</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>So what did you just do here?  You <strong>imported</strong> in the code associated with the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> library, which will be referenced by the prefix <code class="docutils literal notranslate"><span class="pre">pd</span></code>.  You then used the <code class="docutils literal notranslate"><span class="pre">read_csv()</span></code> function from the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> library to convert the CSV of overweight rates by state into a <code class="docutils literal notranslate"><span class="pre">pandas</span></code> DataFrame.  By default, <code class="docutils literal notranslate"><span class="pre">read_csv()</span></code> assumes that the first row of your CSV represents column headings, and then rows 2 until the end represent data.</p>
+<p>One issue with this approach to reading in data is that your data are not <em>persistent</em>.  Google Colab will recycle workspaces to save space, which means that when you return to work on your assignment, the data may not be there.  This means that you’d need to upload your data again.</p>
+<div class="section" id="storing-data-persistently-in-google-drive">
+<h2>Storing data persistently in Google Drive<a class="headerlink" href="#storing-data-persistently-in-google-drive" title="Permalink to this headline">¶</a></h2>
+<p>An alternative approach would be to save your data to Google Drive then <em>mount</em> your drive to your Colab session.  Google Drive will provide <em>persistent storage</em> for your data, so you won’t need to upload data every time you plan to work with it.  Your first step is to download the data for this assignment from TCU Online, then upload the data to your Google Drive account.  Visit <a class="reference external" href="https://drive.google.com/">https://drive.google.com/</a> to view the Drive associated with your Google account.  You’ll notice that you have a folder called “Colab notebooks” that stores all of the Colab notebooks you’ve created to this point.</p>
+<p>If you want, you can upload your data directly to your Drive by clicking the <strong>New</strong> button then <strong>File upload</strong>.  If you want to keep your data a bit more organized, you can first create a subfolder by clicking <strong>New &gt; Folder</strong>, then uploading the <code class="docutils literal notranslate"><span class="pre">adult_data.csv</span></code> file to your subfolder.</p>
+<p>Next, return to Colab.  With the <strong>Files</strong> tab active, click the icon on the right side in the <strong>Files</strong> browser, “Mount Drive”.  After you click this icon, you’ll see a code cell appear with the following code in it, along with a message telling you to run the cell:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
+<span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>A link will appear that will take you to the Google authentication/login screen.  Choose your Google account and sign in if need be.  You’ll get an authentication code, which you should copy then paste in the appropriate location in your Colab notebook.  Press the <strong>Enter</strong> key after you’ve pasted your code, and allow the notebook to authenticate.  Once authenticated, you should see a folder appear named <code class="docutils literal notranslate"><span class="pre">drive</span></code> in the Files browser.  Navigate to the folder where you stored your <code class="docutils literal notranslate"><span class="pre">adult_data.csv</span></code> dataset, then right-click and choose “Copy path”.</p>
+<p>In the code cell below, replace the value assigned to the <code class="docutils literal notranslate"><span class="pre">data_path</span></code> variable by pasting your specific path, then run the cell to load your data.  My data is stored in a subfolder named <code class="docutils literal notranslate"><span class="pre">class_data</span></code>, but that is just for purposes of illustration.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">data_path</span> <span class="o">=</span> <span class="s2">&quot;/content/drive/MyDrive/class_data/adult_data.csv&quot;</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_path</span><span class="p">)</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="mi">0</span><span class="n">f504a2e2cff</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">data_path</span> <span class="o">=</span> <span class="s2">&quot;/content/drive/MyDrive/class_data/adult_data.csv&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_path</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> 
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+
+<span class="nn">~/anaconda3/envs/python39/lib/python3.9/site-packages/pandas/io/parsers.py</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, dialect, error_bad_lines, warn_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">608</span>     <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds_defaults</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">609</span> 
+<span class="ne">--&gt; </span><span class="mi">610</span>     <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">611</span> 
+<span class="g g-Whitespace">    </span><span class="mi">612</span> 
+
+<span class="nn">~/anaconda3/envs/python39/lib/python3.9/site-packages/pandas/io/parsers.py</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">460</span> 
+<span class="g g-Whitespace">    </span><span class="mi">461</span>     <span class="c1"># Create the parser.</span>
+<span class="ne">--&gt; </span><span class="mi">462</span>     <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">463</span> 
+<span class="g g-Whitespace">    </span><span class="mi">464</span>     <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
+
+<span class="nn">~/anaconda3/envs/python39/lib/python3.9/site-packages/pandas/io/parsers.py</span> in <span class="ni">__init__</span><span class="nt">(self, f, engine, **kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">817</span>             <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">818</span> 
+<span class="ne">--&gt; </span><span class="mi">819</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">820</span> 
+<span class="g g-Whitespace">    </span><span class="mi">821</span>     <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<span class="nn">~/anaconda3/envs/python39/lib/python3.9/site-packages/pandas/io/parsers.py</span> in <span class="ni">_make_engine</span><span class="nt">(self, engine)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1048</span>             <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1049</span>         <span class="c1"># error: Too many arguments for &quot;ParserBase&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1050</span>         <span class="k">return</span> <span class="n">mapping</span><span class="p">[</span><span class="n">engine</span><span class="p">](</span><span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">)</span>  <span class="c1"># type: ignore[call-arg]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1051</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1052</span>     <span class="k">def</span> <span class="nf">_failover_to_python</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<span class="nn">~/anaconda3/envs/python39/lib/python3.9/site-packages/pandas/io/parsers.py</span> in <span class="ni">__init__</span><span class="nt">(self, src, **kwds)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1865</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1866</span>         <span class="c1"># open handles</span>
+<span class="ne">-&gt; </span><span class="mi">1867</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_open_handles</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1868</span>         <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<span class="g g-Whitespace">   </span><span class="mi">1869</span>         <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;storage_options&quot;</span><span class="p">,</span> <span class="s2">&quot;encoding&quot;</span><span class="p">,</span> <span class="s2">&quot;memory_map&quot;</span><span class="p">,</span> <span class="s2">&quot;compression&quot;</span><span class="p">):</span>
+
+<span class="nn">~/anaconda3/envs/python39/lib/python3.9/site-packages/pandas/io/parsers.py</span> in <span class="ni">_open_handles</span><span class="nt">(self, src, kwds)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1360</span>         <span class="n">Let</span> <span class="n">the</span> <span class="n">readers</span> <span class="nb">open</span> <span class="n">IOHanldes</span> <span class="n">after</span> <span class="n">they</span> <span class="n">are</span> <span class="n">done</span> <span class="k">with</span> <span class="n">their</span> <span class="n">potential</span> <span class="n">raises</span><span class="o">.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1361</span>         <span class="s2">&quot;&quot;&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1362</span><span class="s2">         self.handles = get_handle(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1363</span><span class="s2">             src,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1364</span><span class="s2">             &quot;r&quot;,</span>
+
+<span class="nn">~/anaconda3/envs/python39/lib/python3.9/site-packages/pandas/io/common.py</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">645</span><span class="s2">                 errors = &quot;replace&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">646</span><span class="s2">             # Encoding</span>
+<span class="ne">--&gt; </span><span class="mi">647</span><span class="s2">             handle = open(</span>
+<span class="g g-Whitespace">    </span><span class="mi">648</span><span class="s2">                 handle,</span>
+<span class="g g-Whitespace">    </span><span class="mi">649</span><span class="s2">                 ioargs.mode,</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;/content/drive/MyDrive/class_data/adult_data.csv&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Both the data upload and Google Drive-based workflows required specifying <em>paths</em> to your data.  When you upload your data directly to Colab, the path is simply a string with the name of the dataset, as Colab places the file directly in the <em>directory</em> of your notebook.  If you are using the Google Drive-based workflow, you need to specify the location of the file so your notebook can find it.</p>
+<p>Now, let’s check to see how our data are formatted.  We know from our preliminary inspection of the data that we have four columns; <code class="docutils literal notranslate"><span class="pre">state</span></code>, which contains the name of the state; then <code class="docutils literal notranslate"><span class="pre">all_adults</span></code>, <code class="docutils literal notranslate"><span class="pre">male</span></code>, and <code class="docutils literal notranslate"><span class="pre">female</span></code>, which contain the overweight/obesity rates for that state overall and by gender.  <code class="docutils literal notranslate"><span class="pre">state</span></code> is an example of a <strong>nominal</strong> attribute, which refers to a descriptive property of the row; the other columns are <strong>ratio</strong> attributes, which are quantitative attributes in which zero refers to an absence of that quantity.</p>
+<p>Recall from class as well the importance of knowing your column types.  To check column types in <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, use the <code class="docutils literal notranslate"><span class="pre">dtypes</span></code> attribute of the data frame.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>state          object
+all_adults    float64
+male          float64
+female        float64
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>Our <code class="docutils literal notranslate"><span class="pre">state</span></code> column is stored as an object, which you can interpret as a string/text column; our other columns are <code class="docutils literal notranslate"><span class="pre">float64</span></code>, which means that they are numeric, allowing us to do mathematical operations.</p>
+</div>
+</div>
+<div class="section" id="exploring-data-with-descriptive-statistics">
+<h1>Exploring data with descriptive statistics<a class="headerlink" href="#exploring-data-with-descriptive-statistics" title="Permalink to this headline">¶</a></h1>
+<p>Now that we’ve read in our data, we’ll want to get a sense of some of its basic properties.  You should recall from class that some of the most common descriptive statistics include <strong>measures of central tendency</strong>, which measure the “central point” of a distribution using different metrics, and <strong>measures of dispersion</strong>, which measure the “spread” of a distribution.  The most common measure of central tendency used is the <strong>mean</strong>, which is also commonly termed the average of the distribution.  The mean of a distribution is calculated by summing up all of the values in the distribution, and then dividing by the total number of values.</p>
+<p><code class="docutils literal notranslate"><span class="pre">.mean()</span></code> is a method built-in to <code class="docutils literal notranslate"><span class="pre">pandas</span></code> that allows you to calculate the mean for a column in a data frame - or alternatively, all columns in a data frame.  Recall from class that columns can be accessed as attributes of the data frame or by index.  In turn, the following calls are equivalent:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">all_adults</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6611509433962265
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;all_adults&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6611509433962265
+</pre></div>
+</div>
+</div>
+</div>
+<p>Additionally, calling <code class="docutils literal notranslate"><span class="pre">.mean()</span></code> directly on the data frame will give back the mean for all of the data frame’s numeric columns.</p>
+<p>Now you try!  In the cells below, use the <code class="docutils literal notranslate"><span class="pre">.median()</span></code> method to determine the median value of the <code class="docutils literal notranslate"><span class="pre">male</span></code> column, which is the value at the 50 percent point of the distribution.  Then, compare it with the median value of the <code class="docutils literal notranslate"><span class="pre">female</span></code> column.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run your code here!</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>There are many other built-in methods for getting descriptive statistics from your columns; for example, <code class="docutils literal notranslate"><span class="pre">.min()</span></code> will get you the minimum, <code class="docutils literal notranslate"><span class="pre">.std()</span></code> will get you the standard deviation, among many others.  Commonly, however, you’ll want to get all of these statistics at once.  <code class="docutils literal notranslate"><span class="pre">pandas</span></code> lets you do this with the <code class="docutils literal notranslate"><span class="pre">.describe()</span></code> method, which you can call on your data frame, or any selected columns, to return the most common descriptive statistics for those columns.  For example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>all_adults</th>
+      <th>male</th>
+      <th>female</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>53.000000</td>
+      <td>53.000000</td>
+      <td>53.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>0.661151</td>
+      <td>0.712019</td>
+      <td>0.608642</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>0.034600</td>
+      <td>0.028855</td>
+      <td>0.046197</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>0.558000</td>
+      <td>0.605000</td>
+      <td>0.513000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>0.641000</td>
+      <td>0.698000</td>
+      <td>0.573000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>0.665000</td>
+      <td>0.716000</td>
+      <td>0.616000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>0.685000</td>
+      <td>0.729000</td>
+      <td>0.641000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>0.733000</td>
+      <td>0.768000</td>
+      <td>0.704000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>We get a nice summary here.  In addition to the mean and median (the “50%” you see), <code class="docutils literal notranslate"><span class="pre">pandas</span></code> returns the count, standard deviation, min/max, and the values at the one-quarter and three-quarters points in the distribution, allowing us to determine the <strong>interquartile range</strong>.</p>
+<p>While these numbers give us a general idea of the distribution of our data, tables of numbers are often not the most effective way to represent distributions.  As such, we turn to <strong>visualization</strong>, which enables us to explore our data graphically.</p>
+</div>
+<div class="section" id="univariate-visualization">
+<h1>Univariate visualization<a class="headerlink" href="#univariate-visualization" title="Permalink to this headline">¶</a></h1>
+<p>As we discussed in class, the principal library for data visualization in Python is <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>.  <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> is an extraordinarily flexible package that allows Python users to create just about any type of visualization.  However, it is sometimes criticized for being too “low-level” - that is, requiring a lot of code to accomplish simple tasks - and for having unattractive defaults.</p>
+<p>While we will be working with <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> in this class, many of our interactions with the package will occur through built-in plotting functions in <code class="docutils literal notranslate"><span class="pre">pandas</span></code> as well as <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>, a Python library for statistical visualization that is built on top of <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, and is lauded for its attractive styling.</p>
+<p>We’ll be using <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> from this point forward in the notebook, so you’ll now want to import <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> into your namespace.  In this course, I’ll be using the standard import <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">seaborn</span> <span class="pre">as</span> <span class="pre">sns</span></code>; <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>’s creator Michael Waskom uses this in reference to the West Wing origins of the package’s name, as it is named after fictional White House deputy communications director <a class="reference external" href="https://en.wikipedia.org/wiki/Sam_Seaborn">Samuel Norman Seaborn</a>, played by Rob Lowe.</p>
+<p>To use seaborn styles, import the <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> library then use the <code class="docutils literal notranslate"><span class="pre">set_style</span></code> function to choose a style.  Available styles are <code class="docutils literal notranslate"><span class="pre">&quot;white&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;whitegrid&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;dark&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;darkgrid&quot;</span></code>, and <code class="docutils literal notranslate"><span class="pre">&quot;ticks&quot;</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;darkgrid&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We are now ready to visualize our data!  To get started, we’ll use a common type of visualization called a <strong>histogram</strong>.  Histograms organize similar data values into <strong>bins</strong>, and then plot a series of bars whose heights represent the number of observations in each bin.  Histograms are built in to <code class="docutils literal notranslate"><span class="pre">pandas</span></code> and in turn are available as data frame methods.  Let’s draw a histogram of overweight/obesity rates.  Run the code cell to view the plot.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">all_adults</span><span class="o">.</span><span class="n">hist</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="_images/04-univariate-data-analysis_19_1.png" src="_images/04-univariate-data-analysis_19_1.png" />
+</div>
+</div>
+<p>Histograms can also be build with <strong>seaborn</strong> functions, requiring different syntax.  As opposed to the built-in <strong>pandas</strong> histogram, which treats the plot as a method belonging to the data frame object, <strong>seaborn</strong> functions are called with the data frame as an argument along with other arguments that control the styling of the plot.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;all_adults&quot;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;black&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;all_adults&#39;, ylabel=&#39;Count&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/04-univariate-data-analysis_21_1.png" src="_images/04-univariate-data-analysis_21_1.png" />
+</div>
+</div>
+<p>Spend some time trying to understand the graphs.  Many chart types that we’ll explore in this class rely on the concept of the <strong>Cartesian coordinate system</strong>, which you may remember from grade school mathematics classes.  Positions on the chart are defined by their <strong>x and y coordinates</strong>.  The <strong>x-axis</strong> is the horizontal axis; in the above histogram, this represents the value in our <code class="docutils literal notranslate"><span class="pre">all_adults</span></code> column.  The <strong>y-axis</strong> is the vertical axis, which in our histogram represents the number of observations in each bin.  <strong>pandas</strong> defaults to 10 bins that are equal in width; seaborn calculates the number of bins from the size of the data, though this can be controlled with the <code class="docutils literal notranslate"><span class="pre">bins</span></code> parameter.</p>
+<p>When interpreting a histogram, note the “shape” of the plot.  Values tend to cluster around the right-hand side of the distribution, which is to be expected given that our mean and median are both around 66 percent; however, there are a few values in the tail of the distribution on the left-hand side that are noticeably lower.</p>
+<p>Recall from class that a <strong>normal distribution</strong> refers to a distribution that is symmetrical around its mean.  For example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1983</span><span class="p">)</span>
+
+<span class="n">norm</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1000</span><span class="p">))</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">norm</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="mi">8</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:ylabel=&#39;Count&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/04-univariate-data-analysis_23_1.png" src="_images/04-univariate-data-analysis_23_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">norm</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    1000.000000
+mean        0.037654
+std         0.999050
+min        -3.386319
+25%        -0.628936
+50%         0.039946
+75%         0.708724
+max         3.359611
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>You don’t need to understand everything I did in the above code yet; I used <code class="docutils literal notranslate"><span class="pre">numpy</span></code> to create a random sample of 1000 normally distributed observations with a mean of approximately 0 and a standard deviation of approximately 1.  Notice how the histogram is reasonably symmetrical, and the mean and median are near-identical.  In real data work - especially data work that involves observations of social phenomena- you’ll almost never come across perfectly normal distributions.  A more detailed treatment of data distributions and probability should be left to your stats classes; however, I’ll mention a couple things you can look at.</p>
+<p>In statistics, the “shape” of our distribution can be described by <strong>skew</strong> and <strong>kurtosis</strong>.  Skew refers to the relative asymmetry of your distribution; <strong>negative skew</strong> means that the long tail of observations stretches to the left (the “negative” direction along the x-axis), and <strong>positive skew</strong> means that the long tail stretches to the right, the “positive” direction.</p>
+<p>Skew can be quantified; we won’t get into the math behind it here, but it is available to you as a method in <code class="docutils literal notranslate"><span class="pre">pandas</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">all_adults</span><span class="o">.</span><span class="n">skew</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.5630178306448126
+</pre></div>
+</div>
+</div>
+</div>
+<p>We see that our distribution has negative skew, as we observed from the plot; a normally-distributed sample would have a skew near 0.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">norm</span><span class="o">.</span><span class="n">skew</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.002915784155574375
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also examine the kurtosis of our distribution, which measures its “flatness” or “peakedness”.  A distribution with a high “peak”, or many values clustered around the mean, is said to be <em>leptokurtic</em>; conversely, a distribution with a low peak and more even spread of values is <em>platykurtic</em>.  <code class="docutils literal notranslate"><span class="pre">pandas</span></code> employs Fisher’s definition of kurtosis, in which a normal distribution has a kurtosis of 0, leptokurtic distributions have positive kurtosis values, and platykurtic distributions have negative values.  For example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">all_adults</span><span class="o">.</span><span class="n">kurtosis</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.4787907615464291
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">norm</span><span class="o">.</span><span class="n">kurtosis</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.029743128783763506
+</pre></div>
+</div>
+</div>
+</div>
+<p>We see that our data have a positive kurtosis, reflecting a higher “peak” than expected under normality.</p>
+<p>Your histogram can also be customized; for example, as with other functions/methods in the Jupyter Notebook, use the <code class="docutils literal notranslate"><span class="pre">help()</span></code> function or type <code class="docutils literal notranslate"><span class="pre">?</span></code> after typing the method (e.g. <code class="docutils literal notranslate"><span class="pre">sns.histplot?</span></code>) to see what parameters are available to you.</p>
+<p>In the cell below, re-draw the histogram with 25 bins instead of 10 by supplying the argument to <code class="docutils literal notranslate"><span class="pre">sns.histplot()</span></code>, <code class="docutils literal notranslate"><span class="pre">bins</span> <span class="pre">=</span> <span class="pre">25</span></code>.  Take note of how the plot changes!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code goes here!</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You should notice that there are now gaps in your chart; as the histogram needs bins of equal width, there are some areas where no observations fall into the specified bins.  As such, smoother representations of your data are sometimes preferable.  A popular type of visualization that is related to the histogram is the <strong>kernel density plot</strong>, which represents the shape of your frequency distribution with a smooth curve.  The mathematics behind the kernel density plot are beyond the scope of this course; however, the plot is still useful without knowing all of the math behind it.</p>
+<p><code class="docutils literal notranslate"><span class="pre">seaborn</span></code> includes a function, <code class="docutils literal notranslate"><span class="pre">kdeplot</span></code>, that lets us visualize our data with this kind of smooth curve.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;all_adults&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;all_adults&#39;, ylabel=&#39;Density&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/04-univariate-data-analysis_36_1.png" src="_images/04-univariate-data-analysis_36_1.png" />
+</div>
+</div>
+<p>Be careful with the y-axis in kernel density plots; it looks similar to the histogram in this instance, but it represents something quantitatively different than the count as in the histogram that can be complicated to explain; the important thing for the purposes of our course here is the shape of the curve.  As expected, we see a peak around 66-67 percent.</p>
+<p>There are many options available to you to customize your density plots; for example, you can change the color of your data series, and fill the area under the curve:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;all_adults&quot;</span><span class="p">,</span> <span class="n">shade</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;green&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;all_adults&#39;, ylabel=&#39;Density&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/04-univariate-data-analysis_38_1.png" src="_images/04-univariate-data-analysis_38_1.png" />
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">seaborn</span></code> also has a built-in function called <code class="docutils literal notranslate"><span class="pre">displot</span></code> that will allow you to show a density curve and a histogram concurrently:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;all_adults&quot;</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">kde</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fc804dd3b20&gt;
+</pre></div>
+</div>
+<img alt="_images/04-univariate-data-analysis_40_1.png" src="_images/04-univariate-data-analysis_40_1.png" />
+</div>
+</div>
+<p>If desired, plots can also be superimposed on one another to make comparisons.  For example, here we’ll overlay two density plots, one for male and one for female:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;male&quot;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;female&quot;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;red&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;male&#39;, ylabel=&#39;Density&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/04-univariate-data-analysis_42_1.png" src="_images/04-univariate-data-analysis_42_1.png" />
+</div>
+</div>
+<p>An alternative way to visualize a frequency distribution is the <strong>box plot</strong>. As we discussed in class, box plots use three parallel lines to construct a box: one at the 25 percent point of the distribution, one at the median (50 percent point) of the distribution, and one at the 75 percent point of the distribution.  “Whiskers” then extend to either the minimum/maximum values of the distribution or 150 percent (conventionally) of the 25/75 percent points, and observations beyond the whiskers are “outliers” represented with dots.  <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> allows us to draw box plots quite flexibly with its <code class="docutils literal notranslate"><span class="pre">boxplot</span></code> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;all_adults&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;all_adults&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/04-univariate-data-analysis_44_1.png" src="_images/04-univariate-data-analysis_44_1.png" />
+</div>
+</div>
+<p>Notice how the dimensions of the box plot reflect the descriptive statistics we calculated earlier.  Also, note the outliers on the left-hand side of the plot.  The dot to the far left represents the District of Columbia, which has the lowest adult overweight/obesity rate in our sample.  This makes sense, as DC is not really comparable to the 50 US states, given that it is a city in its entirety, and we know that dense cities tend to have lower adult overweight/obesity rates than suburbs and rural areas, which make up parts of all of our other observations.  The <em>state</em> with the lowest overall rate is Colorado, which consistently ranks atop other states on health measures.</p>
+<p>If you want, you can customize your box plot; for example, we can tell <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> to orient it vertically by mapping the <code class="docutils literal notranslate"><span class="pre">&quot;all_adults&quot;</span></code> column to the y-axis:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;all_adults&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:ylabel=&#39;all_adults&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/04-univariate-data-analysis_46_1.png" src="_images/04-univariate-data-analysis_46_1.png" />
+</div>
+</div>
+<p>The final chart type I’ll introduce to you in this notebook is the <strong>violin plot</strong>.  Violin plots are like combinations of box plots and density plots; they show the 25/50/75 percent values, as with box plots, but with density curves on either side of a central axis.  Let’s take a look, again using <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;male&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;male&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/04-univariate-data-analysis_48_1.png" src="_images/04-univariate-data-analysis_48_1.png" />
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">seaborn</span></code> draws a miniature boxplot inside of symmetrical density curves representing the shape of the dataset.  If you want, you can customize the visualization further; for example, I’ll tell <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> to draw lines representing quartiles inside of the plot instead of the mini box plot, and change the color to purple:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;female&quot;</span><span class="p">,</span> <span class="n">inner</span> <span class="o">=</span> <span class="s2">&quot;quartile&quot;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;purple&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;female&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/04-univariate-data-analysis_50_1.png" src="_images/04-univariate-data-analysis_50_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="exercises">
+<h1>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h1>
+<p>Now it’s time to test what you’ve learned!  In the following exercises, you’ll apply the techniques you’ve learned in this notebook to a new dataset from the Kaiser Family Foundation, which measures childhood overweight &amp; obesity rates by state.  The data file is named <code class="docutils literal notranslate"><span class="pre">child_data.csv</span></code> and is found on TCU Online.  Read in the new dataset as a <code class="docutils literal notranslate"><span class="pre">pandas</span></code> DataFrame, and respond to the following questions:</p>
+<p><strong>Exercise 1:</strong> What are the mean and median values for childhood overweight/obesity rates for states in the US?</p>
+<p><strong>Exercise 2</strong>: What are the minimum and maximum values for childhood overweight/obesity rates?  What is the range?</p>
+<p><strong>Exercise 3</strong>: Draw a histogram of childhood overweight/obesity rates.  Do your data appear to be skewed in one direction or another?</p>
+<p><strong>Exercise 4</strong>: Draw a box plot of childhood overweight/obesity rates.</p>
+<p><strong>Exercise 5:</strong>: You pick: draw either a kernel density plot or a violin plot with your data.  Change the color of the plot to orange, and shade the area beneath the density curve if you select a density plot.</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="03-functions-and-iteration.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Assignment 3: Functions, conditional statements, and iteration in Python</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="05-multivariate-visualization.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Assignment 5: Multivariate exploratory visualization</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Kyle Walker<br/>
+        
+            &copy; Copyright 2022.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

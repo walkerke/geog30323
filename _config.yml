@@ -1,0 +1,11 @@
+title: "GEOG 30323: Data Analysis & Visualization"
+author: "Kyle Walker"
+copyright: 2022
+execute:
+  execute_notebooks: "force"
+  allow_errors: true
+launch_buttons: 
+  colab_url: https://colab.research.google.com
+  binder_url: https://mybinder.org
+repository:
+  url: https://github.com/walkerke/geog30323/assignments
