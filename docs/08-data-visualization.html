@@ -83,12 +83,17 @@
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="README.html">
-   geog30323
+  <a class="reference internal" href="index.html">
+   Welcome
   </a>
  </li>
 </ul>
 <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01-data-journalism.html">
+   Assignment 1: Data journalism
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="02-intro-to-python.html">
    Assignment 2: Introduction to Python
@@ -132,6 +137,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="10-tableau.html">
    Assignment 10: Building a dashboard with Tableau
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11-data-ethics.html">
+   Assignment 11: Data ethics
   </a>
  </li>
 </ul>
@@ -231,6 +241,23 @@
   <a class="reference internal nav-link" href="#">
    Assignment 8: Data visualization
   </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#question-1-what-were-the-most-popular-names-in-2017-and-how-did-their-popularity-change-over-the-past-10-years">
+     Question 1: What were the most popular names in 2017, and how did their popularity change over the past 10 years?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#question-2-how-does-the-release-of-disney-movies-influence-the-popularity-of-baby-names">
+     Question 2: How does the release of Disney movies influence the popularity of baby names?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#question-3-how-have-gender-neutral-names-shifted-in-popularity-between-male-and-female-over-time">
+     Question 3: How have gender-neutral names shifted in popularity between male and female over time?
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercises">
@@ -367,7 +394,8 @@
 <li><p>How have various gender-neutral names shifted in popularity between male &amp; female over time?</p></li>
 </ol>
 <p>You’ll then get a chance to do some of this on your own at the end of the assignment.</p>
-<p><strong>Question 1: What were the most popular names in 2017, and how did their popularity change over the past 10 years?</strong></p>
+<div class="section" id="question-1-what-were-the-most-popular-names-in-2017-and-how-did-their-popularity-change-over-the-past-10-years">
+<h2>Question 1: What were the most popular names in 2017, and how did their popularity change over the past 10 years?<a class="headerlink" href="#question-1-what-were-the-most-popular-names-in-2017-and-how-did-their-popularity-change-over-the-past-10-years" title="Permalink to this headline">¶</a></h2>
 <p>To get started with this question, we need to do some subsetting, which you are very familiar with by now.  Let’s look specifically at males for this first question.  First and foremost, however, we need to figure out the most popular male baby names in 2017.  A few <code class="docutils literal notranslate"><span class="pre">pandas</span></code>/Python methods that you’ve learned in previous assignments can get this done.</p>
 <p>Notice what we are doing here - you can think of the line of code as a <em>chain</em> of methods in which we are manipulating the <code class="docutils literal notranslate"><span class="pre">df</span></code> data frame in turn.</p>
 <ul class="simple">
@@ -540,7 +568,9 @@
 <img alt="_images/08-data-visualization_11_1.png" src="_images/08-data-visualization_11_1.png" />
 </div>
 </div>
-<p><strong>Question 2: How does the release of Disney movies influence the popularity of baby names?</strong></p>
+</div>
+<div class="section" id="question-2-how-does-the-release-of-disney-movies-influence-the-popularity-of-baby-names">
+<h2>Question 2: How does the release of Disney movies influence the popularity of baby names?<a class="headerlink" href="#question-2-how-does-the-release-of-disney-movies-influence-the-popularity-of-baby-names" title="Permalink to this headline">¶</a></h2>
 <p>Baby names can sometimes be responsive to trends in popular culture.  For example, “Daenerys” showed up in the dataset for the first time in 2012, and 82 baby girls were named Daenerys in 2015!.  In this exercise, we’ll examine how the release of Disney Princess movies relates to baby names.</p>
 <p>Let’s examine trends in female baby names since 1980 for four Disney Princess names: Jasmine, Ariel, Elsa, and Tiana.</p>
 <div class="cell docutils container">
@@ -717,13 +747,15 @@ Tiana: 0.24864
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fc2fdb9b1c0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fecd46bb100&gt;
 </pre></div>
 </div>
 <img alt="_images/08-data-visualization_19_1.png" src="_images/08-data-visualization_19_1.png" />
 </div>
 </div>
-<p><strong>Question 3: How have gender-neutral names shifted in popularity between male and female over time?</strong></p>
+</div>
+<div class="section" id="question-3-how-have-gender-neutral-names-shifted-in-popularity-between-male-and-female-over-time">
+<h2>Question 3: How have gender-neutral names shifted in popularity between male and female over time?<a class="headerlink" href="#question-3-how-have-gender-neutral-names-shifted-in-popularity-between-male-and-female-over-time" title="Permalink to this headline">¶</a></h2>
 <p>For the third and final question, we’ll be looking at how four gender-neutral names have shifted between male and female over time.  Let’s produce a new data frame from our original data frame that subsets for four popular gender-neutral names: Jordan, Riley, Peyton, and Taylor.  We’ll take rows for years 1960 and later, and fill NaN values with 0.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -819,7 +851,7 @@ Tiana: 0.24864
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fc2fdb8ef70&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fecd469bdf0&gt;
 </pre></div>
 </div>
 <img alt="_images/08-data-visualization_24_1.png" src="_images/08-data-visualization_24_1.png" />
@@ -844,6 +876,7 @@ Tiana: 0.24864
 </div>
 <div class="cell_output docutils container">
 <img alt="_images/08-data-visualization_26_0.png" src="_images/08-data-visualization_26_0.png" />
+</div>
 </div>
 </div>
 </div>

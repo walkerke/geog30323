@@ -83,12 +83,17 @@
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="README.html">
-   geog30323
+  <a class="reference internal" href="index.html">
+   Welcome
   </a>
  </li>
 </ul>
 <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01-data-journalism.html">
+   Assignment 1: Data journalism
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="02-intro-to-python.html">
    Assignment 2: Introduction to Python
@@ -132,6 +137,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="10-tableau.html">
    Assignment 10: Building a dashboard with Tableau
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11-data-ethics.html">
+   Assignment 11: Data ethics
   </a>
  </li>
 </ul>
@@ -231,16 +241,49 @@
   <a class="reference internal nav-link" href="#">
    Assignment 3: Functions, conditional statements, and iteration in Python
   </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#booleans-and-conditional-statements">
-   Booleans and conditional statements
-  </a>
   <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-return-statement">
+     The ‘return’ statement
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#python-and-whitespace">
+     Python and whitespace
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#named-arguments">
+     Named arguments
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#docstrings-and-documenting-your-code">
+     Docstrings and documenting your code
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#booleans-and-conditional-statements">
+     Booleans and conditional statements
+    </a>
+   </li>
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#loops">
      Loops
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-while-loop">
+       The
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         while
+        </span>
+       </code>
+       loop
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
@@ -333,7 +376,8 @@
 </div>
 </div>
 </div>
-<p><strong>The ‘return’ statement</strong></p>
+<div class="section" id="the-return-statement">
+<h2>The ‘return’ statement<a class="headerlink" href="#the-return-statement" title="Permalink to this headline">¶</a></h2>
 <p>In the above examples, we’ve created functions that print some result to our screen when called.  Often, however, we want our functions to work as part of a larger workflow.  This is accomplished with the <code class="docutils literal notranslate"><span class="pre">return</span></code> statement, which allows the output of functions to be assigned to a new variable.</p>
 <p>For example, let’s try to assign the result of the <code class="docutils literal notranslate"><span class="pre">divide_by_two</span></code> function to a new variable:</p>
 <div class="cell docutils container">
@@ -383,7 +427,9 @@
 </div>
 </div>
 </div>
-<p><strong>Python and whitespace</strong></p>
+</div>
+<div class="section" id="python-and-whitespace">
+<h2>Python and whitespace<a class="headerlink" href="#python-and-whitespace" title="Permalink to this headline">¶</a></h2>
 <p>You may have noticed that the statements that follow the function definitions above are <strong>indented</strong>.  Python code obeys <strong>whitespace</strong> for code organization.  In many languages, functions, loops, and conditional logic (which we’ll get to next week), etc. are organized with curly braces, like the equivalent R code below:</p>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">divide_by_two</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span>
     <span class="nf">return</span><span class="p">(</span><span class="n">x</span> <span class="o">/</span> <span class="m">2</span><span class="p">)</span>
@@ -407,7 +453,9 @@
 </div>
 </div>
 </div>
-<p><strong>Named arguments</strong></p>
+</div>
+<div class="section" id="named-arguments">
+<h2>Named arguments<a class="headerlink" href="#named-arguments" title="Permalink to this headline">¶</a></h2>
 <p>Later in the semester, we’ll get started using external libraries to do our work, which have many pre-built functions for accomplishing data analysis tasks.  Many of these functions are very flexible - which means they have a lot of parameters!  It turn, it can be helpful to keep your code organized when you are working with multiple parameters in a function.</p>
 <p>There are a couple ways to supply multiple arguments to a function in Python:</p>
 <ul class="simple">
@@ -502,7 +550,9 @@
 </div>
 </div>
 </div>
-<p><strong>Docstrings and documenting your code</strong></p>
+</div>
+<div class="section" id="docstrings-and-documenting-your-code">
+<h2>Docstrings and documenting your code<a class="headerlink" href="#docstrings-and-documenting-your-code" title="Permalink to this headline">¶</a></h2>
 <p>You’ve already learned how to use comments to document your code with the <code class="docutils literal notranslate"><span class="pre">#</span></code> operator, like this:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># I just commented out this line!</span>
 </pre></div>
@@ -567,7 +617,7 @@ subtract(x, y)
 </div>
 </div>
 <div class="section" id="booleans-and-conditional-statements">
-<h1>Booleans and conditional statements<a class="headerlink" href="#booleans-and-conditional-statements" title="Permalink to this headline">¶</a></h1>
+<h2>Booleans and conditional statements<a class="headerlink" href="#booleans-and-conditional-statements" title="Permalink to this headline">¶</a></h2>
 <p>The above functions we’ve written perform the same operations for any input values that are passed to them.  When writing programs, however, you’ll often have to design them to be flexible to user input where outcomes may vary based on what users supply to the program.  In regards to data analysis, you might want to produce a particular type of chart if the data are structured a certain way, which wouldn’t work in another scenario.  You can build this type of logic into your programs with <strong>conditional statements</strong>.</p>
 <p>Before we get into this, however, I want to introduce <strong>booleans</strong> in Python.  You may have heard this term before in other classes.  Booleans in Python are the values <code class="docutils literal notranslate"><span class="pre">True</span></code> and <code class="docutils literal notranslate"><span class="pre">False</span></code>; they can be used to evaluate, understandably, if a condition is true or not.  For example:</p>
 <div class="cell docutils container">
@@ -674,6 +724,7 @@ subtract(x, y)
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Your code goes here!</span>
 </pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -870,7 +921,8 @@ The index of y is 25
 </div>
 </div>
 </div>
-<p><strong>The <code class="docutils literal notranslate"><span class="pre">while</span></code> loop</strong></p>
+<div class="section" id="the-while-loop">
+<h3>The <code class="docutils literal notranslate"><span class="pre">while</span></code> loop<a class="headerlink" href="#the-while-loop" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">for</span></code> is not the only loop you’ll come across in Python.  You can also specify a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop, which will run a loop until a given condition is satisfied.  I’ll give you an example below.  Let’s say you only want to return the first five elements of your list.  While you could do this with indexing (which is simpler), let’s try the <code class="docutils literal notranslate"><span class="pre">while</span></code> loop instead.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -898,6 +950,7 @@ The index of y is 25
 </div>
 <p>Have a look at what we did.  We created an empty list, and set a new variable, <code class="docutils literal notranslate"><span class="pre">i</span></code>, to 0.  We then looped through the elements of the list index by index, adding 1 to <code class="docutils literal notranslate"><span class="pre">i</span></code> with each run of the loop, and then stopping the code when <code class="docutils literal notranslate"><span class="pre">i</span></code> became equal to 5.  In turn, we got back the elements of the <code class="docutils literal notranslate"><span class="pre">big12</span></code> list indexed 0 to 4, which are the first five elements.</p>
 <p>Be careful with while loops, however.  If you don’t specify them correctly, you can get stuck in an infinite loop, which will not stop!  For example, if we had not continued to add 1 to <code class="docutils literal notranslate"><span class="pre">i</span></code>, the loop would have never stopped and would have kept iterating through the list.  This can cause your computer to lock up, as it is infinitely trying to carry out an operation!  I’ve been there a few times…</p>
+</div>
 </div>
 </div>
 <div class="section" id="exercises">

@@ -83,20 +83,25 @@
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="README.html">
-   geog30323
+  <a class="reference internal" href="index.html">
+   Welcome
   </a>
  </li>
 </ul>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="01-data-journalism.html">
+   Assignment 1: Data journalism
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="02-intro-to-python.html">
-   Programming I - Intro to Python
+   Assignment 2: Introduction to Python
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="03-functions-and-iteration.html">
-   Programming II: Functions, conditional statements, and iteration in Python
+   Assignment 3: Functions, conditional statements, and iteration in Python
   </a>
  </li>
  <li class="toctree-l1">
@@ -132,6 +137,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="10-tableau.html">
    Assignment 10: Building a dashboard with Tableau
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11-data-ethics.html">
+   Assignment 11: Data ethics
   </a>
  </li>
 </ul>
@@ -278,75 +288,154 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 <span class="c1"># Modify the path below to your data path</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;fort_worth_crime_extract.csv&quot;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/fort_worth_crime_extract.csv&quot;</span><span class="p">)</span>
 
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">b8fb0c2cc568</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> 
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># Modify the path below to your data path</span>
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;fort_worth_crime_extract.csv&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> 
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="nn">~/anaconda3/envs/python39/lib/python3.9/site-packages/pandas/io/parsers.py</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, dialect, error_bad_lines, warn_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options)</span>
-<span class="g g-Whitespace">    </span><span class="mi">608</span>     <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds_defaults</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">609</span> 
-<span class="ne">--&gt; </span><span class="mi">610</span>     <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">611</span> 
-<span class="g g-Whitespace">    </span><span class="mi">612</span> 
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-<span class="nn">~/anaconda3/envs/python39/lib/python3.9/site-packages/pandas/io/parsers.py</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">460</span> 
-<span class="g g-Whitespace">    </span><span class="mi">461</span>     <span class="c1"># Create the parser.</span>
-<span class="ne">--&gt; </span><span class="mi">462</span>     <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">463</span> 
-<span class="g g-Whitespace">    </span><span class="mi">464</span>     <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
-
-<span class="nn">~/anaconda3/envs/python39/lib/python3.9/site-packages/pandas/io/parsers.py</span> in <span class="ni">__init__</span><span class="nt">(self, f, engine, **kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">817</span>             <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">818</span> 
-<span class="ne">--&gt; </span><span class="mi">819</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">820</span> 
-<span class="g g-Whitespace">    </span><span class="mi">821</span>     <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-
-<span class="nn">~/anaconda3/envs/python39/lib/python3.9/site-packages/pandas/io/parsers.py</span> in <span class="ni">_make_engine</span><span class="nt">(self, engine)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1048</span>             <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1049</span>         <span class="c1"># error: Too many arguments for &quot;ParserBase&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">1050</span>         <span class="k">return</span> <span class="n">mapping</span><span class="p">[</span><span class="n">engine</span><span class="p">](</span><span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">)</span>  <span class="c1"># type: ignore[call-arg]</span>
-<span class="g g-Whitespace">   </span><span class="mi">1051</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1052</span>     <span class="k">def</span> <span class="nf">_failover_to_python</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-
-<span class="nn">~/anaconda3/envs/python39/lib/python3.9/site-packages/pandas/io/parsers.py</span> in <span class="ni">__init__</span><span class="nt">(self, src, **kwds)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1865</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1866</span>         <span class="c1"># open handles</span>
-<span class="ne">-&gt; </span><span class="mi">1867</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_open_handles</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1868</span>         <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
-<span class="g g-Whitespace">   </span><span class="mi">1869</span>         <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;storage_options&quot;</span><span class="p">,</span> <span class="s2">&quot;encoding&quot;</span><span class="p">,</span> <span class="s2">&quot;memory_map&quot;</span><span class="p">,</span> <span class="s2">&quot;compression&quot;</span><span class="p">):</span>
-
-<span class="nn">~/anaconda3/envs/python39/lib/python3.9/site-packages/pandas/io/parsers.py</span> in <span class="ni">_open_handles</span><span class="nt">(self, src, kwds)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1360</span>         <span class="n">Let</span> <span class="n">the</span> <span class="n">readers</span> <span class="nb">open</span> <span class="n">IOHanldes</span> <span class="n">after</span> <span class="n">they</span> <span class="n">are</span> <span class="n">done</span> <span class="k">with</span> <span class="n">their</span> <span class="n">potential</span> <span class="n">raises</span><span class="o">.</span>
-<span class="g g-Whitespace">   </span><span class="mi">1361</span>         <span class="s2">&quot;&quot;&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">1362</span><span class="s2">         self.handles = get_handle(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1363</span><span class="s2">             src,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1364</span><span class="s2">             &quot;r&quot;,</span>
-
-<span class="nn">~/anaconda3/envs/python39/lib/python3.9/site-packages/pandas/io/common.py</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
-<span class="g g-Whitespace">    </span><span class="mi">645</span><span class="s2">                 errors = &quot;replace&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">646</span><span class="s2">             # Encoding</span>
-<span class="ne">--&gt; </span><span class="mi">647</span><span class="s2">             handle = open(</span>
-<span class="g g-Whitespace">    </span><span class="mi">648</span><span class="s2">                 handle,</span>
-<span class="g g-Whitespace">    </span><span class="mi">649</span><span class="s2">                 ioargs.mode,</span>
-
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;fort_worth_crime_extract.csv&#39;
-</pre></div>
-</div>
-</div>
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Case and Offense</th>
+      <th>Case Number</th>
+      <th>Reported Date</th>
+      <th>Nature Of Call</th>
+      <th>From Date</th>
+      <th>Offense</th>
+      <th>Description</th>
+      <th>Block Address</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Beat</th>
+      <th>Division</th>
+      <th>Council District</th>
+      <th>Attempt Complete</th>
+      <th>Location Type</th>
+      <th>Location Description</th>
+      <th>Location</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>200025542-90E</td>
+      <td>200025542</td>
+      <td>03/28/2020</td>
+      <td>PUBLIC INTOXICATION</td>
+      <td>03/28/2020 11:50:00 PM</td>
+      <td>90E</td>
+      <td>GC 080 Public Intoxication 90E DRUNKENNESS 000...</td>
+      <td>200 NE 28TH ST</td>
+      <td>FORT WORTH</td>
+      <td>TX</td>
+      <td>C11</td>
+      <td>Northwest</td>
+      <td>2.0</td>
+      <td>C</td>
+      <td>18</td>
+      <td>18 PARKING LOT/GARAGE</td>
+      <td>(32.79512267527676, -97.34736968390531)</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>200025291-90E</td>
+      <td>200025291</td>
+      <td>03/27/2020</td>
+      <td>PUBLIC INTOXICATION</td>
+      <td>03/27/2020 08:29:28 PM</td>
+      <td>90E</td>
+      <td>GC 080 Public Intoxication 90E DRUNKENNESS 000...</td>
+      <td>14300 CENTREPORT LANDING CIR</td>
+      <td>FORT WORTH</td>
+      <td>TX</td>
+      <td>H17</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>C</td>
+      <td>20</td>
+      <td>20 RESIDENCE/HOME</td>
+      <td>(32.81901915935712, -97.05732878148257)</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>200025472-35A</td>
+      <td>200025472</td>
+      <td>03/28/2020</td>
+      <td>PUBLIC INTOXICATION</td>
+      <td>03/28/2020 04:41:22 PM</td>
+      <td>35A</td>
+      <td>HSC 481.117(B) Poss CS PG 3 &lt;28G 35A DRUG/NARC...</td>
+      <td>5400 ENCLAVE CIR</td>
+      <td>FORT WORTH</td>
+      <td>TX</td>
+      <td>K18</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>C</td>
+      <td>15</td>
+      <td>15 JAIL/PRISON</td>
+      <td>(32.67383727899393, -97.41089914948881)</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>200025309-90E</td>
+      <td>200025309</td>
+      <td>03/27/2020</td>
+      <td>PUBLIC INTOXICATION</td>
+      <td>03/27/2020 09:11:59 PM</td>
+      <td>90E</td>
+      <td>GC 080 Public Intoxication 90E DRUNKENNESS 000...</td>
+      <td>3300 W BOYCE AVE</td>
+      <td>FORT WORTH</td>
+      <td>TX</td>
+      <td>J12</td>
+      <td>South</td>
+      <td>9.0</td>
+      <td>C</td>
+      <td>20</td>
+      <td>20 RESIDENCE/HOME</td>
+      <td>(32.68139719413715, -97.36576854742505)</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>200025525-90E</td>
+      <td>200025525</td>
+      <td>03/28/2020</td>
+      <td>PUBLIC INTOXICATION</td>
+      <td>03/28/2020 10:54:17 PM</td>
+      <td>90E</td>
+      <td>GC 080 Public Intoxication 90E DRUNKENNESS 000...</td>
+      <td>100 E BOLT ST</td>
+      <td>FORT WORTH</td>
+      <td>TX</td>
+      <td>I11</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>C</td>
+      <td>13</td>
+      <td>13 HIGHWAY/ROAD/ALLEY</td>
+      <td>(32.68865080126258, -97.3265765609558)</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Scroll to the right-hand side of your data frame to view the <code class="docutils literal notranslate"><span class="pre">Location</span></code> column.  You’ll notice that it is formatted as latitude/longitude coordinate pairs, separated by a comma and enclosed in parentheses.  Additionally, some of the latitude/longitude values are missing.</p>
 <div class="cell docutils container">
@@ -358,14 +447,9 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="mi">1679741</span><span class="n">a43de</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">null_rows</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">isnull</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">Location</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> 
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">null_rows</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
-
-<span class="ne">NameError</span>: name &#39;df&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False    1979
+True       44
+Name: Location, dtype: int64
 </pre></div>
 </div>
 </div>
@@ -395,34 +479,168 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">3</span><span class="o">-</span><span class="mi">4</span><span class="n">ea8d77aaa8e</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Loop through the characters in the string we want to replace, and replace them in turn</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;(&#39;</span><span class="p">,</span> <span class="s1">&#39;)&#39;</span><span class="p">]:</span>
-<span class="ne">----&gt; </span><span class="mi">3</span>     <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Location&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Location</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">char</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> 
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># Split our `Location_1` column at the comma with the `.split()` method;</span>
-
-<span class="ne">NameError</span>: name &#39;df&#39; is not defined
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-3-4ea8d77aaa8e&gt;:3: FutureWarning: The default value of regex will change from True to False in a future version. In addition, single character regular expressions will*not* be treated as literal strings when regex=True.
+  df[&#39;Location&#39;] = df.Location.str.replace(char, &#39;&#39;)
 </pre></div>
 </div>
-</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Case and Offense</th>
+      <th>Case Number</th>
+      <th>Reported Date</th>
+      <th>Nature Of Call</th>
+      <th>From Date</th>
+      <th>Offense</th>
+      <th>Description</th>
+      <th>Block Address</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Beat</th>
+      <th>Division</th>
+      <th>Council District</th>
+      <th>Attempt Complete</th>
+      <th>Location Type</th>
+      <th>Location Description</th>
+      <th>Location</th>
+      <th>latitude</th>
+      <th>longitude</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>200025542-90E</td>
+      <td>200025542</td>
+      <td>03/28/2020</td>
+      <td>PUBLIC INTOXICATION</td>
+      <td>03/28/2020 11:50:00 PM</td>
+      <td>90E</td>
+      <td>GC 080 Public Intoxication 90E DRUNKENNESS 000...</td>
+      <td>200 NE 28TH ST</td>
+      <td>FORT WORTH</td>
+      <td>TX</td>
+      <td>C11</td>
+      <td>Northwest</td>
+      <td>2.0</td>
+      <td>C</td>
+      <td>18</td>
+      <td>18 PARKING LOT/GARAGE</td>
+      <td>32.79512267527676, -97.34736968390531</td>
+      <td>32.79512267527676</td>
+      <td>-97.34736968390531</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>200025291-90E</td>
+      <td>200025291</td>
+      <td>03/27/2020</td>
+      <td>PUBLIC INTOXICATION</td>
+      <td>03/27/2020 08:29:28 PM</td>
+      <td>90E</td>
+      <td>GC 080 Public Intoxication 90E DRUNKENNESS 000...</td>
+      <td>14300 CENTREPORT LANDING CIR</td>
+      <td>FORT WORTH</td>
+      <td>TX</td>
+      <td>H17</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>C</td>
+      <td>20</td>
+      <td>20 RESIDENCE/HOME</td>
+      <td>32.81901915935712, -97.05732878148257</td>
+      <td>32.81901915935712</td>
+      <td>-97.05732878148257</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>200025472-35A</td>
+      <td>200025472</td>
+      <td>03/28/2020</td>
+      <td>PUBLIC INTOXICATION</td>
+      <td>03/28/2020 04:41:22 PM</td>
+      <td>35A</td>
+      <td>HSC 481.117(B) Poss CS PG 3 &lt;28G 35A DRUG/NARC...</td>
+      <td>5400 ENCLAVE CIR</td>
+      <td>FORT WORTH</td>
+      <td>TX</td>
+      <td>K18</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>C</td>
+      <td>15</td>
+      <td>15 JAIL/PRISON</td>
+      <td>32.67383727899393, -97.41089914948881</td>
+      <td>32.67383727899393</td>
+      <td>-97.41089914948881</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>200025309-90E</td>
+      <td>200025309</td>
+      <td>03/27/2020</td>
+      <td>PUBLIC INTOXICATION</td>
+      <td>03/27/2020 09:11:59 PM</td>
+      <td>90E</td>
+      <td>GC 080 Public Intoxication 90E DRUNKENNESS 000...</td>
+      <td>3300 W BOYCE AVE</td>
+      <td>FORT WORTH</td>
+      <td>TX</td>
+      <td>J12</td>
+      <td>South</td>
+      <td>9.0</td>
+      <td>C</td>
+      <td>20</td>
+      <td>20 RESIDENCE/HOME</td>
+      <td>32.68139719413715, -97.36576854742505</td>
+      <td>32.68139719413715</td>
+      <td>-97.36576854742505</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>200025525-90E</td>
+      <td>200025525</td>
+      <td>03/28/2020</td>
+      <td>PUBLIC INTOXICATION</td>
+      <td>03/28/2020 10:54:17 PM</td>
+      <td>90E</td>
+      <td>GC 080 Public Intoxication 90E DRUNKENNESS 000...</td>
+      <td>100 E BOLT ST</td>
+      <td>FORT WORTH</td>
+      <td>TX</td>
+      <td>I11</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>C</td>
+      <td>13</td>
+      <td>13 HIGHWAY/ROAD/ALLEY</td>
+      <td>32.68865080126258, -97.3265765609558</td>
+      <td>32.68865080126258</td>
+      <td>-97.3265765609558</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Success!  We can now write our location-aware data frame to a CSV, for use in Mapbox Studio.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;intoxication.csv&#39;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">4</span><span class="o">-</span><span class="mi">4</span><span class="n">f091e921509</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">df2</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;intoxication.csv&#39;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;df2&#39; is not defined
 </pre></div>
 </div>
 </div>
