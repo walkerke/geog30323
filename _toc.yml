@@ -1,6 +1,7 @@
 format: jb-book
-root: README.md
+root: index.md
 chapters:
+- file: 01-data-journalism.md
 - file: 02-intro-to-python.ipynb
 - file: 03-functions-and-iteration.ipynb
 - file: 04-univariate-data-analysis.ipynb
@@ -10,3 +11,4 @@ chapters:
 - file: 08-data-visualization.ipynb
 - file: 09-geographic-mapbox.ipynb
 - file: 10-tableau.ipynb
+- file: 11-data-ethics.md

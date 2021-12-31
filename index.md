@@ -1,10 +1,10 @@
-# geog30323
+# Welcome
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/walkerke/geog30323/master)
 
 Welcome to GEOG 30323: Data Analysis & Visualization, taught by Dr. Kyle Walker at Texas Christian University.  
 
-Course assignments can be viewed from the sidebar menu or in the top-level directory of the GitHub repository.  Source code for slide decks is found in the `slides` folder of the repository; rendered decks are viewable from the links below.  
+Course assignments can be viewed from the sidebar menu.  To "launch" a assignment in Binder or Google Colab, click the rocket icon in the top left of the screen and choose your platform.  
 
 __Links to course lecture notes:__
 
