@@ -48,7 +48,7 @@ df.shape
 # 
 # You'll then get a chance to do some of this on your own at the end of the assignment.  
 # 
-# __Question 1: What were the most popular names in 2017, and how did their popularity change over the past 10 years?__
+# ### Question 1: What were the most popular names in 2017, and how did their popularity change over the past 10 years?
 # 
 # To get started with this question, we need to do some subsetting, which you are very familiar with by now.  Let's look specifically at males for this first question.  First and foremost, however, we need to figure out the most popular male baby names in 2017.  A few `pandas`/Python methods that you've learned in previous assignments can get this done.  
 # 
@@ -118,7 +118,7 @@ plt.xlabel("")
 plt.title("Most popular baby names - Male (rate per 1000)")
 
 
-# __Question 2: How does the release of Disney movies influence the popularity of baby names?__
+# ### Question 2: How does the release of Disney movies influence the popularity of baby names?
 # 
 # Baby names can sometimes be responsive to trends in popular culture.  For example, "Daenerys" showed up in the dataset for the first time in 2012, and 82 baby girls were named Daenerys in 2015!.  In this exercise, we'll examine how the release of Disney Princess movies relates to baby names.
 # 
@@ -211,7 +211,7 @@ plt.title("Influence of Disney movies on baby names", fontsize = 15)
 plt.legend(title = "", fontsize = 12)
 
 
-# __Question 3: How have gender-neutral names shifted in popularity between male and female over time?__
+# ### Question 3: How have gender-neutral names shifted in popularity between male and female over time?
 # 
 # For the third and final question, we'll be looking at how four gender-neutral names have shifted between male and female over time.  Let's produce a new data frame from our original data frame that subsets for four popular gender-neutral names: Jordan, Riley, Peyton, and Taylor.  We'll take rows for years 1960 and later, and fill NaN values with 0.  
 

@@ -66,7 +66,7 @@ divide_by_two(55)
 ## Now it's your turn!  Write a new, empty function that prints your name when called.  Call the function.
 
 
-# __The 'return' statement__
+# ### The 'return' statement
 # 
 # In the above examples, we've created functions that print some result to our screen when called.  Often, however, we want our functions to work as part of a larger workflow.  This is accomplished with the `return` statement, which allows the output of functions to be assigned to a new variable.  
 # 
@@ -107,7 +107,7 @@ y
 ## variable (your argument can be any number you want).
 
 
-# __Python and whitespace__
+# ### Python and whitespace
 # 
 # You may have noticed that the statements that follow the function definitions above are __indented__.  Python code obeys __whitespace__ for code organization.  In many languages, functions, loops, and conditional logic (which we'll get to next week), etc. are organized with curly braces, like the equivalent R code below:  
 # 
@@ -126,7 +126,7 @@ def divide_by_three(x):
 return x / 3
 
 
-# __Named arguments__
+# ### Named arguments
 # 
 # Later in the semester, we'll get started using external libraries to do our work, which have many pre-built functions for accomplishing data analysis tasks.  Many of these functions are very flexible - which means they have a lot of parameters!  It turn, it can be helpful to keep your code organized when you are working with multiple parameters in a function.  
 # 
@@ -188,7 +188,7 @@ subtract(11, y = 7)
 subtract(x = 11, 7)
 
 
-# __Docstrings and documenting your code__
+# ### Docstrings and documenting your code
 # 
 # You've already learned how to use comments to document your code with the `#` operator, like this: 
 # 
@@ -239,7 +239,7 @@ get_ipython().run_line_magic('pinfo', 'subtract')
 # Run your function and call it to test it out.
 
 
-# ## Booleans and conditional statements
+# ### Booleans and conditional statements
 # 
 # The above functions we've written perform the same operations for any input values that are passed to them.  When writing programs, however, you'll often have to design them to be flexible to user input where outcomes may vary based on what users supply to the program.  In regards to data analysis, you might want to produce a particular type of chart if the data are structured a certain way, which wouldn't work in another scenario.  You can build this type of logic into your programs with __conditional statements__.  
 # 
@@ -420,7 +420,7 @@ for character in tcu:
     idx = idx + 1
 
 
-# __The `while` loop__
+# #### The `while` loop
 # 
 # `for` is not the only loop you'll come across in Python.  You can also specify a `while` loop, which will run a loop until a given condition is satisfied.  I'll give you an example below.  Let's say you only want to return the first five elements of your list.  While you could do this with indexing (which is simpler), let's try the `while` loop instead. 
 

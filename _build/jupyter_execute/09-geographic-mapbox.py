@@ -15,7 +15,7 @@
 import pandas as pd
 
 # Modify the path below to your data path
-df = pd.read_csv("fort_worth_crime_extract.csv")
+df = pd.read_csv("data/fort_worth_crime_extract.csv")
 
 df.head()
 

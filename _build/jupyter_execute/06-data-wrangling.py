@@ -38,18 +38,18 @@ full.shape
 # * `UGDS`: The number of undergraduates enrolled at the institution; 
 # * `UG25abv`: The percentage of undergraduates at the institution aged 25 and above.  
 # 
-# __Subsetting and indexing data__
+# ## Subsetting data
 # 
 # As we discussed in class, `pandas` includes many different methods for subsetting data; I encourage you to review the corresponding lecture notes for the full set of methods that we discussed.  In this notebook, we'll be focusing on the methods that allow us to accomplish the task at hand, and you'll be learning a few new methods as well.  
 # 
-# To subset our data column-wise, we can _index_ our data frame with a list of columns.  The code below gets this done.  
+# To subset our data column-wise, we can specify a list of column names that we want to keep then use the `.filter()` method to restrict our data to only those specified columns.  
 
 # In[2]:
 
 
 keep = ['INSTNM', 'STABBR', 'PREDDEG', 'CONTROL', 'UGDS', 'UG25abv']
 
-df = full[keep] # Notice how the indexing works here; I'm assigning the result to a new dataframe called `df`.
+df = full.filter(keep)
 
 df.head()
 
@@ -59,10 +59,16 @@ df.head()
 # You may have noticed that I decided to assign the result of the subsetting operation to a new data frame.  Certainly, I could have assigned the result back to the original frame: 
 # 
 # ```python
-# full = full[keep]
+# full = full.filter(keep)
 # ```
 # 
-# My personal preference when doing data programming is to assign the results of major operations to new data frames, creating a data frame object that represents each step of the analysis, and do minor operations in place.  For example, had I assigned the results of the subsetting operation back to `full`, and I later decided that I needed an additional column from the original data frame, I'd need to read the whole thing in again rather than just add a column name to the list `keep`.  Python will hold all of our data `in memory`, so it will be accessible to us throughout our Python session; given that our data are relatively small, this won't cause us any problems.  Bigger data workflows might require different methods, however.  
+# Or: 
+# 
+# ```python
+# full.filter(keep, inplace = True)
+# ```
+# 
+# My personal preference when doing data programming is to assign the results of major operations to new data frames, creating a data frame object that represents each step of the analysis, and do minor operations in place.  For example, had I assigned the results of the subsetting operation back to `full`, and I later decided that I needed an additional column from the original data frame, I'd need to read the whole thing in again rather than just add a column name to the list `keep`.  Python will hold all of our data _in memory_, so it will be accessible to us throughout our Python session; given that our data are relatively small, this won't cause us any problems.  Bigger data workflows might require different methods, however.  
 # 
 # There are small things, however, that you can do to your data frame in place to make your lives easier.  For example, I don't really want to hit Caps Lock or the Shift key every time I am typing out column names, but my column names are capitalized.  Our column names in our data frame are simply a list of strings, which we've learned how to work with already with string methods. As such, we can use __list comprehension__ to convert all of the column names to lower case: 
 
@@ -79,12 +85,12 @@ df.head()
 # In[4]:
 
 
-df = df.rename(columns = {'stabbr': 'state'})
+df.rename(columns = {'stabbr': 'state'}, inplace = True)
 
 df.head()
 
 
-# The `rename` data frame method takes a __dictionary__ of values, which is a Python data structure that we haven't discussed yet.  Dictionaries, or `dict` objects as they are often called, are enclosed by curly braces (`{}`) and are made up of __key/value pairs__.  In turn, they can really come in handy when working with paired values; we may return to them later in the semester.  
+# The `rename` data frame method takes a __dictionary__ of values, which is a Python data structure that we haven't discussed yet.  Dictionaries, or `dict` objects as they are often called, are enclosed by curly braces (`{}`) and are made up of __key/value pairs__.  In turn, they can really come in handy when working with paired values; we may return to them later in the semester.  As this is a minor change to the data frame, the argument `inplace = True` makes sense to modify `df` directly.  
 # 
 # We now want to subset our data even further.  As mentioned above, the `preddeg` column designates the primary degree granted by the colleges and universities in the dataset.  We're interested in comparing primarily bachelor's-granting universities, which have the code of `3`; in turn, we want to tell `pandas` to keep only those rows where the `preddeg` column is equal to 3.  First, let's check our `dtypes` to see if the columns is formatted as a string or number: 
 
@@ -94,28 +100,26 @@ df.head()
 df.dtypes
 
 
-# It appears as though `preddeg` is an integer, so we will work with the values as numbers.  Subsetting rows in a `pandas` data frame works similarly to how we subsetted columns; the main difference is that we supply an __expression__ to be evaluated by `pandas` using boolean/logical operators.  `pandas` will then return those rows for which the result of the expression is `True`, and drop those rows that return `False`.  In this case, we want all of those rows for which the value of the `preddeg` column is equal to 3.  Let's create a new dataframe, called `ug` for undergraduate, from this expression.  
+# It appears as though `preddeg` is an integer, so we will work with the values as numbers.  To subset rows in __pandas__, we can use the `.query()` data frame method.  `.query()` requires an __expression__ to be evaluated by Python using boolean/logical operators.  The method will then return those rows for which the result of the expression is `True`, and drop those rows that return `False`.  In this case, we want all of those rows for which the value of the `preddeg` column is equal to 3.  Let's create a new dataframe, called `ug` for undergraduate, from this expression.  
 
 # In[6]:
 
 
-ug = df[df.preddeg == 3]
+ug = df.query('preddeg == 3')
 
 ug.shape
 
 
 # We've gone from over 7800 colleges & universities down to 2133.  
 # 
-# __Missing data__
+# ### Missing data
 # 
-# As mentioned in class, missing data in `pandas` are designated with the value `NaN`, which refers to "not a number."  Data analysts need to take missing data seriously, as they could be representative of a systematic flaw in the dataset.  You can check for missing values in `pandas` with the `isnull()` function.  Let's check to see how many rows in our dataset have missing values for our column of interest, `ug25abv`: 
+# As mentioned in class, missing data in __pandas__ are designated with the value `NaN`, which refers to "not a number."  Data analysts need to take missing data seriously, as they could be representative of a systematic flaw in the dataset.  You can check for missing values in __pandas__ with the `.isnull()` method.  Let's query our undergradate data frame to check to see how many rows in our dataset have missing values for our column of interest, `ug25abv`.  Note that we need the argument `engine = 'python'` in this example as we are using a __pandas__ method within the expression.  
 
 # In[7]:
 
 
-null_rows = pd.isnull(ug.ug25abv)
-
-ugnull = ug[null_rows]
+ugnull = ug.query('ug25abv.isnull()', engine = 'python')
 
 ugnull.shape
 
@@ -130,12 +134,12 @@ ugnull
 
 # Interesting!  It looks like primarily we've returned Jewish _yeshivas_ as well as a few graduate colleges - e.g. New England College of Optometry which is designated as a bachelor's granting institution but has no undergraduates - that appear to have been mis-coded.  This reveals why careful inspection of your data is important.  Missing values often aren't at random, but instead may be systematic or clustered amongst a particular type of record in your dataset.  Additionally, it looks like we've uncovered some errors in the original data as well.   
 # 
-# In this case, let's go ahead and drop these records from our dataset.  Recall from class that there are other options available for missing data as well; you can __fill__ the `Nan` values with some other value if appropriate, such as `0` or the mean of the column.  I can do this a couple different ways.  As I've already identified the rows with null values and assigned it to the `null_rows` variable, I can use the _tilde_ operator, which means "not" or "inverse", and index my data frame accordingly: 
+# In this case, let's go ahead and drop these records from our dataset.  Recall from class that there are other options available for missing data as well; you can __fill__ the `NaN` values with some other value if appropriate, such as `0` or the mean of the column.  We'll drop these values using `.query()` again, but instead with the `.notna()` __pandas__ method.  This method will identify the rows that are _not_ `NaN` in the `ug25abv` column, and retain only those rows.  
 
 # In[9]:
 
 
-ug_nonull = ug[~null_rows]
+ug_nonull = ug.query('ug25abv.notna()', engine = 'python')
 
 ug_nonull.shape
 
@@ -152,7 +156,7 @@ ug1.shape
 
 # We get the same result, which means that we've also removed any of the rows that had null values in the `ugds` column.  
 # 
-# __Group-wise data analysis__
+# ## Group-wise data analysis
 # 
 # In class, we discussed the "split-apply-combine" approach to data analysis.  This approach involves: 
 # 
@@ -160,14 +164,14 @@ ug1.shape
 # 2. __Applying__ some function to each group; 
 # 3. __Combining__ the results back into a single dataset, allowing for group-wise comparisons.  
 # 
-# While conceptually simple, this approach to data analysis is extraordinarily powerful - and extremely common!  For example, let's say you are working in analytics for a business, and your supervisor wants you to compare sales results of your stores by region.  This is a very common request when working with data professionally, and fortunately `pandas` can help you out with this with minimal code.  
+# While conceptually simple, this approach to data analysis is extraordinarily powerful - and extremely common!  For example, let's say you are working in analytics for a business, and your supervisor wants you to compare sales results of your stores by region.  This is a very common request when working with data professionally, and fortunately __pandas__ can help you out with this with minimal code.  
 # 
 # Let's start with a couple guiding questions.  
 # 
 # 1. How does the proportion of undergraduate students above age 25 vary among public, private, and for-profit universities?  
 # 2. How does the proportion of undergraduate students above age 25 vary by institution size?  
 # 
-# Group-wise data analysis in `pandas` is conducted by the creation of a `groupby` object, in which you tell `pandas` exactly how the data should be grouped.  To address the first question, we'll want to group our data by institution type.  The code below gets this done.  
+# Group-wise data analysis in __pandas__ is conducted by the creation of a `groupby` object, in which you tell `pandas` exactly how the data should be grouped.  To address the first question, we'll want to group our data by institution type.  The code below gets this done.  
 
 # In[11]:
 
@@ -195,10 +199,10 @@ groups1.ug25abv.mean()
 import seaborn as sns
 sns.set(style = "darkgrid")
 
-sns.violinplot(data = ug1, x = 'control', y = 'ug25abv')
+sns.boxplot(data = ug1, x = 'control', y = 'ug25abv')
 
 
-# We can get a clear sense here of the variations of the distributions between the groups.  While the mean percentage of undergraduates above 25 at public non-profits was below that of private non-profits, it appears as though the median for private non-profits is lower; there is simply a longer tail of private non-profits with large proportions of their student bodies above 25.  For private for-profits, the distribution is quite evident - with the median value above 70 percent and the peak of the density curve above 80 percent.  
+# We can get a clear sense here of the variations of the distributions between the groups.  While the mean percentage of undergraduates above 25 at public non-profits was below that of private non-profits, it appears as though the median for private non-profits is lower; there is simply a longer tail of private non-profits with large proportions of their student bodies above 25.  For private for-profits, the distribution is quite evident - with the median value above 70 percent.  
 # 
 # `seaborn` includes even more functionality for group-wise visualization - incorporating, in some instances, multiple groups!  We'll learn more about this in a couple weeks when we focus on data visualization; however we can take a look right now.  The `catplot` function in `seaborn` allows you to split categorical plots such as point (the default), box, violin, bar, or strip plots into separate smaller charts, to facilitate comparisons across groups.  
 # 
@@ -207,10 +211,10 @@ sns.violinplot(data = ug1, x = 'control', y = 'ug25abv')
 # In[14]:
 
 
-sub1 = ug1[ug1.state.isin(['NY', 'TX', 'CA'])]
+sub1 = ug1.query("state in ['NY', 'TX', 'CA']", engine = 'python')
 
 sns.catplot(data = sub1, x = 'control', y = 'ug25abv', 
-               col = 'state', kind = 'violin', order = [1, 2, 3])
+               col = 'state', kind = 'box', order = [1, 2, 3])
 
 
 # Now, we want to look at how the percentage of undergraduates over age 25 varies by institution size.  Certainly, we could create a scatter plot as both the `ug25abv` and `ugds` columns are numeric:  
@@ -226,43 +230,45 @@ sns.lmplot(data = ug1, x = 'ugds', y = 'ug25abv')
 # In[16]:
 
 
-ug1[ug1.ugds > 150000]
+ug1.query('ugds > 150000')
 
 
 # The University of Phoenix-Online, with over 160,000 students, stands out as a distinct outlier.  Additionally, a scatter plot is not the only way that we can assess this relationship.  We can convert our data from quantitative to categorical, and in turn assess variations amongst the categories.  
 # 
-# Creating a categorical column from a quantitative column requires computing a new column in our data frame, which will be a common part of your workflow in `pandas`.  As you learned in class, you can use basic mathematical operations to create new columns from existing ones.  In this example, we are going to organize our universities into __bins__ based on their size, and then compare universities across those bins.  
+# ### Creating new columns
 # 
-# `pandas` includes a lot of methods for creating new columns; we're going to discuss here options for organizing our data into bins.  The three options are as follows: 
+# Creating a categorical column from a quantitative column requires computing a new column in our data frame, which will be a common part of your workflow in __pandas__.  As you learned in class, you can use basic mathematical operations to create new columns from existing ones.  In this example, we are going to organize our universities into __bins__ based on their size, and then compare universities across those bins.  
+# 
+# __pandas__ includes a lot of methods for creating new columns; we're going to discuss here options for organizing our data into bins.  The three options are as follows: 
 # 
 # * Equal interval: all bins have the same width, regardless of the number of observations in each bin.  
 # * Manual breaks: the analyst specifies where the bin breaks should be located
 # * Quantile: An equal number of observations are organized into a specified number of bins; bins widths will in turn be irregular.  
 # 
-# Equal interval and manual breaks are available via the `cut()` function in `pandas`; quantiles are available from the `qcut()` function.  Let's create a new column that organizes the values in `ugds` into five quantiles, labeled with 1 through 5 which we accomplish with `range`: 
+# Equal interval and manual breaks are available via the `cut()` function in __pandas__; quantiles are available from the `qcut()` function.  Let's create a new column with the `.assign()` method that organizes the values in `ugds` into five quantiles, labeled with 1 through 5 which we accomplish with `range()`: 
 
 # In[17]:
 
 
-ug1['quant5'] = pd.qcut(ug1.ugds, 5, labels = range(1, 6))
+ug_quantiles = ug1.assign(quant5 = pd.qcut(ug.ugds, 5, labels = range(1, 6)))
 
-ug1.head()
+ug_quantiles.head()
 
 
-# We get the warning that we are modifying a copy, rather than the original data frame, which we discussed in class; we are OK with this in this instance.  We can now make comparisons by quantile if we want.  Let's try a bar chart; `seaborn`'s `barplot` function will calculate group means and plot them, and give us an indication of the uncertainty around that mean with an error bar: 
+# We can now make comparisons by quantile if we want.  Let's try a bar chart; `seaborn`'s `barplot` function will calculate group means and plot them, and give us an indication of the uncertainty around that mean with an error bar: 
 
 # In[18]:
 
 
-sns.barplot(x = 'ug25abv', y = 'quant5', data = ug1)
+sns.barplot(x = 'ug25abv', y = 'quant5', data = ug_quantiles)
 
 
-# Evidently, smaller universities tend to have greater proportions of their undergraduate populations aged over 25.  Let's use `catplot` to break this up by university type (public, private, for-profit): 
+# We can analyze this further by breaking out the bar charts by college type with `sns.catplot()`: 
 
 # In[19]:
 
 
-sns.catplot(data = ug1, x = 'ug25abv', y = 'quant5', col = 'control', kind = 'bar')
+sns.catplot(data = ug_quantiles, x = 'ug25abv', y = 'quant5', col = 'control', kind = 'bar')
 
 
 # Our results appear quite different when we break them out by college type!  This starts to reveal the importance of detailed investigation of your data through visualization; we'll be exploring this much more in the next few weeks.  We can also take a look at the numbers behind these plots by creating a `groupby` object that groups by `control` and the quantiles: 
@@ -270,7 +276,7 @@ sns.catplot(data = ug1, x = 'ug25abv', y = 'quant5', col = 'control', kind = 'ba
 # In[20]:
 
 
-groups2 = ug1.groupby(['control', 'quant5'])
+groups2 = ug_quantiles.groupby(['control', 'quant5'])
 
 groups2.ug25abv.mean()
 
