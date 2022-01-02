@@ -13,13 +13,12 @@
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
-pd.options.mode.chained_assignment = None # Turning off the "SettingWithCopyWarning"
 sns.set_style("white")
 
 # Modify the path below to your data path
 df = pd.read_csv('data/babynames.csv')
 # Converting the year to integer for better display
-df['year'] = df.year.astype(int)
+df = df.assign(year = df.year.astype(int))
 
 df.head()
 
@@ -63,7 +62,7 @@ df.shape
 
 
 # Subset for males in 2017
-male17 = df[(df.year == 2017) & (df.sex == 'M')]
+male17 = df.query('year == 2017 & sex == "M"')
 # Sort in descending order of the number of names
 male17sorted = male17.sort_values('n', ascending = False)
 # Slice the sorted data frame for the first 15 rows
@@ -79,9 +78,10 @@ name_list
 # In[4]:
 
 
-sub1 = df[(df.name.isin(name_list)) & (df.year > 1999) & (df.sex == 'M')]
-
-sub1['per1000'] = sub1.prop * 1000
+sub1 = (df
+    .query('name in @name_list & year > 1999 & sex == "M"')
+    .assign(per1000 = df.prop * 1000)
+)
 
 sub1.head()
 
@@ -130,9 +130,10 @@ plt.title("Most popular baby names - Male (rate per 1000)")
 sns.set_style("darkgrid")
 princesses = ['Jasmine', 'Ariel', 'Elsa', 'Tiana']
 
-princess_df = df[(df.name.isin(princesses)) & (df.sex == 'F') & (df.year > 1979)]
-
-princess_df['per1000'] = princess_df.prop * 1000
+princess_df = (df
+    .query('name in @princesses & sex == "F" & year > 1979')
+    .assign(per1000 = df.prop * 1000)
+)
 
 princess_df.head()
 
@@ -161,7 +162,7 @@ disney_yrs = {'Ariel': 1989,
 
 for princess, year in disney_yrs.items():
     # Subset the data frame for princess and year
-    subset = princess_df[(princess_df.name == princess) & (princess_df.year == year)]
+    subset = princess_df.query('name == @princess & year == @year')
     # Extract the value for per1000 with .values
     # .values returns a list, so we'll extract the 0th element
     value = subset.per1000.values[0]
@@ -224,7 +225,10 @@ neutral_names = ['Jordan', 'Peyton', 'Taylor', 'Riley']
 # In[12]:
 
 
-neutral_df = df[(df.name.isin(neutral_names)) & (df.year > 1959)].fillna(0)
+neutral_df = (df
+    .query('name in @neutral_names & year > 1959')
+    .fillna(0)
+)
 
 neutral_df.head()
 
@@ -237,7 +241,7 @@ neutral_df.head()
 sns.relplot(data = neutral_df, x = "year", y = "n", hue = "sex", col = "name", kind = "line")
 
 
-# We can start to get a sense of some of the variations here; Taylor is more popular among girls than boys, whereas the opposite is true for Jordan.  Let's make a few modifications to the plot to improve its clarity.  We will add a `col_wrap` argument to specify how many columns to create in our plot grid.  We can also change the colors with the argument supplied to `palette`; we'll use common colors to represent female and male babies here.  We can also specify a `height` argument to modify the plot size.
+# We can start to get a sense of some of the variations here; Taylor is more popular among girls than boys, whereas the opposite is true for Jordan.  Let's make a few modifications to the plot to improve its clarity.  We will add a `col_wrap` argument to specify how many columns to create in our plot grid.  We can also change the colors with the argument supplied to `palette`, and we can specify a `height` argument to modify the plot size.
 # 
 # Additionally, plot objects themselves have methods that you can use to modify the chart appearance; we'll use `.set_axis_labels()` to improve the look of our axes, and we can modify the title of the legend as well.  
 
@@ -249,7 +253,7 @@ sns.set(style = "white", font_scale = 1.25)
 
 chart = sns.relplot(data = neutral_df, x = "year", y = "n", 
                     hue = "sex", col = "name", kind = "line",
-                    col_wrap = 2, palette = ["pink", "skyblue"],
+                    col_wrap = 2, palette = ["darkred", "navy"],
                     height = 4)
 
 chart.set_axis_labels('Year', 'Number of names')

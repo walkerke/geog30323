@@ -10,5 +10,5 @@ chapters:
 - file: 07-wrangling-data-from-apis.ipynb
 - file: 08-data-visualization.ipynb
 - file: 09-geographic-mapbox.ipynb
-- file: 10-tableau.ipynb
+- file: 10-tableau.md
 - file: 11-data-ethics.md

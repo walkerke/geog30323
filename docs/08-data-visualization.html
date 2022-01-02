@@ -284,13 +284,12 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">mode</span><span class="o">.</span><span class="n">chained_assignment</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1"># Turning off the &quot;SettingWithCopyWarning&quot;</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;white&quot;</span><span class="p">)</span>
 
 <span class="c1"># Modify the path below to your data path</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/babynames.csv&#39;</span><span class="p">)</span>
 <span class="c1"># Converting the year to integer for better display</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">year</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">))</span>
 
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
@@ -407,7 +406,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Subset for males in 2017</span>
-<span class="n">male17</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="o">.</span><span class="n">year</span> <span class="o">==</span> <span class="mi">2017</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">sex</span> <span class="o">==</span> <span class="s1">&#39;M&#39;</span><span class="p">)]</span>
+<span class="n">male17</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;year == 2017 &amp; sex == &quot;M&quot;&#39;</span><span class="p">)</span>
 <span class="c1"># Sort in descending order of the number of names</span>
 <span class="n">male17sorted</span> <span class="o">=</span> <span class="n">male17</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;n&#39;</span><span class="p">,</span> <span class="n">ascending</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
 <span class="c1"># Slice the sorted data frame for the first 15 rows</span>
@@ -442,9 +441,10 @@
 <p><code class="docutils literal notranslate"><span class="pre">pandas</span></code> returns a Python list of the top 15 baby names in 2017 for boys.  We can then pass this list to the <code class="docutils literal notranslate"><span class="pre">.isin()</span></code> method to get back entries for all of those names since 2000, and calculate their frequency per 1000 records in the dataset.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sub1</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">name_list</span><span class="p">))</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">year</span> <span class="o">&gt;</span> <span class="mi">1999</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">sex</span> <span class="o">==</span> <span class="s1">&#39;M&#39;</span><span class="p">)]</span>
-
-<span class="n">sub1</span><span class="p">[</span><span class="s1">&#39;per1000&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sub1</span><span class="o">.</span><span class="n">prop</span> <span class="o">*</span> <span class="mi">1000</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sub1</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span>
+    <span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;name in @name_list &amp; year &gt; 1999 &amp; sex == &quot;M&quot;&#39;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">per1000</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">prop</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="p">)</span>
 
 <span class="n">sub1</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
@@ -578,9 +578,10 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;darkgrid&quot;</span><span class="p">)</span>
 <span class="n">princesses</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Jasmine&#39;</span><span class="p">,</span> <span class="s1">&#39;Ariel&#39;</span><span class="p">,</span> <span class="s1">&#39;Elsa&#39;</span><span class="p">,</span> <span class="s1">&#39;Tiana&#39;</span><span class="p">]</span>
 
-<span class="n">princess_df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">princesses</span><span class="p">))</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">sex</span> <span class="o">==</span> <span class="s1">&#39;F&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">year</span> <span class="o">&gt;</span> <span class="mi">1979</span><span class="p">)]</span>
-
-<span class="n">princess_df</span><span class="p">[</span><span class="s1">&#39;per1000&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">princess_df</span><span class="o">.</span><span class="n">prop</span> <span class="o">*</span> <span class="mi">1000</span>
+<span class="n">princess_df</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span>
+    <span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;name in @princesses &amp; sex == &quot;F&quot; &amp; year &gt; 1979&#39;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">per1000</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">prop</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="p">)</span>
 
 <span class="n">princess_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
@@ -689,7 +690,7 @@
 
 <span class="k">for</span> <span class="n">princess</span><span class="p">,</span> <span class="n">year</span> <span class="ow">in</span> <span class="n">disney_yrs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
     <span class="c1"># Subset the data frame for princess and year</span>
-    <span class="n">subset</span> <span class="o">=</span> <span class="n">princess_df</span><span class="p">[(</span><span class="n">princess_df</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">princess</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">princess_df</span><span class="o">.</span><span class="n">year</span> <span class="o">==</span> <span class="n">year</span><span class="p">)]</span>
+    <span class="n">subset</span> <span class="o">=</span> <span class="n">princess_df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;name == @princess &amp; year == @year&#39;</span><span class="p">)</span>
     <span class="c1"># Extract the value for per1000 with .values</span>
     <span class="c1"># .values returns a list, so we&#39;ll extract the 0th element</span>
     <span class="n">value</span> <span class="o">=</span> <span class="n">subset</span><span class="o">.</span><span class="n">per1000</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -747,7 +748,7 @@ Tiana: 0.24864
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fecd46bb100&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7faea81b8af0&gt;
 </pre></div>
 </div>
 <img alt="_images/08-data-visualization_19_1.png" src="_images/08-data-visualization_19_1.png" />
@@ -766,7 +767,10 @@ Tiana: 0.24864
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">neutral_df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">neutral_names</span><span class="p">))</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">year</span> <span class="o">&gt;</span> <span class="mi">1959</span><span class="p">)]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">neutral_df</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span>
+    <span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;name in @neutral_names &amp; year &gt; 1959&#39;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="p">)</span>
 
 <span class="n">neutral_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
@@ -851,13 +855,13 @@ Tiana: 0.24864
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fecd469bdf0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7faea81b2940&gt;
 </pre></div>
 </div>
 <img alt="_images/08-data-visualization_24_1.png" src="_images/08-data-visualization_24_1.png" />
 </div>
 </div>
-<p>We can start to get a sense of some of the variations here; Taylor is more popular among girls than boys, whereas the opposite is true for Jordan.  Let’s make a few modifications to the plot to improve its clarity.  We will add a <code class="docutils literal notranslate"><span class="pre">col_wrap</span></code> argument to specify how many columns to create in our plot grid.  We can also change the colors with the argument supplied to <code class="docutils literal notranslate"><span class="pre">palette</span></code>; we’ll use common colors to represent female and male babies here.  We can also specify a <code class="docutils literal notranslate"><span class="pre">height</span></code> argument to modify the plot size.</p>
+<p>We can start to get a sense of some of the variations here; Taylor is more popular among girls than boys, whereas the opposite is true for Jordan.  Let’s make a few modifications to the plot to improve its clarity.  We will add a <code class="docutils literal notranslate"><span class="pre">col_wrap</span></code> argument to specify how many columns to create in our plot grid.  We can also change the colors with the argument supplied to <code class="docutils literal notranslate"><span class="pre">palette</span></code>, and we can specify a <code class="docutils literal notranslate"><span class="pre">height</span></code> argument to modify the plot size.</p>
 <p>Additionally, plot objects themselves have methods that you can use to modify the chart appearance; we’ll use <code class="docutils literal notranslate"><span class="pre">.set_axis_labels()</span></code> to improve the look of our axes, and we can modify the title of the legend as well.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -866,7 +870,7 @@ Tiana: 0.24864
 
 <span class="n">chart</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">neutral_df</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;n&quot;</span><span class="p">,</span> 
                     <span class="n">hue</span> <span class="o">=</span> <span class="s2">&quot;sex&quot;</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;line&quot;</span><span class="p">,</span>
-                    <span class="n">col_wrap</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">palette</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;pink&quot;</span><span class="p">,</span> <span class="s2">&quot;skyblue&quot;</span><span class="p">],</span>
+                    <span class="n">col_wrap</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">palette</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;darkred&quot;</span><span class="p">,</span> <span class="s2">&quot;navy&quot;</span><span class="p">],</span>
                     <span class="n">height</span> <span class="o">=</span> <span class="mi">4</span><span class="p">)</span>
 
 <span class="n">chart</span><span class="o">.</span><span class="n">set_axis_labels</span><span class="p">(</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span> <span class="s1">&#39;Number of names&#39;</span><span class="p">)</span>
