@@ -9,11 +9,13 @@
 # 
 # ## Working with external data in Google Colab
 # 
-# Our data for this assignment, adult overweight/obesity rates by state, come from the [Kaiser Family Foundation](http://kff.org/other/state-indicator/adult-overweightobesity-rate/#).  The data file, a comma-separated values file called `adult_data.csv`, can be downloaded from TCU Online.   
+# Our data for this assignment, adult overweight/obesity rates by state, come from the [Kaiser Family Foundation](http://kff.org/other/state-indicator/adult-overweightobesity-rate/#).  The data file, a comma-separated values file called `adult_data.csv`, can be downloaded from TCU Online or the course GitHub repository.   
 # 
 # There are a couple ways to get external data into your Google Colab session.  The quickest way is to upload data directly to your Colab session by clicking the __Files__ icon on the left-hand side of the screen then clicking the "Upload to session storage" icon (the one on the left).  You can then navigate to where you've downloaded the `adult_data.csv` file and upload it to your session.  
 # 
-# Once you've uploaded the data, you should see your file `adult_data.csv` appear in the file browser.  This allows you to read in the data that you've downloaded as a `pandas` DataFrame.  In class, we discussed the Python package `pandas`, which allows uses to work with data in a tabular structure, with individual observations organized as __rows__ and data attributes organized as __columns__.  Use the cell below to load pandas with the `import` statement and read in your data.  We'll be calling our data frame here `df`, short for data frame. 
+# Once you've uploaded the data, you should see your file `adult_data.csv` appear in the file browser.  This allows you to read in the data that you've downloaded as a __pandas__ DataFrame. Right-click the CSV file in the file browser then choose "Copy path".  Replace the path to the dataset in the code chunk below with this path by pasting it there. 
+# 
+# In class, we discussed the Python package __pandas__, which allows uses to work with data in a tabular structure, with individual observations organized as __rows__ and data attributes organized as __columns__.  Use the cell below to load pandas with the `import` statement and read in your data.  We'll be calling our data frame here `df`, short for data frame. 
 
 # In[1]:
 
@@ -25,7 +27,7 @@ df = pd.read_csv("data/adult_data.csv")
 df.head()
 
 
-# So what did you just do here?  You __imported__ in the code associated with the `pandas` library, which will be referenced by the prefix `pd`.  You then used the `read_csv()` function from the `pandas` library to convert the CSV of overweight rates by state into a `pandas` DataFrame.  By default, `read_csv()` assumes that the first row of your CSV represents column headings, and then rows 2 until the end represent data.  
+# So what did you just do here?  You __imported__ in the code associated with the __pandas__ library, which will be referenced by the prefix `pd`.  You then used the `read_csv()` function from the __pandas__ library to convert the CSV of overweight rates by state into a `pandas` DataFrame.  By default, `read_csv()` assumes that the first row of your CSV represents column headings, and then rows 2 until the end represent data.  
 # 
 # One issue with this approach to reading in data is that your data are not _persistent_.  Google Colab will recycle workspaces to save space, which means that when you return to work on your assignment, the data may not be there.  This means that you'd need to upload your data again.  
 # 
@@ -46,7 +48,7 @@ df.head()
 # 
 # In the code cell below, replace the value assigned to the `data_path` variable by pasting your specific path, then run the cell to load your data.  My data is stored in a subfolder named `class_data`, but that is just for purposes of illustration.  
 
-# In[2]:
+# In[ ]:
 
 
 import pandas as pd
@@ -64,7 +66,7 @@ df.head()
 # 
 # Recall from class as well the importance of knowing your column types.  To check column types in `pandas`, use the `dtypes` attribute of the data frame.  
 
-# In[3]:
+# In[2]:
 
 
 df.dtypes
@@ -78,13 +80,13 @@ df.dtypes
 # 
 # `.mean()` is a method built-in to `pandas` that allows you to calculate the mean for a column in a data frame - or alternatively, all columns in a data frame.  Recall from class that columns can be accessed as attributes of the data frame or by index.  In turn, the following calls are equivalent: 
 
-# In[4]:
+# In[3]:
 
 
 df.all_adults.mean()
 
 
-# In[5]:
+# In[4]:
 
 
 df["all_adults"].mean()
@@ -94,7 +96,7 @@ df["all_adults"].mean()
 # 
 # Now you try!  In the cells below, use the `.median()` method to determine the median value of the `male` column, which is the value at the 50 percent point of the distribution.  Then, compare it with the median value of the `female` column.
 
-# In[6]:
+# In[5]:
 
 
 # Run your code here!
@@ -102,7 +104,7 @@ df["all_adults"].mean()
 
 # There are many other built-in methods for getting descriptive statistics from your columns; for example, `.min()` will get you the minimum, `.std()` will get you the standard deviation, among many others.  Commonly, however, you'll want to get all of these statistics at once.  `pandas` lets you do this with the `.describe()` method, which you can call on your data frame, or any selected columns, to return the most common descriptive statistics for those columns.  For example: 
 
-# In[7]:
+# In[6]:
 
 
 df.describe()
@@ -122,7 +124,7 @@ df.describe()
 # 
 # To use seaborn styles, import the `seaborn` library then use the `set_style` function to choose a style.  Available styles are `"white"`, `"whitegrid"`, `"dark"`, `"darkgrid"`, and `"ticks"`.  
 
-# In[8]:
+# In[7]:
 
 
 import seaborn as sns
@@ -131,7 +133,7 @@ sns.set_style("darkgrid")
 
 # We are now ready to visualize our data!  To get started, we'll use a common type of visualization called a __histogram__.  Histograms organize similar data values into __bins__, and then plot a series of bars whose heights represent the number of observations in each bin.  Histograms are built in to `pandas` and in turn are available as data frame methods.  Let's draw a histogram of overweight/obesity rates.  Run the code cell to view the plot.  
 
-# In[9]:
+# In[8]:
 
 
 df.all_adults.hist()
@@ -139,7 +141,7 @@ df.all_adults.hist()
 
 # Histograms can also be build with __seaborn__ functions, requiring different syntax.  As opposed to the built-in __pandas__ histogram, which treats the plot as a method belonging to the data frame object, __seaborn__ functions are called with the data frame as an argument along with other arguments that control the styling of the plot.  
 
-# In[10]:
+# In[9]:
 
 
 sns.histplot(data = df, x = "all_adults", color = "black")
@@ -151,7 +153,7 @@ sns.histplot(data = df, x = "all_adults", color = "black")
 # 
 # Recall from class that a __normal distribution__ refers to a distribution that is symmetrical around its mean.  For example: 
 
-# In[11]:
+# In[10]:
 
 
 import numpy as np
@@ -163,7 +165,7 @@ norm = pd.Series(np.random.randn(1000))
 sns.histplot(x = norm, color = "black", bins = 8)
 
 
-# In[12]:
+# In[11]:
 
 
 norm.describe()
@@ -175,7 +177,7 @@ norm.describe()
 # 
 # Skew can be quantified; we won't get into the math behind it here, but it is available to you as a method in `pandas`: 
 
-# In[13]:
+# In[12]:
 
 
 df.all_adults.skew()
@@ -183,7 +185,7 @@ df.all_adults.skew()
 
 # We see that our distribution has negative skew, as we observed from the plot; a normally-distributed sample would have a skew near 0.  
 
-# In[14]:
+# In[13]:
 
 
 norm.skew()
@@ -191,13 +193,13 @@ norm.skew()
 
 # We can also examine the kurtosis of our distribution, which measures its "flatness" or "peakedness".  A distribution with a high "peak", or many values clustered around the mean, is said to be _leptokurtic_; conversely, a distribution with a low peak and more even spread of values is _platykurtic_.  `pandas` employs Fisher's definition of kurtosis, in which a normal distribution has a kurtosis of 0, leptokurtic distributions have positive kurtosis values, and platykurtic distributions have negative values.  For example: 
 
-# In[15]:
+# In[14]:
 
 
 df.all_adults.kurtosis()
 
 
-# In[16]:
+# In[15]:
 
 
 norm.kurtosis()
@@ -209,7 +211,7 @@ norm.kurtosis()
 # 
 # In the cell below, re-draw the histogram with 25 bins instead of 10 by supplying the argument to `sns.histplot()`, `bins = 25`.  Take note of how the plot changes!
 
-# In[17]:
+# In[16]:
 
 
 # Your code goes here!
@@ -219,7 +221,7 @@ norm.kurtosis()
 # 
 # `seaborn` includes a function, `kdeplot`, that lets us visualize our data with this kind of smooth curve.  
 
-# In[18]:
+# In[17]:
 
 
 sns.kdeplot(data = df, x = "all_adults")
@@ -229,7 +231,7 @@ sns.kdeplot(data = df, x = "all_adults")
 # 
 # There are many options available to you to customize your density plots; for example, you can change the color of your data series, and fill the area under the curve:  
 
-# In[19]:
+# In[18]:
 
 
 sns.kdeplot(data = df, x = "all_adults", shade = True, color = "green")
@@ -237,7 +239,7 @@ sns.kdeplot(data = df, x = "all_adults", shade = True, color = "green")
 
 # `seaborn` also has a built-in function called `displot` that will allow you to show a density curve and a histogram concurrently: 
 
-# In[20]:
+# In[19]:
 
 
 sns.displot(data = df, x = "all_adults", bins = 10, kde = True)
@@ -245,7 +247,7 @@ sns.displot(data = df, x = "all_adults", bins = 10, kde = True)
 
 # If desired, plots can also be superimposed on one another to make comparisons.  For example, here we'll overlay two density plots, one for male and one for female:
 
-# In[21]:
+# In[20]:
 
 
 sns.kdeplot(data = df, x = "male")
@@ -254,7 +256,7 @@ sns.kdeplot(data = df, x = "female", color = "red")
 
 # An alternative way to visualize a frequency distribution is the __box plot__. As we discussed in class, box plots use three parallel lines to construct a box: one at the 25 percent point of the distribution, one at the median (50 percent point) of the distribution, and one at the 75 percent point of the distribution.  "Whiskers" then extend to either the minimum/maximum values of the distribution or 150 percent (conventionally) of the 25/75 percent points, and observations beyond the whiskers are "outliers" represented with dots.  `seaborn` allows us to draw box plots quite flexibly with its `boxplot` function: 
 
-# In[22]:
+# In[21]:
 
 
 sns.boxplot(data = df, x = "all_adults")
@@ -264,7 +266,7 @@ sns.boxplot(data = df, x = "all_adults")
 # 
 # If you want, you can customize your box plot; for example, we can tell `seaborn` to orient it vertically by mapping the `"all_adults"` column to the y-axis: 
 
-# In[23]:
+# In[22]:
 
 
 sns.boxplot(data = df, y = "all_adults")
@@ -272,7 +274,7 @@ sns.boxplot(data = df, y = "all_adults")
 
 # The final chart type I'll introduce to you in this notebook is the __violin plot__.  Violin plots are like combinations of box plots and density plots; they show the 25/50/75 percent values, as with box plots, but with density curves on either side of a central axis.  Let's take a look, again using `seaborn`: 
 
-# In[24]:
+# In[23]:
 
 
 sns.violinplot(data = df, x = "male")
@@ -280,7 +282,7 @@ sns.violinplot(data = df, x = "male")
 
 # `seaborn` draws a miniature boxplot inside of symmetrical density curves representing the shape of the dataset.  If you want, you can customize the visualization further; for example, I'll tell `seaborn` to draw lines representing quartiles inside of the plot instead of the mini box plot, and change the color to purple: 
 
-# In[25]:
+# In[24]:
 
 
 sns.violinplot(data = df, x = "female", inner = "quartile", color = "purple")

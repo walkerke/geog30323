@@ -287,9 +287,10 @@
 </div>
 <div class="section" id="working-with-external-data-in-google-colab">
 <h1>Working with external data in Google Colab<a class="headerlink" href="#working-with-external-data-in-google-colab" title="Permalink to this headline">¶</a></h1>
-<p>Our data for this assignment, adult overweight/obesity rates by state, come from the <a class="reference external" href="http://kff.org/other/state-indicator/adult-overweightobesity-rate/">Kaiser Family Foundation</a>.  The data file, a comma-separated values file called <code class="docutils literal notranslate"><span class="pre">adult_data.csv</span></code>, can be downloaded from TCU Online.</p>
+<p>Our data for this assignment, adult overweight/obesity rates by state, come from the <a class="reference external" href="http://kff.org/other/state-indicator/adult-overweightobesity-rate/">Kaiser Family Foundation</a>.  The data file, a comma-separated values file called <code class="docutils literal notranslate"><span class="pre">adult_data.csv</span></code>, can be downloaded from TCU Online or the course GitHub repository.</p>
 <p>There are a couple ways to get external data into your Google Colab session.  The quickest way is to upload data directly to your Colab session by clicking the <strong>Files</strong> icon on the left-hand side of the screen then clicking the “Upload to session storage” icon (the one on the left).  You can then navigate to where you’ve downloaded the <code class="docutils literal notranslate"><span class="pre">adult_data.csv</span></code> file and upload it to your session.</p>
-<p>Once you’ve uploaded the data, you should see your file <code class="docutils literal notranslate"><span class="pre">adult_data.csv</span></code> appear in the file browser.  This allows you to read in the data that you’ve downloaded as a <code class="docutils literal notranslate"><span class="pre">pandas</span></code> DataFrame.  In class, we discussed the Python package <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, which allows uses to work with data in a tabular structure, with individual observations organized as <strong>rows</strong> and data attributes organized as <strong>columns</strong>.  Use the cell below to load pandas with the <code class="docutils literal notranslate"><span class="pre">import</span></code> statement and read in your data.  We’ll be calling our data frame here <code class="docutils literal notranslate"><span class="pre">df</span></code>, short for data frame.</p>
+<p>Once you’ve uploaded the data, you should see your file <code class="docutils literal notranslate"><span class="pre">adult_data.csv</span></code> appear in the file browser.  This allows you to read in the data that you’ve downloaded as a <strong>pandas</strong> DataFrame. Right-click the CSV file in the file browser then choose “Copy path”.  Replace the path to the dataset in the code chunk below with this path by pasting it there.</p>
+<p>In class, we discussed the Python package <strong>pandas</strong>, which allows uses to work with data in a tabular structure, with individual observations organized as <strong>rows</strong> and data attributes organized as <strong>columns</strong>.  Use the cell below to load pandas with the <code class="docutils literal notranslate"><span class="pre">import</span></code> statement and read in your data.  We’ll be calling our data frame here <code class="docutils literal notranslate"><span class="pre">df</span></code>, short for data frame.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -365,7 +366,7 @@
 </table>
 </div></div></div>
 </div>
-<p>So what did you just do here?  You <strong>imported</strong> in the code associated with the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> library, which will be referenced by the prefix <code class="docutils literal notranslate"><span class="pre">pd</span></code>.  You then used the <code class="docutils literal notranslate"><span class="pre">read_csv()</span></code> function from the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> library to convert the CSV of overweight rates by state into a <code class="docutils literal notranslate"><span class="pre">pandas</span></code> DataFrame.  By default, <code class="docutils literal notranslate"><span class="pre">read_csv()</span></code> assumes that the first row of your CSV represents column headings, and then rows 2 until the end represent data.</p>
+<p>So what did you just do here?  You <strong>imported</strong> in the code associated with the <strong>pandas</strong> library, which will be referenced by the prefix <code class="docutils literal notranslate"><span class="pre">pd</span></code>.  You then used the <code class="docutils literal notranslate"><span class="pre">read_csv()</span></code> function from the <strong>pandas</strong> library to convert the CSV of overweight rates by state into a <code class="docutils literal notranslate"><span class="pre">pandas</span></code> DataFrame.  By default, <code class="docutils literal notranslate"><span class="pre">read_csv()</span></code> assumes that the first row of your CSV represents column headings, and then rows 2 until the end represent data.</p>
 <p>One issue with this approach to reading in data is that your data are not <em>persistent</em>.  Google Colab will recycle workspaces to save space, which means that when you return to work on your assignment, the data may not be there.  This means that you’d need to upload your data again.</p>
 <div class="section" id="storing-data-persistently-in-google-drive">
 <h2>Storing data persistently in Google Drive<a class="headerlink" href="#storing-data-persistently-in-google-drive" title="Permalink to this headline">¶</a></h2>
@@ -378,7 +379,7 @@
 </div>
 <p>A link will appear that will take you to the Google authentication/login screen.  Choose your Google account and sign in if need be.  You’ll get an authentication code, which you should copy then paste in the appropriate location in your Colab notebook.  Press the <strong>Enter</strong> key after you’ve pasted your code, and allow the notebook to authenticate.  Once authenticated, you should see a folder appear named <code class="docutils literal notranslate"><span class="pre">drive</span></code> in the Files browser.  Navigate to the folder where you stored your <code class="docutils literal notranslate"><span class="pre">adult_data.csv</span></code> dataset, then right-click and choose “Copy path”.</p>
 <p>In the code cell below, replace the value assigned to the <code class="docutils literal notranslate"><span class="pre">data_path</span></code> variable by pasting your specific path, then run the cell to load your data.  My data is stored in a subfolder named <code class="docutils literal notranslate"><span class="pre">class_data</span></code>, but that is just for purposes of illustration.</p>
-<div class="cell docutils container">
+<div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
@@ -387,69 +388,6 @@
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_path</span><span class="p">)</span>
 
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="mi">0</span><span class="n">f504a2e2cff</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">data_path</span> <span class="o">=</span> <span class="s2">&quot;/content/drive/MyDrive/class_data/adult_data.csv&quot;</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> 
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_path</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> 
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-
-<span class="nn">~/anaconda3/envs/python39/lib/python3.9/site-packages/pandas/io/parsers.py</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, dialect, error_bad_lines, warn_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options)</span>
-<span class="g g-Whitespace">    </span><span class="mi">608</span>     <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds_defaults</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">609</span> 
-<span class="ne">--&gt; </span><span class="mi">610</span>     <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">611</span> 
-<span class="g g-Whitespace">    </span><span class="mi">612</span> 
-
-<span class="nn">~/anaconda3/envs/python39/lib/python3.9/site-packages/pandas/io/parsers.py</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">460</span> 
-<span class="g g-Whitespace">    </span><span class="mi">461</span>     <span class="c1"># Create the parser.</span>
-<span class="ne">--&gt; </span><span class="mi">462</span>     <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">463</span> 
-<span class="g g-Whitespace">    </span><span class="mi">464</span>     <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
-
-<span class="nn">~/anaconda3/envs/python39/lib/python3.9/site-packages/pandas/io/parsers.py</span> in <span class="ni">__init__</span><span class="nt">(self, f, engine, **kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">817</span>             <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">818</span> 
-<span class="ne">--&gt; </span><span class="mi">819</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">820</span> 
-<span class="g g-Whitespace">    </span><span class="mi">821</span>     <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-
-<span class="nn">~/anaconda3/envs/python39/lib/python3.9/site-packages/pandas/io/parsers.py</span> in <span class="ni">_make_engine</span><span class="nt">(self, engine)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1048</span>             <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1049</span>         <span class="c1"># error: Too many arguments for &quot;ParserBase&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">1050</span>         <span class="k">return</span> <span class="n">mapping</span><span class="p">[</span><span class="n">engine</span><span class="p">](</span><span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">)</span>  <span class="c1"># type: ignore[call-arg]</span>
-<span class="g g-Whitespace">   </span><span class="mi">1051</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1052</span>     <span class="k">def</span> <span class="nf">_failover_to_python</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-
-<span class="nn">~/anaconda3/envs/python39/lib/python3.9/site-packages/pandas/io/parsers.py</span> in <span class="ni">__init__</span><span class="nt">(self, src, **kwds)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1865</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1866</span>         <span class="c1"># open handles</span>
-<span class="ne">-&gt; </span><span class="mi">1867</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_open_handles</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1868</span>         <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
-<span class="g g-Whitespace">   </span><span class="mi">1869</span>         <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;storage_options&quot;</span><span class="p">,</span> <span class="s2">&quot;encoding&quot;</span><span class="p">,</span> <span class="s2">&quot;memory_map&quot;</span><span class="p">,</span> <span class="s2">&quot;compression&quot;</span><span class="p">):</span>
-
-<span class="nn">~/anaconda3/envs/python39/lib/python3.9/site-packages/pandas/io/parsers.py</span> in <span class="ni">_open_handles</span><span class="nt">(self, src, kwds)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1360</span>         <span class="n">Let</span> <span class="n">the</span> <span class="n">readers</span> <span class="nb">open</span> <span class="n">IOHanldes</span> <span class="n">after</span> <span class="n">they</span> <span class="n">are</span> <span class="n">done</span> <span class="k">with</span> <span class="n">their</span> <span class="n">potential</span> <span class="n">raises</span><span class="o">.</span>
-<span class="g g-Whitespace">   </span><span class="mi">1361</span>         <span class="s2">&quot;&quot;&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">1362</span><span class="s2">         self.handles = get_handle(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1363</span><span class="s2">             src,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1364</span><span class="s2">             &quot;r&quot;,</span>
-
-<span class="nn">~/anaconda3/envs/python39/lib/python3.9/site-packages/pandas/io/common.py</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
-<span class="g g-Whitespace">    </span><span class="mi">645</span><span class="s2">                 errors = &quot;replace&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">646</span><span class="s2">             # Encoding</span>
-<span class="ne">--&gt; </span><span class="mi">647</span><span class="s2">             handle = open(</span>
-<span class="g g-Whitespace">    </span><span class="mi">648</span><span class="s2">                 handle,</span>
-<span class="g g-Whitespace">    </span><span class="mi">649</span><span class="s2">                 ioargs.mode,</span>
-
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;/content/drive/MyDrive/class_data/adult_data.csv&#39;
 </pre></div>
 </div>
 </div>
@@ -785,7 +723,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fd42fb508e0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fb0198e5dc0&gt;
 </pre></div>
 </div>
 <img alt="_images/04-univariate-data-analysis_40_1.png" src="_images/04-univariate-data-analysis_40_1.png" />
