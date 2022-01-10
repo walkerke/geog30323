@@ -1,0 +1,100 @@
+---
+title: "Data ethics"
+author: GEOG 30323
+date: April 26, 2022
+output: 
+  revealjs::revealjs_presentation: 
+    theme: "white"
+    transition: "none"
+    highlight: "zenburn"
+    center: TRUE
+    fig_caption: TRUE
+    
+---
+
+## Assignment #11
+
+* For each of the three ethical scenarios that follow: 
+  - Read the "reaction article" for that ethical scenario
+  - Write up a short response (around 250 words) summarizing the article and your reactions to it
+
+---
+
+## Ethical scenarios
+
+* Location-based services and mobile data analysis
+
+* Contact tracing for public health: COVID-19
+
+* Predictive policing
+
+---
+
+## Location-based services
+
+* [Example: Uber Movement data](https://movement.uber.com/?lang=en-US)
+
+<img src="https://image.cnbcfm.com/api/v1/image/106170365-1570549735005uber-tracking.jpg?v=1570549772?w=720&h=405"><figcaption>Source: CNBC</figcaption>
+
+---
+
+## Location-based services
+
+* Reaction article: [Your Apps Know Where You Were Last Night, and They're Not Keeping It Secret (_New York Times_)](https://www.nytimes.com/interactive/2018/12/10/business/location-data-privacy-apps.html)
+
+---
+
+### Contact tracing for public health
+
+<img src=img/contact_tracing.jpg style="width: 750px"><figcaption>[More information from Google](https://blog.google/inside-google/company-announcements/apple-and-google-partner-covid-19-contact-tracing-technology)</figcaption>
+
+---
+
+### Contact tracing for public health
+
+* Reaction article: [Big Data Is Helping Us Fight The Coronavirus — But At What Cost To Our Privacy? (_FiveThirtyEight_)](https://fivethirtyeight.com/features/big-data-is-helping-us-fight-the-coronavirus-but-at-what-cost-to-our-privacy/)
+
+---
+
+## Predictive policing
+
+<img src="https://www.pluggedin.com/wp-content/uploads/2019/12/minority-report-2048x1354.jpg" style="width: 650px"></figcaption>
+
+---
+
+### Predictive policing
+
+* [Video: use of predictive policing in Chicago](http://abc7chicago.com/video/embed/?pid=1486730)
+
+---
+
+### Predictive policing
+
+* Reaction article: [Machine Bias (_ProPublica_)](https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing)
+
+
+
+
+
+
+
+
+
+
+
+<style>
+
+.reveal section img {
+  background:none; 
+  border:none; 
+  box-shadow:none;
+  }
+
+h3 {
+
+
+
+}
+  
+</style>
+

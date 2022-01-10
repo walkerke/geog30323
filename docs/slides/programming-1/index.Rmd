@@ -1,0 +1,239 @@
+---
+title: "Programming I - Intro to Python"
+author: GEOG 30323
+date: January 18, 2022
+output: 
+  revealjs::revealjs_presentation: 
+    theme: "white"
+    transition: "none"
+    highlight: "zenburn"
+    center: TRUE
+    fig_caption: TRUE
+    self_contained: false
+    
+---
+
+### Programming in Hollywood
+
+<iframe width="800" height="500" src="https://www.youtube.com/embed/0PxTAn4g20U" frameborder="0" allowfullscreen></iframe>
+
+---
+
+### Programming in Hollywood
+
+<img src=img/sv.gif style="width: 800px">
+
+---
+
+## Why code?  
+
+---
+
+<iframe width="800" height="500" src="https://www.youtube.com/embed/nKIu9yen5nc" frameborder="0" allowfullscreen></iframe>
+
+---
+
+## Why code for data analysis?  
+
+>- Automation
+>- Documentation and reproducibility
+>- Logical organization
+>- Marketability!
+
+---
+
+<img src="http://pluspng.com/img-png/python-logo-png--728.png" style="width: 600px; border: none;">
+
+>- A __high-level__, __object-oriented__, __general purpose__ programming language
+>- _Interpreted_ rather than _compiled_
+>- Rapidly becoming the language of choice for introductory programming courses around the world
+
+---
+
+## Why Python? (XKCD)
+
+<img src="http://imgs.xkcd.com/comics/python.png" style="width:400px"><figcaption>Source: [Randall Munroe/XKCD](https://xkcd.com/353/)</figcaption>
+
+---
+
+## Why Python?  
+
+In Java, the classic "Hello World" program looks like this: 
+
+```java
+public class HelloWorld {
+
+    public static void main(String[] args) {
+        System.out.println("Hello World");
+    }
+
+}
+```
+
+Whereas in Python, you just type: 
+
+```python
+print("Hello World")
+```
+
+---
+
+### Why Python? 
+
+* Just ask these companies!
+
+<img src=img/companies.PNG style="width: 800px"><figcaption>Source: [Peter Wang - PyData Dallas Keynote](http://www.slideshare.net/misterwang/pydata-texas-2015-keynote)</figcaption>
+
+---
+
+### Other options for data analysis
+
+<img src="https://www.r-project.org/Rlogo.png" style="width: 300px">                                             <img src="https://camo.githubusercontent.com/e1ae5c7f6fe275a50134d5889a68f0acdd09ada8/687474703a2f2f6a756c69616c616e672e6f72672f696d616765732f6c6f676f5f68697265732e706e67" style = "width: 300px">
+
+* R (<https://www.r-project.org/>): programming language for statistics, data analysis, and much more (and a personal favorite of mine)
+* Julia (<http://julialang.org/>): relatively new language for technical computing that aims for high-level syntax and C-like speed
+
+---
+
+### Python on the command line
+
+<img src=img/hello.PNG>
+
+---
+
+### The Jupyter Notebook
+
+<img src="https://raw.githubusercontent.com/jupyter/nature-demo/master/images/jupyter-logo.png" style="width: 700px; border: none;">
+
+* Browser-based notebooks for _literate programming_
+* Evolved out of the IPython project
+* Supports multiple languages; "home language" is Python
+
+---
+
+## Google Colaboratory
+
+* Cloud-based platform for hosted Jupyter Notebooks that connects to your Google account & Google Drive.  
+* Let's try it out!  https://colab.research.google.com/
+
+---
+
+### Literate programming
+
+As defined by Donald Knuth: 
+
+> Literate programming is a methodology that combines a programming language with a documentation language... The main idea is to treat a program as a piece of literature, addressed to human beings rather than to a computer.
+
+* Source: <http://www-cs-faculty.stanford.edu/~uno/lp.html>
+
+---
+
+### Markdown
+
+* Tool to convert plain text to HTML; used for literate programming in the Jupyter Notebook
+
+Example: 
+
+```
+_This link_ is __truly__ must-see: [click here to view it!](http://personal.tcu.edu/kylewalker/)
+```
+
+_This link_ is __truly__ must-see: [click here to view it!](http://personal.tcu.edu/kylewalker/)
+
+---
+
+### Sage words before we get started...
+
+<center>
+<blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr">You&#39;re doing it right if you get frustrated: if you&#39;re not frustrated, you&#39;re (probably) not stretching yourself mentally</p>&mdash; Hadley Wickham (@hadleywickham) <a href="https://twitter.com/hadleywickham/status/565516733516349441">February 11, 2015</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</center>
+
+---
+
+### Numbers and strings
+
+* At a basic level, Python can function like a calculator, or concatenate strings: 
+
+```python
+2 + 3
+# 5
+
+'x' + 'y'
+# 'xy'
+
+```
+
+* _Object type_: the way in which the object is stored (e.g. float, integer, string)
+* Python is a _dynamically typed_ language, which means that you don't need to explicitly supply the object type
+
+---
+
+### Variables
+
+* In programming, a __variable__ is a reference to some other sort of information or quantity
+* Variables are created through _assignment_
+
+Example: 
+
+```python
+x = 1
+x
+# 1
+```
+
+---
+
+## Strings
+
+* Strings, or textual representations of data, have a series of special methods that allow for their manipulation
+
+Example: 
+
+```python
+tcu = 'Texas Christian University'
+tcu.swapcase()
+# 'tEXAS cHRISTIAN uNIVERSITY'
+```
+
+---
+
+
+## Lists
+
+* Data structure in Python for storing multiple values; enclosed in brackets `[]`
+* List elements do not need to all be of the same type (though you'll often want them to be)
+
+Example list: `mylist = [2, 4, 6, 8, 10, 12]`
+
+---
+
+### Indexing and slicing
+
+* Elements in Python can be accessed by position using __indexing__; covers characters in strings, objects in lists, and much more
+* Python indexing starts at 0 - meaning that the first element is referenced with `0`, the second with `1`, and so forth
+* __Slicing__: extract subset `a:b` starting with position `a` up to __but not including__ position `b`
+
+---
+
+### Indexing and slicing 
+
+Example: 
+
+```python
+tcu[0]
+# 'T'
+tcu[6:15]
+# 'Christian'
+```
+
+
+<style>
+
+.reveal section img {
+  background:none; 
+  border:none; 
+  box-shadow:none;
+  }
+  
+</style>

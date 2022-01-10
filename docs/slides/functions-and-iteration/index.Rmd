@@ -1,0 +1,346 @@
+---
+title: "Programming II - Functions and Iteration"
+author: GEOG 30323
+date: January 25, 2022
+output: 
+  revealjs::revealjs_presentation: 
+    theme: "white"
+    transition: "none"
+    highlight: "zenburn"
+    center: TRUE
+    fig_caption: TRUE
+    
+---
+
+## Python refresher
+
+Define...
+
+>- Variables
+>- Strings
+>- Lists
+>- Indexing and slicing
+
+---
+
+## Functions
+
+* If you find yourself doing the same thing frequently, it can be tedious to write the same code over and over! 
+* As such, you should use __functions__ to make your code re-usable
+
+---
+
+* Functions are defined with a `def` statement followed by a colon (`:`) 
+* They include a series of __parameters__ to which you supply __arguments__, which are like variables that operate within your function: 
+
+```python
+def myfunction(parameter1, parameter2, parameter3): 
+    """Your code goes here"""
+    
+# "Calling" the function: 
+
+myfunction(arg1, arg2, arg3)
+
+```
+
+---
+
+## Empty functions
+
+* At a basic level, a function can be defined without parameters
+
+Example: 
+
+```python
+def drwalker(): 
+    print("The best professor!")
+
+drwalker()
+# The best professor!
+```
+
+---
+
+## Functions and parameters
+
+__Parameters__ are components of your function that can vary based on user input.  Example: 
+
+```python
+def make_big(x):
+    print(x.upper())
+
+make_big('abcdefg')
+# ABCDEFG
+make_big('the quick brown fox jumped over the lazy dog')
+# THE QUICK BROWN FOX JUMPED OVER THE LAZY DOG
+x = 'hijklmn'
+make_big(x)
+# HIJKLMN
+```
+
+## The `return` statement
+
+* The output of functions can be assigned to variables if a `return` statement is provided
+
+Example: 
+
+```python
+def add_five(x):
+    return x + 5
+
+y = add_five(10)
+y
+# 15
+```
+
+---
+
+### Python and whitespace
+
+* Python code is organized by __indentation__ and __whitespace__
+* After function definitions, code should be indented with __four spaces__. In the Jupyter Notebook (and other Python development environments), the Tab key represents four spaces, and it will indent your code automatically
+* Code that is not indented properly will cause an error
+
+```python
+def add_six(x):
+return x + 6
+    
+  File "<stdin>", line 2
+    return x + 6
+         ^
+IndentationError: expected an indented block
+```
+
+---
+
+### Comments
+
+* _Comments_, preceded by a hash (`#`), can be included in your code but are not run
+* _Commenting_ your code is useful for describing what you are doing, or keeping experimental/old code you don't want to run during the development process
+
+```python
+# The function 'divide_by_two' divides any number by two  <-- a comment
+
+def divide_by_two(number):
+    return number / 2
+
+# This didn't work - remember whitespace issues
+
+# def divide_by_two(number):
+# return number / 2
+```
+---
+
+### Docstrings
+
+* _Docstrings_ can be used to describe what functions do
+* Docstrings are enclosed in triple double quotes (`"""   """`) and are placed on the line following the function definition
+
+```python
+def concat_numbers(num1, num2):
+    """
+    Return a concatenated string from two numbers.  
+    
+    Parameters: 
+    -----------
+    
+    num1: The first number you'd like to concatenate
+    
+    num2: The second number you'd like to concatenate   
+    
+    """
+    
+    return str(num1) + str(num2)
+```
+
+---
+
+### Ordering and named arguments
+
+Arguments can be supplied to functions in two ways: 
+
+* "Unnamed" in the order specified
+* "Named" in any order.  Be careful, however, if you mix the two!
+
+```python
+concat_numbers(7, 3)
+# '73'
+concat_numbers(num2 = 7, num1 = 3)
+# '37'
+concat_numbers(7, num2 = 3)
+# '73'
+# concat_numbers(num2 = 7, 3)
+  File "<stdin>", line 1
+SyntaxError: non-keyword arg after keyword arg
+```
+
+---
+
+## Iteration
+
+<img src=img/office_space.gif style="width: 600px">
+
+---
+
+## Iteration
+
+* At your jobs, you will often need to repeat the same task over and over!
+* From your textbook: "Repeating identical or similar tasks without making errors is something that computers do well and people do poorly."
+* Solution: make the computer do it with _iteration_
+
+---
+
+## Loops
+
+* Loops are operators that tell the computer to repeat an action a given number of times
+* Common loops: 
+    - `for`: Repeats an action over a series of items
+    - `while`: Repeats an action until a given condition is satisfied
+
+* Important note: loops, like functions, must obey whitespace rules!
+
+---
+
+## The `for` loop
+
+* `for` repeats an action __for__ every element in an object
+* Example: 
+
+```python
+for character in "Kyle": 
+   print("Give me a " + character + "!")
+
+Give me a K!
+Give me a y!
+Give me a l!
+Give me a e!
+```
+
+---
+
+### How `for` works
+
+So what is going on here?  
+
+1. The `for` loop looks at what it will iterate through - in this case it is a string, `"Kyle"`
+2. We are referring to each element of our string, `"Kyle"`, as `character`.  
+3. The loop evaluates the expression passed to the `print` function __for__ each `character` in `"Kyle"` successively
+
+So the `for` loop is equivalent to: 
+
+```python
+print("Give me a K!")
+print("Give me a y!")
+print("Give me a l!")
+print("Give me a e!")
+```
+
+---
+
+### The `while` loop
+
+* `while` repeats an action until a given condition is satisfied
+* Example: 
+
+```python
+i = 5
+
+while i > 0: 
+    print(str(i) + "...")
+    i = i - 1
+
+print("Blast-off!")
+5...
+4...
+3...
+2...
+1...
+Blast-off!
+```
+
+---
+
+### How `while` works
+
+1. We define a counter, `i`, that we set to 5 before running the loop
+2. __While__ the value of `i` is greater than `0`, we tell Python to evaluate the `print` function
+3. With each run of the loop, we subtract `1` from `i`
+4. When `i` is equal to `0`, we exit the loop and print `"Blast-off"` to the console
+
+Beware of the infinite `while` loop!
+
+---
+
+## Conditional logic
+
+* However - what if we don't want to do the same thing every time we run a loop?  Or a function, for that matter? 
+* Answer: __conditional logic__
+
+---
+
+### Conditional logic
+
+* Conditional statements in Python: `if`, `elif`, and `else`
+* Conditional operators: 
+    * `<` Less than
+    * `>` Greater than
+    * `<=` Less than or equal to
+    * `>=` Greater than or equal to
+    * `==` Is equal to
+    * `!=` Is not equal to
+* Booleans: `True` and `False`
+* Boolean operators: `and`, `or`, & `not`
+
+---
+
+### Conditional logic in Python
+
+* Example: 
+
+```python
+mylist = [2, 4, 6, 8, 10, 12]
+for number in mylist: 
+    if number > 7: 
+        print(str(number) + " is greater than 7!")
+    else: 
+        print(str(number) + " is less than 7!")
+
+2 is less than 7!
+4 is less than 7!
+6 is less than 7!
+8 is greater than 7!
+10 is greater than 7!
+12 is greater than 7!
+```
+
+---
+
+### Conditional logic in functions
+
+* When writing functions, you'll rely heavily on conditional statements 
+
+```python
+def is_even(x): 
+    if x % 2 == 0: 
+        return(True)
+    else: 
+        return(False)
+
+is_even(8)
+True
+is_even(99)
+False
+```
+
+
+
+
+<style>
+
+.reveal section img {
+  background:none; 
+  border:none; 
+  box-shadow:none;
+  }
+  
+</style>
