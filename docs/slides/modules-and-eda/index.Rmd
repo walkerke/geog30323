@@ -112,7 +112,7 @@ grad = pd.read_csv("grad_rates.csv")
 
 * Each observation forms a __row__, defined by an __index__; attributes of those observations are found in the __columns__ of the DataFrame
 
-<img src=img/df1.PNG style="width: 300px">
+<img src=img/df1.png>
 
 * Columns are accessible as indices, e.g. `grad['rate']`, or as attributes of the data frame, e.g. `grad.rate`
 
@@ -206,7 +206,7 @@ or, in simpler terms, the average of the squared deviations of the values of a s
 ```python
 grad.describe()
 ```
-<img src=img/describe.PNG style="width: 200px">
+<img src=img/describe.png style="width: 25%">
 
 ---
 
@@ -234,7 +234,7 @@ grad.describe()
 
 ---
 
-### Example histogram
+### Example histogram (pandas method)
 
 ```python
 import seaborn as sns
@@ -243,6 +243,17 @@ sns.set_style("darkgrid")
 grad.rate.hist()
 ```
 <img src=img/hist1.png style="width:600px">
+
+---
+
+### Example histogram (seaborn function)
+
+```python
+# Try the `bins` argument to modify the plot appearance
+sns.histplot(data = grad, x = "rate")
+```
+
+<img src=img/hist2.png style="width:600px">
 
 ---
 
