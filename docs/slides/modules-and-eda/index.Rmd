@@ -178,16 +178,6 @@ where $n$ is the number of elements in the sample.
 
 ---
 
-## Variance
-
-* A measure of the **spread** of a sample.  The variance is computed as:
-
-$${\sigma}^2 = \dfrac{\sum\limits_{i=1}^{n}(x_i - \overline{x})^2}{n}$$
-
-or, in simpler terms, the average of the squared deviations of the values of a sample from its mean.  
-
----
-
 ## Standard deviation 
 
 * Computed as the square root of the variance; denoted by $\sigma$.  
