@@ -168,7 +168,7 @@ zac.plot(kind = 'pie', figsize = (6, 6))
 
 ### Problems with pie charts
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Piecharts.svg/2000px-Piecharts.svg.png" style="width: 700px"><figcaption>Source: Wikimedia Commons</figcaption>
+<img src=img/pie_problems.png style="width:800px"><figcaption>Source: [Data to Viz](https://www.data-to-viz.com/caveat/pie.html)</figcaption>
 
 ---
 
