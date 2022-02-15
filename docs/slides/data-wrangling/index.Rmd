@@ -1,7 +1,7 @@
 ---
 title: "Data wrangling"
 author: GEOG 30323
-date: February 15, 2022
+date: February 22, 2022
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
@@ -42,15 +42,15 @@ full_df.shape
 
 ### By column name
 
-* Let's drop most of the columns in the dataset
+* Let's drop most of the columns in the dataset with `.filter()`
 
 ```python
 cols_to_keep = ['INSTNM', 'STABBR', 'GRAD_DEBT_MDN_SUPP']
-debt_df = full_df[cols_to_keep]
+debt_df = full_df.filter(cols_to_keep)
 debt_df.columns = ['name', 'state', 'debt']
 debt_df.head()
 ```
-<img src=img/drop_cols.PNG>
+<img src=img/drop_cols.png>
 
 ---
 
@@ -59,10 +59,11 @@ debt_df.head()
 * Data frames can be _sliced_ like lists and strings
 
 ```python
+# Retain row 0 up until but not including row 10
 debt_df[0:10]
 ```
 
-<img src=img/ex1.PNG>
+<img src=img/ex1.png style="width: 400px">
 
 ---
 
@@ -74,39 +75,40 @@ debt_df[0:10]
 example1 = debt.set_index('name')
 example1.loc['Amridge University':'Alabama State University']
 ```
-<img src=img/index_name.PNG>
+<img src=img/index_name.png>
 
 ---
 
 ### By value
 
 * Often, you'll want to _keep_ rows that have a certain column value, or _exclude_ rows based on that value
-* Statements use __conditional operators__; can be combined with `&` (and) and `|` (or)
-* `.isin()` method: checks to see if value is in list of values
+* The data frame method `.query()` will "query" your dataset based on an expression
+* Expressions use __conditional operators__; can be combined with `&` (and) and `|` (or)
 
 ---
 
 ### By value
 
 ```python
-debt_df1 = debt_df[debt_df['debt'] != 'PrivacySuppressed']
+debt_df1 = debt_df.query("debt != 'PrivacySuppressed'")
 debt_df1.head()
 ```
-<img src=img/sub1.PNG>
+<img src=img/sub1.png>
 
 ---
 
 ### By value
 
 ```python
-tx_debt_df = debt_df[(debt_df['debt'] != 'PrivacySuppressed') & (debt_df['state'] == 'TX')]
+tx_debt_df = debt_df.query('debt != "PrivacySuppressed" & state == "TX" ')
+tx_debt_df.head()
 
-# Alternatively, use the .query() method
+# Alternatively, use an index-based method
 
-# tx_debt_df = debt_df.query('debt != "PrivacySuppressed" & state == "TX" ')
+# tx_debt_df = debt_df[(debt_df['debt'] != 'PrivacySuppressed') & (debt_df['state'] == 'TX')]
 
 ```
-<img src=img/txdebt.PNG>
+<img src=img/txdebt.png>
 
 ---
 
@@ -114,12 +116,13 @@ tx_debt_df = debt_df[(debt_df['debt'] != 'PrivacySuppressed') & (debt_df['state'
 
 ```python
 states = ['OK', 'NM', 'TX', 'LA']
-
-sw_debt_df = debt_df[(debt_df['debt'] != 'PrivacySuppressed') & (debt_df['state'].isin(states))]
+# Use `in @states` to get values in the list
+# @ operator allows for use of variables in the query
+sw_debt_df = debt_df.query("debt != 'PrivacySuppressed' & state in @states")
 
 sw_debt_df.head()
 ```
-<img src=img/swdebt.PNG>
+<img src=img/swdebt.png>
 
 ---
 
@@ -142,15 +145,15 @@ df1 = pd.DataFrame({'col1': np.random.randint(1, 100, 10),
 ### Creating new columns
 
 ```python
-# Must use index-based labeling in this new column definition
-df1['col4'] = df1['col1'] + df1['col2']
-
 # With .assign()
-df2 = df1.assign(col5 = df1.col3 / df1.col4)
+df2 = df1.assign(col4 = df1.col1 + df1.col2)
+
+# With index-based labeling
+df2['col5'] = df2['col3'] / df2['col4']
 
 df2.head()
 ```
-<img src=img/assign.PNG>
+<img src=img/assign.png>
 
 ---
 
@@ -158,15 +161,14 @@ df2.head()
 
 * To do numerical analysis, our numeric data have to be stored as numbers!
 * To convert: use the `.astype()` method
-* Note: `SettingWithCopyWarning`
 
 ```python
-sw_debt_df['debtnum'] = sw_debt_df.debt.astype(float)
+sw_debt_num = sw_debt_df.assign(debtnum = sw_debt_df.debt.astype(float))
 
-sw_debt_df.head()
+sw_debt_num.head()
 
 ```
-<img src=img/newcol.PNG>
+<img src=img/newcol.png>
 
 ---
 
@@ -185,11 +187,11 @@ sw_debt_df.head()
 * `.dropna()` method: delete all rows (or columns) that have any missing values (`NaN` in `pandas`)
 
 ```python
-sw_debt_df2 = sw_debt_df.dropna()
+sw_debt_clean = sw_debt_num.dropna()
 
-sw_debt_df2.head()
+sw_debt_clean.head()
 ```
-<img src=img/dropna.PNG>
+<img src=img/dropna.png>
 
 
 ---
@@ -199,11 +201,31 @@ sw_debt_df2.head()
 * `.fillna()` method: fill in missing data with a specified value
 
 ```python
-sw_debt_df3 = sw_debt_df.fillna(sw_debt_df.median())
+sw_debt_fill = sw_debt_num.fillna(sw_debt_num.median())
 
-sw_debt_df3.head()
+sw_debt_fill.head()
 ```
-<img src=img/fillna.PNG>
+<img src=img/fillna.png>
+
+---
+
+### Method chaining
+
+* __pandas__ data wrangling methods can be "chained" together to compute a data wrangling workflow all at once
+
+```python
+cols_to_keep = ['INSTNM', 'STABBR', 'GRAD_DEBT_MDN_SUPP']
+states = ['OK', 'NM', 'TX', 'LA']
+
+sw_debt_clean = (full_df
+  .filter(cols_to_keep)
+  .set_axis(['name', 'state', 'debt'], axis = 'columns')
+  .query("debt != 'PrivacySuppressed' & state in @states")
+  .assign(debtnum = lambda x: x.debt.astype(float))
+  .dropna()
+)
+
+```
 
 ---
 
@@ -230,9 +252,9 @@ Process:
 ### `.groupby()` in `pandas`
 
 ```python
-sw_grouped = sw_debt_df2.groupby('state')
+sw_grouped = sw_debt_clean.groupby('state')
 
-sw_grouped['debtnum'].mean()
+sw_grouped.debtnum.mean()
 
 # Result
 
@@ -251,7 +273,7 @@ TX    15009.426582
 import seaborn as sns
 sns.set(style = "darkgrid")
 
-sns.boxplot(x = 'state', y = 'debtnum', data = sw_debt_df2)
+sns.boxplot(x = 'state', y = 'debtnum', data = sw_debt_clean)
 ```
 <img src=img/box1.png style="width:600px">
 
@@ -262,7 +284,7 @@ sns.boxplot(x = 'state', y = 'debtnum', data = sw_debt_df2)
 * __Faceting__ or __small multiples__: breaking down a plot by a grouping variable into multiple plots
 
 ```python
-grid = sns.FacetGrid(data = sw_debt_df2, col = 'state', col_wrap = 2)
+grid = sns.FacetGrid(data = sw_debt_clean, col = 'state', col_wrap = 2)
 grid.map(sns.kdeplot, 'debtnum')
 ```
 <img src=img/facet.png style="width:350px">
@@ -367,10 +389,10 @@ from pandas_datareader import wb
 countries = ['ZA', 'BR', 'US']
 tfr = wb.download(indicator = 'SP.DYN.TFRT.IN', 
                     country = countries, start = 1960, 
-                    end = 2018).reset_index()
+                    end = 2019).reset_index()
 tfr.head()
 ```
-<img src=img/long.PNG>
+<img src=img/long.png>
 
 ---
 
@@ -384,7 +406,7 @@ tfr_wide = tfr.pivot(index = 'year', columns = 'country',
 
 tfr_wide.head()
 ```
-<img src=img/wide.PNG>
+<img src=img/wide.png>
 
 ---
 
@@ -408,7 +430,7 @@ tfr_long = pd.melt(tfr_wide.reset_index(), id_vars = 'year',
 
 tfr_long.head()
 ```
-<img src=img/long2.PNG>
+<img src=img/long2.png>
 
 ---
 
