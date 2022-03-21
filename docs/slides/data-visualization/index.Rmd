@@ -24,11 +24,11 @@ output:
 
 ---
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Minard.png" style="width: 900px"><figcaption>Source: Wikimedia Commons</figcaption>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Minard.png/1024px-Minard.png" style="width: 900px"><figcaption>Source: Wikimedia Commons</figcaption>
 
 ---
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Nightingale-mortality.jpg/800px-Nightingale-mortality.jpg" style="width: 850px"><figcaption>Source: Wikimedia Commons</figcaption>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Nightingale-mortality.jpg/1280px-Nightingale-mortality.jpg" style="width: 850px"><figcaption>Source: Wikimedia Commons</figcaption>
 
 ---
 
@@ -97,7 +97,7 @@ output:
 
 ### Color and visual variables
 
-<img src="https://calconstructionlaw.files.wordpress.com/2012/04/trustworthiness-of-beards.jpg" style="width: 300px">
+<img src="https://calconstructionlaw.files.wordpress.com/2012/04/trustworthiness-of-beards.jpg" style="width: 300px"><figcaption>[Image link/source](http://pixelspread.com/images/beards_trust_2.jpg)</figcaption>
 
 ---
 
@@ -160,12 +160,21 @@ sns.heatmap(ue_wide)
 ### Color in `seaborn`
 
 ```python
-mx = pd.read_csv('http://personal.tcu.edu/kylewalker/mexico.csv')
-sns.barplot(x = 'gdp08', y = 'name', 
-            data = mx.sort_values('gdp08', ascending = False), 
-            palette = "Greens_r")
+ue19 = (ue
+  .query('year == "2019"')
+  .sort_values('unemployment',
+                ascending = False)
+)
+
+sns.barplot(x = 'unemployment', y = 'country',
+            data = ue19, palette = "Greens_r")
 ```
-<img src=img/mx.png style="width: 600px">
+
+---
+
+### Color in `seaborn`
+
+<img src=img/europe19.png>
 
 ---
 
@@ -196,9 +205,9 @@ sns.lineplot(data = ue, x = "year", y = "unemployment",
 
 ```python
 # Convert the year to integer for better labels
-ue["year"] = ue["year"].astype(int)
+ue = ue.assign(year = ue.year.astype(int))
 # Make a Greece-only dataset
-greece = ue[ue.country == "Greece"]
+greece = ue.query('country == "Greece"')
 # Plot everything as grey, first
 sns.lineplot(data = ue, x = "year", y = "unemployment",
              hue = "country", palette = ["grey"] * 28,
@@ -285,26 +294,6 @@ plt.xticks(rotation = 45)
 
 * `seaborn` returns a `matplotlib` object that can be modified by the options in the `pyplot` module
 * Often, these options are wrapped by `seaborn` and available as arguments - so check the documentation to see what you can do!  
-
----
-
-### Scatterplot smoothing
-
-* _Local regression_ or _LOESS_ used to produce smooth curves through data
-
-```python
-sns.lmplot(data = mx, x = 'mus09', y = 'pri10', lowess = True)
-```
-<img src=img/lowess.png>
-
----
-
-### Scatterplot matrices
-
-```python
-sns.pairplot(data = mx, vars = ['gdp08', 'mus09', 'pri10'])
-```
-<img src=img/pairs.jpg style="width: 450px">
 
 ---
 
