@@ -14,7 +14,7 @@ At the end of our class on geographic data and visualization, we discussed the p
 
 With the following `seaborn` dot plot: 
 
-<img src="http://walkerke.github.io/geog30323/slides/geographic/img/primarydot2.png" style="width: 650px"
+<img src="http://walkerke.github.io/geog30323/slides/geographic/img/primarydot2.png" style="width: 650px">
 
 Certainly, there are advantages and disadvantages to each plot; for example, the map shows geographic clustering (e.g. high values in the south of Mexico), whereas the plot more clearly displays quantitative differences between states.  A solution to this could be to include both visualizations in a report (like in a Jupyter Notebook!) to show the data in different ways.  However: there are also ways to include both the map and the dot plot in the same graphic - and make the two visuals interact with each other!  Creating charts like this is one of Tableau's strengths - and something you'll learn how to do in this assignment.  
 
