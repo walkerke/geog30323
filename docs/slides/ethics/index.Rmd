@@ -9,6 +9,7 @@ output:
     highlight: "zenburn"
     center: TRUE
     fig_caption: TRUE
+    self_contained: false
     
 ---
 
