@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="author" content="GEOG 30323" />
-  <meta name="dcterms.date" content="2022-01-18" />
+  <meta name="dcterms.date" content="2023-01-24" />
   <title>Programming I - Intro to Python</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -508,7 +508,7 @@ style.innerHTML = style_script;
 document.getElementsByTagName('head')[0].appendChild(style);
 </script>
 
-    <script src="index_files/header-attrs-2.11/header-attrs.js"></script>
+    <script src="index_files/header-attrs-2.18/header-attrs.js"></script>
 </head>
 <body>
   <div class="reveal">
@@ -517,7 +517,7 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <section>
     <h1 class="title">Programming I - Intro to Python</h1>
     <h2 class="author">GEOG 30323</h2>
-    <h3 class="date">January 18, 2022</h3>
+    <h3 class="date">January 24, 2023</h3>
 </section>
 
 <section class="slide level2">
@@ -552,9 +552,13 @@ document.getElementsByTagName('head')[0].appendChild(style);
 
 <p><img src="http://pluspng.com/img-png/python-logo-png--728.png" style="width: 600px; border: none;"></p>
 <ul>
-<li class="fragment">A <strong>high-level</strong>, <strong>object-oriented</strong>, <strong>general purpose</strong> programming language</li>
-<li class="fragment"><em>Interpreted</em> rather than <em>compiled</em></li>
-<li class="fragment">Rapidly becoming the language of choice for introductory programming courses around the world</li>
+<li class="fragment">A <strong>high-level</strong>,
+<strong>object-oriented</strong>, <strong>general purpose</strong>
+programming language</li>
+<li class="fragment"><em>Interpreted</em> rather than
+<em>compiled</em></li>
+<li class="fragment">Rapidly becoming the language of choice for
+introductory programming courses around the world</li>
 </ul>
 </section>
 <section id="why-python-xkcd" class="slide level2">
@@ -567,7 +571,8 @@ Source: <a href="https://xkcd.com/353/">Randall Munroe/XKCD</a>
 <section id="why-python" class="slide level2">
 <h2>Why Python?</h2>
 <p>In Java, the classic “Hello World” program looks like this:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> HelloWorld <span class="op">{</span></span>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> HelloWorld <span class="op">{</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">&quot;Hello World&quot;</span><span class="op">);</span></span>
@@ -575,7 +580,8 @@ Source: <a href="https://xkcd.com/353/">Randall Munroe/XKCD</a>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>Whereas in Python, you just type:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Hello World&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Hello World&quot;</span>)</span></code></pre></div>
 </section>
 <section class="slide level2">
 
@@ -585,16 +591,26 @@ Source: <a href="https://xkcd.com/353/">Randall Munroe/XKCD</a>
 </ul>
 <img src=img/companies.PNG style="width: 800px">
 <figcaption>
-Source: <a href="http://www.slideshare.net/misterwang/pydata-texas-2015-keynote">Peter Wang - PyData Dallas Keynote</a>
+Source: <a
+href="http://www.slideshare.net/misterwang/pydata-texas-2015-keynote">Peter
+Wang - PyData Dallas Keynote</a>
 </figcaption>
 </section>
 <section class="slide level2">
 
-<h3 id="other-options-for-data-analysis">Other options for data analysis</h3>
-<p><img src="https://www.r-project.org/Rlogo.png" style="width: 300px"> <img src="https://camo.githubusercontent.com/e1ae5c7f6fe275a50134d5889a68f0acdd09ada8/687474703a2f2f6a756c69616c616e672e6f72672f696d616765732f6c6f676f5f68697265732e706e67" style = "width: 300px"></p>
+<h3 id="other-options-for-data-analysis">Other options for data
+analysis</h3>
+<p><img src="https://www.r-project.org/Rlogo.png" style="width: 300px">
+<img src="https://camo.githubusercontent.com/e1ae5c7f6fe275a50134d5889a68f0acdd09ada8/687474703a2f2f6a756c69616c616e672e6f72672f696d616765732f6c6f676f5f68697265732e706e67" style = "width: 300px"></p>
 <ul>
-<li>R (<a href="https://www.r-project.org/" class="uri">https://www.r-project.org/</a>): programming language for statistics, data analysis, and much more (and a personal favorite of mine)</li>
-<li>Julia (<a href="http://julialang.org/" class="uri">http://julialang.org/</a>): relatively new language for technical computing that aims for high-level syntax and C-like speed</li>
+<li>R (<a href="https://www.r-project.org/"
+class="uri">https://www.r-project.org/</a>): programming language for
+statistics, data analysis, and much more (and a personal favorite of
+mine)</li>
+<li>Julia (<a href="http://julialang.org/"
+class="uri">http://julialang.org/</a>): relatively new language for
+technical computing that aims for high-level syntax and C-like
+speed</li>
 </ul>
 </section>
 <section class="slide level2">
@@ -615,9 +631,11 @@ Source: <a href="http://www.slideshare.net/misterwang/pydata-texas-2015-keynote"
 <section id="google-colaboratory" class="slide level2">
 <h2>Google Colaboratory</h2>
 <ul>
-<li>Cloud-based platform for hosted Jupyter Notebooks that connects to your Google account &amp; Google Drive.<br />
+<li>Cloud-based platform for hosted Jupyter Notebooks that connects to
+your Google account &amp; Google Drive.<br />
 </li>
-<li>Let’s try it out! <a href="https://colab.research.google.com/" class="uri">https://colab.research.google.com/</a></li>
+<li>Let’s try it out! <a href="https://colab.research.google.com/"
+class="uri">https://colab.research.google.com/</a></li>
 </ul>
 </section>
 <section class="slide level2">
@@ -625,31 +643,43 @@ Source: <a href="http://www.slideshare.net/misterwang/pydata-texas-2015-keynote"
 <h3 id="literate-programming">Literate programming</h3>
 <p>As defined by Donald Knuth:</p>
 <blockquote>
-<p>Literate programming is a methodology that combines a programming language with a documentation language… The main idea is to treat a program as a piece of literature, addressed to human beings rather than to a computer.</p>
+<p>Literate programming is a methodology that combines a programming
+language with a documentation language… The main idea is to treat a
+program as a piece of literature, addressed to human beings rather than
+to a computer.</p>
 </blockquote>
 <ul>
-<li>Source: <a href="http://www-cs-faculty.stanford.edu/~uno/lp.html" class="uri">http://www-cs-faculty.stanford.edu/~uno/lp.html</a></li>
+<li>Source: <a href="http://www-cs-faculty.stanford.edu/~uno/lp.html"
+class="uri">http://www-cs-faculty.stanford.edu/~uno/lp.html</a></li>
 </ul>
 </section>
 <section class="slide level2">
 
 <h3 id="markdown">Markdown</h3>
 <ul>
-<li>Tool to convert plain text to HTML; used for literate programming in the Jupyter Notebook</li>
+<li>Tool to convert plain text to HTML; used for literate programming in
+the Jupyter Notebook</li>
 </ul>
 <p>Example:</p>
 <pre><code>_This link_ is __truly__ must-see: [click here to view it!](http://personal.tcu.edu/kylewalker/)</code></pre>
-<p><em>This link</em> is <strong>truly</strong> must-see: <a href="http://personal.tcu.edu/kylewalker/">click here to view it!</a></p>
+<p><em>This link</em> is <strong>truly</strong> must-see: <a
+href="http://personal.tcu.edu/kylewalker/">click here to view
+it!</a></p>
 </section>
 <section class="slide level2">
 
-<h3 id="sage-words-before-we-get-started">Sage words before we get started…</h3>
+<h3 id="sage-words-before-we-get-started">Sage words before we get
+started…</h3>
 <center>
 <blockquote class="twitter-tweet" lang="en">
 <p lang="en" dir="ltr">
-You're doing it right if you get frustrated: if you're not frustrated, you're (probably) not stretching yourself mentally
+You're doing it right if you get frustrated: if you're not frustrated,
+you're (probably) not stretching yourself mentally
 </p>
-— Hadley Wickham (<span class="citation" data-cites="hadleywickham">@hadleywickham</span>) <a href="https://twitter.com/hadleywickham/status/565516733516349441">February 11, 2015</a>
+— Hadley Wickham (<span class="citation"
+data-cites="hadleywickham">@hadleywickham</span>)
+<a href="https://twitter.com/hadleywickham/status/565516733516349441">February
+11, 2015</a>
 </blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </center>
@@ -658,45 +688,55 @@ You're doing it right if you get frustrated: if you're not frustrated, you're (p
 
 <h3 id="numbers-and-strings">Numbers and strings</h3>
 <ul>
-<li>At a basic level, Python can function like a calculator, or concatenate strings:</li>
+<li>At a basic level, Python can function like a calculator, or
+concatenate strings:</li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="op">+</span> <span class="dv">3</span></span>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="op">+</span> <span class="dv">3</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 5</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">&#39;x&#39;</span> <span class="op">+</span> <span class="st">&#39;y&#39;</span></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># &#39;xy&#39;</span></span></code></pre></div>
 <ul>
-<li><em>Object type</em>: the way in which the object is stored (e.g. float, integer, string)</li>
-<li>Python is a <em>dynamically typed</em> language, which means that you don’t need to explicitly supply the object type</li>
+<li><em>Object type</em>: the way in which the object is stored
+(e.g. float, integer, string)</li>
+<li>Python is a <em>dynamically typed</em> language, which means that
+you don’t need to explicitly supply the object type</li>
 </ul>
 </section>
 <section class="slide level2">
 
 <h3 id="variables">Variables</h3>
 <ul>
-<li>In programming, a <strong>variable</strong> is a reference to some other sort of information or quantity</li>
+<li>In programming, a <strong>variable</strong> is a reference to some
+other sort of information or quantity</li>
 <li>Variables are created through <em>assignment</em></li>
 </ul>
 <p>Example:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">1</span></span>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">1</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>x</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1</span></span></code></pre></div>
 </section>
 <section id="strings" class="slide level2">
 <h2>Strings</h2>
 <ul>
-<li>Strings, or textual representations of data, have a series of special methods that allow for their manipulation</li>
+<li>Strings, or textual representations of data, have a series of
+special methods that allow for their manipulation</li>
 </ul>
 <p>Example:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>tcu <span class="op">=</span> <span class="st">&#39;Texas Christian University&#39;</span></span>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>tcu <span class="op">=</span> <span class="st">&#39;Texas Christian University&#39;</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>tcu.swapcase()</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># &#39;tEXAS cHRISTIAN uNIVERSITY&#39;</span></span></code></pre></div>
 </section>
 <section id="lists" class="slide level2">
 <h2>Lists</h2>
 <ul>
-<li>Data structure in Python for storing multiple values; enclosed in brackets <code>[]</code></li>
-<li>List elements do not need to all be of the same type (though you’ll often want them to be)</li>
+<li>Data structure in Python for storing multiple values; enclosed in
+brackets <code>[]</code></li>
+<li>List elements do not need to all be of the same type (though you’ll
+often want them to be)</li>
 </ul>
 <p>Example list: <code>mylist = [2, 4, 6, 8, 10, 12]</code></p>
 </section>
@@ -704,16 +744,23 @@ You're doing it right if you get frustrated: if you're not frustrated, you're (p
 
 <h3 id="indexing-and-slicing">Indexing and slicing</h3>
 <ul>
-<li>Elements in Python can be accessed by position using <strong>indexing</strong>; covers characters in strings, objects in lists, and much more</li>
-<li>Python indexing starts at 0 - meaning that the first element is referenced with <code>0</code>, the second with <code>1</code>, and so forth</li>
-<li><strong>Slicing</strong>: extract subset <code>a:b</code> starting with position <code>a</code> up to <strong>but not including</strong> position <code>b</code></li>
+<li>Elements in Python can be accessed by position using
+<strong>indexing</strong>; covers characters in strings, objects in
+lists, and much more</li>
+<li>Python indexing starts at 0 - meaning that the first element is
+referenced with <code>0</code>, the second with <code>1</code>, and so
+forth</li>
+<li><strong>Slicing</strong>: extract subset <code>a:b</code> starting
+with position <code>a</code> up to <strong>but not including</strong>
+position <code>b</code></li>
 </ul>
 </section>
 <section class="slide level2">
 
 <h3 id="indexing-and-slicing-1">Indexing and slicing</h3>
 <p>Example:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>tcu[<span class="dv">0</span>]</span>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>tcu[<span class="dv">0</span>]</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># &#39;T&#39;</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>tcu[<span class="dv">6</span>:<span class="dv">15</span>]</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># &#39;Christian&#39;</span></span></code></pre></div>
@@ -742,8 +789,6 @@ You're doing it right if you get frustrated: if you're not frustrated, you're (p
         controls: true,
         // Display a presentation progress bar
         progress: true,
-        // Display the page number of the current slide
-        slideNumber: false,
         // Push each slide change to the browser history
         history: true,
         // Enable keyboard shortcuts for navigation
@@ -754,15 +799,8 @@ You're doing it right if you get frustrated: if you're not frustrated, you're (p
         center: true,
         // Enables touch navigation on devices with touch input
         touch: true,
-        // Loop the presentation
-        loop: false,
-        // Change the presentation direction to be RTL
-        rtl: false,
         // Turns fragments on and off globally
         fragments: true,
-        // Flags if the presentation is running in an embedded mode,
-        // i.e. contained within a limited portion of the screen
-        embedded: false,
         // Flags if we should show a help overlay when the questionmark
         // key is pressed
         help: true,
@@ -772,10 +810,6 @@ You're doing it right if you get frustrated: if you're not frustrated, you're (p
         autoSlide: 0,
         // Stop auto-sliding after user input
         autoSlideStoppable: true,
-        // Enable slide navigation via mouse wheel
-        mouseWheel: false,
-        // Opens links in an iframe preview overlay
-        previewLinks: false,
         // Transition style
         transition: 'none', // none/fade/slide/convex/concave/zoom
         // Transition speed

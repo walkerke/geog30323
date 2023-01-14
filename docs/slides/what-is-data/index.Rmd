@@ -1,7 +1,7 @@
 ---
 title: "What is data?"
 author: GEOG 30323
-date: January 11, 2022
+date: January 17, 2023
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
