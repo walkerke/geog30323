@@ -63,7 +63,7 @@ output:
 
 ### Science and business: StitchFix
 
-<img src="http://corinanielsen.com/livefit/wp-content/uploads/2015/11/stitchfix.jpg">
+<img src="https://newsroom.stitchfix.com/wp-content/uploads/2020/12/W_TFY_CYL_Dec2020_PR_screenshot_duo_womens-1.jpg" style = "width: 600px">
 
 * [StitchFix](https://www.stitchfix.com/); [Recommender systems for styles](https://multithreaded.stitchfix.com/blog/2018/06/28/latent-style/)
 
