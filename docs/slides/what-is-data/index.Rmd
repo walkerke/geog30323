@@ -120,7 +120,7 @@ This course covers the process of __exploratory data analysis__, which includes 
 
 ---
 
-## CoCalc
+## Google CoLab
 
 * [Google Colaboratory](https://colab.research.google.com/): our tool for using Python in the cloud
 * Let's explore... 
