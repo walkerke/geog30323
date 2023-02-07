@@ -1,7 +1,7 @@
 ---
 title: "Modules, packages, and EDA in Python"
 author: GEOG 30323
-date: February 7, 2023
+date: February 14, 2023
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
