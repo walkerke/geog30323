@@ -1,7 +1,7 @@
 ---
 title: "Data wrangling"
 author: GEOG 30323
-date: February 22, 2022
+date: February 28, 2023
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
@@ -72,7 +72,7 @@ debt_df[0:10]
 * Selecting by row or column index available in the `.loc[]` method (note the brackets)
 
 ```python
-example1 = debt.set_index('name')
+example1 = debt_df.set_index('name')
 example1.loc['Amridge University':'Alabama State University']
 ```
 <img src=img/index_name.png>
@@ -105,7 +105,7 @@ tx_debt_df.head()
 
 # Alternatively, use an index-based method
 
-# tx_debt_df = debt_df[(debt_df['debt'] != 'PrivacySuppressed') & (debt_df['state'] == 'TX')]
+# tx_debt_df = debt_df.loc[(debt_df['debt'] != 'PrivacySuppressed') & (debt_df['state'] == 'TX')]
 
 ```
 <img src=img/txdebt.png>
