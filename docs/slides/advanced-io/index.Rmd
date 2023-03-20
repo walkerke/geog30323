@@ -1,7 +1,7 @@
 ---
 title: "Advanced input and output"
 author: GEOG 30323
-date: March 15, 2022
+date: March 21, 2023
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
@@ -145,7 +145,7 @@ We get back a list of data frame objects with team names (with clean-up required
 
 ## Regular expressions
 
-<img src="https://johnfraney.ca/images/commitstrip-650.jpg" style="width: 550px"><figcaption>[Image source](https://www.commitstrip.com/en/2016/04/08/fing-patterns/)</figcaption>
+<img src="https://www.commitstrip.com/wp-content/uploads/2016/04/Strip-Notice-a-vie-650-finalenglish-1.jpg"><figcaption>[Image source](https://www.commitstrip.com/en/2016/04/08/fing-patterns/)</figcaption>
 
 ---
 
