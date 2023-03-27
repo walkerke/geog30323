@@ -1,7 +1,7 @@
 ---
 title: "Data visualization best practices"
 author: GEOG 30323
-date: March 22, 2022
+date: March 28, 2023
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
