@@ -1,7 +1,7 @@
 ---
 title: "Geographic data in Python"
 author: GEOG 30323
-date: March 29, 2022
+date: April 4, 2023
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
@@ -47,7 +47,6 @@ $$DD = D + \frac{M}{60} + \frac{S}{3600}$$
 
 * __Geographic coordinate system__: coordinate system based on latitude and longitude (coordinates on a sphere)
 * __Projected coordinate system__: coordinate system projected onto a two-dimensional surface (coordinates on a plane)
-* Example: http://bl.ocks.org/mbostock/raw/5731632
 
 ---
 
@@ -60,15 +59,6 @@ $$DD = D + \frac{M}{60} + \frac{S}{3600}$$
 ### Tiled mapping and Web Mercator
 
 <img src=img/tiled-mapping.png>
-
----
-
-### Map projections and distortion
-
-Examples: 
-
-* http://bl.ocks.org/curran/raw/01aa2685f083b6c1b9fb
-* http://bl.ocks.org/enjalot/raw/bd552e711b8325c64729
 
 ---
 
@@ -113,7 +103,7 @@ starbucks.head()
 * Packages can be installed from the Python Package Index using the `pip` command prefaced with an exclamation mark
 
 ```bash
-!pip install --upgrade geopandas
+!pip install --upgrade geopandas pygris[explore] contextily
 ```
 
 ---
@@ -144,20 +134,20 @@ sbgeo = gp.GeoDataFrame(starbucks,
 ### Mapping point data
 
 ```python
+# Static plot:
 sbgeo.plot()
+
+# Interactive map: 
+sbgeo.explore()
 ```
 
 <img src=img/starbucks1.png style="width: 450px">
 
 ---
 
-### Adding a "basemap"
+### Adding a "basemap" to a static map
 
 ```python
-# contextily: package for adding basemaps to plots
-# Must be installed first
-!pip install --upgrade contextily
-# Then, import the package in a new cell
 import contextily as cx
 
 # "Project" to Web Mercator, used by tiled mapping services
@@ -191,7 +181,11 @@ mxgeo = gp.read_file("https://gist.githubusercontent.com/walkerke/76cb8cc5f94943
 
 import seaborn as sns
 sns.set(style = "white")
-mxgeo.plot(column = "pri10", cmap = "RdPu", figsize = (10, 8))
+mxgeo.plot(column = "pri10", cmap = "RdPu", figsize = (10, 8),
+           legend = True)
+
+# Or, interactively:
+mxgeo.explore(column = "pri10", cmap = "RdPu")
 ```
 
 ---
@@ -206,7 +200,7 @@ mxgeo.plot(column = "pri10", cmap = "RdPu", figsize = (10, 8))
 
 * Beware the "amazing map"...
 
-<img src=img/clickhole.PNG style="width: 500px"><figcaption>Source: [Clickhole (The Onion)](http://www.clickhole.com/article/we-put-700-red-dots-map-947)</figcaption>
+<img src=img/clickhole.PNG style="width: 500px"><figcaption>Source: [Clickhole (The Onion)](https://clickhole.com/we-put-700-red-dots-on-a-map-1825122391/)</figcaption>
 
 ---
 
@@ -241,6 +235,55 @@ p.axes.yaxis.grid(True)
 sns.despine(left = True, bottom = True)
 
 ```
+---
+
+## Automated spatial data acquisition
+
+* We've discussed getting data from APIs to stream data in to your analysis session
+
+* __pygris__: Python package I wrote to automate acquisition of Census Bureau geographic data
+
+* Let's try it out!
+
+---
+
+## pygris examples
+
+```python
+from pygris import roads, tracts
+
+tarrant_roads = roads(state = "TX", county = "Tarrant")
+
+tarrant_tracts = tracts(state = "TX", county = "Tarrant")
+
+```
+
+---
+
+## Merging geographic and demographic data
+
+```python
+from pygris.data import get_census
+
+income_data = get_census(
+  dataset = "acs/acs5",
+  year = 2021,
+  variables = "B19013_001E",
+  params = {
+    "for": "tract:*",
+    "in": ["state:48", "county:439"]
+  },
+  return_geoid = True,
+  guess_dtypes = True
+)
+
+tarrant_income = tarrant_tracts.merge(income_data, on = "GEOID")
+
+tarrant_income.explore(column = "B19013_001E")
+
+```
+
+---
 
 ## Raster data in Python
 
