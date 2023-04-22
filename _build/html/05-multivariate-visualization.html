@@ -1,277 +1,386 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>Assignment 5: Multivariate exploratory visualization &#8212; GEOG 30323: Data Analysis &amp; Visualization</title>
-    
-  <link href="_static/css/theme.css" rel="stylesheet" />
-  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '05-multivariate-visualization';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Assignment 6: Data wrangling I" href="06-data-wrangling.html" />
     <link rel="prev" title="Assignment 4: Univariate data analysis" href="04-univariate-data-analysis.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+  
+  <div class="sidebar-header-items sidebar-primary__section">
     
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="index.html">
-      
-      
-      
-      <h1 class="site-logo" id="site-title">GEOG 30323: Data Analysis & Visualization</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="index.html">
-   Welcome
-  </a>
- </li>
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">GEOG 30323: Data Analysis & Visualization</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Welcome
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01-data-journalism.html">Assignment 1: Data journalism</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-intro-to-python.html">Assignment 2: Introduction to Python</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="03-functions-and-iteration.html">Assignment 3: Functions, conditional statements, and iteration in Python</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="04-univariate-data-analysis.html">Assignment 4: Univariate data analysis</a></li>
+
+
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Assignment 5: Multivariate exploratory visualization</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="06-data-wrangling.html">Assignment 6: Data wrangling I</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="07-wrangling-data-from-apis.html">Assignment 7: Wrangling data from APIs</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="08-data-visualization.html">Assignment 8: Data visualization</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="09-geographic-mapbox.html">Assignment 9: Geographic visualization with Mapbox Studio</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="10-tableau.html">Assignment 10: Building a dashboard with Tableau</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11-data-ethics.html">Assignment 11: Data ethics</a></li>
 </ul>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="01-data-journalism.html">
-   Assignment 1: Data journalism
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="02-intro-to-python.html">
-   Assignment 2: Introduction to Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="03-functions-and-iteration.html">
-   Assignment 3: Functions, conditional statements, and iteration in Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="04-univariate-data-analysis.html">
-   Assignment 4: Univariate data analysis
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Assignment 5: Multivariate exploratory visualization
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="06-data-wrangling.html">
-   Assignment 6: Data wrangling I
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="07-wrangling-data-from-apis.html">
-   Assignment 7: Wrangling data from APIs
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="08-data-visualization.html">
-   Assignment 8: Data visualization
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="09-geographic-mapbox.html">
-   Assignment 9: Geographic visualization with Mapbox Studio
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="10-tableau.html">
-   Assignment 10: Building a dashboard with Tableau
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="11-data-ethics.html">
-   Assignment 11: Data ethics
-  </a>
- </li>
-</ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/05-multivariate-visualization.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+</nav></div>
     </div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
-            <!-- Source interaction buttons -->
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
+<div class="sbt-scroll-pixel-helper"></div>
 
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/walkerke/geog30323/master?urlpath=tree/05-multivariate-visualization.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <a class="colab-button" href="https://colab.research.google.com/github/walkerke/geog30323/blob/master/05-multivariate-visualization.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
-                    src="_static/images/logo_colab.png"
-                    alt="Interact on Colab">Colab</button></a>
-        
-        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
-</div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
 
-        </div>
+<div class="article-header-buttons">
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Assignment 5: Multivariate exploratory visualization
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#bar-charts-and-dot-plots">
-     Bar charts and dot plots
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#scatter-plots">
-     Scatter plots
-    </a>
-   </li>
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/walkerke/geog30323/blob/master/05-multivariate-visualization.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
   </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercises">
-   Exercises
-  </a>
- </li>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/05-multivariate-visualization.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Assignment 5: Multivariate exploratory visualization</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Assignment 5: Multivariate exploratory visualization</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bar-charts-and-dot-plots">Bar charts and dot plots</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scatter-plots">Scatter plots</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
 </ul>
 
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
+
+              
                 
-  <div class="section" id="assignment-5-multivariate-exploratory-visualization">
-<h1>Assignment 5: Multivariate exploratory visualization<a class="headerlink" href="#assignment-5-multivariate-exploratory-visualization" title="Permalink to this headline">¶</a></h1>
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="assignment-5-multivariate-exploratory-visualization">
+<h1>Assignment 5: Multivariate exploratory visualization<a class="headerlink" href="#assignment-5-multivariate-exploratory-visualization" title="Permalink to this heading">#</a></h1>
 <p>In Assignment 4, you got a feel for the basic analytic capabilites of <code class="docutils literal notranslate"><span class="pre">pandas</span></code> and <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>, and learned how to calculate descriptive statistics and generate univariate plots.  In many cases, however, you are going to want to explore interrelationships between multiple characteristics of your data.  In this course, we are going to address this with <strong>multivariate exploratory visualization</strong>.</p>
 <p>Multivariate visualization can take a lot of forms, and can get quite complex!  We’re just going to start with the basics here and work our way up to more complicated visualizations - and fortunately <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> can do quite a lot of things.</p>
 <p>Our data for today’s notebook are going to come from the 2012-2016 <strong>American Community Survey</strong>.  The American Community Survey, or ACS, is an annual survey conducted by the US Census Bureau that covers demographic characteristics of the US population such as income, education, and much more.</p>
@@ -355,8 +464,8 @@
 </div></div></div>
 </div>
 <p>We note that our dataset has four columns: <code class="docutils literal notranslate"><span class="pre">&quot;county&quot;</span></code>, for the county name; <code class="docutils literal notranslate"><span class="pre">&quot;hhincome&quot;</span></code>, which refers to the median annual income for households in the county; <code class="docutils literal notranslate"><span class="pre">&quot;pct_college&quot;</span></code>, which refers to the percent of the population age 25 and up with at least a 4-year degree; and <code class="docutils literal notranslate"><span class="pre">&quot;median_age&quot;</span></code>, which refers to the median age of county residents.</p>
-<div class="section" id="bar-charts-and-dot-plots">
-<h2>Bar charts and dot plots<a class="headerlink" href="#bar-charts-and-dot-plots" title="Permalink to this headline">¶</a></h2>
+<section id="bar-charts-and-dot-plots">
+<h2>Bar charts and dot plots<a class="headerlink" href="#bar-charts-and-dot-plots" title="Permalink to this heading">#</a></h2>
 <p>Two common types of charts for comparing quantities, as we discussed in class, are bar charts and dot plots.  <strong>Bar charts</strong> represent values as proportional to the height of bars, and <strong>dot plots</strong> represent values as dots along a given axis.</p>
 <p>Many plot types are available in <code class="docutils literal notranslate"><span class="pre">pandas</span></code> through the built-in <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> data frame method, and also have equivalent functions in <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>.  In <code class="docutils literal notranslate"><span class="pre">pandas</span></code> plotting, if no data arguments are passed to the <code class="docutils literal notranslate"><span class="pre">plot</span></code> method, <code class="docutils literal notranslate"><span class="pre">pandas</span></code> will assume that the x-axis values are in the index, and then will plot numeric columns as data series.  For example, we can create a bar plot below.  Also notice the use of the <code class="docutils literal notranslate"><span class="pre">sns.set()</span></code> function.  Within <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>, you can choose from a variety of built-in plot templates: <code class="docutils literal notranslate"><span class="pre">&quot;white&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;dark</span></code>”, <code class="docutils literal notranslate"><span class="pre">&quot;darkgrid&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;whitegrid&quot;</span></code>, and <code class="docutils literal notranslate"><span class="pre">&quot;ticks&quot;</span></code>, and you can use the <code class="docutils literal notranslate"><span class="pre">set</span></code> function to make all of your plots in this particular style.</p>
 <p>Additionally, we can modify underlying figure characteristics with the <code class="docutils literal notranslate"><span class="pre">rc</span></code> parameter in <code class="docutils literal notranslate"><span class="pre">sns.set()</span></code>. This allows you to specify the output figure width and height in inches; the code below will tell seaborn to make 10 inch by 8 inch plots, which will be more legible than the defaults.</p>
@@ -378,7 +487,7 @@
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;median_age&#39;, ylabel=&#39;county&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/05-multivariate-visualization_6_1.png" src="_images/05-multivariate-visualization_6_1.png" />
+<img alt="_images/62d6e01d19a13227e9d26cd832fae7ea5483705052bbd2422e4d1783138b8b96.png" src="_images/62d6e01d19a13227e9d26cd832fae7ea5483705052bbd2422e4d1783138b8b96.png" />
 </div>
 </div>
 <p>Looks good!  There is much more you can do with the plot - customizing colors, axis labels, and beyond.  We’ll be addressing plot customization beginning in Week 10.  However, there are still some small things that we can do to make our plots more readable.  Recall from class our discussion of the <code class="docutils literal notranslate"><span class="pre">.sort_values()</span></code> data frame method, in which we can arrange our data based on one or more column values.  When creating bar charts, it is a good idea to show sorted data values, which makes it easier for the reader to make comparisons.</p>
@@ -408,7 +517,7 @@
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;median_age&#39;, ylabel=&#39;county&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/05-multivariate-visualization_8_1.png" src="_images/05-multivariate-visualization_8_1.png" />
+<img alt="_images/f838843a951ccb3ae0454c612c135647adc5a6bfdbec17be4be950223b9b3b74.png" src="_images/f838843a951ccb3ae0454c612c135647adc5a6bfdbec17be4be950223b9b3b74.png" />
 </div>
 </div>
 <p>Sorting the data allows us to more clearly see how the values vary.  However, as we discussed in class, it is essential that bar charts have an origin of 0, as bar heights are used to make comparisons.  For values that are similar - but for which the differences are still significant - the <strong>dot plot</strong> may be preferable, which represents values by the position of dots along a a value axis.  Indeed, many data visualization experts prefer dot plots to bar charts, as they argue that it is easier for humans to perceive dot position instead of bar heights.  Further, dot plots are not constrained by the zero-axis-origin rule.</p>
@@ -423,12 +532,12 @@
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;median_age&#39;, ylabel=&#39;county&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/05-multivariate-visualization_10_1.png" src="_images/05-multivariate-visualization_10_1.png" />
+<img alt="_images/5855350208aa91b05671ff63f6f42612ceeff7083178828ba25e084162002c8d.png" src="_images/5855350208aa91b05671ff63f6f42612ceeff7083178828ba25e084162002c8d.png" />
 </div>
 </div>
-</div>
-<div class="section" id="scatter-plots">
-<h2>Scatter plots<a class="headerlink" href="#scatter-plots" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="scatter-plots">
+<h2>Scatter plots<a class="headerlink" href="#scatter-plots" title="Permalink to this heading">#</a></h2>
 <p>Bar charts and dot plots are excellent choices for visualizing quantitative variations amongst different categories, like countries.  However: what if you want to visualize how two quantitative attributes might covary?  The most common exploratory visualization technique for this type of scenario is the <strong>scatter plot</strong>.</p>
 <p>Scatter plots most closely resemble the base <strong>Cartesian coordinate system</strong> that underpins the charts we’ve learned how to make to this point.  In fact, scatter plots are likely familiar to you from grade-school mathematics in the way they represent the joint distributions of two attributes.  The value for one attribute is represented by the x-coordinate (the horizontal axis) on the chart, and the other attribute is represented by the y-coordinate (the vertical axis).</p>
 <p>Let’s give this a try.  We’ll be comparing the distributions of counties’ educational attainment, as measured by the percentage of residents age 25 and up with at least a 4-year college degree, and the median annual income for households in New Mexico’s counties.  Briefly, let’s examine the characteristics of our data.</p>
@@ -527,7 +636,7 @@
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;pct_college&#39;, ylabel=&#39;hhincome&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/05-multivariate-visualization_14_1.png" src="_images/05-multivariate-visualization_14_1.png" />
+<img alt="_images/735a5888880b9f39d8c61b2630e05aadf820fb627248ff50f4151ee760625a1b.png" src="_images/735a5888880b9f39d8c61b2630e05aadf820fb627248ff50f4151ee760625a1b.png" />
 </div>
 </div>
 <p>Notice the shape formed by the distribution of dots.  It appears from our plot that as educational attainment increases, household income increases as well, suggesting a <strong>positive relationship</strong> between the two distributions.  Recall from class that this statistical relationship can be quantified with a <strong>correlation coefficient</strong>.  Let’s check this out by using the <code class="docutils literal notranslate"><span class="pre">.corr()</span></code> method available to us in <code class="docutils literal notranslate"><span class="pre">pandas</span></code>:</p>
@@ -552,10 +661,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fd3dfad2460&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f101cf68a00&gt;
 </pre></div>
 </div>
-<img alt="_images/05-multivariate-visualization_18_1.png" src="_images/05-multivariate-visualization_18_1.png" />
+<img alt="_images/dfab9193af371637f979deddae4492919a71ac00541a3a11097e138e05fb5a1e.png" src="_images/dfab9193af371637f979deddae4492919a71ac00541a3a11097e138e05fb5a1e.png" />
 </div>
 </div>
 <p>The plot is similar, but notice the superimposition of a <strong>regression line</strong> over the dots.  You can think of this line as a visual representation of the correlation between the two variables; the upward slope, again, suggests a positive relationship.  This line also presumes that the relationship between the two variables is <strong>linear</strong>, which is not always the case; we’ll discuss this a bit more later in the semester.</p>
@@ -567,10 +676,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.JointGrid at 0x7fd3df94eb80&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.JointGrid at 0x7f101cc26c70&gt;
 </pre></div>
 </div>
-<img alt="_images/05-multivariate-visualization_20_1.png" src="_images/05-multivariate-visualization_20_1.png" />
+<img alt="_images/623db02554d089f4a5222fd6877e6a2c7082a1375752795fa5c8b157d0329c17.png" src="_images/623db02554d089f4a5222fd6877e6a2c7082a1375752795fa5c8b157d0329c17.png" />
 </div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">seaborn</span></code> draws a scatter plot, but with histograms of the two data distributions on the margins!  Additionally, the <code class="docutils literal notranslate"><span class="pre">sns.scatterplot()</span></code> function can map other variables onto the hue, style, or size of the points drawn.  For example, we can visualize our relationship as we did before, but this time with dots sized by county median age:</p>
@@ -584,13 +693,13 @@
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;pct_college&#39;, ylabel=&#39;hhincome&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/05-multivariate-visualization_22_1.png" src="_images/05-multivariate-visualization_22_1.png" />
+<img alt="_images/6696e1ed24d5cfdd2394756ef68344194fdcf0ae952537cbea9668d4bd39d281.png" src="_images/6696e1ed24d5cfdd2394756ef68344194fdcf0ae952537cbea9668d4bd39d281.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="exercises">
-<h1>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h1>
+</section>
+</section>
+<section id="exercises">
+<h1>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h1>
 <p>As usual, I’ll ask you to do some of this on your own now in the form of a few small exercises.  Take care to answer all of the questions!</p>
 <p><strong>Exercise 1</strong>: Explain, in your own words, the differences between a bar chart and a dot plot.  When might one of these charts be preferable to the other?  Write your response below in this Markdown cell.</p>
 <hr class="docutils" />
@@ -602,7 +711,7 @@
 <p>Use the cell below to read in the dataset <code class="docutils literal notranslate"><span class="pre">texas.csv</span></code>, which is located in your assignment folder.</p>
 <p><strong>Exercise 4</strong>: Use <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> to draw a scatter plot that shows the relationship between poverty rates and broadband internet access.</p>
 <p><strong>Exercise 5:</strong> Calculate the correlation coefficient for counties’ poverty rates and broadband internet access.  What appears to be the relationship between the two variables?  Does this represent a <em>spurious</em> correlation, in your opinion?</p>
-</div>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -616,7 +725,7 @@
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
@@ -624,56 +733,111 @@
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-        
-            
 
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="04-univariate-data-analysis.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Assignment 4: Univariate data analysis</p>
-            </div>
-        </a>
-    </div>
-     <div id="next">
-        <a class="right-next" href="06-data-wrangling.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Assignment 6: Data wrangling I</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
-</div>
-        
-        </div>
-    </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Kyle Walker<br/>
-        
-            &copy; Copyright 2022.<br/>
-      </p>
-    </div>
-  </footer>
-</main>
-
-
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="04-univariate-data-analysis.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Assignment 4: Univariate data analysis</p>
       </div>
-    </div>
+    </a>
+    <a class="right-next"
+       href="06-data-wrangling.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Assignment 6: Data wrangling I</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
   
-  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+</div>
 
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Assignment 5: Multivariate exploratory visualization</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bar-charts-and-dot-plots">Bar charts and dot plots</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scatter-plots">Scatter plots</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kyle Walker
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

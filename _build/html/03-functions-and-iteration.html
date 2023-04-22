@@ -1,315 +1,398 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>Assignment 3: Functions, conditional statements, and iteration in Python &#8212; GEOG 30323: Data Analysis &amp; Visualization</title>
-    
-  <link href="_static/css/theme.css" rel="stylesheet" />
-  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '03-functions-and-iteration';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Assignment 4: Univariate data analysis" href="04-univariate-data-analysis.html" />
     <link rel="prev" title="Assignment 2: Introduction to Python" href="02-intro-to-python.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+  
+  <div class="sidebar-header-items sidebar-primary__section">
     
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="index.html">
-      
-      
-      
-      <h1 class="site-logo" id="site-title">GEOG 30323: Data Analysis & Visualization</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="index.html">
-   Welcome
-  </a>
- </li>
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">GEOG 30323: Data Analysis & Visualization</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Welcome
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01-data-journalism.html">Assignment 1: Data journalism</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-intro-to-python.html">Assignment 2: Introduction to Python</a></li>
+
+
+
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Assignment 3: Functions, conditional statements, and iteration in Python</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="04-univariate-data-analysis.html">Assignment 4: Univariate data analysis</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="05-multivariate-visualization.html">Assignment 5: Multivariate exploratory visualization</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="06-data-wrangling.html">Assignment 6: Data wrangling I</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="07-wrangling-data-from-apis.html">Assignment 7: Wrangling data from APIs</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="08-data-visualization.html">Assignment 8: Data visualization</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="09-geographic-mapbox.html">Assignment 9: Geographic visualization with Mapbox Studio</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="10-tableau.html">Assignment 10: Building a dashboard with Tableau</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11-data-ethics.html">Assignment 11: Data ethics</a></li>
 </ul>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="01-data-journalism.html">
-   Assignment 1: Data journalism
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="02-intro-to-python.html">
-   Assignment 2: Introduction to Python
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Assignment 3: Functions, conditional statements, and iteration in Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="04-univariate-data-analysis.html">
-   Assignment 4: Univariate data analysis
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="05-multivariate-visualization.html">
-   Assignment 5: Multivariate exploratory visualization
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="06-data-wrangling.html">
-   Assignment 6: Data wrangling I
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="07-wrangling-data-from-apis.html">
-   Assignment 7: Wrangling data from APIs
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="08-data-visualization.html">
-   Assignment 8: Data visualization
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="09-geographic-mapbox.html">
-   Assignment 9: Geographic visualization with Mapbox Studio
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="10-tableau.html">
-   Assignment 10: Building a dashboard with Tableau
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="11-data-ethics.html">
-   Assignment 11: Data ethics
-  </a>
- </li>
-</ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/03-functions-and-iteration.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+</nav></div>
     </div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
-            <!-- Source interaction buttons -->
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
+<div class="sbt-scroll-pixel-helper"></div>
 
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/walkerke/geog30323/master?urlpath=tree/03-functions-and-iteration.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <a class="colab-button" href="https://colab.research.google.com/github/walkerke/geog30323/blob/master/03-functions-and-iteration.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
-                    src="_static/images/logo_colab.png"
-                    alt="Interact on Colab">Colab</button></a>
-        
-        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
-</div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
 
-        </div>
+<div class="article-header-buttons">
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Assignment 3: Functions, conditional statements, and iteration in Python
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-return-statement">
-     The ‘return’ statement
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#python-and-whitespace">
-     Python and whitespace
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#named-arguments">
-     Named arguments
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#docstrings-and-documenting-your-code">
-     Docstrings and documenting your code
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#booleans-and-conditional-statements">
-     Booleans and conditional statements
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#loops">
-     Loops
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#the-while-loop">
-       The
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         while
-        </span>
-       </code>
-       loop
-      </a>
-     </li>
-    </ul>
-   </li>
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/walkerke/geog30323/blob/master/03-functions-and-iteration.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
   </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercises">
-   Exercises
-  </a>
- </li>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/03-functions-and-iteration.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Assignment 3: Functions, conditional statements, and iteration in Python</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Assignment 3: Functions, conditional statements, and iteration in Python</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-return-statement">The ‘return’ statement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-and-whitespace">Python and whitespace</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#named-arguments">Named arguments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#docstrings-and-documenting-your-code">Docstrings and documenting your code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#booleans-and-conditional-statements">Booleans and conditional statements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loops">Loops</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-while-loop">The <code class="docutils literal notranslate"><span class="pre">while</span></code> loop</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
 </ul>
 
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
+
+              
                 
-  <div class="section" id="assignment-3-functions-conditional-statements-and-iteration-in-python">
-<h1>Assignment 3: Functions, conditional statements, and iteration in Python<a class="headerlink" href="#assignment-3-functions-conditional-statements-and-iteration-in-python" title="Permalink to this headline">¶</a></h1>
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="assignment-3-functions-conditional-statements-and-iteration-in-python">
+<h1>Assignment 3: Functions, conditional statements, and iteration in Python<a class="headerlink" href="#assignment-3-functions-conditional-statements-and-iteration-in-python" title="Permalink to this heading">#</a></h1>
 <p>Congratulations on completing your first Python assignment!  You’ll be progressively building on those core skills throughout the semester.</p>
 <p>In this week’s notebook, you are first going to learn about functions.  Functions are in some ways the bread-and-butter of Python programming.  They make code re-usable, as they allow you to apply your code in other contexts and circumstances.  You can think about functions this way: while variables store elements of your code (e.g. numbers, strings, lists), functions can store entire chunks of your code, which can in turn be re-used as necessary.</p>
 <p>Functions include a <strong>definition</strong> and <strong>parameters</strong>, and are specified with <code class="docutils literal notranslate"><span class="pre">def</span></code> as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">myfunction</span><span class="p">(</span><span class="n">parameter1</span><span class="p">,</span> <span class="n">parameter2</span><span class="p">,</span> <span class="n">parameter3</span><span class="p">):</span> 
-    <span class="sd">&quot;&quot;&quot;Your code goes here&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Your code goes here&quot;&quot;&quot;</span>
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">def</span></code> command allows you to introduce a function definition.  You then specify the <strong>parameters</strong> within parentheses following the function name, which are like variables that operate within your function.  A colon (<code class="docutils literal notranslate"><span class="pre">:</span></code>) then follows the parentheses, and the contents of the function are found beginning on the next line as an indented code block (more on indentation soon).</p>
@@ -376,8 +459,8 @@
 </div>
 </div>
 </div>
-<div class="section" id="the-return-statement">
-<h2>The ‘return’ statement<a class="headerlink" href="#the-return-statement" title="Permalink to this headline">¶</a></h2>
+<section id="the-return-statement">
+<h2>The ‘return’ statement<a class="headerlink" href="#the-return-statement" title="Permalink to this heading">#</a></h2>
 <p>In the above examples, we’ve created functions that print some result to our screen when called.  Often, however, we want our functions to work as part of a larger workflow.  This is accomplished with the <code class="docutils literal notranslate"><span class="pre">return</span></code> statement, which allows the output of functions to be assigned to a new variable.</p>
 <p>For example, let’s try to assign the result of the <code class="docutils literal notranslate"><span class="pre">divide_by_two</span></code> function to a new variable:</p>
 <div class="cell docutils container">
@@ -427,12 +510,12 @@
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="python-and-whitespace">
-<h2>Python and whitespace<a class="headerlink" href="#python-and-whitespace" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="python-and-whitespace">
+<h2>Python and whitespace<a class="headerlink" href="#python-and-whitespace" title="Permalink to this heading">#</a></h2>
 <p>You may have noticed that the statements that follow the function definitions above are <strong>indented</strong>.  Python code obeys <strong>whitespace</strong> for code organization.  In many languages, functions, loops, and conditional logic (which we’ll get to next week), etc. are organized with curly braces, like the equivalent R code below:</p>
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">divide_by_two</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nf">return</span><span class="p">(</span><span class="n">x</span> <span class="o">/</span> <span class="m">2</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">divide_by_two</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nf">return</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">2</span><span class="p">)</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -453,9 +536,9 @@
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="named-arguments">
-<h2>Named arguments<a class="headerlink" href="#named-arguments" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="named-arguments">
+<h2>Named arguments<a class="headerlink" href="#named-arguments" title="Permalink to this heading">#</a></h2>
 <p>Later in the semester, we’ll get started using external libraries to do our work, which have many pre-built functions for accomplishing data analysis tasks.  Many of these functions are very flexible - which means they have a lot of parameters!  It turn, it can be helpful to keep your code organized when you are working with multiple parameters in a function.</p>
 <p>There are a couple ways to supply multiple arguments to a function in Python:</p>
 <ul class="simple">
@@ -544,15 +627,15 @@
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-17-70aecaebdf6f&gt;&quot;</span><span class="gt">, line </span><span class="mi">1</span>
     <span class="n">subtract</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
-                      <span class="o">^</span>
+                     <span class="o">^</span>
 <span class="ne">SyntaxError</span>: positional argument follows keyword argument
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="docstrings-and-documenting-your-code">
-<h2>Docstrings and documenting your code<a class="headerlink" href="#docstrings-and-documenting-your-code" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="docstrings-and-documenting-your-code">
+<h2>Docstrings and documenting your code<a class="headerlink" href="#docstrings-and-documenting-your-code" title="Permalink to this heading">#</a></h2>
 <p>You’ve already learned how to use comments to document your code with the <code class="docutils literal notranslate"><span class="pre">#</span></code> operator, like this:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># I just commented out this line!</span>
 </pre></div>
@@ -561,7 +644,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">subtract</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Subtract one number from another.</span>
 
 <span class="sd">    Parameters:</span>
@@ -615,9 +698,9 @@ subtract(x, y)
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="booleans-and-conditional-statements">
-<h2>Booleans and conditional statements<a class="headerlink" href="#booleans-and-conditional-statements" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="booleans-and-conditional-statements">
+<h2>Booleans and conditional statements<a class="headerlink" href="#booleans-and-conditional-statements" title="Permalink to this heading">#</a></h2>
 <p>The above functions we’ve written perform the same operations for any input values that are passed to them.  When writing programs, however, you’ll often have to design them to be flexible to user input where outcomes may vary based on what users supply to the program.  In regards to data analysis, you might want to produce a particular type of chart if the data are structured a certain way, which wouldn’t work in another scenario.  You can build this type of logic into your programs with <strong>conditional statements</strong>.</p>
 <p>Before we get into this, however, I want to introduce <strong>booleans</strong> in Python.  You may have heard this term before in other classes.  Booleans in Python are the values <code class="docutils literal notranslate"><span class="pre">True</span></code> and <code class="docutils literal notranslate"><span class="pre">False</span></code>; they can be used to evaluate, understandably, if a condition is true or not.  For example:</p>
 <div class="cell docutils container">
@@ -727,9 +810,9 @@ subtract(x, y)
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="loops">
-<h2>Loops<a class="headerlink" href="#loops" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="loops">
+<h2>Loops<a class="headerlink" href="#loops" title="Permalink to this heading">#</a></h2>
 <p>In programming, you will often want to do an operation multiple times, or carry out some process over a list of values that you’ve created.  To do this, you will frequently turn to <strong>iterators</strong>.</p>
 <p>The most commonly used iterators in Python are <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code>.  A <code class="docutils literal notranslate"><span class="pre">for</span></code> loop carries out an action, or set of actions, for every element that you tell it to.  Let’s give it a try in very simple terms.  I’ve created a list of teams in the Big 12 below; we’ll loop through this list with <code class="docutils literal notranslate"><span class="pre">for</span></code> and concatenate another string to each element.</p>
 <div class="cell docutils container">
@@ -921,8 +1004,8 @@ The index of y is 25
 </div>
 </div>
 </div>
-<div class="section" id="the-while-loop">
-<h3>The <code class="docutils literal notranslate"><span class="pre">while</span></code> loop<a class="headerlink" href="#the-while-loop" title="Permalink to this headline">¶</a></h3>
+<section id="the-while-loop">
+<h3>The <code class="docutils literal notranslate"><span class="pre">while</span></code> loop<a class="headerlink" href="#the-while-loop" title="Permalink to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">for</span></code> is not the only loop you’ll come across in Python.  You can also specify a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop, which will run a loop until a given condition is satisfied.  I’ll give you an example below.  Let’s say you only want to return the first five elements of your list.  While you could do this with indexing (which is simpler), let’s try the <code class="docutils literal notranslate"><span class="pre">while</span></code> loop instead.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -950,11 +1033,11 @@ The index of y is 25
 </div>
 <p>Have a look at what we did.  We created an empty list, and set a new variable, <code class="docutils literal notranslate"><span class="pre">i</span></code>, to 0.  We then looped through the elements of the list index by index, adding 1 to <code class="docutils literal notranslate"><span class="pre">i</span></code> with each run of the loop, and then stopping the code when <code class="docutils literal notranslate"><span class="pre">i</span></code> became equal to 5.  In turn, we got back the elements of the <code class="docutils literal notranslate"><span class="pre">big12</span></code> list indexed 0 to 4, which are the first five elements.</p>
 <p>Be careful with while loops, however.  If you don’t specify them correctly, you can get stuck in an infinite loop, which will not stop!  For example, if we had not continued to add 1 to <code class="docutils literal notranslate"><span class="pre">i</span></code>, the loop would have never stopped and would have kept iterating through the list.  This can cause your computer to lock up, as it is infinitely trying to carry out an operation!  I’ve been there a few times…</p>
-</div>
-</div>
-</div>
-<div class="section" id="exercises">
-<h1>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h1>
+</section>
+</section>
+</section>
+<section id="exercises">
+<h1>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h1>
 <p>As with the previous Jupyter Notebook you worked with, I’ll ask you to complete a series of small exercises below to get full credit for this week’s assignment.  Some of these exercises will build upon the skills you learned last week - so be prepared!</p>
 <p><strong>Exercise 1:</strong> Explain, in your own words, the difference between using <code class="docutils literal notranslate"><span class="pre">print</span></code> and <code class="docutils literal notranslate"><span class="pre">return</span></code> for the output of a function.  Write your response below, in this Markdown cell.</p>
 <p><strong>Exercise 2:</strong> Write a function called <code class="docutils literal notranslate"><span class="pre">make_big</span></code> that takes a lowercase string as input and prints the string with all capital letters.  Create a new variable and assign to it a string with all lowercase letters, then call the <code class="docutils literal notranslate"><span class="pre">make_big</span></code> function with that variable as its argument.</p>
@@ -1088,7 +1171,7 @@ Who do we appreciate?
 </div>
 </div>
 </div>
-</div>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1102,7 +1185,7 @@ Who do we appreciate?
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
@@ -1110,56 +1193,118 @@ Who do we appreciate?
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-        
-            
 
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="02-intro-to-python.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Assignment 2: Introduction to Python</p>
-            </div>
-        </a>
-    </div>
-     <div id="next">
-        <a class="right-next" href="04-univariate-data-analysis.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Assignment 4: Univariate data analysis</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
-</div>
-        
-        </div>
-    </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Kyle Walker<br/>
-        
-            &copy; Copyright 2022.<br/>
-      </p>
-    </div>
-  </footer>
-</main>
-
-
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="02-intro-to-python.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Assignment 2: Introduction to Python</p>
       </div>
-    </div>
+    </a>
+    <a class="right-next"
+       href="04-univariate-data-analysis.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Assignment 4: Univariate data analysis</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
   
-  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+</div>
 
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Assignment 3: Functions, conditional statements, and iteration in Python</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-return-statement">The ‘return’ statement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-and-whitespace">Python and whitespace</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#named-arguments">Named arguments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#docstrings-and-documenting-your-code">Docstrings and documenting your code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#booleans-and-conditional-statements">Booleans and conditional statements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loops">Loops</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-while-loop">The <code class="docutils literal notranslate"><span class="pre">while</span></code> loop</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kyle Walker
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
