@@ -1,7 +1,7 @@
 ---
 title: "Introduction to machine learning"
 author: GEOG 30323
-date: April 19, 2022
+date: April 25, 2023
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
