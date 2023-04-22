@@ -1,7 +1,7 @@
 ---
 title: "Data ethics"
 author: GEOG 30323
-date: April 26, 2022
+date: May 2, 2023
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
@@ -39,7 +39,7 @@ output:
 
 * Location-based services and mobile data analysis
 
-* Contact tracing for public health: COVID-19
+* Ethical usage of ChatGPT
 
 * Predictive policing
 
@@ -59,15 +59,13 @@ output:
 
 ---
 
-### Contact tracing for public health
-
-<img src=img/contact_tracing.jpg style="width: 750px"><figcaption>[More information from Google](https://blog.google/inside-google/company-announcements/apple-and-google-partner-covid-19-contact-tracing-technology)</figcaption>
+## ChatGPT: discussion and overview
 
 ---
 
-### Contact tracing for public health
+### ChatGPT
 
-* Reaction article: [Big Data Is Helping Us Fight The Coronavirus — But At What Cost To Our Privacy? (_FiveThirtyEight_)](https://fivethirtyeight.com/features/big-data-is-helping-us-fight-the-coronavirus-but-at-what-cost-to-our-privacy/)
+* Reaction article: [How to Use ChatGPT and Still Be a Good Person (New York Times)](https://www.nytimes.com/2022/12/21/technology/personaltech/how-to-use-chatgpt-ethically.html)
 
 ---
 
