@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="author" content="GEOG 30323" />
-  <meta name="dcterms.date" content="2022-04-12" />
+  <meta name="dcterms.date" content="2023-04-18" />
   <title>Data communication and interactive visualization</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -508,22 +508,24 @@ style.innerHTML = style_script;
 document.getElementsByTagName('head')[0].appendChild(style);
 </script>
 
-    <script src="index_files/header-attrs-2.11/header-attrs.js"></script>
+    <script src="index_files/header-attrs-2.14/header-attrs.js"></script>
 </head>
 <body>
   <div class="reveal">
     <div class="slides">
 
 <section>
-    <h1 class="title">Data communication and interactive visualization</h1>
+    <h1 class="title">Data communication and interactive
+visualization</h1>
     <h2 class="author">GEOG 30323</h2>
-    <h3 class="date">April 12, 2022</h3>
+    <h3 class="date">April 18, 2023</h3>
 </section>
 
 <section id="course-recap" class="slide level2">
 <h2>Course recap</h2>
 <ul>
-<li>Thus far: we’ve focused on <em>exploratory data analysis</em>, which involves data wrangling, summarization, and visualization</li>
+<li>Thus far: we’ve focused on <em>exploratory data analysis</em>, which
+involves data wrangling, summarization, and visualization</li>
 <li>Your data analysis journey shouldn’t stop here! Topics to consider:
 <ul>
 <li><em>Explanatory</em> vs. exploratory visualization</li>
@@ -536,7 +538,8 @@ document.getElementsByTagName('head')[0].appendChild(style);
 
 <h3 id="communicating-with-data">Communicating with data</h3>
 <ul>
-<li>Once you’ve done all of the hard work wrangling your data, you’ll want to communicate insights to others!</li>
+<li>Once you’ve done all of the hard work wrangling your data, you’ll
+want to communicate insights to others!</li>
 <li>This might include:
 <ul>
 <li>Polished data products or reports</li>
@@ -548,8 +551,12 @@ document.getElementsByTagName('head')[0].appendChild(style);
 
 <h3 id="explanatory-visualization">Explanatory visualization</h3>
 <ul>
-<li>We’ve largely worked to this point with <em>exploratory visualization</em>, which refers to internally-facing visualizations that help us reveal insights about our data</li>
-<li>Often, externally-facing data products will include <em>explanatory visualization</em>, which include a polished design and emphasize one or two key points</li>
+<li>We’ve largely worked to this point with <em>exploratory
+visualization</em>, which refers to internally-facing visualizations
+that help us reveal insights about our data</li>
+<li>Often, externally-facing data products will include <em>explanatory
+visualization</em>, which include a polished design and emphasize one or
+two key points</li>
 </ul>
 </section>
 <section class="slide level2">
@@ -557,15 +564,20 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <h3 id="infographics">Infographics</h3>
 <p>Obesity infographics:</p>
 <ul>
-<li><a href="http://visual.ly/72-million-obese-adults-united-states">Example #1</a></li>
-<li><a href="https://s-media-cache-ak0.pinimg.com/736x/41/4b/1b/414b1b7627feca460785a8eb749c2f38.jpg">Example #2</a></li>
+<li><a
+href="http://visual.ly/72-million-obese-adults-united-states">Example
+#1</a></li>
+<li><a
+href="https://s-media-cache-ak0.pinimg.com/736x/41/4b/1b/414b1b7627feca460785a8eb749c2f38.jpg">Example
+#2</a></li>
 </ul>
 </section>
 <section class="slide level2">
 
 <h3 id="are-infographics-useful">Are infographics useful?</h3>
 <ul>
-<li>XKCD: <a href="https://xkcd.com/1273/" class="uri">https://xkcd.com/1273/</a></li>
+<li>XKCD: <a href="https://xkcd.com/1273/"
+class="uri">https://xkcd.com/1273/</a></li>
 </ul>
 </section>
 <section class="slide level2">
@@ -573,7 +585,9 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <h3 id="interactive-reports">Interactive reports</h3>
 <ul>
 <li>Example: a data journalism article - or your Jupyter Notebook!</li>
-<li>Key distinction: your code, data exploration, etc. will likely be external to the report (this can vary depending on the context, however)</li>
+<li>Key distinction: your code, data exploration, etc. will likely be
+external to the report (this can vary depending on the context,
+however)</li>
 </ul>
 </section>
 <section class="slide level2">
@@ -584,34 +598,43 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </section>
 <section class="slide level2">
 
-<h3 id="why-interactive-visualization">Why interactive visualization?</h3>
+<h3 id="why-interactive-visualization">Why interactive
+visualization?</h3>
 <ul>
-<li>User is an <em>active participant</em> rather than a <em>passive observer</em></li>
+<li>User is an <em>active participant</em> rather than a <em>passive
+observer</em></li>
 <li>Key points to consider:
 <ul>
 <li>What are you visualizing?</li>
 <li>What is the purpose of your visualization?</li>
 <li>Who is your audience?</li>
-<li>In what format and venue will you be presenting the visualization?</li>
+<li>In what format and venue will you be presenting the
+visualization?</li>
 </ul></li>
 </ul>
 </section>
 <section class="slide level2">
 
 <h3 id="interactive-data-journalism">Interactive data journalism</h3>
-<a href="http://www.nytimes.com/interactive/2014/08/13/upshot/where-people-in-each-state-were-born.html?_r=0#Texas"><img src=img/nyt-migration.PNG style="width: 900px"></a>
+<a
+href="http://www.nytimes.com/interactive/2014/08/13/upshot/where-people-in-each-state-were-born.html?_r=0#Texas"><img src=img/nyt-migration.PNG style="width: 900px"></a>
 <figcaption>
 Source: <em>The New York Times</em>
 </figcaption>
 </section>
 <section class="slide level2">
 
-<h3 id="interactivity-in-the-notebook">Interactivity in the Notebook</h3>
+<h3 id="interactivity-in-the-notebook">Interactivity in the
+Notebook</h3>
 <ul>
-<li>The <code>ipywidgets</code> package allows you to build basic graphical user interfaces (GUIs) to explore your data in the Notebook</li>
-<li>How it works: supply a function to the <code>interact</code> function in <code>ipywidgets</code></li>
+<li>The <code>ipywidgets</code> package allows you to build basic
+graphical user interfaces (GUIs) to explore your data in the
+Notebook</li>
+<li>How it works: supply a function to the <code>interact</code>
+function in <code>ipywidgets</code></li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ipywidgets <span class="im">import</span> interact</span>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ipywidgets <span class="im">import</span> interact</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> add_five(x): </span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(x <span class="op">+</span> <span class="dv">5</span>)</span>
@@ -620,7 +643,8 @@ Source: <em>The New York Times</em>
 </section>
 <section id="interactivity-with-plots" class="slide level2">
 <h2>Interactivity with plots</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -630,14 +654,16 @@ Source: <em>The New York Times</em>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_plot(x, y, title): </span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    sns.lmplot(data <span class="op">=</span> mx, x <span class="op">=</span> x, y <span class="op">=</span> y)</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    plt.title(title)    </span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>interact(make_plot, x <span class="op">=</span> cols, y <span class="op">=</span> cols, title <span class="op">=</span> <span class="st">&quot;Enter a plot title!&quot;</span>)</span></code></pre></div>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    plt.title(title)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>interact(make_plot, x <span class="op">=</span> cols, y <span class="op">=</span> cols, title <span class="op">=</span> <span class="st">&quot;Enter a plot title!&quot;</span>)</span></code></pre></div>
 </section>
 <section class="slide level2">
 
 <h3 id="widgets-not-just-for-plots">Widgets: not just for plots!</h3>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_accidents(street_name): </span>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_accidents(street_name): </span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    part1 <span class="op">=</span> <span class="st">&#39;https://data.fortworthtexas.gov/resource/kr8h-9zxd.json?streetname=&#39;</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    api_call <span class="op">=</span> part1 <span class="op">+</span> street_name</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pd.read_json(api_call)</span>
@@ -650,22 +676,30 @@ Source: <em>The New York Times</em>
 </section>
 <section id="ipywidgets-fundamentals" class="slide level2">
 <h2>Ipywidgets fundamentals</h2>
-<p>Arguments used in <code>interact()</code> correspond to the following:</p>
+<p>Arguments used in <code>interact()</code> correspond to the
+following:</p>
 <ul>
-<li>A <strong>boolean</strong> (<code>True</code> or <code>False</code>) returns a <strong>checkbox</strong></li>
+<li>A <strong>boolean</strong> (<code>True</code> or <code>False</code>)
+returns a <strong>checkbox</strong></li>
 <li>A <strong>string</strong> returns a <strong>text input</strong></li>
-<li>A <strong>number</strong> (integer or float) returns a <strong>slider</strong></li>
-<li>A <strong>tuple of numbers</strong> (start, end, step size) returns a <strong>range slider</strong></li>
-<li>A <strong>list</strong> returns a <strong>drop-down menu</strong></li>
+<li>A <strong>number</strong> (integer or float) returns a
+<strong>slider</strong></li>
+<li>A <strong>tuple of numbers</strong> (start, end, step size) returns
+a <strong>range slider</strong></li>
+<li>A <strong>list</strong> returns a <strong>drop-down
+menu</strong></li>
 </ul>
 <p>Experiment with the functions you’ve written this semester!</p>
 </section>
 <section class="slide level2">
 
-<h3 id="interactive-visualization-and-the-web">Interactive visualization and the web</h3>
+<h3 id="interactive-visualization-and-the-web">Interactive visualization
+and the web</h3>
 <ul>
-<li>Analytical workflows have become increasingly connected to the web - or even completely web-based</li>
-<li>Interactive data visualization: graphics not just <em>on</em> the web, but <em>of</em> the web</li>
+<li>Analytical workflows have become increasingly connected to the web -
+or even completely web-based</li>
+<li>Interactive data visualization: graphics not just <em>on</em> the
+web, but <em>of</em> the web</li>
 </ul>
 </section>
 <section class="slide level2">
@@ -673,7 +707,9 @@ Source: <em>The New York Times</em>
 <h3 id="filtering-highlighting">Filtering &amp; highlighting</h3>
 <img src=img/cases.gif style="width: 500px">
 <figcaption>
-Image source: <a href="https://www.nytimes.com/interactive/2020/04/03/upshot/coronavirus-metro-area-tracker.html"><em>The New York Times</em></a>
+Image source: <a
+href="https://www.nytimes.com/interactive/2020/04/03/upshot/coronavirus-metro-area-tracker.html"><em>The
+New York Times</em></a>
 </figcaption>
 </section>
 <section class="slide level2">
@@ -681,21 +717,25 @@ Image source: <a href="https://www.nytimes.com/interactive/2020/04/03/upshot/cor
 <h3 id="linked-charts">Linked charts</h3>
 <img src=img/nigeria.gif style="width: 800px">
 <figcaption>
-<a href="https://rpubs.com/walkerke/nigeria-tfr">Link to live example</a>
+<a href="https://rpubs.com/walkerke/nigeria-tfr">Link to live
+example</a>
 </figcaption>
 </section>
 <section class="slide level2">
 
-<h3 id="interactive-visualization-in-python">Interactive visualization in Python</h3>
+<h3 id="interactive-visualization-in-python">Interactive visualization
+in Python</h3>
 <ul>
 <li><p><a href="https://altair-viz.github.io/">Altair</a></p></li>
-<li><p><a href="https://docs.bokeh.org/en/latest/index.html">Bokeh</a></p></li>
+<li><p><a
+href="https://docs.bokeh.org/en/latest/index.html">Bokeh</a></p></li>
 <li><p><a href="https://plotly.com/python/">Plotly</a></p></li>
 </ul>
 </section>
 <section id="altair-example" class="slide level2">
 <h2>Altair example</h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> altair <span class="im">as</span> alt</span>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> altair <span class="im">as</span> alt</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>alt.Chart(mx).mark_circle(size <span class="op">=</span> <span class="dv">60</span>).encode(</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> <span class="st">&quot;pri10&quot;</span>,</span>
@@ -708,7 +748,8 @@ Image source: <a href="https://www.nytimes.com/interactive/2020/04/03/upshot/cor
 <h3 id="tableau">Tableau</h3>
 <p><img src="https://www.senturus.com/wp-content/uploads/2016/04/Tableau-New-Logo-April-12-2016.jpg"></p>
 <ul>
-<li>Highly popular software for data visualization - both exploratory and explanatory</li>
+<li>Highly popular software for data visualization - both exploratory
+and explanatory</li>
 <li>Intuitive, drag-and-drop interface</li>
 <li>Key feature: the <em>dashboard</em></li>
 </ul>
@@ -717,15 +758,21 @@ Image source: <a href="https://www.nytimes.com/interactive/2020/04/03/upshot/cor
 
 <h3 id="data-dashboards">Data dashboards</h3>
 <ul>
-<li><a href="https://public.tableau.com/en-us/s/gallery?qt-overview_gallery=0">Tableau public gallery</a></li>
-<li><a href="https://public.tableau.com/views/TheTurtle/Tester?:embed=y&amp;:display_count=yes&amp;publish=yes&amp;:origin=viz_share_link&amp;:showVizHome=no#1">Integration with Mapbox</a></li>
+<li><a
+href="https://public.tableau.com/en-us/s/gallery?qt-overview_gallery=0">Tableau
+public gallery</a></li>
+<li><a href="https://www.mapbox.com/showcase/tableau">Integration with
+Mapbox</a></li>
 </ul>
 </section>
 <section class="slide level2">
 
 <h3 id="demo-tableau-public">Demo: Tableau Public</h3>
 <ul>
-<li>Let’s work with a (cleaned) obesity dataset you’ll be familiar with from earlier in the semester; download it at <a href="https://personal.tcu.edu/kylewalker/data/overweight.csv" class="uri">https://personal.tcu.edu/kylewalker/data/overweight.csv</a></li>
+<li>Let’s work with a (cleaned) obesity dataset you’ll be familiar with
+from earlier in the semester; download it at <a
+href="https://personal.tcu.edu/kylewalker/data/overweight.csv"
+class="uri">https://personal.tcu.edu/kylewalker/data/overweight.csv</a></li>
 </ul>
 <style>
 
@@ -758,8 +805,6 @@ h3 {
         controls: true,
         // Display a presentation progress bar
         progress: true,
-        // Display the page number of the current slide
-        slideNumber: false,
         // Push each slide change to the browser history
         history: true,
         // Enable keyboard shortcuts for navigation
@@ -770,15 +815,8 @@ h3 {
         center: true,
         // Enables touch navigation on devices with touch input
         touch: true,
-        // Loop the presentation
-        loop: false,
-        // Change the presentation direction to be RTL
-        rtl: false,
         // Turns fragments on and off globally
         fragments: true,
-        // Flags if the presentation is running in an embedded mode,
-        // i.e. contained within a limited portion of the screen
-        embedded: false,
         // Flags if we should show a help overlay when the questionmark
         // key is pressed
         help: true,
@@ -788,10 +826,6 @@ h3 {
         autoSlide: 0,
         // Stop auto-sliding after user input
         autoSlideStoppable: true,
-        // Enable slide navigation via mouse wheel
-        mouseWheel: false,
-        // Opens links in an iframe preview overlay
-        previewLinks: false,
         // Transition style
         transition: 'none', // none/fade/slide/convex/concave/zoom
         // Transition speed

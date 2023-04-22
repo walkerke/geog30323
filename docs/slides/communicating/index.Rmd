@@ -1,7 +1,7 @@
 ---
 title: "Data communication and interactive visualization"
 author: GEOG 30323
-date: April 12, 2022
+date: April 18, 2023
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
@@ -115,7 +115,8 @@ cols = ['mus09', 'pri10', 'sec10', 'ter10', 'gdp08']
 
 def make_plot(x, y, title): 
     sns.lmplot(data = mx, x = x, y = y)
-    plt.title(title)    
+    plt.title(title)
+    plt.show()
     
 interact(make_plot, x = cols, y = cols, title = "Enter a plot title!")
 ```
@@ -210,7 +211,7 @@ alt.Chart(mx).mark_circle(size = 60).encode(
 ### Data dashboards
 
 * [Tableau public gallery](https://public.tableau.com/en-us/s/gallery?qt-overview_gallery=0)
-* [Integration with Mapbox](https://public.tableau.com/views/TheTurtle/Tester?:embed=y&:display_count=yes&publish=yes&:origin=viz_share_link&:showVizHome=no#1)
+* [Integration with Mapbox](https://www.mapbox.com/showcase/tableau)
 
 ---
 
