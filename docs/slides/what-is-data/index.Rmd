@@ -1,7 +1,7 @@
 ---
 title: "What is data?"
 author: GEOG 30323
-date: January 17, 2023
+date: January 18, 2024
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
@@ -39,7 +39,7 @@ output:
 
 ## Policing
 
-<img src="https://technical.ly/philly/wp-content/uploads/sites/2/2012/11/philly_pd.jpg" style="width: 800px"><figcaption>Source: [technical.ly](https://technical.ly/philly/2012/11/20/philadelphia-police-gis-new-system-crime-tracking/)</figcaption>
+<img src="https://technical.ly/wp-content/uploads/2012/11/philly_pd.jpg" style="width: 800px"><figcaption>Source: [technical.ly](https://technical.ly/philly/2012/11/20/philadelphia-police-gis-new-system-crime-tracking/)</figcaption>
 
 ---
 
