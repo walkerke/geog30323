@@ -1,7 +1,7 @@
 ---
 title: "Multivariate data exploration"
 author: GEOG 30323
-date: February 21, 2023
+date: February 13, 2024
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
