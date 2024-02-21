@@ -1,7 +1,7 @@
 ---
 title: "Data wrangling"
 author: GEOG 30323
-date: February 28, 2023
+date: February 20, 2024
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
