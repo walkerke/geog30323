@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Assignment 9: Geographic visualization with Mapbox Studio &#8212; GEOG 30323: Data Analysis &amp; Visualization</title>
   
@@ -19,49 +18,45 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = '09-geographic-mapbox';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -76,7 +71,15 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -111,11 +114,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -130,6 +136,7 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="index.html">
@@ -138,10 +145,22 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+  
     <p class="title logo__title">GEOG 30323: Data Analysis & Visualization</p>
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -321,20 +340,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -377,10 +398,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section id="assignment-9-geographic-visualization-with-mapbox-studio">
-<h1>Assignment 9: Geographic visualization with Mapbox Studio<a class="headerlink" href="#assignment-9-geographic-visualization-with-mapbox-studio" title="Permalink to this heading">#</a></h1>
+<h1>Assignment 9: Geographic visualization with Mapbox Studio<a class="headerlink" href="#assignment-9-geographic-visualization-with-mapbox-studio" title="Link to this heading">#</a></h1>
 <p>In this assignment, the second-to-last of the semester, we will venture outside of the Python ecosystem to create interactive maps with Mapbox Studio.  You’ll be making an interactive map of public intoxication violations in Fort Worth, drawn from the same City crime dataset you worked with in Assignment 7.  You’ll explore methods for visualizing large amounts of point data and customize your map’s appearance..</p>
 <p>In this instance, you are going to upload a bulk CSV download that I’ve prepared for you from the City’s open data catalog.  The data as currently constituted are not quite ready for use in Mapbox Studio, so we’re going to clean it up a bit in <code class="docutils literal notranslate"><span class="pre">pandas</span></code> first.</p>
 <p>Mapbox Studio accepts data in many formats, such as CSV, GeoJSON, and zipped shapefile.   In this instance, our data are in CSV format.  Let’s read the data into <code class="docutils literal notranslate"><span class="pre">pandas</span></code> and have a look.</p>
@@ -548,9 +569,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False    1979
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Location
+False    1979
 True       44
-Name: Location, dtype: int64
+Name: count, dtype: int64
 </pre></div>
 </div>
 </div>
@@ -746,7 +768,7 @@ Name: Location, dtype: int64
 <p>Let’s now head over to Mapbox Studio at <a class="reference external" href="http://studio.mapbox.com">http://studio.mapbox.com</a>.</p>
 </section>
 <section id="setting-up-a-style-in-mapbox-studio">
-<h1>Setting up a Style in Mapbox Studio<a class="headerlink" href="#setting-up-a-style-in-mapbox-studio" title="Permalink to this heading">#</a></h1>
+<h1>Setting up a Style in Mapbox Studio<a class="headerlink" href="#setting-up-a-style-in-mapbox-studio" title="Link to this heading">#</a></h1>
 <p>If you don’t yet have a Mapbox Studio account, go ahead and sign up for one by clicking the “Sign up for Mapbox” link from the “Sign in” screen.  All you need to do is specify a username, email address, and password and agree to the Terms of Service, and you are good to go. Once you’ve established your account, you’ll be taken to the Mapbox Studio splash screen, which defaults to the “Styles” tab.  You won’t see any styles as you haven’t created any yet.  Click the “New style” button to get started.</p>
 <img src=img/styles1.png width = "1000px">
 <p>View the different templates available to you.  Given that we are plotting data over a basemap layer, I’d recommend using a template with more muted colors; I have a preference for the “Monochrome - Light” version given the way we’ll be visualizing our data but I’ll let you choose the template you like best.  Once you’ve selected a basemap template, click the “Customize” button to advance to the Mapbox Studio editor.</p>
@@ -755,7 +777,7 @@ Name: Location, dtype: int64
 <p><img alt="customized map" src="_images/map1.png" /></p>
 </section>
 <section id="loading-new-data-into-mapbox-studio">
-<h1>Loading new data into Mapbox Studio<a class="headerlink" href="#loading-new-data-into-mapbox-studio" title="Permalink to this heading">#</a></h1>
+<h1>Loading new data into Mapbox Studio<a class="headerlink" href="#loading-new-data-into-mapbox-studio" title="Link to this heading">#</a></h1>
 <p>Now that you’ve spent some time exploring Mapbox Studio and customizing your map, let’s add the public drunkenness data to the map as well to visualize it.  Follow these steps to upload your data and add it to the map:</p>
 <ol class="arabic simple">
 <li><p>Click “Layers” on the left-hand side of the screen and look for the plus sign icon.  This will bring up the “New layer” menu.</p></li>
@@ -769,7 +791,7 @@ Name: Location, dtype: int64
 <p>Once you’ve successfully added your tileset, click “Style” as instructed on the screen to style your layer.</p>
 </section>
 <section id="modifying-visualization-options-for-your-tileset">
-<h1>Modifying visualization options for your tileset<a class="headerlink" href="#modifying-visualization-options-for-your-tileset" title="Permalink to this heading">#</a></h1>
+<h1>Modifying visualization options for your tileset<a class="headerlink" href="#modifying-visualization-options-for-your-tileset" title="Link to this heading">#</a></h1>
 <p>By default, your points will show up as black dots on top of your basemap.  While this does show clusters of violations around the city, it is not the most visually pleasing representation of your data.  Let’s make some modifications to the data representation to show it in an alternative way.  Feel free to experiment with different style options; you can modify the circle radius, the color, blur and opacity, and other characteristics.</p>
 <p>You are not limited to styling your point data as circles, however.  Click the “Select data” option once more (ensuring first that your intoxication layer is still selected) and click the <strong>Type</strong> option.  From the options that appear, choose <strong>Heatmap</strong>.  Now, click <strong>Style</strong> once more to style your data as a heatmap.  You’ll note that your data no longer appears as points, but as a smoothed representation of where your points are concentrated.  My default view is the image below; yours may appear slightly different depending on how far you are currently zoomed in.</p>
 <img src=img/heatmap1.png style="width: 1000px">
@@ -805,7 +827,7 @@ Name: Location, dtype: int64
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;#443983&#39;, &#39;#31688e&#39;, &#39;#21918c&#39;, &#39;#35b779&#39;, &#39;#90d743&#39;]
 </pre></div>
 </div>
-<img alt="_images/8085af611690af135509fdc09c53d9e82b01e13aa9f305bc53bed514365781a8.png" src="_images/8085af611690af135509fdc09c53d9e82b01e13aa9f305bc53bed514365781a8.png" />
+<img alt="_images/6d784b1f86c2d74b36b7e2ee3c0b672bdfa6fe647606d88e701228e0cdd81e78.png" src="_images/6d784b1f86c2d74b36b7e2ee3c0b672bdfa6fe647606d88e701228e0cdd81e78.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -820,7 +842,7 @@ Name: Location, dtype: int64
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;#320a5e&#39;, &#39;#781c6d&#39;, &#39;#bc3754&#39;, &#39;#ed6925&#39;, &#39;#fbb61a&#39;]
 </pre></div>
 </div>
-<img alt="_images/9a30873933d35d0e0333d5730c803d901977b888fea0639a870cfe6234ec5d39.png" src="_images/9a30873933d35d0e0333d5730c803d901977b888fea0639a870cfe6234ec5d39.png" />
+<img alt="_images/17b780d79357c951fe453db69d435461b59be469c923ee65c33699693226cb7f.png" src="_images/17b780d79357c951fe453db69d435461b59be469c923ee65c33699693226cb7f.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -835,7 +857,7 @@ Name: Location, dtype: int64
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;#2c115f&#39;, &#39;#721f81&#39;, &#39;#b73779&#39;, &#39;#f1605d&#39;, &#39;#feb078&#39;]
 </pre></div>
 </div>
-<img alt="_images/facd93a7b9633def8b758e0827ccada633fa182fe7c0536763d69ee1c379b8bd.png" src="_images/facd93a7b9633def8b758e0827ccada633fa182fe7c0536763d69ee1c379b8bd.png" />
+<img alt="_images/3cb83d68d3fbee508c4ccc903796288141ddffa463191b4e48531b3a58988794.png" src="_images/3cb83d68d3fbee508c4ccc903796288141ddffa463191b4e48531b3a58988794.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -850,7 +872,7 @@ Name: Location, dtype: int64
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;#5c01a6&#39;, &#39;#9c179e&#39;, &#39;#cc4778&#39;, &#39;#ed7953&#39;, &#39;#fdb42f&#39;]
 </pre></div>
 </div>
-<img alt="_images/7a8c03668706d5de6d9070056382e2ad2d60293fc43f3aac3127be5a79a41970.png" src="_images/7a8c03668706d5de6d9070056382e2ad2d60293fc43f3aac3127be5a79a41970.png" />
+<img alt="_images/05ba4f92c68a15532036a329a1031ce5208a3273bbba227b1855f85147728290.png" src="_images/05ba4f92c68a15532036a329a1031ce5208a3273bbba227b1855f85147728290.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -865,7 +887,7 @@ Name: Location, dtype: int64
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;#2a3f6d&#39;, &#39;#575d6d&#39;, &#39;#7d7c78&#39;, &#39;#a59c74&#39;, &#39;#d2c060&#39;]
 </pre></div>
 </div>
-<img alt="_images/14a7cfc888b36290ed0ec0dc79f5731053720352bf8f4a279d3c2c407bbaea95.png" src="_images/14a7cfc888b36290ed0ec0dc79f5731053720352bf8f4a279d3c2c407bbaea95.png" />
+<img alt="_images/841369e52bf81d4359a9c1e208d2824887351c9e4628b22692016b155ad976f3.png" src="_images/841369e52bf81d4359a9c1e208d2824887351c9e4628b22692016b155ad976f3.png" />
 </div>
 </div>
 <p>Each sequence ranges from cooler colors to warmer colors, making the colors appropriate for use on a heatmap.  In Mapbox Studio, select the <strong>Color</strong> option to style your heatmap and click on the color that represents the value 0.1 (“royalblue”).  You should see an interactive color picker appear with options to modify the color values directly.  Choose one of the five color palettes I’ve printed and copy the first six-digit hexadecimal code in the printed list (you don’t need the number sign as it is already provided) to the corresponding box with the number sign to the lower right of the interactive color picker. You should see that color change on the map to your selected color.</p>
@@ -878,7 +900,7 @@ Name: Location, dtype: int64
 </ol>
 </section>
 <section id="sharing-your-map">
-<h1>Sharing your map<a class="headerlink" href="#sharing-your-map" title="Permalink to this heading">#</a></h1>
+<h1>Sharing your map<a class="headerlink" href="#sharing-your-map" title="Link to this heading">#</a></h1>
 <p>Now that you’ve made modifications to your map visualization, it is ready to share!  Click the <strong>Publish</strong> button in the top right corner of your screen to publish your map.  Once published, click <strong>Continue editing</strong>.  There are a couple different ways that you can share your map.  The <strong>Print</strong> button allows you to export your map as a static image.  The <strong>Share</strong> button gives you a series of options for sharing your map either as a standalone interactive map or as an embedded element in a mobile or web application.  Click <strong>Share</strong>, and note the URL which you can copy in the <strong>Share style</strong> section.  Click the “Make Public” button to make your style share-able, then try copying this URL and pasting in a web browser; you’ll see your map appear full-screen.</p>
 <p>Below this section, note the <strong>Developer resources</strong>.  This gives you some resources to embed your map in a website or a mobile application.  To complete this assignment, you’ll get some small experience embedding the Mapbox map that you’ve designed in a stand-alone web page using Mapbox GL, Mapbox’s web development library.</p>
 <p>If you haven’t already, download the HTML file from TCU Online named “example_map.html”.  Open the HTML file in a text editor, not a web browser.  To do this, either right-click the downloaded file and choose an option to open the file in a text editor (e.g. Notepad on Windows or TextEdit on a Mac), or open the text editor first, choose <strong>Open</strong>, and navigate to your HTML file.</p>
@@ -900,7 +922,7 @@ Name: Location, dtype: int64
 <p>Copy the “Access token” from your Share dialog in Mapbox Studio (it starts with “pk.”) and replace the existing access token in the HTML code with your own.  Next, do the same for the style URL.  Save the map file, then try opening it in a web browser (navigate to the file through your computer’s filesystem, then double-click the file to launch it). If it does not appear immediately, it is because the styles take a few moments to publish after you’ve first published them; you can add the text <code class="docutils literal notranslate"><span class="pre">/draft</span></code> directly after your style URL to view it right away (I have this example saved for illustration).</p>
 </section>
 <section id="for-submission">
-<h1>For submission<a class="headerlink" href="#for-submission" title="Permalink to this heading">#</a></h1>
+<h1>For submission<a class="headerlink" href="#for-submission" title="Link to this heading">#</a></h1>
 <p>To get credit for this assignment, modify the <code class="docutils literal notranslate"><span class="pre">example_map.html</span></code> file as instructed above with your Mapbox access token and style URL and upload your map file to the submission console in TCU Online. This will allow me to view your map!</p>
 </section>
 
@@ -929,11 +951,10 @@ Name: Location, dtype: int64
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="08-data-visualization.html"
@@ -953,10 +974,7 @@ Name: Location, dtype: int64
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -964,6 +982,7 @@ Name: Location, dtype: int64
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -999,6 +1018,7 @@ By Kyle Walker
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2022.
@@ -1025,8 +1045,8 @@ By Kyle Walker
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

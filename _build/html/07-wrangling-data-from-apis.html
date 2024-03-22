@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Assignment 7: Wrangling data from APIs &#8212; GEOG 30323: Data Analysis &amp; Visualization</title>
   
@@ -19,49 +18,45 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = '07-wrangling-data-from-apis';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -76,7 +71,15 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -111,11 +114,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -130,6 +136,7 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="index.html">
@@ -138,10 +145,22 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+  
     <p class="title logo__title">GEOG 30323: Data Analysis & Visualization</p>
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -321,20 +340,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -373,10 +394,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section id="assignment-7-wrangling-data-from-apis">
-<h1>Assignment 7: Wrangling data from APIs<a class="headerlink" href="#assignment-7-wrangling-data-from-apis" title="Permalink to this heading">#</a></h1>
+<h1>Assignment 7: Wrangling data from APIs<a class="headerlink" href="#assignment-7-wrangling-data-from-apis" title="Link to this heading">#</a></h1>
 <p>The previous assignment gave you some experience with the data wrangling functionality of <code class="docutils literal notranslate"><span class="pre">pandas</span></code>; this are skills you’ll be returning to throughout the semester.  In this assignment, you’ll be expanding upon those skills by working with data from the City of Fort Worth’s Open Data API.  As you learned in class, data APIs are interfaces that allow you to access data programmatically.  In turn, data APIs allow data to be accessed by applications such as websites, or in this case a data analysis pipeline.</p>
 <p>Fort Worth’s Open Data API is powered by <a class="reference external" href="http://www.socrata.com/">Socrata</a>, a start-up that helps cities open up their data catalogs to the public.  Many other cities, including <a class="reference external" href="https://nycopendata.socrata.com/">New York City</a> and <a class="reference external" href="https://www.dallasopendata.com/">Dallas</a>, use Socrata as well.  Fort Worth’s open data catalog is small, but growing, and the city’s use of Socrata makes its data available in many different ways.</p>
 <p>In this assignment we’ll be working with Fort Worth Police crime data, available at this link: <a class="reference external" href="https://data.fortworthtexas.gov/Public-Safety-Courts/Crime-Data/k6ic-7kp7">https://data.fortworthtexas.gov/Public-Safety-Courts/Crime-Data/k6ic-7kp7</a>.  The data include observations going back more than 100 years!  However, we’ll be working with more recent data as we can presume that they are more complete.</p>
@@ -399,6 +420,7 @@ document.write(`
             src="https://data.fortworthtexas.gov/resource/k6ic-7kp7.json?case_no=180003105"
             frameborder="0"
             allowfullscreen
+            
         ></iframe>
         </div></div>
 </div>
@@ -471,7 +493,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Our API call has returned 11632 theft calls in Fort Worth in 2019.  Let’s take a quick peek at the data:</p>
+<p>Our API call has returned 12296 theft calls in Fort Worth in 2019.  Let’s take a quick peek at the data:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">theft_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -632,34 +654,35 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>councildistrict
-2.0     976
-3.0    1228
-4.0    1238
-5.0    1310
+2.0     975
+3.0    1227
+4.0    1240
+5.0    1309
 6.0    1298
-7.0     805
-8.0    1627
-9.0    1664
+7.0     806
+8.0    1625
+9.0    1666
 dtype: int64
 </pre></div>
 </div>
 </div>
 </div>
-<p>Looks like District 8 had the most thefts, followed by District 9.  Let’s try plotting this with <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>:</p>
+<p>Looks like District 9 had the most thefts, followed by District 8.  Let’s try plotting this with <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">style</span> <span class="o">=</span> <span class="s2">&quot;darkgrid&quot;</span><span class="p">,</span> <span class="n">rc</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">)})</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span> <span class="o">=</span> <span class="s2">&quot;darkgrid&quot;</span><span class="p">,</span> <span class="n">rc</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">)})</span>
 
-<span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">theft_df</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;councildistrict&#39;</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">theft_df</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;councildistrict&#39;</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+              <span class="n">native_scale</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;count&#39;, ylabel=&#39;councildistrict&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;count&#39;, ylabel=&#39;councildistrict&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/8b0de0330e8ee7ae793acdb516297ef25cf2c9e6be50b56b0c520900eb8474e8.png" src="_images/8b0de0330e8ee7ae793acdb516297ef25cf2c9e6be50b56b0c520900eb8474e8.png" />
+<img alt="_images/fc6f6e09cd580181d3a0a579e1498d8a5cbbb6afeee2adba4453a895bb7c9f1e.png" src="_images/fc6f6e09cd580181d3a0a579e1498d8a5cbbb6afeee2adba4453a895bb7c9f1e.png" />
 </div>
 </div>
 <p>A trained observer, however, would notice that that data are not normalized for population.  As data analysts, always be mindful of whether your analysis accurately represents the underlying variation in your data.  Data can easily mislead if not presented correctly; for example, while the largest cities in the United States will usually have the most crimes, they won’t necessarily have the highest crime <strong>rates</strong>.</p>
@@ -794,22 +817,22 @@ dtype: int64
     <tr>
       <th>0</th>
       <td>2.0</td>
-      <td>976</td>
+      <td>975</td>
     </tr>
     <tr>
       <th>1</th>
       <td>3.0</td>
-      <td>1228</td>
+      <td>1227</td>
     </tr>
     <tr>
       <th>2</th>
       <td>4.0</td>
-      <td>1238</td>
+      <td>1240</td>
     </tr>
     <tr>
       <th>3</th>
       <td>5.0</td>
-      <td>1310</td>
+      <td>1309</td>
     </tr>
     <tr>
       <th>4</th>
@@ -819,17 +842,17 @@ dtype: int64
     <tr>
       <th>5</th>
       <td>7.0</td>
-      <td>805</td>
+      <td>806</td>
     </tr>
     <tr>
       <th>6</th>
       <td>8.0</td>
-      <td>1627</td>
+      <td>1625</td>
     </tr>
     <tr>
       <th>7</th>
       <td>9.0</td>
-      <td>1664</td>
+      <td>1666</td>
     </tr>
   </tbody>
 </table>
@@ -905,28 +928,28 @@ dtype: object
       <td>2 - Carlos Flores</td>
       <td>107649</td>
       <td>2</td>
-      <td>976</td>
+      <td>975</td>
     </tr>
     <tr>
       <th>1</th>
       <td>3 - Brian Byrd</td>
       <td>98711</td>
       <td>3</td>
-      <td>1228</td>
+      <td>1227</td>
     </tr>
     <tr>
       <th>2</th>
       <td>4 - Cary Moon</td>
       <td>112074</td>
       <td>4</td>
-      <td>1238</td>
+      <td>1240</td>
     </tr>
     <tr>
       <th>3</th>
       <td>5 - Gyna Bivens</td>
       <td>104732</td>
       <td>5</td>
-      <td>1310</td>
+      <td>1309</td>
     </tr>
     <tr>
       <th>4</th>
@@ -940,21 +963,21 @@ dtype: object
       <td>7 - Dennis Shingleton</td>
       <td>124235</td>
       <td>7</td>
-      <td>805</td>
+      <td>806</td>
     </tr>
     <tr>
       <th>6</th>
       <td>8 - Kelly Allen Gray</td>
       <td>103432</td>
       <td>8</td>
-      <td>1627</td>
+      <td>1625</td>
     </tr>
     <tr>
       <th>7</th>
       <td>9 - Ann Zadeh</td>
       <td>95479</td>
       <td>9</td>
-      <td>1664</td>
+      <td>1666</td>
     </tr>
   </tbody>
 </table>
@@ -1001,32 +1024,32 @@ dtype: object
       <td>2 - Carlos Flores</td>
       <td>107649</td>
       <td>2</td>
-      <td>976</td>
-      <td>9.066503</td>
+      <td>975</td>
+      <td>9.057214</td>
     </tr>
     <tr>
       <th>1</th>
       <td>3 - Brian Byrd</td>
       <td>98711</td>
       <td>3</td>
-      <td>1228</td>
-      <td>12.440356</td>
+      <td>1227</td>
+      <td>12.430226</td>
     </tr>
     <tr>
       <th>2</th>
       <td>4 - Cary Moon</td>
       <td>112074</td>
       <td>4</td>
-      <td>1238</td>
-      <td>11.046273</td>
+      <td>1240</td>
+      <td>11.064118</td>
     </tr>
     <tr>
       <th>3</th>
       <td>5 - Gyna Bivens</td>
       <td>104732</td>
       <td>5</td>
-      <td>1310</td>
-      <td>12.508116</td>
+      <td>1309</td>
+      <td>12.498568</td>
     </tr>
     <tr>
       <th>4</th>
@@ -1041,24 +1064,24 @@ dtype: object
       <td>7 - Dennis Shingleton</td>
       <td>124235</td>
       <td>7</td>
-      <td>805</td>
-      <td>6.479655</td>
+      <td>806</td>
+      <td>6.487705</td>
     </tr>
     <tr>
       <th>6</th>
       <td>8 - Kelly Allen Gray</td>
       <td>103432</td>
       <td>8</td>
-      <td>1627</td>
-      <td>15.730142</td>
+      <td>1625</td>
+      <td>15.710805</td>
     </tr>
     <tr>
       <th>7</th>
       <td>9 - Ann Zadeh</td>
       <td>95479</td>
       <td>9</td>
-      <td>1664</td>
-      <td>17.427916</td>
+      <td>1666</td>
+      <td>17.448863</td>
     </tr>
   </tbody>
 </table>
@@ -1074,10 +1097,10 @@ dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;rate&#39;, ylabel=&#39;name&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;rate&#39;, ylabel=&#39;name&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/7ac066956f2671a272a40eda5f9304488e5b8a717d2c71e9709749d105cceb99.png" src="_images/7ac066956f2671a272a40eda5f9304488e5b8a717d2c71e9709749d105cceb99.png" />
+<img alt="_images/d6e7bd72bfb7a655588db8be74e994f25e779a890c83eb3bd7bd57aa57c4ce14.png" src="_images/d6e7bd72bfb7a655588db8be74e994f25e779a890c83eb3bd7bd57aa57c4ce14.png" />
 </div>
 </div>
 <p>Just in case you were wondering: TCU is split across council districts 3 and 9.</p>
@@ -1270,10 +1293,10 @@ dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;Date&#39;, ylabel=&#39;Number&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;Date&#39;, ylabel=&#39;Number&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/51c99eae0633263a020a708c365b02e17eb277816636594f5a66071835e4662f.png" src="_images/51c99eae0633263a020a708c365b02e17eb277816636594f5a66071835e4662f.png" />
+<img alt="_images/29a72d13d3debc9e1d42217548213a95e54dcca8b936057b0e8400633c107408.png" src="_images/29a72d13d3debc9e1d42217548213a95e54dcca8b936057b0e8400633c107408.png" />
 </div>
 </div>
 <p>Read through the code to understand what it does.  I’m introducing you here to a new process of operations called <em>method chaining</em> which is very popular in data programming. Rather than writing out a separate command for each method, generating new objects along the way, e.g.:</p>
@@ -1369,15 +1392,15 @@ dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;Date&#39;, ylabel=&#39;Weekly_Avg&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;Date&#39;, ylabel=&#39;Weekly_Avg&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/074fc3c7ad443d9376d142a78212bc2c2f422035cacffd6aef681a1bfc3a89db.png" src="_images/074fc3c7ad443d9376d142a78212bc2c2f422035cacffd6aef681a1bfc3a89db.png" />
+<img alt="_images/6a4132b8193474819cc0f92c826a7f4562ad73e031a07969f16b6af209ebed2d.png" src="_images/6a4132b8193474819cc0f92c826a7f4562ad73e031a07969f16b6af209ebed2d.png" />
 </div>
 </div>
 </section>
 <section id="exercises">
-<h1>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h1>
+<h1>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h1>
 <p>Data APIs are complicated topics and we’re only scratching the surface here of what you can do with them.  In turn, your exercises for this assignment will be a little different.</p>
 <p>Your job here is to replicate the above analysis for <strong>another type of offense</strong> and <strong>optionally another time period</strong> in Fort Worth.  Visit the Fort Worth dataset on the web here: <a class="reference external" href="https://data.fortworthtexas.gov/Public-Safety/Crime-Data/k6ic-7kp7/data">https://data.fortworthtexas.gov/Public-Safety/Crime-Data/k6ic-7kp7/data</a> and look at the “Nature of Call” column to see what other options there are.  Some tips: some crimes like murder are relatively rare, so you might be better served choosing an offense that is more frequent.  Also, values in the “Description” column have changed somewhat over time, so be mindful of this when selecting a type of crime.</p>
 <p>What this basically involves is re-using the code I’ve already written for this assignment, and modifying it slightly for your chosen type of offense and your chosen time period.  To do this, you’ll modify the API call at the beginning of the code accordingly.  I want you to get a sense of how you can “change parameters” in an API call, and in turn get different results.  Indeed, an enterprising analysis like this could wrap everything in a function and re-produce analyses by parameterizing these inputs in Python; you don’t have to do that here, but hopefully this gives you a sense of why it is useful to write everything out with code.</p>
@@ -1416,11 +1439,10 @@ dtype: object
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="06-data-wrangling.html"
@@ -1440,10 +1462,7 @@ dtype: object
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -1451,6 +1470,7 @@ dtype: object
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1482,6 +1502,7 @@ By Kyle Walker
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2022.
@@ -1508,8 +1529,8 @@ By Kyle Walker
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

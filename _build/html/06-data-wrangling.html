@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Assignment 6: Data wrangling I &#8212; GEOG 30323: Data Analysis &amp; Visualization</title>
   
@@ -19,49 +18,45 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = '06-data-wrangling';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -76,7 +71,15 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -111,11 +114,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -130,6 +136,7 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="index.html">
@@ -138,10 +145,22 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+  
     <p class="title logo__title">GEOG 30323: Data Analysis & Visualization</p>
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -321,20 +340,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -381,10 +402,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section id="assignment-6-data-wrangling-i">
-<h1>Assignment 6: Data wrangling I<a class="headerlink" href="#assignment-6-data-wrangling-i" title="Permalink to this heading">#</a></h1>
+<h1>Assignment 6: Data wrangling I<a class="headerlink" href="#assignment-6-data-wrangling-i" title="Link to this heading">#</a></h1>
 <p>In the last two assignments you’ve explored data with both basic statistical methods and different types of data visualization.  While this is a key part of the data analysis process, datasets need to be in the right format before analysts can start drawing meaningful conclusions.  The process of preparing data for analysis is called <strong>data wrangling</strong>, and often takes the bulk of an analysts’ time during a data project.  Possible issues might include:</p>
 <ul class="simple">
 <li><p>Missing data or problematic/incorrect values in a dataset;</p></li>
@@ -426,7 +447,7 @@ document.write(`
 </ul>
 </section>
 <section id="subsetting-data">
-<h1>Subsetting data<a class="headerlink" href="#subsetting-data" title="Permalink to this heading">#</a></h1>
+<h1>Subsetting data<a class="headerlink" href="#subsetting-data" title="Link to this heading">#</a></h1>
 <p>As we discussed in class, <code class="docutils literal notranslate"><span class="pre">pandas</span></code> includes many different methods for subsetting data; I encourage you to review the corresponding lecture notes for the full set of methods that we discussed.  In this notebook, we’ll be focusing on the methods that allow us to accomplish the task at hand, and you’ll be learning a few new methods as well.</p>
 <p>To subset our data column-wise, we can specify a list of column names that we want to keep then use the <code class="docutils literal notranslate"><span class="pre">.filter()</span></code> method to restrict our data to only those specified columns.</p>
 <div class="cell docutils container">
@@ -735,7 +756,7 @@ dtype: object
 </div>
 <p>We’ve gone from over 7800 colleges &amp; universities down to 2133.</p>
 <section id="missing-data">
-<h2>Missing data<a class="headerlink" href="#missing-data" title="Permalink to this heading">#</a></h2>
+<h2>Missing data<a class="headerlink" href="#missing-data" title="Link to this heading">#</a></h2>
 <p>As mentioned in class, missing data in <strong>pandas</strong> are designated with the value <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, which refers to “not a number.”  Data analysts need to take missing data seriously, as they could be representative of a systematic flaw in the dataset.  You can check for missing values in <strong>pandas</strong> with the <code class="docutils literal notranslate"><span class="pre">.isnull()</span></code> method.  Let’s query our undergradate data frame to check to see how many rows in our dataset have missing values for our column of interest, <code class="docutils literal notranslate"><span class="pre">ug25abv</span></code>.  Note that we need the argument <code class="docutils literal notranslate"><span class="pre">engine</span> <span class="pre">=</span> <span class="pre">'python'</span></code> in this example as we are using a <strong>pandas</strong> method within the expression.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1149,7 +1170,7 @@ dtype: object
 </section>
 </section>
 <section id="group-wise-data-analysis">
-<h1>Group-wise data analysis<a class="headerlink" href="#group-wise-data-analysis" title="Permalink to this heading">#</a></h1>
+<h1>Group-wise data analysis<a class="headerlink" href="#group-wise-data-analysis" title="Link to this heading">#</a></h1>
 <p>In class, we discussed the “split-apply-combine” approach to data analysis.  This approach involves:</p>
 <ol class="arabic simple">
 <li><p><strong>Splitting</strong> the data into groups based on some common characteristic;</p></li>
@@ -1206,10 +1227,10 @@ Name: ug25abv, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;control&#39;, ylabel=&#39;ug25abv&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;control&#39;, ylabel=&#39;ug25abv&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/858933c411fe4872a6166688ee1e83101e95669ec2a5786fabb16d5feb2cbfbc.png" src="_images/858933c411fe4872a6166688ee1e83101e95669ec2a5786fabb16d5feb2cbfbc.png" />
+<img alt="_images/350af42ffbb6dc2b11372958be42ff439a48817d31c5ab0201967947872e8572.png" src="_images/350af42ffbb6dc2b11372958be42ff439a48817d31c5ab0201967947872e8572.png" />
 </div>
 </div>
 <p>We can get a clear sense here of the variations of the distributions between the groups.  While the mean percentage of undergraduates above 25 at public non-profits was below that of private non-profits, it appears as though the median for private non-profits is lower; there is simply a longer tail of private non-profits with large proportions of their student bodies above 25.  For private for-profits, the distribution is quite evident - with the median value above 70 percent.</p>
@@ -1225,10 +1246,10 @@ Name: ug25abv, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f8ea6fd18b0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x1550bde90&gt;
 </pre></div>
 </div>
-<img alt="_images/fc97c1550d64853a444e5fd2e28182b103b340c67d057a806b7d0dd083d35a58.png" src="_images/fc97c1550d64853a444e5fd2e28182b103b340c67d057a806b7d0dd083d35a58.png" />
+<img alt="_images/a4301842d64d173a3ba1be577308cb8006b8eababdcbd587bdb377de49729992.png" src="_images/a4301842d64d173a3ba1be577308cb8006b8eababdcbd587bdb377de49729992.png" />
 </div>
 </div>
 <p>Now, we want to look at how the percentage of undergraduates over age 25 varies by institution size.  Certainly, we could create a scatter plot as both the <code class="docutils literal notranslate"><span class="pre">ug25abv</span></code> and <code class="docutils literal notranslate"><span class="pre">ugds</span></code> columns are numeric:</p>
@@ -1239,10 +1260,10 @@ Name: ug25abv, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f8ea6fec490&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x1553b82d0&gt;
 </pre></div>
 </div>
-<img alt="_images/cbaea50266651a162c384cf5f9f1dc5e30070ae706ba78ebd3660e2d17e58fe4.png" src="_images/cbaea50266651a162c384cf5f9f1dc5e30070ae706ba78ebd3660e2d17e58fe4.png" />
+<img alt="_images/5dfdd1ead962d8976e2835ab6ac5448dbf82dec1e0d3d32f357018728b832cc0.png" src="_images/5dfdd1ead962d8976e2835ab6ac5448dbf82dec1e0d3d32f357018728b832cc0.png" />
 </div>
 </div>
 <p>The regression line suggests an inverse relationship; however the clustering of dots suggests (potentially) a non-linear relationship, and there are several outliers.  For example:</p>
@@ -1295,7 +1316,7 @@ Name: ug25abv, dtype: float64
 </div>
 <p>The University of Phoenix-Online, with over 160,000 students, stands out as a distinct outlier.  Additionally, a scatter plot is not the only way that we can assess this relationship.  We can convert our data from quantitative to categorical, and in turn assess variations amongst the categories.</p>
 <section id="creating-new-columns">
-<h2>Creating new columns<a class="headerlink" href="#creating-new-columns" title="Permalink to this heading">#</a></h2>
+<h2>Creating new columns<a class="headerlink" href="#creating-new-columns" title="Link to this heading">#</a></h2>
 <p>Creating a categorical column from a quantitative column requires computing a new column in our data frame, which will be a common part of your workflow in <strong>pandas</strong>.  As you learned in class, you can use basic mathematical operations to create new columns from existing ones.  In this example, we are going to organize our universities into <strong>bins</strong> based on their size, and then compare universities across those bins.</p>
 <p><strong>pandas</strong> includes a lot of methods for creating new columns; we’re going to discuss here options for organizing our data into bins.  The three options are as follows:</p>
 <ul class="simple">
@@ -1403,10 +1424,10 @@ Name: ug25abv, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;ug25abv&#39;, ylabel=&#39;quant5&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;ug25abv&#39;, ylabel=&#39;quant5&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/96d835c13cfe4700746eb6de7966c8e36a78d8380c10a03d66ff8062bbd60961.png" src="_images/96d835c13cfe4700746eb6de7966c8e36a78d8380c10a03d66ff8062bbd60961.png" />
+<img alt="_images/9f9aeec84da792399bee09348cb693c2808391b6ba923e9ae2e354076baff34e.png" src="_images/9f9aeec84da792399bee09348cb693c2808391b6ba923e9ae2e354076baff34e.png" />
 </div>
 </div>
 <p>We can analyze this further by breaking out the bar charts by college type with <code class="docutils literal notranslate"><span class="pre">sns.catplot()</span></code>:</p>
@@ -1417,10 +1438,10 @@ Name: ug25abv, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f8ea6df6310&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x1551ea5d0&gt;
 </pre></div>
 </div>
-<img alt="_images/3b9593784e1f45b1beb0d8048691777350f96eb5612c60a017a91e7b5fd78007.png" src="_images/3b9593784e1f45b1beb0d8048691777350f96eb5612c60a017a91e7b5fd78007.png" />
+<img alt="_images/2379073c7b4ad6be83ed569b447532cd2904a30f4c96a381b0f37bbb41242c6c.png" src="_images/2379073c7b4ad6be83ed569b447532cd2904a30f4c96a381b0f37bbb41242c6c.png" />
 </div>
 </div>
 <p>Our results appear quite different when we break them out by college type!  This starts to reveal the importance of detailed investigation of your data through visualization; we’ll be exploring this much more in the next few weeks.  We can also take a look at the numbers behind these plots by creating a <code class="docutils literal notranslate"><span class="pre">groupby</span></code> object that groups by <code class="docutils literal notranslate"><span class="pre">control</span></code> and the quantiles:</p>
@@ -1433,6 +1454,10 @@ Name: ug25abv, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/qm/xbtsglmj2ss91z9fzpz8k6q8ylngb5/T/ipykernel_3753/3952301497.py:1: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  groups2 = ug_quantiles.groupby([&#39;control&#39;, &#39;quant5&#39;])
+</pre></div>
+</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>control  quant5
 1        1         0.498289
          2         0.298886
@@ -1457,7 +1482,7 @@ Name: ug25abv, dtype: float64
 </section>
 </section>
 <section id="exercises">
-<h1>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h1>
+<h1>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h1>
 <p>You’ll now complete some exercises so you can practice what you’ve learned.  Your job, in general, is to replicate the analysis above, but for a different column in the dataset.  You’ll be analyzing the column <code class="docutils literal notranslate"><span class="pre">PCTPELL</span></code>, which denotes the percentages of students receiving Pell Grants, a federal grant program to help students pay for college.  Unlike loans, Pell Grants do not need to be repaid.</p>
 <p>While you’ll be using a lot of the code I provided for you and modifying it slightly, make sure that you know what the code is doing at every step!</p>
 <hr class="docutils" />
@@ -1493,11 +1518,10 @@ Name: ug25abv, dtype: float64
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="05-multivariate-visualization.html"
@@ -1517,10 +1541,7 @@ Name: ug25abv, dtype: float64
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -1528,6 +1549,7 @@ Name: ug25abv, dtype: float64
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1567,6 +1589,7 @@ By Kyle Walker
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2022.
@@ -1593,8 +1616,8 @@ By Kyle Walker
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

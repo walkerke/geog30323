@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Assignment 10: Building a dashboard with Tableau &#8212; GEOG 30323: Data Analysis &amp; Visualization</title>
   
@@ -19,49 +18,45 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = '10-tableau';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -76,7 +71,15 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -111,11 +114,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -130,6 +136,7 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="index.html">
@@ -138,10 +145,22 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+  
     <p class="title logo__title">GEOG 30323: Data Analysis & Visualization</p>
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -230,6 +249,37 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/walkerke/geog30323/blob/master/10-tableau.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-download-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
     <i class="fas fa-download"></i>
@@ -238,7 +288,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/10-tableau.md" target="_blank"
+      <li><a href="_sources/10-tableau.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -248,7 +298,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -290,20 +340,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -345,23 +397,22 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section id="assignment-10-building-a-dashboard-with-tableau">
-<h1>Assignment 10: Building a dashboard with Tableau<a class="headerlink" href="#assignment-10-building-a-dashboard-with-tableau" title="Permalink to this heading">#</a></h1>
+<h1>Assignment 10: Building a dashboard with Tableau<a class="headerlink" href="#assignment-10-building-a-dashboard-with-tableau" title="Link to this heading">#</a></h1>
 <p>You’ve made it to your last assignment of the semester! In this assignment, you’re going to learn how to “put everything together” into the form of an interactive <em>dashboard</em>.  Dashboards are applications that may include multiple charts, which in some cases are configured to interact with one another.  While there <em>are</em> many ways to build dashboards, including in Python, one of the most popular software applications for these types of visualizations is Tableau.</p>
 <p>Tableau, like other software products we’ve discussed this semester, employs a tiered pricing structure.  We’ll be working in this assignment with <a class="reference external" href="http://www.tableau.com/products/public">Tableau Public 2021.3</a>, a free version of Tableau.  Tableau comes in other flavors; Tableau Desktop is the core commercial version, and Tableau Server is an enterprise version that can be deployed from a company’s server.  Tableau Public includes most of the features of the paid versions; the key caveat is that your visualizations must be saved to Tableau’s public cloud and shared publicly; private visualizations are only available in the paid versions.</p>
 <p>Tableau Public is installed on the computers in our classroom.  If you are working on your own computer, you can install it from <a class="reference external" href="https://public.tableau.com/en-us/s/download">https://public.tableau.com/en-us/s/download</a>; I’d recommend this for completing the assignment.  All you need to provide is your email address to get this done.  However, at this point I’d also recommend creating a Tableau Public profile - this will be necessary for the assignment as well.  From <a class="reference external" href="https://public.tableau.com/s/">https://public.tableau.com/s/</a>, click the “SIGN IN” button in the upper right of the screen; next, click the “Create one now for free” link to create a profile.  Once you’ve activated your profile, you’ll find an available link to download the Tableau Public application as well.</p>
 <p><strong>Assignment scenario</strong></p>
 <p>At the end of our class on geographic data and visualization, we discussed the pros and cons of visualizing data with maps or charts, or vice versa.  As a refresher, we compared the following map of primary sector employment by state in Mexico:</p>
-<img src="http://walkerke.github.io/geog30323/slides/geographic/img/mexico_map.png" style="width: 650px">
-<p>With the following <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> dot plot:</p>
-<img src="http://walkerke.github.io/geog30323/slides/geographic/img/primarydot2.png" style="width: 650px">
-<p>Certainly, there are advantages and disadvantages to each plot; for example, the map shows geographic clustering (e.g. high values in the south of Mexico), whereas the plot more clearly displays quantitative differences between states.  A solution to this could be to include both visualizations in a report (like in a Jupyter Notebook!) to show the data in different ways.  However: there are also ways to include both the map and the dot plot in the same graphic - and make the two visuals interact with each other!  Creating charts like this is one of Tableau’s strengths - and something you’ll learn how to do in this assignment.</p>
+<img src="http://walkerke.github.io/geog30323/slides/geographic/img/mexico_map.png" style="width: 650px"><p>With the following <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> dot plot:</p>
+<img src="http://walkerke.github.io/geog30323/slides/geographic/img/primarydot2.png" style="width: 650px"><p>Certainly, there are advantages and disadvantages to each plot; for example, the map shows geographic clustering (e.g. high values in the south of Mexico), whereas the plot more clearly displays quantitative differences between states.  A solution to this could be to include both visualizations in a report (like in a Jupyter Notebook!) to show the data in different ways.  However: there are also ways to include both the map and the dot plot in the same graphic - and make the two visuals interact with each other!  Creating charts like this is one of Tableau’s strengths - and something you’ll learn how to do in this assignment.</p>
 <section id="mapping-mexican-states-in-tableau">
-<h2>Mapping Mexican states in Tableau<a class="headerlink" href="#mapping-mexican-states-in-tableau" title="Permalink to this heading">#</a></h2>
-<p>To get started, download the data for this assignment from the following link: <a class="reference external" href="http://personal.tcu.edu/kylewalker/mexico.csv">http://personal.tcu.edu/kylewalker/mexico.csv</a>, and save it somewhere where you’ll know how to find it.  Next, launch the Tableau Public application.  You should see som
-Drag and drop your Mexico CSV file onto the application, and Tableau will load it for you.  You’ll get a preview of your data as it will appear in Tableau; at this point, you can make some modifications to the columns if you’d like, such as renaming them; however, let’s proceed by clicking “Sheet 1” at the bottom of the screen.</p>
+<h2>Mapping Mexican states in Tableau<a class="headerlink" href="#mapping-mexican-states-in-tableau" title="Link to this heading">#</a></h2>
+<p>To get started, download the data for this assignment from the following link: <a class="reference external" href="http://personal.tcu.edu/kylewalker/mexico.csv">http://personal.tcu.edu/kylewalker/mexico.csv</a>, and save it somewhere where you’ll know how to find it.  Next, launch the Tableau Public application.  You should see something appear like the graphic below:</p>
+<img src="img/tableau1_2016.PNG" style="width: 800px">
+<p>Drag and drop your Mexico CSV file onto the application, and Tableau will load it for you.  You’ll get a preview of your data as it will appear in Tableau; at this point, you can make some modifications to the columns if you’d like, such as renaming them; however, let’s proceed by clicking “Sheet 1” at the bottom of the screen.</p>
 <p>You’ll see the main Tableau application view appear, like the image below.</p>
 <img src="img/tableau2_2016.PNG" style="width: 800px">
 <p>Your columns on the left hand side of the screen are divided into <strong>Dimensions</strong>, which refer to the text values in your data, and <strong>Measures</strong>, which are numeric values.  Building charts in Tableau is based on a drag-and-drop interface, in which you will move these column names into the right spots for building a visualization.</p>
@@ -374,13 +425,12 @@ Drag and drop your Mexico CSV file onto the application, and Tableau will load i
 <li><p>Look for the “Marks” card to the left of the map, and change the drop-down menu to “Map.”  You’ll see the states of Mexico appear as polygons!</p></li>
 </ol>
 <p>Use the GIF below as a guide if you are getting stuck.</p>
-<img src="img/make_map2016.gif" style="width: 800px">
-<p>Now would be a good time to save your work.  Click <strong>File -&gt; Save to Tableau Public</strong>, and sign in with your username and password.  Give your workbook a name, and click <strong>Save</strong> to save your workbook to Tableau’s public cloud.  Recall that with the free version of Tableau that we are using, you cannot save your work locally; the paid versions allow you to do this, however.</p>
+<img src="img/make_map2016.gif" style="width: 800px"><p>Now would be a good time to save your work.  Click <strong>File -&gt; Save to Tableau Public</strong>, and sign in with your username and password.  Give your workbook a name, and click <strong>Save</strong> to save your workbook to Tableau’s public cloud.  Recall that with the free version of Tableau that we are using, you cannot save your work locally; the paid versions allow you to do this, however.</p>
 <p>Now, it is time to style your map.  We’ll be mapping primary sector employment by state, so locate the “Pri10” column from the <strong>Measures</strong> section and drag and drop it on the <strong>Color</strong> icon in the <strong>Marks</strong> card.  Your map’s states should now become colored based on their values for primary sector employment, using a default continuous sequential color ramp. To change the colors of your map, click the <strong>Color</strong> icon and select <strong>Edit Colors</strong>; you can then choose a variety of color palettes from the drop down menu provided, and switch to a binned color scheme by checking the “Stepped Color” box, if you prefer.  A legend will also appear in a sidebar; you may need to move the “Show Me” options to see it.  You can modify the text in the legend by clicking “Edit Title.”</p>
 <p>You now have an interactive Tableau map of Mexico!  Save your work once more before proceeding to the next section.</p>
 </section>
 <section id="charting-primary-sector-employment-in-mexico-with-a-dot-plot">
-<h2>Charting primary sector employment in Mexico with a dot plot<a class="headerlink" href="#charting-primary-sector-employment-in-mexico-with-a-dot-plot" title="Permalink to this heading">#</a></h2>
+<h2>Charting primary sector employment in Mexico with a dot plot<a class="headerlink" href="#charting-primary-sector-employment-in-mexico-with-a-dot-plot" title="Link to this heading">#</a></h2>
 <p>The other visualization scenario we discussed in class was a dot plot, created in <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> with the <code class="docutils literal notranslate"><span class="pre">stripplot()</span></code> function.  Tableau has built-in support for this and many other chart types as well.</p>
 <p>To get started creating your chart, click <strong>Worksheet -&gt; New Worksheet</strong> from the top drop-down menu.  You’ll get a blank Tableau workspace, just like you had before making your map.  You’ll be using same data, but visualizing it in a different way.  Follow these steps to create the dot plot.</p>
 <ol class="arabic simple">
@@ -396,23 +446,20 @@ Drag and drop your Mexico CSV file onto the application, and Tableau will load i
 <p>Save your work.  You now have both an interactive map and an interactive dot plot!  The next step is to get the two visualizations to interact with one another in a Tableau dashboard.</p>
 </section>
 <section id="building-a-linked-dashboard">
-<h2>Building a linked dashboard<a class="headerlink" href="#building-a-linked-dashboard" title="Permalink to this heading">#</a></h2>
+<h2>Building a linked dashboard<a class="headerlink" href="#building-a-linked-dashboard" title="Link to this heading">#</a></h2>
 <p>You’ve now re-created the two charts from our scenario in Tableau.  Your next step is to build a visualization that incorporates both of these chart types - the map and the dot plot - and enables communication between the two.  To do this, you’ll build a <strong>dashboard</strong>, which is one of Tableau’s key strengths.  Dashboards are visualizations that can include multiple charts which incorporate <strong>Actions</strong>, or methods that govern interactivity when the user interacts with the visualization.</p>
 <p>To get started, click <strong>Dashboard -&gt; New Dashboard</strong> from the drop-down menu at the top of the screen.  You should see something appear like the image below.</p>
-<img src="img/dash1_2016.PNG" style="width: 800px">
-<p>Your two sheets appear in the upper-left section of the screen; Sheet 1 is your map, and Sheet 2 is your dot plot.  Notice all of the other options on the left-hand side of the screen as well.  These options govern how your dashboard layout will appear.  You’ll ultimately want to modify these options to accommodate the size of the visualization you want.  I would like you to make sure that the “New objects” option is set to “Tiled”, and un-check “Maximum size” from the <strong>Size</strong> drop-down menu.</p>
+<img src="img/dash1_2016.PNG" style="width: 800px"><p>Your two sheets appear in the upper-left section of the screen; Sheet 1 is your map, and Sheet 2 is your dot plot.  Notice all of the other options on the left-hand side of the screen as well.  These options govern how your dashboard layout will appear.  You’ll ultimately want to modify these options to accommodate the size of the visualization you want.  I would like you to make sure that the “New objects” option is set to “Tiled”, and un-check “Maximum size” from the <strong>Size</strong> drop-down menu.</p>
 <p>Drag and drop your Sheet 1, the Mexico map, onto the dashboard.  Your map should fill up the screen.  Right-click the sheet title in the visualization (it should say “Sheet 1” above your map), and select <strong>Hide Title</strong>.  Next, look for your map legend - it should default to the upper-right corner of your screen.  Click it to highlight it, and then click the small black arrow above the legend to reveal its options.  Choose “Floating” then move the legend somewhere on your visualization.</p>
 <p>Now, drag and drop your Sheet 2, the dot plot, on the dashboard.  You’ll be able to put it on any side.  If you make the chart floating, like you did with the legend, you can start to get creative in where you position your chart.  Additionally, you can drag and drop additional new objects onto your dashboard as you’d like.  For example, if you set the “Objects” option to “Floating”, you can add a Text box, an image, or an embedded web page.  I’ve created an example layout below that includes a title and a logo for INEGI, the data source for this assignment.  This is by no means the only or best way to do things!  Spend some time exploring the options and modifying the layout of your dashboard as you see fit.</p>
-<img src="img/layout1_2016a.PNG" style="width: 800px">
-<section id="adding-actions-to-your-dashboard">
-<h3>Adding actions to your dashboard<a class="headerlink" href="#adding-actions-to-your-dashboard" title="Permalink to this heading">#</a></h3>
+<img src="img/layout1_2016a.PNG" style="width: 800px"><section id="adding-actions-to-your-dashboard">
+<h3>Adding actions to your dashboard<a class="headerlink" href="#adding-actions-to-your-dashboard" title="Link to this heading">#</a></h3>
 <p>As promised, we can set up interactivity between the different charts in our Tableau dashboards.  To do this, click <strong>Dashboard -&gt; Actions</strong>.  The “Actions” window will appear; choose the <strong>Add Action</strong> button.  You can set up actions to Filter or Highlight your data, or link out to a website.  For the purposes of this assignment, we’ll choose <strong>Highlight</strong>.</p>
 <p>You should see the “Add Highlight Action” window appear, as in the image below.</p>
 <p><img alt="highlight" src="_images/highlight_2016.PNG" /></p>
 <p>Notice that you can run the Highlight action when hovering over a data point on the dashboard; selecting (clicking) an element on the dashboard; or choosing from a drop-down menu.  Let’s choose <strong>Hover</strong>, and keep both sheets checked in the “Source Sheets” and “Target Sheets” boxes.  Finally, change “Target Highlighting” to “Selected Fields”, and check the box next to <strong>Name</strong>.  When finished, click OK, then OK again.</p>
 <p>What you’ve done here is establish a link between the dots in your dot plot and the states in your map based on their common values for the <code class="docutils literal notranslate"><span class="pre">Name</span></code> column.  In turn, hovering over a dot in your dot plot will highlight the corresponding state on the map, and vice versa.  It should work like in the GIF below - try it out!</p>
-<img src="img/mx_int2016.gif" style="width: 800px">
-<p>Save your dashboard to your Tableau Public account the same way you’ve been saving your work throughout the assignment.  You’ll see your dashboard appear on a website in your account; there are options available to share a direct link to your dashboard, share it over social media, or embed it in a website.</p>
+<img src="img/mx_int2016.gif" style="width: 800px"><p>Save your dashboard to your Tableau Public account the same way you’ve been saving your work throughout the assignment.  You’ll see your dashboard appear on a website in your account; there are options available to share a direct link to your dashboard, share it over social media, or embed it in a website.</p>
 <p>You may notice that your dashboard appears slightly different on the web than it did on your computer’s monitor; this will depend on the size of your monitor and how you configured the chart.  When designing in Tableau, it is important to size your elements in a way that makes sense for your ultimate output.  For example - the dashboard I designed above works well on my wide computer monitor; however, when embedded within another website, my elements get clumped together.  Fortunately, you can experiment with different dashboard sizes, and view how your layouts will appear in different contexts.  Designing a Tableau dashboard takes time to get it just right!  However - you can create a full-screen website with your Tableau dashboard using the embed code, and modifying it slightly; if you are interested in doing this, <a class="reference external" href="http://allanwalkerit.tumblr.com/post/132943293067/responsive-dashboards-in-tableau">read this post by Allan Walker</a>.</p>
 <p>Trust me when I say we’ve only just scratched the surface of everything you can do in Tableau; hopefully this piques your interest to explore the application further!</p>
 <p>To receive credit for Assignment 10, get the direct link to your Tableau dashboard - you can obtain this by clicking the “Share” button on the visualization’s page on your Tableau Public website, then copying the link into a document which you’ll upload to the Assignment 10 submission console on TCU Online.</p>
@@ -445,11 +492,10 @@ Drag and drop your Mexico CSV file onto the application, and Tableau will load i
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="09-geographic-mapbox.html"
@@ -469,10 +515,7 @@ Drag and drop your Mexico CSV file onto the application, and Tableau will load i
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -480,6 +523,7 @@ Drag and drop your Mexico CSV file onto the application, and Tableau will load i
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -514,6 +558,7 @@ By Kyle Walker
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2022.
@@ -540,8 +585,8 @@ By Kyle Walker
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

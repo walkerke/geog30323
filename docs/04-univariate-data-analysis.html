@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Assignment 4: Univariate data analysis &#8212; GEOG 30323: Data Analysis &amp; Visualization</title>
   
@@ -19,49 +18,45 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = '04-univariate-data-analysis';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -76,7 +71,15 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -111,11 +114,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -130,6 +136,7 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="index.html">
@@ -138,10 +145,22 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+  
     <p class="title logo__title">GEOG 30323: Data Analysis & Visualization</p>
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -321,20 +340,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -379,15 +400,15 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section id="assignment-4-univariate-data-analysis">
-<h1>Assignment 4: Univariate data analysis<a class="headerlink" href="#assignment-4-univariate-data-analysis" title="Permalink to this heading">#</a></h1>
+<h1>Assignment 4: Univariate data analysis<a class="headerlink" href="#assignment-4-univariate-data-analysis" title="Link to this heading">#</a></h1>
 <p>Now that you’ve successfully navigated our “crash course” in Python programming, it is time to put those skills to use working with real data, the focus of this course.  Python is an extraordinarily powerful tool for working with data, facilitated in large part by the external libraries of code produced by the Python community for data analysis and visualization.  We’re going to be working with a few of those libraries this semester, starting with this notebook.</p>
 <p>In our data analysis assignments, you’ll be working with real-live data - as in many real-world projects!  Further, the data that we find on the web often needs a little bit - or a lot - of modification before we can do anything analytically useful with it.  You will start to get some experience with that today, and things will get progressively more challenging throughout the semester.</p>
 </section>
 <section id="working-with-external-data-in-google-colab">
-<h1>Working with external data in Google Colab<a class="headerlink" href="#working-with-external-data-in-google-colab" title="Permalink to this heading">#</a></h1>
+<h1>Working with external data in Google Colab<a class="headerlink" href="#working-with-external-data-in-google-colab" title="Link to this heading">#</a></h1>
 <p>Our data for this assignment, adult overweight/obesity rates by state, come from the <a class="reference external" href="http://kff.org/other/state-indicator/adult-overweightobesity-rate/#">Kaiser Family Foundation</a>.  The data file, a comma-separated values file called <code class="docutils literal notranslate"><span class="pre">adult_data.csv</span></code>, can be downloaded from TCU Online or the course GitHub repository.</p>
 <p>There are a couple ways to get external data into your Google Colab session.  The quickest way is to upload data directly to your Colab session by clicking the <strong>Files</strong> icon on the left-hand side of the screen then clicking the “Upload to session storage” icon (the one on the left).  You can then navigate to where you’ve downloaded the <code class="docutils literal notranslate"><span class="pre">adult_data.csv</span></code> file and upload it to your session.</p>
 <p>Once you’ve uploaded the data, you should see your file <code class="docutils literal notranslate"><span class="pre">adult_data.csv</span></code> appear in the file browser.  This allows you to read in the data that you’ve downloaded as a <strong>pandas</strong> DataFrame. Right-click the CSV file in the file browser then choose “Copy path”.  Replace the path to the dataset in the code chunk below with this path by pasting it there.</p>
@@ -470,7 +491,7 @@ document.write(`
 <p>So what did you just do here?  You <strong>imported</strong> in the code associated with the <strong>pandas</strong> library, which will be referenced by the prefix <code class="docutils literal notranslate"><span class="pre">pd</span></code>.  You then used the <code class="docutils literal notranslate"><span class="pre">read_csv()</span></code> function from the <strong>pandas</strong> library to convert the CSV of overweight rates by state into a <code class="docutils literal notranslate"><span class="pre">pandas</span></code> DataFrame.  By default, <code class="docutils literal notranslate"><span class="pre">read_csv()</span></code> assumes that the first row of your CSV represents column headings, and then rows 2 until the end represent data.</p>
 <p>One issue with this approach to reading in data is that your data are not <em>persistent</em>.  Google Colab will recycle workspaces to save space, which means that when you return to work on your assignment, the data may not be there.  This means that you’d need to upload your data again.</p>
 <section id="storing-data-persistently-in-google-drive">
-<h2>Storing data persistently in Google Drive<a class="headerlink" href="#storing-data-persistently-in-google-drive" title="Permalink to this heading">#</a></h2>
+<h2>Storing data persistently in Google Drive<a class="headerlink" href="#storing-data-persistently-in-google-drive" title="Link to this heading">#</a></h2>
 <p>An alternative approach would be to save your data to Google Drive then <em>mount</em> your drive to your Colab session.  Google Drive will provide <em>persistent storage</em> for your data, so you won’t need to upload data every time you plan to work with it.  Your first step is to download the data for this assignment from TCU Online, then upload the data to your Google Drive account.  Visit <a class="reference external" href="https://drive.google.com/">https://drive.google.com/</a> to view the Drive associated with your Google account.  You’ll notice that you have a folder called “Colab notebooks” that stores all of the Colab notebooks you’ve created to this point.</p>
 <p>If you want, you can upload your data directly to your Drive by clicking the <strong>New</strong> button then <strong>File upload</strong>.  If you want to keep your data a bit more organized, you can first create a subfolder by clicking <strong>New &gt; Folder</strong>, then uploading the <code class="docutils literal notranslate"><span class="pre">adult_data.csv</span></code> file to your subfolder.</p>
 <p>Next, return to Colab.  With the <strong>Files</strong> tab active, click the icon on the right side in the <strong>Files</strong> browser, “Mount Drive”.  After you click this icon, you’ll see a code cell appear with the following code in it, along with a message telling you to run the cell:</p>
@@ -489,59 +510,6 @@ document.write(`
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_path</span><span class="p">)</span>
 
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="mi">0</span><span class="n">f504a2e2cff</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">data_path</span> <span class="o">=</span> <span class="s2">&quot;/content/drive/MyDrive/class_data/adult_data.csv&quot;</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> 
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_path</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> 
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-
-<span class="nn">~/anaconda3/envs/geog30323/lib/python3.8/site-packages/pandas/io/parsers.py</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, dialect, error_bad_lines, warn_bad_lines, delim_whitespace, low_memory, memory_map, float_precision)</span>
-<span class="g g-Whitespace">    </span><span class="mi">684</span>     <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">685</span> 
-<span class="ne">--&gt; </span><span class="mi">686</span>     <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">687</span> 
-<span class="g g-Whitespace">    </span><span class="mi">688</span> 
-
-<span class="nn">~/anaconda3/envs/geog30323/lib/python3.8/site-packages/pandas/io/parsers.py</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">450</span> 
-<span class="g g-Whitespace">    </span><span class="mi">451</span>     <span class="c1"># Create the parser.</span>
-<span class="ne">--&gt; </span><span class="mi">452</span>     <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">fp_or_buf</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">453</span> 
-<span class="g g-Whitespace">    </span><span class="mi">454</span>     <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
-
-<span class="nn">~/anaconda3/envs/geog30323/lib/python3.8/site-packages/pandas/io/parsers.py</span> in <span class="ni">__init__</span><span class="nt">(self, f, engine, **kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">944</span>             <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">945</span> 
-<span class="ne">--&gt; </span><span class="mi">946</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">947</span> 
-<span class="g g-Whitespace">    </span><span class="mi">948</span>     <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-
-<span class="nn">~/anaconda3/envs/geog30323/lib/python3.8/site-packages/pandas/io/parsers.py</span> in <span class="ni">_make_engine</span><span class="nt">(self, engine)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1176</span>     <span class="k">def</span> <span class="nf">_make_engine</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;c&quot;</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1177</span>         <span class="k">if</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;c&quot;</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1178</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="n">CParserWrapper</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1179</span>         <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1180</span>             <span class="k">if</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;python&quot;</span><span class="p">:</span>
-
-<span class="nn">~/anaconda3/envs/geog30323/lib/python3.8/site-packages/pandas/io/parsers.py</span> in <span class="ni">__init__</span><span class="nt">(self, src, **kwds)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2006</span>         <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;usecols&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">usecols</span>
-<span class="g g-Whitespace">   </span><span class="mi">2007</span> 
-<span class="ne">-&gt; </span><span class="mi">2008</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_reader</span> <span class="o">=</span> <span class="n">parsers</span><span class="o">.</span><span class="n">TextReader</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2009</span>         <span class="bp">self</span><span class="o">.</span><span class="n">unnamed_cols</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reader</span><span class="o">.</span><span class="n">unnamed_cols</span>
-<span class="g g-Whitespace">   </span><span class="mi">2010</span> 
-
-<span class="nn">pandas/_libs/parsers.pyx</span> in <span class="ni">pandas._libs.parsers.TextReader.__cinit__</span><span class="nt">()</span>
-
-<span class="nn">pandas/_libs/parsers.pyx</span> in <span class="ni">pandas._libs.parsers.TextReader._setup_parser_source</span><span class="nt">()</span>
-
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;/content/drive/MyDrive/class_data/adult_data.csv&#39;
 </pre></div>
 </div>
 </div>
@@ -569,7 +537,7 @@ dtype: object
 </section>
 </section>
 <section id="exploring-data-with-descriptive-statistics">
-<h1>Exploring data with descriptive statistics<a class="headerlink" href="#exploring-data-with-descriptive-statistics" title="Permalink to this heading">#</a></h1>
+<h1>Exploring data with descriptive statistics<a class="headerlink" href="#exploring-data-with-descriptive-statistics" title="Link to this heading">#</a></h1>
 <p>Now that we’ve read in our data, we’ll want to get a sense of some of its basic properties.  You should recall from class that some of the most common descriptive statistics include <strong>measures of central tendency</strong>, which measure the “central point” of a distribution using different metrics, and <strong>measures of dispersion</strong>, which measure the “spread” of a distribution.  The most common measure of central tendency used is the <strong>mean</strong>, which is also commonly termed the average of the distribution.  The mean of a distribution is calculated by summing up all of the values in the distribution, and then dividing by the total number of values.</p>
 <p><code class="docutils literal notranslate"><span class="pre">.mean()</span></code> is a method built-in to <code class="docutils literal notranslate"><span class="pre">pandas</span></code> that allows you to calculate the mean for a column in a data frame - or alternatively, all columns in a data frame.  Recall from class that columns can be accessed as attributes of the data frame or by index.  In turn, the following calls are equivalent:</p>
 <div class="cell docutils container">
@@ -693,7 +661,7 @@ dtype: object
 <p>While these numbers give us a general idea of the distribution of our data, tables of numbers are often not the most effective way to represent distributions.  As such, we turn to <strong>visualization</strong>, which enables us to explore our data graphically.</p>
 </section>
 <section id="univariate-visualization">
-<h1>Univariate visualization<a class="headerlink" href="#univariate-visualization" title="Permalink to this heading">#</a></h1>
+<h1>Univariate visualization<a class="headerlink" href="#univariate-visualization" title="Link to this heading">#</a></h1>
 <p>As we discussed in class, the principal library for data visualization in Python is <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>.  <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> is an extraordinarily flexible package that allows Python users to create just about any type of visualization.  However, it is sometimes criticized for being too “low-level” - that is, requiring a lot of code to accomplish simple tasks - and for having unattractive defaults.</p>
 <p>While we will be working with <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> in this class, many of our interactions with the package will occur through built-in plotting functions in <code class="docutils literal notranslate"><span class="pre">pandas</span></code> as well as <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>, a Python library for statistical visualization that is built on top of <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, and is lauded for its attractive styling.</p>
 <p>We’ll be using <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> from this point forward in the notebook, so you’ll now want to import <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> into your namespace.  In this course, I’ll be using the standard import <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">seaborn</span> <span class="pre">as</span> <span class="pre">sns</span></code>; <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>’s creator Michael Waskom uses this in reference to the West Wing origins of the package’s name, as it is named after fictional White House deputy communications director <a class="reference external" href="https://en.wikipedia.org/wiki/Sam_Seaborn">Samuel Norman Seaborn</a>, played by Rob Lowe.</p>
@@ -714,10 +682,10 @@ dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
 </pre></div>
 </div>
-<img alt="_images/1bf976ffd57c8400c8ffe28d9e66fa6352a4aa04eccf08e3e1d0b59fce1ed649.png" src="_images/1bf976ffd57c8400c8ffe28d9e66fa6352a4aa04eccf08e3e1d0b59fce1ed649.png" />
+<img alt="_images/a6d12eb0821401b8c38eb65611c4c59ad6008582bd10c2f9494f152035610166.png" src="_images/a6d12eb0821401b8c38eb65611c4c59ad6008582bd10c2f9494f152035610166.png" />
 </div>
 </div>
 <p>Histograms can also be build with <strong>seaborn</strong> functions, requiring different syntax.  As opposed to the built-in <strong>pandas</strong> histogram, which treats the plot as a method belonging to the data frame object, <strong>seaborn</strong> functions are called with the data frame as an argument along with other arguments that control the styling of the plot.</p>
@@ -728,10 +696,10 @@ dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;all_adults&#39;, ylabel=&#39;Count&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;all_adults&#39;, ylabel=&#39;Count&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/e178cfc90c8b98376e986c7ebf8333b5c6f7ff8092691d1d59dd941be85d4c95.png" src="_images/e178cfc90c8b98376e986c7ebf8333b5c6f7ff8092691d1d59dd941be85d4c95.png" />
+<img alt="_images/b125e10f9e6e947555a611a5abed9feb6f756c43d053af7e0062afc8dc40c898.png" src="_images/b125e10f9e6e947555a611a5abed9feb6f756c43d053af7e0062afc8dc40c898.png" />
 </div>
 </div>
 <p>Spend some time trying to understand the graphs.  Many chart types that we’ll explore in this class rely on the concept of the <strong>Cartesian coordinate system</strong>, which you may remember from grade school mathematics classes.  Positions on the chart are defined by their <strong>x and y coordinates</strong>.  The <strong>x-axis</strong> is the horizontal axis; in the above histogram, this represents the value in our <code class="docutils literal notranslate"><span class="pre">all_adults</span></code> column.  The <strong>y-axis</strong> is the vertical axis, which in our histogram represents the number of observations in each bin.  <strong>pandas</strong> defaults to 10 bins that are equal in width; seaborn calculates the number of bins from the size of the data, though this can be controlled with the <code class="docutils literal notranslate"><span class="pre">bins</span></code> parameter.</p>
@@ -750,10 +718,10 @@ dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:ylabel=&#39;Count&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;None&#39;, ylabel=&#39;Count&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/6368c13ac69f497da4817d5aa704ebafcf9a00a22482bfab0fde5ec06de07618.png" src="_images/6368c13ac69f497da4817d5aa704ebafcf9a00a22482bfab0fde5ec06de07618.png" />
+<img alt="_images/e5e60568938a4eea64f8041ad6f1fbf7835ff116f046e604edb9d1b562cb2f72.png" src="_images/e5e60568938a4eea64f8041ad6f1fbf7835ff116f046e604edb9d1b562cb2f72.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -786,7 +754,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.5630178306448131
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.5630178306448126
 </pre></div>
 </div>
 </div>
@@ -799,7 +767,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.002915784155574375
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0029157841555743497
 </pre></div>
 </div>
 </div>
@@ -812,7 +780,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.47879076154643263
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.4787907615464291
 </pre></div>
 </div>
 </div>
@@ -824,7 +792,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.029743128783763506
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.02974312878376395
 </pre></div>
 </div>
 </div>
@@ -848,10 +816,10 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;all_adults&#39;, ylabel=&#39;Density&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;all_adults&#39;, ylabel=&#39;Density&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/09c1bc1bb0ce990bc2957940db41a9bcb71ef4fb2bc671c0952156d6933da68f.png" src="_images/09c1bc1bb0ce990bc2957940db41a9bcb71ef4fb2bc671c0952156d6933da68f.png" />
+<img alt="_images/30815793ad758ca51f8edca870a07cacf2feaaf4d61de402d31eff5868fd2468.png" src="_images/30815793ad758ca51f8edca870a07cacf2feaaf4d61de402d31eff5868fd2468.png" />
 </div>
 </div>
 <p>Be careful with the y-axis in kernel density plots; it looks similar to the histogram in this instance, but it represents something quantitatively different than the count as in the histogram that can be complicated to explain; the important thing for the purposes of our course here is the shape of the curve.  As expected, we see a peak around 66-67 percent.</p>
@@ -863,10 +831,18 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;all_adults&#39;, ylabel=&#39;Density&#39;&gt;
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/qm/xbtsglmj2ss91z9fzpz8k6q8ylngb5/T/ipykernel_3703/3758865490.py:1: FutureWarning: 
+
+`shade` is now deprecated in favor of `fill`; setting `fill=True`.
+This will become an error in seaborn v0.14.0; please update your code.
+
+  sns.kdeplot(data = df, x = &quot;all_adults&quot;, shade = True, color = &quot;green&quot;)
 </pre></div>
 </div>
-<img alt="_images/ee834ed194130782301db59f47c44a41ab547e113016599670986b442e273b6b.png" src="_images/ee834ed194130782301db59f47c44a41ab547e113016599670986b442e273b6b.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;all_adults&#39;, ylabel=&#39;Density&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/fc1358ea03fb3aef6dc4d1a9e7964c2fe1b3d702454500a85f1517e65bbd0f9d.png" src="_images/fc1358ea03fb3aef6dc4d1a9e7964c2fe1b3d702454500a85f1517e65bbd0f9d.png" />
 </div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">seaborn</span></code> also has a built-in function called <code class="docutils literal notranslate"><span class="pre">displot</span></code> that will allow you to show a density curve and a histogram concurrently:</p>
@@ -877,10 +853,10 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7ff2acd47f10&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x144ce9e10&gt;
 </pre></div>
 </div>
-<img alt="_images/64be546b74ef2e2bedef5cd589a77f01bc5e96fc5bff556d8a7d7168ba80892e.png" src="_images/64be546b74ef2e2bedef5cd589a77f01bc5e96fc5bff556d8a7d7168ba80892e.png" />
+<img alt="_images/b45b3982e0cc2e23441069c87bdc4143c009572317d0bf4e84f9187750088832.png" src="_images/b45b3982e0cc2e23441069c87bdc4143c009572317d0bf4e84f9187750088832.png" />
 </div>
 </div>
 <p>If desired, plots can also be superimposed on one another to make comparisons.  For example, here we’ll overlay two density plots, one for male and one for female:</p>
@@ -892,10 +868,10 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;male&#39;, ylabel=&#39;Density&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;male&#39;, ylabel=&#39;Density&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/b64a571efd95576bb133989be1affad8ac686cddb40a5822fe68f76d23996278.png" src="_images/b64a571efd95576bb133989be1affad8ac686cddb40a5822fe68f76d23996278.png" />
+<img alt="_images/a62def5ed37f083bbd6168e230d35f22d46b94931f1fd5bda22b843552ac2419.png" src="_images/a62def5ed37f083bbd6168e230d35f22d46b94931f1fd5bda22b843552ac2419.png" />
 </div>
 </div>
 <p>An alternative way to visualize a frequency distribution is the <strong>box plot</strong>. As we discussed in class, box plots use three parallel lines to construct a box: one at the 25 percent point of the distribution, one at the median (50 percent point) of the distribution, and one at the 75 percent point of the distribution.  “Whiskers” then extend to either the minimum/maximum values of the distribution or 150 percent (conventionally) of the 25/75 percent points, and observations beyond the whiskers are “outliers” represented with dots.  <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> allows us to draw box plots quite flexibly with its <code class="docutils literal notranslate"><span class="pre">boxplot</span></code> function:</p>
@@ -906,10 +882,10 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;all_adults&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;all_adults&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/d76bbe8fe1911133a81f04540c2698d5ae56e9ea54b62190e679d025c479ead0.png" src="_images/d76bbe8fe1911133a81f04540c2698d5ae56e9ea54b62190e679d025c479ead0.png" />
+<img alt="_images/a2c3084ab553b410a34f0eb2d2f7881841fcc3c2061a9653c1df2a1bcf74d335.png" src="_images/a2c3084ab553b410a34f0eb2d2f7881841fcc3c2061a9653c1df2a1bcf74d335.png" />
 </div>
 </div>
 <p>Notice how the dimensions of the box plot reflect the descriptive statistics we calculated earlier.  Also, note the outliers on the left-hand side of the plot.  The dot to the far left represents the District of Columbia, which has the lowest adult overweight/obesity rate in our sample.  This makes sense, as DC is not really comparable to the 50 US states, given that it is a city in its entirety, and we know that dense cities tend to have lower adult overweight/obesity rates than suburbs and rural areas, which make up parts of all of our other observations.  The <em>state</em> with the lowest overall rate is Colorado, which consistently ranks atop other states on health measures.</p>
@@ -921,10 +897,10 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:ylabel=&#39;all_adults&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: ylabel=&#39;all_adults&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/e2a7c2f67dfa9e9d9a6d4e23f4e1ec30bbf104e56d372bea1aca60635d5853b7.png" src="_images/e2a7c2f67dfa9e9d9a6d4e23f4e1ec30bbf104e56d372bea1aca60635d5853b7.png" />
+<img alt="_images/d7e7ce3c3971fd1821617934f4a711958b25db0dc8bef0e22b7092834f25bdb5.png" src="_images/d7e7ce3c3971fd1821617934f4a711958b25db0dc8bef0e22b7092834f25bdb5.png" />
 </div>
 </div>
 <p>The final chart type I’ll introduce to you in this notebook is the <strong>violin plot</strong>.  Violin plots are like combinations of box plots and density plots; they show the 25/50/75 percent values, as with box plots, but with density curves on either side of a central axis.  Let’s take a look, again using <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>:</p>
@@ -935,10 +911,10 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;male&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;male&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/493f2da818881f9b00c09107370a35f07c6c033eb83eb34b60a148f281ee0802.png" src="_images/493f2da818881f9b00c09107370a35f07c6c033eb83eb34b60a148f281ee0802.png" />
+<img alt="_images/12a288a52f8377e1274128d3f6461884447a62da60f3849c7b66e9dfac5128e9.png" src="_images/12a288a52f8377e1274128d3f6461884447a62da60f3849c7b66e9dfac5128e9.png" />
 </div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">seaborn</span></code> draws a miniature boxplot inside of symmetrical density curves representing the shape of the dataset.  If you want, you can customize the visualization further; for example, I’ll tell <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> to draw lines representing quartiles inside of the plot instead of the mini box plot, and change the color to purple:</p>
@@ -949,15 +925,15 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;female&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;female&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/e9b3bdb8a47b810fccbf459846fd1740814e514b84cbf22b02c505ffdab329e2.png" src="_images/e9b3bdb8a47b810fccbf459846fd1740814e514b84cbf22b02c505ffdab329e2.png" />
+<img alt="_images/55de22e1f6a14ffc02801fbd3fef61245387e7d37e4626ca49fb262e52e923ee.png" src="_images/55de22e1f6a14ffc02801fbd3fef61245387e7d37e4626ca49fb262e52e923ee.png" />
 </div>
 </div>
 </section>
 <section id="exercises">
-<h1>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h1>
+<h1>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h1>
 <p>Now it’s time to test what you’ve learned!  In the following exercises, you’ll apply the techniques you’ve learned in this notebook to a new dataset from the Kaiser Family Foundation, which measures childhood overweight &amp; obesity rates by state.  The data file is named <code class="docutils literal notranslate"><span class="pre">child_data.csv</span></code> and is found on TCU Online.  Read in the new dataset as a <code class="docutils literal notranslate"><span class="pre">pandas</span></code> DataFrame, and respond to the following questions:</p>
 <p><strong>Exercise 1:</strong> What are the mean and median values for childhood overweight/obesity rates for states in the US?</p>
 <p><strong>Exercise 2</strong>: What are the minimum and maximum values for childhood overweight/obesity rates?  What is the range?</p>
@@ -991,11 +967,10 @@ dtype: float64
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="03-functions-and-iteration.html"
@@ -1015,10 +990,7 @@ dtype: float64
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -1026,6 +998,7 @@ dtype: float64
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1063,6 +1036,7 @@ By Kyle Walker
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2022.
@@ -1089,8 +1063,8 @@ By Kyle Walker
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

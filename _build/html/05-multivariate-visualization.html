@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Assignment 5: Multivariate exploratory visualization &#8212; GEOG 30323: Data Analysis &amp; Visualization</title>
   
@@ -19,49 +18,45 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = '05-multivariate-visualization';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -76,7 +71,15 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -111,11 +114,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -130,6 +136,7 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="index.html">
@@ -138,10 +145,22 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+  
     <p class="title logo__title">GEOG 30323: Data Analysis & Visualization</p>
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -321,20 +340,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -377,10 +398,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section id="assignment-5-multivariate-exploratory-visualization">
-<h1>Assignment 5: Multivariate exploratory visualization<a class="headerlink" href="#assignment-5-multivariate-exploratory-visualization" title="Permalink to this heading">#</a></h1>
+<h1>Assignment 5: Multivariate exploratory visualization<a class="headerlink" href="#assignment-5-multivariate-exploratory-visualization" title="Link to this heading">#</a></h1>
 <p>In Assignment 4, you got a feel for the basic analytic capabilites of <code class="docutils literal notranslate"><span class="pre">pandas</span></code> and <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>, and learned how to calculate descriptive statistics and generate univariate plots.  In many cases, however, you are going to want to explore interrelationships between multiple characteristics of your data.  In this course, we are going to address this with <strong>multivariate exploratory visualization</strong>.</p>
 <p>Multivariate visualization can take a lot of forms, and can get quite complex!  We’re just going to start with the basics here and work our way up to more complicated visualizations - and fortunately <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> can do quite a lot of things.</p>
 <p>Our data for today’s notebook are going to come from the 2012-2016 <strong>American Community Survey</strong>.  The American Community Survey, or ACS, is an annual survey conducted by the US Census Bureau that covers demographic characteristics of the US population such as income, education, and much more.</p>
@@ -465,7 +486,7 @@ document.write(`
 </div>
 <p>We note that our dataset has four columns: <code class="docutils literal notranslate"><span class="pre">&quot;county&quot;</span></code>, for the county name; <code class="docutils literal notranslate"><span class="pre">&quot;hhincome&quot;</span></code>, which refers to the median annual income for households in the county; <code class="docutils literal notranslate"><span class="pre">&quot;pct_college&quot;</span></code>, which refers to the percent of the population age 25 and up with at least a 4-year degree; and <code class="docutils literal notranslate"><span class="pre">&quot;median_age&quot;</span></code>, which refers to the median age of county residents.</p>
 <section id="bar-charts-and-dot-plots">
-<h2>Bar charts and dot plots<a class="headerlink" href="#bar-charts-and-dot-plots" title="Permalink to this heading">#</a></h2>
+<h2>Bar charts and dot plots<a class="headerlink" href="#bar-charts-and-dot-plots" title="Link to this heading">#</a></h2>
 <p>Two common types of charts for comparing quantities, as we discussed in class, are bar charts and dot plots.  <strong>Bar charts</strong> represent values as proportional to the height of bars, and <strong>dot plots</strong> represent values as dots along a given axis.</p>
 <p>Many plot types are available in <code class="docutils literal notranslate"><span class="pre">pandas</span></code> through the built-in <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> data frame method, and also have equivalent functions in <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>.  In <code class="docutils literal notranslate"><span class="pre">pandas</span></code> plotting, if no data arguments are passed to the <code class="docutils literal notranslate"><span class="pre">plot</span></code> method, <code class="docutils literal notranslate"><span class="pre">pandas</span></code> will assume that the x-axis values are in the index, and then will plot numeric columns as data series.  For example, we can create a bar plot below.  Also notice the use of the <code class="docutils literal notranslate"><span class="pre">sns.set()</span></code> function.  Within <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>, you can choose from a variety of built-in plot templates: <code class="docutils literal notranslate"><span class="pre">&quot;white&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;dark</span></code>”, <code class="docutils literal notranslate"><span class="pre">&quot;darkgrid&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;whitegrid&quot;</span></code>, and <code class="docutils literal notranslate"><span class="pre">&quot;ticks&quot;</span></code>, and you can use the <code class="docutils literal notranslate"><span class="pre">set</span></code> function to make all of your plots in this particular style.</p>
 <p>Additionally, we can modify underlying figure characteristics with the <code class="docutils literal notranslate"><span class="pre">rc</span></code> parameter in <code class="docutils literal notranslate"><span class="pre">sns.set()</span></code>. This allows you to specify the output figure width and height in inches; the code below will tell seaborn to make 10 inch by 8 inch plots, which will be more legible than the defaults.</p>
@@ -484,10 +505,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;median_age&#39;, ylabel=&#39;county&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;median_age&#39;, ylabel=&#39;county&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/62d6e01d19a13227e9d26cd832fae7ea5483705052bbd2422e4d1783138b8b96.png" src="_images/62d6e01d19a13227e9d26cd832fae7ea5483705052bbd2422e4d1783138b8b96.png" />
+<img alt="_images/31cabdd508fa233cfa8a0c3f3a079f6c1f8e24884c278018bc6bcab2a9d12b8d.png" src="_images/31cabdd508fa233cfa8a0c3f3a079f6c1f8e24884c278018bc6bcab2a9d12b8d.png" />
 </div>
 </div>
 <p>Looks good!  There is much more you can do with the plot - customizing colors, axis labels, and beyond.  We’ll be addressing plot customization beginning in Week 10.  However, there are still some small things that we can do to make our plots more readable.  Recall from class our discussion of the <code class="docutils literal notranslate"><span class="pre">.sort_values()</span></code> data frame method, in which we can arrange our data based on one or more column values.  When creating bar charts, it is a good idea to show sorted data values, which makes it easier for the reader to make comparisons.</p>
@@ -514,10 +535,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;median_age&#39;, ylabel=&#39;county&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;median_age&#39;, ylabel=&#39;county&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/f838843a951ccb3ae0454c612c135647adc5a6bfdbec17be4be950223b9b3b74.png" src="_images/f838843a951ccb3ae0454c612c135647adc5a6bfdbec17be4be950223b9b3b74.png" />
+<img alt="_images/cb5bfdc11fd4b4ccfc42852dad6fcf4cc6d1a086904c6fda285da321525f2d09.png" src="_images/cb5bfdc11fd4b4ccfc42852dad6fcf4cc6d1a086904c6fda285da321525f2d09.png" />
 </div>
 </div>
 <p>Sorting the data allows us to more clearly see how the values vary.  However, as we discussed in class, it is essential that bar charts have an origin of 0, as bar heights are used to make comparisons.  For values that are similar - but for which the differences are still significant - the <strong>dot plot</strong> may be preferable, which represents values by the position of dots along a a value axis.  Indeed, many data visualization experts prefer dot plots to bar charts, as they argue that it is easier for humans to perceive dot position instead of bar heights.  Further, dot plots are not constrained by the zero-axis-origin rule.</p>
@@ -529,15 +550,15 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;median_age&#39;, ylabel=&#39;county&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;median_age&#39;, ylabel=&#39;county&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/5855350208aa91b05671ff63f6f42612ceeff7083178828ba25e084162002c8d.png" src="_images/5855350208aa91b05671ff63f6f42612ceeff7083178828ba25e084162002c8d.png" />
+<img alt="_images/f6a32e93307b3a62f82ea12c5e8eef5bb1a7c988b159e048dd4d170008233405.png" src="_images/f6a32e93307b3a62f82ea12c5e8eef5bb1a7c988b159e048dd4d170008233405.png" />
 </div>
 </div>
 </section>
 <section id="scatter-plots">
-<h2>Scatter plots<a class="headerlink" href="#scatter-plots" title="Permalink to this heading">#</a></h2>
+<h2>Scatter plots<a class="headerlink" href="#scatter-plots" title="Link to this heading">#</a></h2>
 <p>Bar charts and dot plots are excellent choices for visualizing quantitative variations amongst different categories, like countries.  However: what if you want to visualize how two quantitative attributes might covary?  The most common exploratory visualization technique for this type of scenario is the <strong>scatter plot</strong>.</p>
 <p>Scatter plots most closely resemble the base <strong>Cartesian coordinate system</strong> that underpins the charts we’ve learned how to make to this point.  In fact, scatter plots are likely familiar to you from grade-school mathematics in the way they represent the joint distributions of two attributes.  The value for one attribute is represented by the x-coordinate (the horizontal axis) on the chart, and the other attribute is represented by the y-coordinate (the vertical axis).</p>
 <p>Let’s give this a try.  We’ll be comparing the distributions of counties’ educational attainment, as measured by the percentage of residents age 25 and up with at least a 4-year college degree, and the median annual income for households in New Mexico’s counties.  Briefly, let’s examine the characteristics of our data.</p>
@@ -633,10 +654,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;pct_college&#39;, ylabel=&#39;hhincome&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;pct_college&#39;, ylabel=&#39;hhincome&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/735a5888880b9f39d8c61b2630e05aadf820fb627248ff50f4151ee760625a1b.png" src="_images/735a5888880b9f39d8c61b2630e05aadf820fb627248ff50f4151ee760625a1b.png" />
+<img alt="_images/c5251fe95d327757298f6c2d0d7c4f6bd29d5dded1ec09b942c9e2c99c0a5d6d.png" src="_images/c5251fe95d327757298f6c2d0d7c4f6bd29d5dded1ec09b942c9e2c99c0a5d6d.png" />
 </div>
 </div>
 <p>Notice the shape formed by the distribution of dots.  It appears from our plot that as educational attainment increases, household income increases as well, suggesting a <strong>positive relationship</strong> between the two distributions.  Recall from class that this statistical relationship can be quantified with a <strong>correlation coefficient</strong>.  Let’s check this out by using the <code class="docutils literal notranslate"><span class="pre">.corr()</span></code> method available to us in <code class="docutils literal notranslate"><span class="pre">pandas</span></code>:</p>
@@ -661,10 +682,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f101cf68a00&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x16078e0d0&gt;
 </pre></div>
 </div>
-<img alt="_images/dfab9193af371637f979deddae4492919a71ac00541a3a11097e138e05fb5a1e.png" src="_images/dfab9193af371637f979deddae4492919a71ac00541a3a11097e138e05fb5a1e.png" />
+<img alt="_images/9376a7f222117c96c6d73655ceeca3303f42585968697b8252dc56e4eaa653a2.png" src="_images/9376a7f222117c96c6d73655ceeca3303f42585968697b8252dc56e4eaa653a2.png" />
 </div>
 </div>
 <p>The plot is similar, but notice the superimposition of a <strong>regression line</strong> over the dots.  You can think of this line as a visual representation of the correlation between the two variables; the upward slope, again, suggests a positive relationship.  This line also presumes that the relationship between the two variables is <strong>linear</strong>, which is not always the case; we’ll discuss this a bit more later in the semester.</p>
@@ -676,10 +697,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.JointGrid at 0x7f101cc26c70&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.JointGrid at 0x160f9ed50&gt;
 </pre></div>
 </div>
-<img alt="_images/623db02554d089f4a5222fd6877e6a2c7082a1375752795fa5c8b157d0329c17.png" src="_images/623db02554d089f4a5222fd6877e6a2c7082a1375752795fa5c8b157d0329c17.png" />
+<img alt="_images/93c50a519890119911bb69bbfba6a33d0adf84612d759430e94233b2395767ca.png" src="_images/93c50a519890119911bb69bbfba6a33d0adf84612d759430e94233b2395767ca.png" />
 </div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">seaborn</span></code> draws a scatter plot, but with histograms of the two data distributions on the margins!  Additionally, the <code class="docutils literal notranslate"><span class="pre">sns.scatterplot()</span></code> function can map other variables onto the hue, style, or size of the points drawn.  For example, we can visualize our relationship as we did before, but this time with dots sized by county median age:</p>
@@ -690,16 +711,16 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;pct_college&#39;, ylabel=&#39;hhincome&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;pct_college&#39;, ylabel=&#39;hhincome&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/6696e1ed24d5cfdd2394756ef68344194fdcf0ae952537cbea9668d4bd39d281.png" src="_images/6696e1ed24d5cfdd2394756ef68344194fdcf0ae952537cbea9668d4bd39d281.png" />
+<img alt="_images/e6544b470e1fab3fc4fb7683ccf3589cc62075f1956f1d32b39b336e9f44fb5f.png" src="_images/e6544b470e1fab3fc4fb7683ccf3589cc62075f1956f1d32b39b336e9f44fb5f.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="exercises">
-<h1>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h1>
+<h1>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h1>
 <p>As usual, I’ll ask you to do some of this on your own now in the form of a few small exercises.  Take care to answer all of the questions!</p>
 <p><strong>Exercise 1</strong>: Explain, in your own words, the differences between a bar chart and a dot plot.  When might one of these charts be preferable to the other?  Write your response below in this Markdown cell.</p>
 <hr class="docutils" />
@@ -738,11 +759,10 @@ document.write(`
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="04-univariate-data-analysis.html"
@@ -762,10 +782,7 @@ document.write(`
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -773,6 +790,7 @@ document.write(`
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -808,6 +826,7 @@ By Kyle Walker
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2022.
@@ -834,8 +853,8 @@ By Kyle Walker
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>
