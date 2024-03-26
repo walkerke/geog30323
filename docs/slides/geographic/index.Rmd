@@ -1,0 +1,340 @@
+---
+title: "Geographic data in Python"
+author: GEOG 30323
+date: April 4, 2023
+output: 
+  revealjs::revealjs_presentation: 
+    theme: "white"
+    transition: "none"
+    highlight: "tango"
+    center: TRUE
+    fig_caption: TRUE
+    
+---
+
+## What is geographic data? 
+
+* Thus far: we've been working with data (largely) in tabular data frames, where each column represents data "attributes"
+* Geographic data: includes information on _location_ - specifically, where the observation is located on the Earth's surface
+
+---
+
+### Maps!
+
+<iframe src=http://personal.tcu.edu/kylewalker/immigrant-america height = "600" width = "900" frameborder = "0"></iframe>
+
+---
+
+### Longitude and latitude: the basics
+
+<img src=img/coordinates.png>
+
+---
+
+### Geographic coordinates
+
+* Longitude (X) and latitude (Y) coordinates can be expressed as:
+  + Degrees minutes seconds (e.g. $97^{\circ}21'37''W$, $32^{\circ}42'38''N$)
+  + Decimal degrees (e.g. $-97.36$, $32.71$)
+
+Conversion between DMS and decimal degrees:
+
+$$DD = D + \frac{M}{60} + \frac{S}{3600}$$
+
+---
+
+## Coordinate systems
+
+* __Geographic coordinate system__: coordinate system based on latitude and longitude (coordinates on a sphere)
+* __Projected coordinate system__: coordinate system projected onto a two-dimensional surface (coordinates on a plane)
+
+---
+
+## Map projections
+
+<iframe src="http://personal.tcu.edu/kylewalker/introgis/projections.html" width = "900" height = "700" frameBorder = "0"></iframe><figcaption>Original source: Mike Bostock</figcaption>
+
+---
+
+### Tiled mapping and Web Mercator
+
+<img src=img/tiled-mapping.png>
+
+---
+
+## Vector data
+
+<img src=img/vector.png>
+
+---
+
+## Raster data
+
+<img src=img/raster.png>
+
+---
+
+### Vector data: CSV files
+
+* Example: Starbucks locations in Chicago 
+
+```python
+import pandas as pd
+
+starbucks = pd.read_csv("http://personal.tcu.edu/kylewalker/data/chicago_starbucks.csv")
+
+starbucks.head()
+```
+
+---
+
+## GeoPandas
+
+* __GeoPandas__: Python package that extends __pandas__ to represent geographic objects as _GeoDataFrames_
+
+* Key column: `geometry`, which represents the geometry type of the data (point, line, or polygon) and the sequence of coordinates
+
+---
+
+## Installing packages in Colab
+
+* Google Colab has many Python packages you'll need for your work pre-installed, but not all!
+
+* Packages can be installed from the Python Package Index using the `pip` command prefaced with an exclamation mark
+
+```bash
+!pip install --upgrade geopandas pygris[explore] contextily
+```
+
+---
+
+### Making a GeoDataFrame
+
+```python
+import geopandas as gp
+
+sbgeo = gp.GeoDataFrame(starbucks,
+                        geometry = gp.points_from_xy(starbucks.Longitude,
+                                                     starbucks.Latitude),
+                        crs = 4326)
+```
+
+---
+
+### Making a GeoDataFrame
+
+* `gp.GeoDataFrame()`: function used to generate the GeoDataFrame, which can take an existing __pandas__ DataFrame as its first argument
+
+* Parameters: 
+  - `geometry`: how to represent the data as a geographic object. We use the `gp.points_from_xy()` function here to "make" the geometry from existing `Longitude` and `Latitude` columns. 
+  - `crs`: a code that specifies the dataset's _coordinate reference system_. Most coordinate systems can be represented by 4- or 5-digit codes (see https://spatialreference.org/)
+
+---
+
+### Mapping point data
+
+```python
+# Static plot:
+sbgeo.plot()
+
+# Interactive map: 
+sbgeo.explore()
+```
+
+<img src=img/starbucks1.png style="width: 450px">
+
+---
+
+### Adding a "basemap" to a static map
+
+```python
+import contextily as cx
+
+# "Project" to Web Mercator, used by tiled mapping services
+sbgeo2 = sbgeo.to_crs(3857)
+
+# Assign the Starbucks map to a variable, then add the basemap to it
+p = sbgeo2.plot(figsize = (8, 8))
+cx.add_basemap(p, zoom = 11)
+```
+
+---
+
+### Adding a "basemap"
+
+<img src=img/starbucks2.png style="width: 400px">
+
+---
+
+### Vector data: GeoJSON
+
+* Extension to the JSON format that encodes geographic coordinates for datasets
+
+* [Mexico's states as GeoJSON](https://gist.github.com/walkerke/76cb8cc5f949432f9555)
+
+---
+
+### Mapping polygons
+
+```python
+mxgeo = gp.read_file("https://gist.githubusercontent.com/walkerke/76cb8cc5f949432f9555/raw/363c297ce82a4dcb9bdf003d82aa4f64bc695cf1/mx.geojson")
+
+import seaborn as sns
+sns.set(style = "white")
+mxgeo.plot(column = "pri10", cmap = "RdPu", figsize = (10, 8),
+           legend = True)
+
+# Or, interactively:
+mxgeo.explore(column = "pri10", cmap = "RdPu")
+```
+
+---
+
+### Mapping polygons
+
+<img src="img/mexico_map.png" style="width: 750px">
+
+---
+
+### Should you map? 
+
+* Beware the "amazing map"...
+
+<img src=img/clickhole.PNG style="width: 500px"><figcaption>Source: [Clickhole (The Onion)](https://clickhole.com/we-put-700-red-dots-on-a-map-1825122391/)</figcaption>
+
+---
+
+### Maps vs. charts
+
+* For discussion: which visualization is more effective for showing differences in our data?   
+
+---
+
+### Chart for comparison
+
+<img src=img/primarydot2.png style="width: 825px">
+
+---
+
+### Code to reproduce the chart
+
+```python
+import pandas as pd, seaborn as sns, matplotlib.pyplot as plt
+sns.set(style="whitegrid", font_scale = 1.3)
+df = pd.read_csv("http://personal.tcu.edu/kylewalker/mexico.csv")
+
+plt.figure(figsize = (10, 8))
+
+p = sns.stripplot(data = df.sort_values('pri10', ascending = False), 
+                  x = 'pri10', y = 'name', palette = "RdPu_r", 
+                  orient = 'h', size = 8)
+p.set(xlabel = "% of workforce in primary sector", 
+      xlim = (0, 50), ylabel = "")
+p.axes.xaxis.grid(False)
+p.axes.yaxis.grid(True)
+sns.despine(left = True, bottom = True)
+
+```
+---
+
+## Automated spatial data acquisition
+
+* We've discussed getting data from APIs to stream data in to your analysis session
+
+* __pygris__: Python package I wrote to automate acquisition of Census Bureau geographic data
+
+* Let's try it out!
+
+---
+
+## pygris examples
+
+```python
+from pygris import roads, tracts
+
+tarrant_roads = roads(state = "TX", county = "Tarrant")
+
+tarrant_tracts = tracts(state = "TX", county = "Tarrant")
+
+```
+
+---
+
+## Merging geographic and demographic data
+
+```python
+from pygris.data import get_census
+
+income_data = get_census(
+  dataset = "acs/acs5",
+  year = 2021,
+  variables = "B19013_001E",
+  params = {
+    "for": "tract:*",
+    "in": ["state:48", "county:439"]
+  },
+  return_geoid = True,
+  guess_dtypes = True
+)
+
+tarrant_income = tarrant_tracts.merge(income_data, on = "GEOID")
+
+tarrant_income.explore(column = "B19013_001E")
+
+```
+
+---
+
+## Raster data in Python
+
+* To work with raster data in Python, use the [rasterio](https://rasterio.readthedocs.io/en/latest/index.html) package
+
+```python
+import rasterio as rio
+
+# Dataset of elevation in the Tarrant County area
+elev = rio.open("http://personal.tcu.edu/kylewalker/data/tarrant_elevation.tif")
+```
+
+---
+
+### Plotting raster data
+
+```python
+from rasterio.plot import show, show_hist
+sns.set(style = "white")
+show(elev)
+```
+
+<img src=img/elevation.png style="width: 400px">
+
+---
+
+
+### Raster data: histograms
+
+```python
+show_hist(elev, bins = 100)
+```
+
+<img src=img/histogram.png style="width: 650px">
+
+
+
+
+
+<style>
+
+.reveal section img {
+  background:none; 
+  border:none; 
+  box-shadow:none;
+  }
+  
+
+
+
+</style>
+
+
+

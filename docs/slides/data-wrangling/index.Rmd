@@ -1,0 +1,456 @@
+---
+title: "Data wrangling"
+author: GEOG 30323
+date: February 20, 2024
+output: 
+  revealjs::revealjs_presentation: 
+    theme: "white"
+    transition: "none"
+    highlight: "tango"
+    center: TRUE
+    fig_caption: TRUE
+    
+---
+
+### Data wrangling
+
+In real-world data analysis, your data will likely: 
+
+* Have missing/possibly incorrect values
+* Be in a format unsuitable for data analysis
+* Be spread across multiple files, possibly of different types
+* Need re-shaping or summarization to draw meaningful conclusions
+
+Fortunately, `pandas` can help you with all of this!
+
+---
+
+### Subsetting
+
+* Frequently, you'll have way more data than you need!
+* Datasets can be reduced in size by __indexing__ and __subsetting__
+* Let's read in the colleges dataset as a demo
+
+```python
+import pandas as pd
+
+full_url = 'http://personal.tcu.edu/kylewalker/data/colleges.csv'
+full_df = pd.read_csv(full_url, encoding = 'latin_1')
+full_df.shape
+```
+---
+
+### By column name
+
+* Let's drop most of the columns in the dataset with `.filter()`
+
+```python
+cols_to_keep = ['INSTNM', 'STABBR', 'GRAD_DEBT_MDN_SUPP']
+debt_df = full_df.filter(cols_to_keep)
+debt_df.columns = ['name', 'state', 'debt']
+debt_df.head()
+```
+<img src=img/drop_cols.png>
+
+---
+
+### By row position
+
+* Data frames can be _sliced_ like lists and strings
+
+```python
+# Retain row 0 up until but not including row 10
+debt_df[0:10]
+```
+
+<img src=img/ex1.png style="width: 400px">
+
+---
+
+### By row or column index
+
+* Selecting by row or column index available in the `.loc[]` method (note the brackets)
+
+```python
+example1 = debt_df.set_index('name')
+example1.loc['Amridge University':'Alabama State University']
+```
+<img src=img/index_name.png>
+
+---
+
+### By value
+
+* Often, you'll want to _keep_ rows that have a certain column value, or _exclude_ rows based on that value
+* The data frame method `.query()` will "query" your dataset based on an expression
+* Expressions use __conditional operators__; can be combined with `&` (and) and `|` (or)
+
+---
+
+### By value
+
+```python
+debt_df1 = debt_df.query("debt != 'PrivacySuppressed'")
+debt_df1.head()
+```
+<img src=img/sub1.png>
+
+---
+
+### By value
+
+```python
+tx_debt_df = debt_df.query('debt != "PrivacySuppressed" & state == "TX" ')
+tx_debt_df.head()
+
+# Alternatively, use an index-based method
+
+# tx_debt_df = debt_df.loc[(debt_df['debt'] != 'PrivacySuppressed') & (debt_df['state'] == 'TX')]
+
+```
+<img src=img/txdebt.png>
+
+---
+
+### By value
+
+```python
+states = ['OK', 'NM', 'TX', 'LA']
+# Use `in @states` to get values in the list
+# @ operator allows for use of variables in the query
+sw_debt_df = debt_df.query("debt != 'PrivacySuppressed' & state in @states")
+
+sw_debt_df.head()
+```
+<img src=img/swdebt.png>
+
+---
+
+### Creating new columns
+
+* New columns can be created based on specified values, or as derivatives of other columns, using mathematical operators or the `.assign()` method
+* Let's demo with a simulated data frame: 
+
+```python
+import numpy as np
+np.random.seed(1983)
+
+df1 = pd.DataFrame({'col1': np.random.randint(1, 100, 10), 
+                    'col2': np.random.randint(1, 100, 10), 
+                    'col3': np.random.randint(1, 100, 10)})
+```
+
+---
+
+### Creating new columns
+
+```python
+# With .assign()
+df2 = df1.assign(col4 = df1.col1 + df1.col2)
+
+# With index-based labeling
+df2['col5'] = df2['col3'] / df2['col4']
+
+df2.head()
+```
+<img src=img/assign.png>
+
+---
+
+### `dtype` conversion
+
+* To do numerical analysis, our numeric data have to be stored as numbers!
+* To convert: use the `.astype()` method
+
+```python
+sw_debt_num = sw_debt_df.assign(debtnum = sw_debt_df.debt.astype(float))
+
+sw_debt_num.head()
+
+```
+<img src=img/newcol.png>
+
+---
+
+### Missing data
+
+* Commonly, all of the data you need will not be found in your data set!  
+* Possible solutions: 
+    * Delete all rows that have missing data
+    * Fill in missing data with a specified value
+    * __Interpolate__ missing values
+    
+---
+
+### Missing data
+
+* `.dropna()` method: delete all rows (or columns) that have any missing values (`NaN` in `pandas`)
+
+```python
+sw_debt_clean = sw_debt_num.dropna()
+
+sw_debt_clean.head()
+```
+<img src=img/dropna.png>
+
+
+---
+
+### Missing data
+
+* `.fillna()` method: fill in missing data with a specified value
+
+```python
+sw_debt_fill = sw_debt_num.fillna(sw_debt_num.median())
+
+sw_debt_fill.head()
+```
+<img src=img/fillna.png>
+
+---
+
+### Method chaining
+
+* __pandas__ data wrangling methods can be "chained" together to compute a data wrangling workflow all at once
+
+```python
+cols_to_keep = ['INSTNM', 'STABBR', 'GRAD_DEBT_MDN_SUPP']
+states = ['OK', 'NM', 'TX', 'LA']
+
+sw_debt_clean = (full_df
+  .filter(cols_to_keep)
+  .set_axis(['name', 'state', 'debt'], axis = 'columns')
+  .query("debt != 'PrivacySuppressed' & state in @states")
+  .assign(debtnum = lambda x: x.debt.astype(float))
+  .dropna()
+)
+
+```
+
+---
+
+### Group-wise data analysis
+
+* Thus far, we've focused on characteristics of data within a particular group
+* Common question: how do characteristics vary by group?  
+* In `pandas`: `.groupby()` method!
+
+---
+
+### Split-apply-combine 
+
+* Wickham (2011): the "split-apply-combine" model of data analysis
+
+Process: 
+
+* Data are __split__ by some characteristic into groups
+* We __apply__ a function to each of the groups
+* The resultant data are __combined__ back into a single dataset
+
+---
+
+### `.groupby()` in `pandas`
+
+```python
+sw_grouped = sw_debt_clean.groupby('state')
+
+sw_grouped.debtnum.mean()
+
+# Result
+
+state
+LA    15876.255319
+NM    16237.466667
+OK    17030.860759
+TX    15009.426582
+```
+
+---
+
+### Grouped visualization in `seaborn`
+
+```python
+import seaborn as sns
+sns.set(style = "darkgrid")
+
+sns.boxplot(x = 'state', y = 'debtnum', data = sw_debt_clean)
+```
+<img src=img/box1.png style="width:600px">
+
+---
+
+### Grouped visualization in `seaborn`
+
+* __Faceting__ or __small multiples__: breaking down a plot by a grouping variable into multiple plots
+
+```python
+grid = sns.FacetGrid(data = sw_debt_clean, col = 'state', col_wrap = 2)
+grid.map(sns.kdeplot, 'debtnum')
+```
+<img src=img/facet.png style="width:350px">
+
+---
+
+### Merging data
+
+* Commonly, you'll have data in two - or multiple! - datasets that you'll want to combine into one
+* Simulated data: 
+
+```python
+np.random.seed(123456)
+
+m1 = pd.DataFrame({'type': ['a', 'b', 'c', 'd', 'e', 'f'], 
+                  'ind1': np.random.randint(1, 100, 6), 
+                  'ind2': np.random.randint(1, 100, 6)})
+
+m2 = pd.DataFrame({'type': ['a', 'b', 'c', 'd', 'e', 'f'], 
+                  'ind3': np.random.randint(1, 100, 6), 
+                  'ind4': np.random.randint(1, 100, 6)})
+```
+
+---
+
+### The `.merge()` method in `pandas`
+
+```python
+m3 = m1.merge(m2, on = 'type')
+```
+<img src=img/merge.png>
+
+---
+
+### Types of merges in `pandas`
+
+* Options for merging (the `how` parameter): `'inner'` (default), `'left'`, `'right'`, and `'outer'`
+* Simulated data: 
+
+```python
+m4 = pd.DataFrame({'type': ['d', 'e', 'f', 'g', 'h', 'i'], 
+                  'ind5': np.random.randint(1, 100, 6), 
+                  'ind6': np.random.randint(1, 100, 6)})
+```
+
+---
+
+### Inner merges
+
+```python
+m5 = m1.merge(m4, on = 'type', how = 'inner')
+```
+<img src=img/inner.png>
+
+---
+
+### Left merges
+
+```python
+m5 = m1.merge(m4, on = 'type', how = 'left')
+```
+<img src=img/left.png>
+
+---
+
+### Right merges
+
+```python
+m5 = m1.merge(m4, on = 'type', how = 'right')
+```
+<img src=img/right.png>
+
+---
+
+### Outer merges
+
+```python
+m5 = m1.merge(m4, on = 'type', how = 'outer')
+```
+<img src=img/outer.png>
+
+
+---
+
+### The "shape" of data
+
+* Long ("tidy") data: 
+    * Each variable forms a column; 
+    * Each observation forms a row; 
+    * Each type of observational unit forms a table
+    
+* Wide data: column headers represent __values__, not variable names
+
+---
+
+### Example: World Bank data
+
+* Long format: 
+
+```python
+from pandas_datareader import wb
+countries = ['ZA', 'BR', 'US']
+tfr = wb.download(indicator = 'SP.DYN.TFRT.IN', 
+                    country = countries, start = 1960, 
+                    end = 2019).reset_index()
+tfr.head()
+```
+<img src=img/long.png>
+
+---
+
+### Long to wide
+
+* `.pivot()` method in `pandas`
+
+```python
+tfr_wide = tfr.pivot(index = 'year', columns = 'country',
+                    values = 'SP.DYN.TFRT.IN')
+
+tfr_wide.head()
+```
+<img src=img/wide.png>
+
+---
+
+### Plotting "wide" data
+
+```python
+tfr_wide.plot()
+```
+
+<img src=img/linechart.png style="width:550px">
+
+---
+
+### Wide to long
+
+* `pd.melt()` function in `pandas`
+
+```python
+tfr_long = pd.melt(tfr_wide.reset_index(), id_vars = 'year', 
+                   var_name = 'country', value_name = 'tfr')
+
+tfr_long.head()
+```
+<img src=img/long2.png>
+
+---
+
+### Plotting long-form data
+
+```python
+tfr_long['year'] = tfr_long['year'].astype(int)
+sns.lineplot(x = "year", y = "tfr",
+            hue = "country", data = tfr_long)
+```
+
+<img src=img/seaborn_line.png style="width:550px">
+
+
+<style>
+
+.reveal section img {
+  background:none; 
+  border:none; 
+  box-shadow:none;
+  }
+  
+</style>

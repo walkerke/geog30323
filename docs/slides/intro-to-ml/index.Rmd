@@ -1,0 +1,360 @@
+---
+title: "Introduction to machine learning"
+author: GEOG 30323
+date: April 25, 2023
+output: 
+  revealjs::revealjs_presentation: 
+    theme: "white"
+    transition: "none"
+    highlight: "tango"
+    center: TRUE
+    fig_caption: TRUE
+    
+---
+
+## Data Science
+
+* __Data science__: new(ish) field that has emerged to address the challenges of working with modern data
+* Fuses statistics, computer science, visualization, graphic design, and the humanities/social sciences/natural sciences...
+
+---
+
+### The data analysis process
+
+<img src=img/process.png>
+
+---
+
+### Visualization vs. modeling
+
+Hadley Wickham (paraphrased): 
+
+> Visualization can surprise you, but it doesn’t scale well.
+> Modeling scales well, but it doesn't (fundamentally) surprise.
+
+---
+
+### Statistical modeling
+
+* What is the mathematical relationship between an outcome variable $Y$ and one or more other "predictor" variables $X_{1}...X_{n}$?
+* Recall our use of `lmplot` in `seaborn` - `lm` stands for _linear model_
+
+---
+
+### Statistical modeling
+
+The linear model: 
+
+$$ Y = Xb + e $$
+
+where $Y$ represents the outcome variable, $X$ is a matrix of predictors, $b$ represents the "parameters", and $e$ represents the errors, or "residuals"
+
+* Linear models will not always be appropriate for modeling relationships between variables!
+
+---
+
+### Statistics in Python
+
+* Substantial statistical functionality available in the `statsmodels` package, available in CoCalc
+
+* Example: statistical modeling for _inference_
+
+---
+
+### Inferential statistics in Python
+
+Let's get an example ready: 
+
+```python
+import pandas as pd
+import seaborn as sns
+import statsmodels.formula.api as smf
+
+colleges = pd.read_csv("http://personal.tcu.edu/kylewalker/data/us_colleges_2019.csv")
+
+
+```
+
+---
+
+### Linear regression
+
+```python
+f1 = smf.ols(formula = 'median_earn ~ grad_rate', data = colleges).fit()
+
+f1.summary()
+```
+
+---
+
+### Multiple regression
+
+```python
+formula = 'median_earn ~ grad_rate + sat_avg + adm_rate + family_income'
+f2 = smf.ols(formula = formula, data = colleges).fit()
+f2.summary()
+```
+---
+
+### Machine learning
+
+* "The science of getting computers to act without being explicitly programmed"
+* Types of machine learning algorithms: _supervised_ and _unsupervised_
+* Topics in machine learning: _classification_, _clustering_, _regression_
+
+Visual introduction to machine learning: http://www.r2d3.us/visual-intro-to-machine-learning-part-1/
+
+---
+
+### Supervised learning
+
+* _Supervised machine learning_: model "trained" and optimized for predictive power
+
+* _Regression problem_: predicting a numeric outcome
+
+* _Classification problem_: predicting a categorical outcome
+
+
+---
+
+### Regression for prediction
+
+* Task: predict the median earnings of graduates 10 years after graduation based on a series of college characteristics
+
+* Method: _train_ a model on a subset of the data, then _test_ the model on the remaining subset
+
+* Example method: _random forest regression_
+
+---
+
+### Preparing the model
+
+* The `train_test_split()` function splits your data randomly into training (75 percent, by default) and test datasets
+
+```python
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestRegressor
+np.random.seed(1983)
+
+colleges.dropna(inplace = True)
+colleges.reset_index(inplace = True, drop = True)
+
+split = train_test_split(colleges)
+
+train = split[0]
+test = split[1]
+```
+
+---
+
+### Preparing the model
+
+```python
+features = colleges.columns[2:6].tolist() + \
+  colleges.columns[7:].tolist()
+  
+rf1 = RandomForestRegressor(oob_score = True)
+    
+rf1.fit(X = train[features], y = train["median_earn"]) 
+
+```
+
+---
+
+## Model diagnostics
+
+```python
+# Out-of-bag score: how model performs on out-of-bag estimate
+print(rf1.oob_score_)
+
+# Feature importance plot
+fip = pd.DataFrame(data = {'importance': rf1.feature_importances_,
+                           'feature': features})
+
+fip.sort_values('importance', ascending = False, inplace = True)
+
+sns.barplot(x = 'importance', y = 'feature', data = fip)
+
+```
+
+---
+
+## Model diagnostics
+
+```python
+# How does our model perform on our test dataset?
+test['predictions'] = rf1.predict(test[features])
+
+print(test['median_earn'].corr(test['predictions']))
+
+sns.lmplot(data = test, x = 'predictions', y = 'median_earn')
+
+```
+
+---
+
+### Random Forest Classifiers
+
+* Task: predict whether a non-profit college is public or private
+
+```python
+from sklearn.ensemble import RandomForestClassifier
+
+features2 = colleges.columns[2:15]
+
+rf2 = RandomForestClassifier(oob_score = True)
+    
+rf2.fit(X = train[features2], y = train["is_private"]) 
+```
+
+## Model diagnostics
+
+```python
+from sklearn.metrics import confusion_matrix
+predicted_class = rf2.predict(test[features2])
+
+# Prediction accuracy on test set
+rf2.score(test[features2], test['is_private'])
+
+# "Confusion" matrix
+confusion_matrix(predicted_class, test['is_private'])
+
+# What did we get wrong?
+nomatch = test[test['is_private'] != predicted_class]
+
+```
+
+---
+
+## Feature importance
+
+```python
+fip2 = pd.DataFrame(data = {'importance': rf2.feature_importances_,
+                           'feature': features2})
+
+fip2.sort_values('importance', ascending = False, inplace = True)
+
+sns.barplot(x = 'importance', y = 'feature', data = fip2)
+```
+
+---
+
+### Making predictions
+
+<img src=img/target.PNG><br></br>
+
+<img src=img/amazon.PNG>
+
+
+---
+
+### Unsupervised learning in Python
+
+* Imports and setup: 
+
+```python
+from sklearn.cluster import KMeans
+from sklearn.neighbors import NearestNeighbors
+from sklearn.preprocessing import scale
+
+# Convert each column to z-scores 
+# (mean of 0, units in standard deviations from the mean)
+features_scaled = scale(colleges[features2])
+
+
+```
+
+---
+
+### Example: K-means clustering
+
+```python
+np.random.seed(1983)
+
+km = KMeans(n_clusters = 7).fit(features_scaled)
+
+colleges['clusters'] = km.labels_
+
+# Check TCU's cluster
+colleges[colleges.name == 'Texas Christian University'] 
+
+```
+
+---
+
+### Example: K-means clustering
+
+```python
+def glimpse_clusters(cluster_id):
+    sub = colleges[colleges.clusters == cluster_id]
+    print(sub.head(20))
+    
+glimpse_clusters(2)
+    
+```
+
+---
+
+### Example: nearest-neighbor search
+
+```python
+neigh = NearestNeighbors(n_neighbors = 6)
+
+# "Training" the model
+neigh.fit(features_scaled) 
+
+# Searching for neighbors
+model = neigh.kneighbors(features_scaled, 
+                         return_distance = False)
+```
+
+---
+
+### Example: nearest-neighbor search
+
+```python
+def find_neighbors(university): 
+    # Get the index of the university
+    uni_index = colleges[colleges.name == university].index[0]
+    # Get the indices of the neighboring universities
+    neighbors = list(model[uni_index])[1:]
+    # Identify the names of the neighboring universities
+    for idx in neighbors:
+        nname = colleges.iloc[idx]['name']
+        print(nname)
+
+find_neighbors("Texas Christian University")
+```
+
+---
+
+### How to learn more
+
+* Take statistics and machine learning courses here at TCU!
+* Check out [DataCamp](https://www.datacamp.com/) for hundreds of courses on data science in Python and R
+
+
+
+
+
+
+
+
+
+<style>
+
+.reveal section img {
+  background:none; 
+  border:none; 
+  box-shadow:none;
+  }
+
+h3 {
+
+
+
+}
+  
+</style>
+
