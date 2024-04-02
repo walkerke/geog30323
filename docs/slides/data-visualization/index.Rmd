@@ -1,7 +1,7 @@
 ---
 title: "Data visualization best practices"
 author: GEOG 30323
-date: March 28, 2023
+date: April 2, 2024
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
@@ -24,7 +24,7 @@ output:
 
 ---
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Minard.png/1024px-Minard.png" style="width: 900px"><figcaption>Source: Wikimedia Commons</figcaption>
+<img src="https://image.sciencenorway.no/1618713.webp?imageId=1618713&x=0.00&y=0.00&cropw=100.00&croph=100.00&width=960&height=458&format=jpg" style="width: 900px">
 
 ---
 
@@ -302,7 +302,7 @@ plt.xticks(rotation = 45)
 * Higher __resolution__: greater detail in an image
 * Commonly: _dpi_ (dots per inch)
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Resolution_illustration.png"><figcaption>Source: Wikimedia Commons</figcaption>
+<img src="https://bo.duggal.com/wp-content/uploads/2019/04/print-resolution-examples-dpi-sq.png" style="width: 50%">
 
 ---
 
