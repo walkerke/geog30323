@@ -1,7 +1,7 @@
 ---
 title: "Data communication and interactive visualization"
 author: GEOG 30323
-date: April 18, 2023
+date: April 16, 2024
 output: 
   revealjs::revealjs_presentation: 
     theme: "white"
@@ -199,7 +199,7 @@ alt.Chart(mx).mark_circle(size = 60).encode(
 
 ### Tableau
 
-<img src="https://www.senturus.com/wp-content/uploads/2016/04/Tableau-New-Logo-April-12-2016.jpg">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Tableau_Logo.png/640px-Tableau_Logo.png">
 
 * Highly popular software for data visualization - both exploratory and explanatory
 * Intuitive, drag-and-drop interface
