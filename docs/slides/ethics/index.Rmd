@@ -47,8 +47,6 @@ output:
 
 ## Location-based services
 
-* [Example: Uber Movement data](https://movement.uber.com/?lang=en-US)
-
 <img src="https://image.cnbcfm.com/api/v1/image/106170365-1570549735005uber-tracking.jpg?v=1570549772?w=720&h=405"><figcaption>Source: CNBC</figcaption>
 
 ---
