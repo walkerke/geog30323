@@ -1,0 +1,22 @@
+project:
+  type: default
+
+subtitle: "GEOG 30323: Data Analysis & Visualization"
+author: "Dr. Kyle Walker"
+
+format:
+  revealjs:
+    theme: [default, _extensions/tcu/tcu-theme.scss]
+    footer: "GEOG 30323 | Data Analysis & Visualization"
+    transition: fade
+    transition-speed: fast
+    slide-number: true
+    hash: true
+    center: true
+    highlight-style: github
+    code-line-numbers: false
+    fig-align: center
+    embed-resources: true
+
+title-slide-attributes:
+  data-background-color: "#4d1979"

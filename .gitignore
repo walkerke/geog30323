@@ -1,0 +1,31 @@
+.DS_Store
+.Rproj.user/
+.quarto/
+*_cache/
+*_files/
+_site/
+__pycache__/
+__marimo__/
+.venv/
+.ipynb_checkpoints/
+
+# rendered slide decks (rebuildable via quarto render in slides/)
+slides/*.html
+
+# private working docs — course design internals, never publish
+CLAUDE.md
+HANDOFF.md
+
+# superseded syllabus draft
+FINAL_GEOG30323-015_Fall2026_Walker.pdf
+
+# local-only legacy copies (public record lives in walkerke/geog30323-legacy)
+slides/legacy/
+notebooks/legacy/
+
+# stale marimo-era env files — revisit before tracking
+pyproject.toml
+uv.lock
+
+# Word lock files
+~$*

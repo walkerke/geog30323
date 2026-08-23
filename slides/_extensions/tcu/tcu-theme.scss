@@ -1,0 +1,177 @@
+/*-- scss:defaults --*/
+
+// TCU Brand Colors
+$tcu-purple: #4d1979;
+$tcu-purple-light: #6b3fa0;
+$tcu-purple-dark: #3a1259;
+$tcu-white: #ffffff;
+$tcu-gray: #5c6670;
+$tcu-gray-light: #e8e8e8;
+
+// Fonts - using system fonts similar to TCU web presence
+$font-family-sans-serif: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-monospace: "Fira Code", "Source Code Pro", monospace;
+
+// Base theme settings
+$presentation-heading-font: $font-family-sans-serif;
+$presentation-heading-color: $tcu-purple;
+$presentation-font-size-root: 36px;
+$body-color: #333333;
+$link-color: $tcu-purple;
+
+// Background
+$body-bg: $tcu-white;
+
+// Code
+$code-color: $tcu-purple-dark;
+$code-bg: $tcu-gray-light;
+
+/*-- scss:rules --*/
+
+// Title slide styling
+.reveal .slides section.title-slide {
+  background-color: $tcu-purple;
+  color: $tcu-white;
+}
+
+.reveal .slides section.title-slide h1 {
+  color: $tcu-white;
+  font-size: 2.2em;
+  font-weight: 700;
+  text-shadow: none;
+}
+
+.reveal .slides section.title-slide h2 {
+  color: $tcu-white;
+  font-size: 1.2em;
+  font-weight: 400;
+}
+
+.reveal .slides section.title-slide p {
+  color: $tcu-white;
+}
+
+// Section header slides (purple background)
+.reveal .slides section.section-slide {
+  background-color: $tcu-purple;
+  color: $tcu-white;
+}
+
+.reveal .slides section.section-slide h2 {
+  color: $tcu-white;
+}
+
+// Regular slides
+.reveal .slides section h2 {
+  color: $tcu-purple;
+  border-bottom: 3px solid $tcu-purple;
+  padding-bottom: 0.3em;
+  margin-bottom: 0.5em;
+}
+
+.reveal .slides section h3 {
+  color: $tcu-purple-light;
+}
+
+// Slide footer/header styling
+.reveal .slide-number {
+  color: $tcu-purple;
+  font-size: 0.6em;
+}
+
+// Block quotes
+.reveal blockquote {
+  border-left: 4px solid $tcu-purple;
+  background-color: $tcu-gray-light;
+  padding: 1em;
+  font-style: italic;
+}
+
+// Tables
+.reveal table {
+  border-collapse: collapse;
+  margin: 1em auto;
+}
+
+.reveal table th {
+  background-color: $tcu-purple;
+  color: $tcu-white;
+  padding: 0.5em 1em;
+  font-weight: 600;
+}
+
+.reveal table td {
+  border: 1px solid $tcu-gray;
+  padding: 0.4em 0.8em;
+}
+
+.reveal table tr:nth-child(even) {
+  background-color: $tcu-gray-light;
+}
+
+// Lists
+.reveal ul, .reveal ol {
+  margin-left: 1em;
+}
+
+.reveal li {
+  margin-bottom: 0.5em;
+}
+
+// Images
+.reveal section img {
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+// Figure captions
+.reveal figcaption,
+.reveal .caption {
+  font-size: 0.6em;
+  color: $tcu-gray;
+  font-style: italic;
+}
+
+// Code blocks
+.reveal pre {
+  box-shadow: none;
+  border: 1px solid $tcu-gray-light;
+  border-radius: 4px;
+}
+
+.reveal pre code {
+  font-size: 0.7em;
+  line-height: 1.4;
+}
+
+// Emphasis/highlighting
+.reveal strong {
+  color: $tcu-purple;
+}
+
+// Custom classes for special slides
+.purple-bg {
+  background-color: $tcu-purple !important;
+  color: $tcu-white !important;
+}
+
+.purple-bg h2, .purple-bg h3 {
+  color: $tcu-white !important;
+  border-bottom: none !important;
+}
+
+// Footnotes
+.footnote {
+  font-size: 0.5em;
+  color: $tcu-gray;
+  position: absolute;
+  bottom: 1em;
+}
+
+// Two-column layout helper
+.columns-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2em;
+}

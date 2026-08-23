@@ -1,0 +1,15 @@
+title: TCU Revealjs Theme
+author: Kyle Walker
+version: 1.0.0
+contributes:
+  formats:
+    revealjs:
+      theme: [default, tcu-theme.scss]
+      logo: ../assets/tcu-logo-white.png
+      footer: "GEOG 40323 | Urban & Business GIS | Texas Christian University"
+      transition: fade
+      transition-speed: fast
+      slide-number: true
+      hash: true
+      center: true
+      highlight-style: github
