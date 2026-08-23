@@ -1,5 +1,5 @@
 project:
-  type: default
+  type: website
   render:
     - 01-data-literacy.qmd
   resources:
