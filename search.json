@@ -1,0 +1,100 @@
+[
+  {
+    "objectID": "01-data-literacy.html#introductions",
+    "href": "01-data-literacy.html#introductions",
+    "title": "Data Literacy",
+    "section": "Introductions",
+    "text": "Introductions"
+  },
+  {
+    "objectID": "01-data-literacy.html#course-goals",
+    "href": "01-data-literacy.html#course-goals",
+    "title": "Data Literacy",
+    "section": "Course goals",
+    "text": "Course goals"
+  },
+  {
+    "objectID": "01-data-literacy.html#syllabus",
+    "href": "01-data-literacy.html#syllabus",
+    "title": "Data Literacy",
+    "section": "Syllabus",
+    "text": "Syllabus"
+  },
+  {
+    "objectID": "01-data-literacy.html#brainstorm-how-might-you-use-data-if-you-were",
+    "href": "01-data-literacy.html#brainstorm-how-might-you-use-data-if-you-were",
+    "title": "Data Literacy",
+    "section": "Brainstorm: how might you use data if you were…",
+    "text": "Brainstorm: how might you use data if you were…\n\n…an oil and gas landman?\n…a real estate broker?\n…a TCU athletics department staffer?\n…a social media influencer?"
+  },
+  {
+    "objectID": "01-data-literacy.html#what-you-will-learn-in-this-course",
+    "href": "01-data-literacy.html#what-you-will-learn-in-this-course",
+    "title": "Data Literacy",
+    "section": "What you will learn in this course",
+    "text": "What you will learn in this course\nThis course covers the process of exploratory data analysis, which includes how to:\n\nFind data\nLoad data\nClean data\nSummarize data\nVisualize data\nPresent data\nExample question: what are the most popular female baby names in Texas, and how has this changed over time?"
+  },
+  {
+    "objectID": "01-data-literacy.html#finding-data",
+    "href": "01-data-literacy.html#finding-data",
+    "title": "Data Literacy",
+    "section": "Finding data",
+    "text": "Finding data\n\n\nSource: Social Security Administration"
+  },
+  {
+    "objectID": "01-data-literacy.html#summarizing-data",
+    "href": "01-data-literacy.html#summarizing-data",
+    "title": "Data Literacy",
+    "section": "Summarizing data",
+    "text": "Summarizing data"
+  },
+  {
+    "objectID": "01-data-literacy.html#visualizing-data",
+    "href": "01-data-literacy.html#visualizing-data",
+    "title": "Data Literacy",
+    "section": "Visualizing data",
+    "text": "Visualizing data"
+  },
+  {
+    "objectID": "01-data-literacy.html#presenting-data",
+    "href": "01-data-literacy.html#presenting-data",
+    "title": "Data Literacy",
+    "section": "Presenting data",
+    "text": "Presenting data"
+  },
+  {
+    "objectID": "01-data-literacy.html#data-science",
+    "href": "01-data-literacy.html#data-science",
+    "title": "Data Literacy",
+    "section": "Data science",
+    "text": "Data science\n\n\nSource: The Onion"
+  },
+  {
+    "objectID": "01-data-literacy.html#from-your-feed",
+    "href": "01-data-literacy.html#from-your-feed",
+    "title": "Data Literacy",
+    "section": "From your feed",
+    "text": "From your feed"
+  },
+  {
+    "objectID": "01-data-literacy.html#what-plumbers-actually-earn",
+    "href": "01-data-literacy.html#what-plumbers-actually-earn",
+    "title": "Data Literacy",
+    "section": "What plumbers actually earn",
+    "text": "What plumbers actually earn"
+  },
+  {
+    "objectID": "01-data-literacy.html#viral-maps-on-social-media",
+    "href": "01-data-literacy.html#viral-maps-on-social-media",
+    "title": "Data Literacy",
+    "section": "Viral maps on social media",
+    "text": "Viral maps on social media"
+  },
+  {
+    "objectID": "01-data-literacy.html#google-colab",
+    "href": "01-data-literacy.html#google-colab",
+    "title": "Data Literacy",
+    "section": "Google CoLab",
+    "text": "Google CoLab\n\nGoogle Colaboratory: our tool for using Python in the cloud\nLet’s explore…"
+  }
+]
