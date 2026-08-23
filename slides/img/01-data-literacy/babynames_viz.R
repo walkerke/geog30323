@@ -74,16 +74,41 @@ heatmap_gg <- ggplot(heat_df, aes(x = year, y = fct_rev(factor(name)), fill = pe
 ggsave(file.path(out_dir, "heatmap.png"), heatmap_gg,
        width = 12, height = 8, dpi = 150, bg = "white")
 
-# --- Interactive: four names across a century of TX data ----------------------
+# --- Presenting-data figure: four names across a century of TX data ----------
+# Okabe-Ito colors (the CVD-safe palette Wilke's color chapter recommends);
+# identity is doubled by direct labels in ink, so color is never load-bearing.
 four_names <- tx_f |>
   filter(name %in% c("Mary", "Gertrude", "Sophia", "Emma"))
 
-gg <- ggplot(four_names, aes(x = year, y = per1000, color = name)) +
-  geom_line() +
-  theme_minimal(base_size = 18) +
-  labs(x = "Year", y = "Names per 1000", color = "") +
-  scale_color_brewer(palette = "Dark2")
+pal <- c(Mary = "#E69F00", Gertrude = "#56B4E9",
+         Sophia = "#009E73", Emma = "#CC79A7")
 
-htmlwidgets::saveWidget(ggplotly(gg),
-                        file.path(normalizePath(out_dir), "babynames.html"),
-                        selfcontained = TRUE)
+peak_labels <- four_names |>
+  filter(name %in% c("Mary", "Gertrude", "Sophia")) |>
+  group_by(name) |>
+  slice_max(per1000, n = 1, with_ties = FALSE) |>
+  ungroup()
+emma_end <- four_names |> filter(name == "Emma") |> slice_max(year, n = 1)
+
+lines_gg <- ggplot(four_names, aes(x = year, y = per1000, color = name)) +
+  geom_line(linewidth = 1) +
+  geom_text(data = peak_labels,
+            aes(label = name), color = "#333333",
+            vjust = -0.8, size = 5, fontface = "bold") +
+  geom_text(data = emma_end,
+            aes(label = name), color = "#333333",
+            hjust = -0.15, size = 5, fontface = "bold") +
+  annotate("text", x = 1946, y = 5.5,
+           label = "Gertrude disappears: fewer than five\nTexas girls a year get the name",
+           color = "#777777", size = 3.8, hjust = 0, vjust = 0, lineheight = 1) +
+  scale_color_manual(values = pal, guide = "none") +
+  scale_x_continuous(breaks = seq(1910, 2010, 20), limits = c(1908, 2036)) +
+  theme_minimal(base_size = 16) +
+  theme(panel.grid.minor = element_blank()) +
+  labs(title = "A century of girls' names in Texas",
+       subtitle = "Births per 1,000 girls given each name, 1910–2025",
+       x = NULL, y = "Names per 1,000",
+       caption = "Source: Social Security Administration state name files, 2025 release.\nNames with fewer than five occurrences in a state-year are not reported.")
+
+ggsave(file.path(out_dir, "babynames_lines.png"), lines_gg,
+       width = 12, height = 6.75, dpi = 150, bg = "white")

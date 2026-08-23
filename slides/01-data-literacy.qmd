@@ -80,9 +80,7 @@ This course covers the process of **exploratory data analysis**, which includes 
 
 ## Presenting data
 
-<iframe width="750px" height="500px" frameborder="0" scrolling="no" src="img/01-data-literacy/babynames.html">
-
-</iframe>
+<img src="img/01-data-literacy/babynames_lines.png" style="width: 950px"/>
 
 
 ---

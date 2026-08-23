@@ -2,8 +2,6 @@ project:
   type: website
   render:
     - 01-data-literacy.qmd
-  resources:
-    - img/01-data-literacy/babynames.html
 
 subtitle: "GEOG 30323: Data Analysis & Visualization"
 author: "Dr. Kyle Walker"
