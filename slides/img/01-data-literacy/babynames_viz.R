@@ -83,26 +83,28 @@ four_names <- tx_f |>
 pal <- c(Mary = "#E69F00", Gertrude = "#56B4E9",
          Sophia = "#009E73", Emma = "#CC79A7")
 
-peak_labels <- four_names |>
-  filter(name %in% c("Mary", "Gertrude", "Sophia")) |>
-  group_by(name) |>
-  slice_max(per1000, n = 1, with_ties = FALSE) |>
-  ungroup()
-emma_end <- four_names |> filter(name == "Emma") |> slice_max(year, n = 1)
+# Labels anchor to the lines themselves: Emma/Sophia/Mary at their 2025 ends,
+# Gertrude at her 1910 start (her line dies mid-century); the annotation's leader
+# tick points at Gertrude's actual terminus.
+end_labels <- tibble(
+  name = c("Emma", "Sophia", "Mary"),
+  year = 2026.5,
+  per1000 = c(11.4, 7.4, 1.1))
+gertrude_label <- tibble(name = "Gertrude", year = 1908.5, per1000 = 5.0)
 
 lines_gg <- ggplot(four_names, aes(x = year, y = per1000, color = name)) +
   geom_line(linewidth = 1) +
-  geom_text(data = peak_labels,
-            aes(label = name), color = "#333333",
-            vjust = -0.8, size = 5, fontface = "bold") +
-  geom_text(data = emma_end,
-            aes(label = name), color = "#333333",
-            hjust = -0.15, size = 5, fontface = "bold") +
-  annotate("text", x = 1946, y = 5.5,
-           label = "Gertrude disappears: fewer than five\nTexas girls a year get the name",
-           color = "#777777", size = 3.8, hjust = 0, vjust = 0, lineheight = 1) +
+  geom_text(data = end_labels, aes(label = name),
+            hjust = 0, size = 5.2, fontface = "bold") +
+  geom_text(data = gertrude_label, aes(label = name),
+            hjust = 1, size = 5.2, fontface = "bold") +
+  annotate("segment", x = 1968, xend = 1968, y = 1.6, yend = 0.4,
+           color = "#999999", linewidth = 0.4) +
+  annotate("text", x = 1968, y = 2.1,
+           label = "After 1968, fewer than five Texas girls\na year are named Gertrude",
+           color = "#777777", size = 3.8, hjust = 0.5, vjust = 0, lineheight = 1) +
   scale_color_manual(values = pal, guide = "none") +
-  scale_x_continuous(breaks = seq(1910, 2010, 20), limits = c(1908, 2036)) +
+  scale_x_continuous(breaks = seq(1910, 2010, 20), limits = c(1894, 2040)) +
   theme_minimal(base_size = 16) +
   theme(panel.grid.minor = element_blank()) +
   labs(title = "A century of girls' names in Texas",
