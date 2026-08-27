@@ -63,6 +63,13 @@
     "text": "Presenting data"
   },
   {
+    "objectID": "01-data-literacy.html#baby-names-explorer",
+    "href": "01-data-literacy.html#baby-names-explorer",
+    "title": "Data Literacy",
+    "section": "Baby Names Explorer",
+    "text": "Baby Names Explorer\n\nInteractive exploration of the SSA baby names data, 1910-2025\nhttps://babynames30323.streamlit.app/"
+  },
+  {
     "objectID": "01-data-literacy.html#data-science",
     "href": "01-data-literacy.html#data-science",
     "title": "Data Literacy",
