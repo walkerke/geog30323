@@ -29,3 +29,8 @@ uv.lock
 
 # Word lock files
 ~$*
+
+# local media (clips for class use — never publish)
+media-local/
+
+
