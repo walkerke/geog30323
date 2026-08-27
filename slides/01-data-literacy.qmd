@@ -82,6 +82,13 @@ This course covers the process of **exploratory data analysis**, which includes 
 
 <img src="img/01-data-literacy/babynames_lines.png" style="width: 950px"/>
 
+---
+
+## Baby Names Explorer
+
+* Interactive exploration of the SSA baby names data, 1910-2025
+* <https://babynames30323.streamlit.app/>
+
 
 ---
 
