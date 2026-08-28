@@ -6,6 +6,7 @@ project:
     - assignments.qmd
     - notebooks/assignment-01-python-basics.ipynb
     - slides/01-data-literacy.qmd
+    - slides/02-programming-1.qmd
   resources:
     - GEOG30323-015_Fall2026_Walker.pdf
 

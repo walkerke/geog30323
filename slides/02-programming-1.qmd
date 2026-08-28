@@ -2,112 +2,96 @@
 title: "Programming I - Intro to Python"
 date: "2026-09-01"
 ---
-### Programming in Hollywood
-
-<iframe width="800" height="500" src="https://www.youtube.com/embed/0PxTAn4g20U" frameborder="0" allowfullscreen></iframe>
-
----
-
-### Programming in Hollywood
-
-<img src=img/02-programming-1/sv.gif style="width: 800px">
-
----
 
 ## Why code?  
 
----
+## For discussion
 
-<iframe width="800" height="500" src="https://www.youtube.com/embed/nKIu9yen5nc" frameborder="0" allowfullscreen></iframe>
+There's a lot of talk about AI right now.  What have you heard about:
 
----
+* AI and coding / coding jobs? 
+* AI and jobs in your field, in general?
 
-## Why code for data analysis?  
+## Didn't AI solve coding?
+
+::: {.incremental}
+* "It is our job to create computing technology such that nobody has to program... the programming language is human." — Jensen Huang, CEO of Nvidia (Feb 2024)
+* "We'll be there in three to six months, where AI is writing 90 percent of the code. And then in twelve months, we may be in a world where AI is writing essentially all of the code." — Dario Amodei, CEO of Anthropic (Mar 2025)
+:::
+
+## From the creator of Claude Code:
+
+<img src="img/02-programming-1/cherny-tweet.png" style="width: 900px"/>
+
+## Read it the way you read the plumber tweet
+
+::: {.incremental}
+* If bugs are not yet solved... what exactly got solved?
+* __Typing__ is solved: producing code that _looks_ right
+* Knowing whether the code __is__ right?  Not solved.  (That's this course.)
+:::
+
+## Determinism
+
+* _Determinism_: metaphysical view that events can only take place one certain way
+* _Deterministic process_: a process that executes identically each time it runs
+* Code is _deterministic_; human language is not
+
+## So, why use code for data analysis?
 
 ::: {.incremental}
 - Automation
 - Documentation and reproducibility
 - Logical organization
-- Marketability!
+- Systems design
 :::
 
----
+## More specifically, why do _you_ need to learn code?
 
-<img src="http://pluspng.com/img-png/python-logo-png--728.png" style="width: 600px; border: none;">
+> If you want to be lazy, you can be more lazy with less effort than at any other time in human history; you can solve problems with zero intellectual engagement. But you don’t have to do that, because AI can also amplify the best of you. You can use it to go deeper, to engage more in any of the domains that you’re working in.
+
+- Wickham - <https://tidydesign.substack.com/p/y-code-when-ai>
+
+## What Amodei actually said
+
+<iframe width="900" height="506" src="https://www.youtube.com/embed/esCSpbDPJik?start=963&end=1029" frameborder="0" allowfullscreen></iframe>
+
+## Your advantage: understanding the process
+
+* Them: using AI to produce outcomes with no understanding of the process
+* You have access to the same AI tools as them.  But you:
+  * Understand the code that AI is using to build the outcomes
+  * Have the knowledge to direct AI to use better, newer, and more efficient tools
+  * Can build with AI and build expertise as a result
+
+## Some examples
+
+## Python
 
 ::: {.incremental}
-- A __high-level__, __object-oriented__, __general purpose__ programming language
-- _Interpreted_ rather than _compiled_
-- Rapidly becoming the language of choice for introductory programming courses around the world
+* Python is by far the most popular programming language in the world
+* It's arguably the easiest language for beginners to understand
+* In most cases, coding agents default to it - so you'll learn to speak their language
 :::
 
----
 
 ## Why Python? (XKCD)
 
-<img src="http://imgs.xkcd.com/comics/python.png" style="width:400px"><figcaption>Source: [Randall Munroe/XKCD](https://xkcd.com/353/)</figcaption>
+<img src="https://imgs.xkcd.com/comics/python.png" style="width:400px"><figcaption>Source: [Randall Munroe/XKCD](https://xkcd.com/353/)</figcaption>
 
----
+## Other options for data analysis
 
-## Why Python?  
-
-In Java, the classic "Hello World" program looks like this: 
-
-```java
-public class HelloWorld {
-
-    public static void main(String[] args) {
-        System.out.println("Hello World");
-    }
-
-}
-```
-
-Whereas in Python, you just type: 
-
-```python
-print("Hello World")
-```
-
----
-
-### Why Python? 
-
-* Just ask these companies!
-
-<img src=img/02-programming-1/companies.PNG style="width: 800px"><figcaption>Source: [Peter Wang - PyData Dallas Keynote](http://www.slideshare.net/misterwang/pydata-texas-2015-keynote)</figcaption>
-
----
-
-### Other options for data analysis
-
-<img src="https://www.r-project.org/Rlogo.png" style="width: 300px">                                             <img src="https://camo.githubusercontent.com/e1ae5c7f6fe275a50134d5889a68f0acdd09ada8/687474703a2f2f6a756c69616c616e672e6f72672f696d616765732f6c6f676f5f68697265732e706e67" style = "width: 300px">
+<img src="https://www.r-project.org/Rlogo.png" style="width: 300px">                                             <img src="https://julialang.org/assets/infra/logo.svg" style = "width: 300px">
 
 * R (<https://www.r-project.org/>): programming language for statistics, data analysis, and much more (and a personal favorite of mine)
 * Julia (<http://julialang.org/>): relatively new language for technical computing that aims for high-level syntax and C-like speed
 
 ---
 
-### Python on the command line
-
-<img src=img/02-programming-1/hello.PNG>
-
----
-
-### The Jupyter Notebook
-
-<img src="https://raw.githubusercontent.com/jupyter/nature-demo/master/images/jupyter-logo.png" style="width: 700px; border: none;">
-
-* Browser-based notebooks for _literate programming_
-* Evolved out of the IPython project
-* Supports multiple languages; "home language" is Python
-
----
-
 ## Google Colaboratory
 
-* Cloud-based platform for hosted Jupyter Notebooks that connects to your Google account & Google Drive.  
-* Let's try it out!  https://colab.research.google.com/
+* Cloud-based platform for hosted Jupyter Notebooks that connects to your Google account & Google Drive.
+* Let's try it out!  <https://colab.research.google.com/>
 
 ---
 
@@ -123,7 +107,7 @@ As defined by Donald Knuth:
 
 ### Markdown
 
-* Tool to convert plain text to HTML; used for literate programming in the Jupyter Notebook
+* Tool to convert plain text to HTML; used for literate programming in the Colab Notebook
 
 Example: 
 
@@ -137,10 +121,9 @@ _This link_ is __truly__ must-see: [click here to view it!](http://personal.tcu.
 
 ### Sage words before we get started...
 
-<center>
-<blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr">You&#39;re doing it right if you get frustrated: if you&#39;re not frustrated, you&#39;re (probably) not stretching yourself mentally</p>&mdash; Hadley Wickham (@hadleywickham) <a href="https://twitter.com/hadleywickham/status/565516733516349441">February 11, 2015</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</center>
+> "You're doing it right if you get frustrated: if you're not frustrated, you're (probably) not stretching yourself mentally"
+
+* — Hadley Wickham, February 2015 (Twitter)
 
 ---
 
@@ -159,6 +142,50 @@ _This link_ is __truly__ must-see: [click here to view it!](http://personal.tcu.
 
 * _Object type_: the way in which the object is stored (e.g. float, integer, string)
 * Python is a _dynamically typed_ language, which means that you don't need to explicitly supply the object type
+
+---
+
+### Predict: what does this return?
+
+```python
+'2' + '3'
+```
+
+---
+
+### The result
+
+```python
+'2' + '3'
+# '23'
+```
+
+* __Silent error__: code that runs without complaint, but does the wrong thing
+
+---
+
+### Errors in Python
+
+```python
+'a' + 4
+# TypeError: can only concatenate str (not "int") to str
+```
+
+---
+
+### Using AI the right way: ask it to explain
+
+<img src="img/02-programming-1/gemini-explain.png" style="width: 950px"/>
+
+---
+
+### Ask _why_, not just _what_
+
+::: {.incremental}
+* Don't just ask AI for the answer. Ask it to explain output you already have
+* "Look at my code cells.  Can you explain why they emit different outputs?"
+* Use this class as an opportunity to understand the process
+:::
 
 ---
 
@@ -219,6 +246,8 @@ tcu[0]
 tcu[6:15]
 # 'Christian'
 ```
+
+## Assignment 1: let's take a look
 
 
 <style>
