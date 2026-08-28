@@ -1,0 +1,33 @@
+project:
+  type: website
+  render:
+    - index.qmd
+    - schedule.qmd
+    - assignments.qmd
+    - notebooks/assignment-01-python-basics.ipynb
+    - slides/01-data-literacy.qmd
+  resources:
+    - GEOG30323-015_Fall2026_Walker.pdf
+
+website:
+  title: "GEOG 30323"
+  navbar:
+    background: "#4d1979"
+    foreground: "#ffffff"
+    left:
+      - text: "Home"
+        href: index.qmd
+      - text: "Schedule"
+        href: schedule.qmd
+      - text: "Assignments"
+        href: assignments.qmd
+      - text: "Syllabus"
+        href: GEOG30323-015_Fall2026_Walker.pdf
+        target: _blank
+
+format:
+  html:
+    theme: [cosmo, tcu-web.scss]
+    toc: true
+    grid:
+      sidebar-width: 250px

@@ -1,0 +1,96 @@
+/*-- scss:defaults --*/
+
+// TCU brand colors (shared with the slide theme in slides/_extensions/tcu/)
+$tcu-purple: #4d1979;
+$tcu-purple-light: #6b3fa0;
+$tcu-purple-dark: #3a1259;
+$tcu-white: #ffffff;
+$tcu-gray: #5c6670;
+$tcu-gray-light: #e8e8e8;
+
+// Fonts — match the decks
+$font-family-sans-serif: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-monospace: "Fira Code", "Source Code Pro", monospace;
+
+// Base: white page, dark body text
+$body-bg: $tcu-white;
+$body-color: #333333;
+
+// Purple trim
+$primary: $tcu-purple;
+$link-color: $tcu-purple;
+$navbar-bg: $tcu-purple;
+$navbar-fg: $tcu-white;
+
+// Headings
+$headings-color: $tcu-purple;
+$headings-font-weight: 700;
+
+// Code
+$code-color: $tcu-purple-dark;
+$code-bg: $tcu-gray-light;
+
+/*-- scss:rules --*/
+
+h1, h2, h3, h4 {
+  color: $tcu-purple;
+}
+
+// Purple underline on section headings, echoing the deck h2 rule
+h2 {
+  border-bottom: 3px solid $tcu-purple;
+  padding-bottom: 0.3em;
+  margin-top: 1.5em;
+}
+
+h3 {
+  color: $tcu-purple-light;
+}
+
+a {
+  color: $tcu-purple;
+  &:hover { color: $tcu-purple-dark; }
+}
+
+strong {
+  color: $tcu-purple;
+}
+
+// Blockquotes — same treatment as the decks
+blockquote {
+  border-left: 4px solid $tcu-purple;
+  background-color: $tcu-gray-light;
+  padding: 0.75em 1em;
+  font-style: italic;
+}
+
+// Tables — purple header row, zebra striping, like the decks
+table {
+  border-collapse: collapse;
+}
+
+thead tr {
+  background-color: $tcu-purple;
+  color: $tcu-white;
+}
+
+thead th {
+  padding: 0.5em 0.8em;
+  font-weight: 600;
+  border: none;
+}
+
+tbody td {
+  border: 1px solid $tcu-gray-light;
+  padding: 0.4em 0.8em;
+}
+
+tbody tr:nth-child(even) {
+  background-color: $tcu-gray-light;
+}
+
+// Navbar title
+.navbar-brand {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}

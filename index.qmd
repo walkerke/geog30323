@@ -1,0 +1,25 @@
+---
+title: "GEOG 30323: Data Analysis & Visualization"
+---
+
+<!--
+  PROSE NOTE (agent): FIRST-PASS DRAFT in Kyle's voice (from his notebook writing),
+  for his edit. The course description is verbatim from the syllabus; the license is
+  verbatim from the old site. The welcome line, the AI paragraph, and "Using this site"
+  are drafts to keep, cut, or rewrite.
+-->
+
+Welcome to GEOG 30323: Data Analysis & Visualization, taught by Dr. Kyle Walker at Texas Christian University.
+
+This course introduces students to the data analysis process using the Python programming language. Topics covered include obtaining data from a variety of sources, including databases and the Web; cleaning messy datasets and converting data between different formats and types; using exploratory data analysis to summarize and generate insights from data; and producing both static and interactive visualizations to explore data and communicate findings with a wider audience. Students will also gain foundational skills in the Python programming language, one of the most popular languages for data wrangling, data analysis, and data visualization.
+
+You'll write a lot of Python this semester.  You'll also have access to AI tools that can write Python for you, and you're welcome to use them.  The point of this course isn't to prove you can type code from memory.  It's to help you make good decisions with data, and to understand your work well enough to know when it's right.
+
+## Using this site
+
+You'll find the course assignments under **Assignments**, and the weekly slides and readings under **Schedule**.  To work on an assignment, open it and click the **Open in Colab** button at the top.  That opens the notebook in Google Colab, where you can save your own copy to Google Drive and get started.
+
+## License
+
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/2.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/2.0/88x31.png" /></a>
+Course materials are licensed under the [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0) license](https://creativecommons.org/licenses/by-nc-nd/4.0/).

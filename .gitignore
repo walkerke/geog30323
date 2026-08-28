@@ -34,3 +34,8 @@ uv.lock
 media-local/
 
 
+
+# rendered course website (rebuildable via quarto render)
+/_site/
+
+/.quarto/

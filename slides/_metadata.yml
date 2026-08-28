@@ -1,8 +1,3 @@
-project:
-  type: website
-  render:
-    - 01-data-literacy.qmd
-
 subtitle: "GEOG 30323: Data Analysis & Visualization"
 author: "Dr. Kyle Walker"
 

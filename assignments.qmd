@@ -1,0 +1,22 @@
+---
+title: "Assignments"
+---
+
+<!--
+  PROSE NOTE (agent): FIRST-PASS DRAFT intro in Kyle's voice, for his edit. The list
+  links only to finished assignments (Assignment 1); add each link as you publish it.
+  Each assignment page carries its own "Open in Colab" button.
+-->
+
+Open an assignment to read through it, then click **Open in Colab** at the top to work on it in your own Google Drive.  Assignments are typically released each Thursday and due by the end of the day the following Thursday.
+
+- [Assignment 1: Introduction to Python](notebooks/assignment-01-python-basics.ipynb)
+- Assignment 2 *(coming soon)*
+- Assignment 3 *(coming soon)*
+- Assignment 4 *(coming soon)*
+- Assignment 5 *(coming soon)*
+- Assignment 6 *(coming soon)*
+- Assignment 7 *(coming soon)*
+- Assignment 8 *(coming soon)*
+- Assignment 9 *(coming soon)*
+- Assignment 10 *(coming soon)*

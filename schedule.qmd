@@ -1,0 +1,32 @@
+---
+title: "Schedule"
+---
+
+<!--
+  PROSE NOTE (agent): the table is a facts-only reproduction of the schedule in
+  GEOG30323-015_Fall2026_Walker.pdf (topics, dates, readings verbatim). The one intro
+  line is a FIRST-PASS DRAFT in Kyle's voice, for his edit. Only finished materials are
+  linked (Week 1 slides; Assignment 1); everything else is plain text until published.
+-->
+
+Here's the plan for the semester.  Slides and assignments will be linked here as we get to them.
+
+| Week | Topic | Readings | Slides | Lab |
+|---|---|---|---|---|
+| **1** · Aug 25–27 | Course introduction | — | [Data Literacy](slides/01-data-literacy.html) | — |
+| **2** · Sep 1–3 | Programming I | Think Python, Chs. 1–2 | Programming I | [Assignment 1](assignments.qmd) |
+| **3** · Sep 8–10 | Programming II | Think Python, Chs. 3, 7, 8 | Programming II | Assignment 2 |
+| **4** · Sep 15–17 | Exploratory data analysis I | Fundamentals of Data Visualization, Chs. 6–7 | Modules & EDA | Assignment 3 |
+| **5** · Sep 22–24 | Exploratory data analysis II | Fundamentals of Data Visualization, Chs. 9 and 12 | Exploratory viz | Assignment 4 |
+| **6** · Sep 29–Oct 1 | Data wrangling I | Wickham (2014), "Tidy Data" | Data wrangling | Assignment 5 |
+| **7** · Oct 6 | Data wrangling II | *Exam 1 distributed; Thursday Oct 8 canceled (Fall Break)* | — | — |
+| **8** · Oct 13–15 | Exam 1 work week | | — | *Exam 1 due Fri, Oct 16, 11:59pm* |
+| **9** · Oct 20–22 | Exam 1 meetings | *Individual exam meetings during class sessions (sign-up schedule provided in advance)* | — | — |
+| **10** · Oct 27–29 | Advanced I/O: databases, web, APIs | McKinney, *Python for Data Analysis* (3rd ed.), Ch. 6 | Advanced I/O | Assignment 6 |
+| **11** · Nov 3–5 | Visualization best practices | Fundamentals of Data Visualization, Chs. 17 and 19 | Data visualization | Assignment 7 |
+| **12** · Nov 10–12 | Geographic data | *The Nature of Geographic Information*, Ch. 1; Fundamentals of Data Visualization, Ch. 15 | Geographic data | Assignment 8 |
+| **13** · Nov 17–19 | Data communication and interactive visualization | Tableau, "Best Practices for Effective Dashboards"; Tableau Public "Get Started"; Fundamentals of Data Visualization, Ch. 29 | Communicating | Assignment 9 *(due Tue, Dec 1)* |
+| **14** · Nov 24–26 | **Thanksgiving Break — no class** | | — | — |
+| **15** · Dec 1–3 | Introduction to machine learning; data and AI ethics | "Getting Started," scikit-learn documentation; Gebru et al. (2021), "Datasheets for Datasets" | Intro to ML · Ethics | Assignment 10 *(due Wed, Dec 9)* |
+| **16** · Dec 8 | Course wrap-up | *Last regular class meeting Tuesday, December 8* | — | — |
+| **Finals** · Dec 15 | Exam 2 submission and final exam presentations | *In-person, Tuesday, December 15, 8:00am–10:30am, Rees-Jones 216* | — | *Exam 2 notebook due at start of session* |
