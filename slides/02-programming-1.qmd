@@ -54,7 +54,16 @@ There's a lot of talk about AI right now.  What have you heard about:
 
 ## What Amodei actually said
 
-<iframe width="900" height="506" src="https://www.youtube.com/embed/esCSpbDPJik?start=963&end=1029" frameborder="0" allowfullscreen></iframe>
+<iframe id="amodei-clip" width="900" height="506" frameborder="0" allowfullscreen></iframe>
+
+```{=html}
+<script>
+(function () {
+  var f = document.getElementById("amodei-clip");
+  if (f) f.src = "https://www.youtube.com/embed/esCSpbDPJik?" + "start=963&end=1029";
+})();
+</script>
+```
 
 ## Your advantage: understanding the process
 
