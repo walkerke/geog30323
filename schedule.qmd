@@ -14,19 +14,19 @@ Here's the plan for the semester.  Slides and assignments will be linked here as
 | Week | Topic | Readings | Slides | Lab |
 |---|---|---|---|---|
 | **1** · Aug 25–27 | Course introduction | — | [Data Literacy](slides/01-data-literacy.html) | — |
-| **2** · Sep 1–3 | Programming I | Think Python, Chs. 1–2 | [Programming I](slides/02-programming-1.html) | [Assignment 1](notebooks/assignment-01-python-basics.html) |
-| **3** · Sep 8–10 | Programming II | Think Python, Chs. 3, 7, 8 | Programming II | Assignment 2 |
-| **4** · Sep 15–17 | Exploratory data analysis I | Fundamentals of Data Visualization, Chs. 6–7 | Modules & EDA | Assignment 3 |
-| **5** · Sep 22–24 | Exploratory data analysis II | Fundamentals of Data Visualization, Chs. 9 and 12 | Exploratory viz | Assignment 4 |
-| **6** · Sep 29–Oct 1 | Data wrangling I | Wickham (2014), "Tidy Data" | Data wrangling | Assignment 5 |
+| **2** · Sep 1–3 | Programming I | [Think Python](https://allendowney.github.io/ThinkPython/), Chs. [1](https://allendowney.github.io/ThinkPython/chap01.html)–[2](https://allendowney.github.io/ThinkPython/chap02.html) | [Programming I](slides/02-programming-1.html) | [Assignment 1](notebooks/assignment-01-python-basics.html) |
+| **3** · Sep 8–10 | Programming II | [Think Python](https://allendowney.github.io/ThinkPython/), Chs. [3](https://allendowney.github.io/ThinkPython/chap03.html), [7](https://allendowney.github.io/ThinkPython/chap07.html), [8](https://allendowney.github.io/ThinkPython/chap08.html) | Programming II | Assignment 2 |
+| **4** · Sep 15–17 | Exploratory data analysis I | [Fundamentals of Data Visualization](https://clauswilke.com/dataviz/), Chs. [6](https://clauswilke.com/dataviz/visualizing-amounts.html)–[7](https://clauswilke.com/dataviz/histograms-density-plots.html) | Modules & EDA | Assignment 3 |
+| **5** · Sep 22–24 | Exploratory data analysis II | [Fundamentals of Data Visualization](https://clauswilke.com/dataviz/), Chs. [9](https://clauswilke.com/dataviz/boxplots-violins.html) and [12](https://clauswilke.com/dataviz/visualizing-associations.html) | Exploratory viz | Assignment 4 |
+| **6** · Sep 29–Oct 1 | Data wrangling I | [Wickham (2014), "Tidy Data"](https://vita.had.co.nz/papers/tidy-data.pdf) | Data wrangling | Assignment 5 |
 | **7** · Oct 6 | Data wrangling II | *Exam 1 distributed; Thursday Oct 8 canceled (Fall Break)* | — | — |
 | **8** · Oct 13–15 | Exam 1 work week | | — | *Exam 1 due Fri, Oct 16, 11:59pm* |
 | **9** · Oct 20–22 | Exam 1 meetings | *Individual exam meetings during class sessions (sign-up schedule provided in advance)* | — | — |
-| **10** · Oct 27–29 | Advanced I/O: databases, web, APIs | McKinney, *Python for Data Analysis* (3rd ed.), Ch. 6 | Advanced I/O | Assignment 6 |
-| **11** · Nov 3–5 | Visualization best practices | Fundamentals of Data Visualization, Chs. 17 and 19 | Data visualization | Assignment 7 |
-| **12** · Nov 10–12 | Geographic data | *The Nature of Geographic Information*, Ch. 1; Fundamentals of Data Visualization, Ch. 15 | Geographic data | Assignment 8 |
-| **13** · Nov 17–19 | Data communication and interactive visualization | Tableau, "Best Practices for Effective Dashboards"; Tableau Public "Get Started"; Fundamentals of Data Visualization, Ch. 29 | Communicating | Assignment 9 *(due Tue, Dec 1)* |
+| **10** · Oct 27–29 | Advanced I/O: databases, web, APIs | McKinney, *[Python for Data Analysis](https://wesmckinney.com/book/)* (3rd ed.), [Ch. 6](https://wesmckinney.com/book/accessing-data) | Advanced I/O | Assignment 6 |
+| **11** · Nov 3–5 | Visualization best practices | [Fundamentals of Data Visualization](https://clauswilke.com/dataviz/), Chs. [17](https://clauswilke.com/dataviz/proportional-ink.html) and [19](https://clauswilke.com/dataviz/color-pitfalls.html) | Data visualization | Assignment 7 |
+| **12** · Nov 10–12 | Geographic data | *[The Nature of Geographic Information](https://www.e-education.psu.edu/natureofgeoinfo/)*, Ch. 1; [Fundamentals of Data Visualization](https://clauswilke.com/dataviz/), [Ch. 15](https://clauswilke.com/dataviz/geospatial-data.html) | Geographic data | Assignment 8 |
+| **13** · Nov 17–19 | Data communication and interactive visualization | [Tableau, "Best Practices for Effective Dashboards"](https://help.tableau.com/current/pro/desktop/en-us/dashboards_best_practices.htm); [Tableau Public "Get Started"](https://public.tableau.com/app/resources); [Fundamentals of Data Visualization](https://clauswilke.com/dataviz/), [Ch. 29](https://clauswilke.com/dataviz/telling-a-story.html) | Communicating | Assignment 9 *(due Tue, Dec 1)* |
 | **14** · Nov 24–26 | **Thanksgiving Break — no class** | | — | — |
-| **15** · Dec 1–3 | Introduction to machine learning; data and AI ethics | "Getting Started," scikit-learn documentation; Gebru et al. (2021), "Datasheets for Datasets" | Intro to ML · Ethics | Assignment 10 *(due Wed, Dec 9)* |
+| **15** · Dec 1–3 | Introduction to machine learning; data and AI ethics | ["Getting Started," scikit-learn documentation](https://scikit-learn.org/stable/getting_started.html); [Gebru et al. (2021), "Datasheets for Datasets"](https://arxiv.org/abs/1803.09010) | Intro to ML · Ethics | Assignment 10 *(due Wed, Dec 9)* |
 | **16** · Dec 8 | Course wrap-up | *Last regular class meeting Tuesday, December 8* | — | — |
 | **Finals** · Dec 15 | Exam 2 submission and final exam presentations | *In-person, Tuesday, December 15, 8:00am–10:30am, Rees-Jones 216* | — | *Exam 2 notebook due at start of session* |
