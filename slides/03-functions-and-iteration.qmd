@@ -90,7 +90,7 @@ y
 ### Python and whitespace
 
 * Python code is organized by __indentation__ and __whitespace__
-* After function definitions, code should be indented with __four spaces__. In the Jupyter Notebook (and other Python development environments), the Tab key represents four spaces, and it will indent your code automatically
+* After function definitions, code should be indented with __four spaces__. In Colab (and other Python development environments), the Tab key represents four spaces, and it will indent your code automatically
 * Code that is not indented properly will cause an error
 
 ```python
@@ -165,6 +165,17 @@ concat_numbers(7, num2 = 3)
   File "<stdin>", line 1
 SyntaxError: non-keyword arg after keyword arg
 ```
+
+---
+
+## Functions and AI
+
+::: {.incremental}
+* When a coding agent does something for you - reads a file, runs your code, searches the web - it is calling a function that someone wrote ahead of time
+* The agent doesn't look inside that function.  It picks it by reading the __docstring__: what it does, and what parameters it takes
+* Look back at `concat_numbers()`.  A name, two parameters, a docstring.  That is exactly what a "tool" looks like to an agent
+* So docstrings aren't just for other people anymore.  A clear description is how you tell an AI when - and how - to use your work
+:::
 
 ---
 
@@ -263,6 +274,34 @@ Beware of the infinite `while` loop!
 
 ---
 
+## Loops and AI: the "agentic loop"
+
+* What does a coding agent actually _do_ when you give it a task?
+
+::: {.incremental}
+* It tries something, looks at the result, decides what to do next, and tries again - __until__ it thinks the job is done
+* Sound familiar?  That's a `while` loop.  The industry term for it is the _agentic loop_
+:::
+
+```python
+while not done:
+    action = decide_what_to_do_next()
+    result = run(action)
+    done = looks_finished(result)
+```
+
+---
+
+### What stops the loop?
+
+::: {.incremental}
+* The blast-off loop stopped when `i` hit `0`.  Guaranteed, every time
+* The agent's loop stops when the agent _decides_ it is finished
+* Beware the infinite loop... and beware the loop that exits too early.  Both look like a finished job
+:::
+
+---
+
 ## Conditional logic
 
 * However - what if we don't want to do the same thing every time we run a loop?  Or a function, for that matter? 
@@ -325,7 +364,98 @@ False
 ```
 
 
+---
 
+## List comprehensions
+
+* A compact way to build a list from a loop
+
+```python
+# A for loop that builds a list:
+doubled = []
+for n in [1, 2, 3, 4]:
+    doubled.append(n * 2)
+
+doubled
+# [2, 4, 6, 8]
+```
+
+---
+
+## The same thing, in one line
+
+```python
+doubled = [n * 2 for n in [1, 2, 3, 4]]
+
+doubled
+# [2, 4, 6, 8]
+```
+
+---
+
+## With a condition
+
+```python
+evens = [n for n in [1, 2, 3, 4, 5, 6] if n % 2 == 0]
+
+evens
+# [2, 4, 6]
+```
+
+## Deterministic programming
+
+## Code gives the same answer every time
+
+```python
+def longest(words):
+    best = words[0]
+    for w in words:
+        if len(w) > len(best):
+            best = w
+    return best
+
+words = ["data", "code", "byte", "loop"]   # all four are 4 letters
+longest(words)
+# 'data', every single time
+```
+
+---
+
+## Ask an AI the same question...
+
+* "Which of these is the longest word: data, code, byte, loop?"
+
+
+## Let's try another one
+
+```python
+"September"[:4] + "." 
+```
+
+Ask AI to abbreviate September for you.  What do you get?
+
+## The decimal example from last week
+
+"What is two-thirds as a decimal?"
+
+```python
+2 / 3
+```
+
+or: 
+
+```python
+round(2 / 3, 2)
+```
+
+---
+
+## Building with AI and agents
+
+* Important distinction in AI / coding workflows: _deterministic layer_ vs. _orchestration layer_
+* The deterministic layer runs every time; the orchestration layer can exercise judgment
+
+What are some use-cases for each?
 
 <style>
 
