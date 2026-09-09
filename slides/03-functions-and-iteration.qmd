@@ -90,7 +90,7 @@ y
 ### Python and whitespace
 
 * Python code is organized by __indentation__ and __whitespace__
-* After function definitions, code should be indented with __four spaces__. In Colab (and other Python development environments), the Tab key represents four spaces, and it will indent your code automatically
+* After function definitions, code should be __indented__. The Python convention is four spaces; Colab uses two by default. Either works if you're consistent, and Colab will indent for you after the colon
 * Code that is not indented properly will cause an error
 
 ```python
