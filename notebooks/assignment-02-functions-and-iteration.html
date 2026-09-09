@@ -155,15 +155,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#assignment-2-functions-conditional-statements-and-iteration-in-python" id="toc-assignment-2-functions-conditional-statements-and-iteration-in-python" class="nav-link active" data-scroll-target="#assignment-2-functions-conditional-statements-and-iteration-in-python">Assignment 2: Functions, conditional statements, and iteration in Python</a>
-  <ul class="collapse">
+  <li><a href="#assignment-2-functions-conditional-statements-and-iteration-in-python" id="toc-assignment-2-functions-conditional-statements-and-iteration-in-python" class="nav-link active" data-scroll-target="#assignment-2-functions-conditional-statements-and-iteration-in-python">Assignment 2: Functions, conditional statements, and iteration in Python</a></li>
   <li><a href="#the-return-statement" id="toc-the-return-statement" class="nav-link" data-scroll-target="#the-return-statement">The ‘return’ statement</a></li>
   <li><a href="#python-and-whitespace" id="toc-python-and-whitespace" class="nav-link" data-scroll-target="#python-and-whitespace">Python and whitespace</a></li>
   <li><a href="#named-arguments" id="toc-named-arguments" class="nav-link" data-scroll-target="#named-arguments">Named arguments</a></li>
   <li><a href="#default-values" id="toc-default-values" class="nav-link" data-scroll-target="#default-values">Default values</a></li>
   <li><a href="#docstrings-and-documenting-your-code" id="toc-docstrings-and-documenting-your-code" class="nav-link" data-scroll-target="#docstrings-and-documenting-your-code">Docstrings and documenting your code</a></li>
   <li><a href="#booleans-and-conditional-statements" id="toc-booleans-and-conditional-statements" class="nav-link" data-scroll-target="#booleans-and-conditional-statements">Booleans and conditional statements</a></li>
-  <li><a href="#loops" id="toc-loops" class="nav-link" data-scroll-target="#loops">Loops</a></li>
+  <li><a href="#loops" id="toc-loops" class="nav-link" data-scroll-target="#loops">Loops</a>
+  <ul class="collapse">
+  <li><a href="#the-while-loop" id="toc-the-while-loop" class="nav-link" data-scroll-target="#the-while-loop">The <code>while</code> loop</a></li>
+  <li><a href="#the-range-function" id="toc-the-range-function" class="nav-link" data-scroll-target="#the-range-function">The <code>range</code> function</a></li>
   </ul></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
   </ul>
@@ -216,8 +218,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Now it's your turn!  Write a new, empty function that prints your name when called.  Call the function.</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="the-return-statement" class="level3">
-<h3 class="anchored" data-anchor-id="the-return-statement">The ‘return’ statement</h3>
+</section>
+<section id="the-return-statement" class="level2">
+<h2 class="anchored" data-anchor-id="the-return-statement">The ‘return’ statement</h2>
 <p>In the above examples, we’ve created functions that print some result to our screen when called. Often, however, we want our functions to work as part of a larger workflow. This is accomplished with the <code>return</code> statement, which allows the output of functions to be assigned to a new variable.</p>
 <p>For example, let’s try to assign the result of the <code>divide_by_two</code> function to a new variable:</p>
 <div id="cell-11" class="cell">
@@ -243,8 +246,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="python-and-whitespace" class="level3">
-<h3 class="anchored" data-anchor-id="python-and-whitespace">Python and whitespace</h3>
+<section id="python-and-whitespace" class="level2">
+<h2 class="anchored" data-anchor-id="python-and-whitespace">Python and whitespace</h2>
 <p>You may have noticed that the statements that follow the function definitions above are <strong>indented</strong>. Python code obeys <strong>whitespace</strong> for code organization. In many languages, functions, loops, and conditional logic (which we’ll get to below), etc. are organized with curly braces, like the equivalent R code below:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>divide_by_two <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(x <span class="sc">/</span> <span class="dv">2</span>)</span>
@@ -255,8 +258,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="cf">return</span> x <span class="op">/</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="named-arguments" class="level3">
-<h3 class="anchored" data-anchor-id="named-arguments">Named arguments</h3>
+<section id="named-arguments" class="level2">
+<h2 class="anchored" data-anchor-id="named-arguments">Named arguments</h2>
 <p>Later in the semester, we’ll get started using external libraries to do our work, which have many pre-built functions for accomplishing data analysis tasks. Many of these functions are very flexible - which means they have a lot of parameters! In turn, it can be helpful to keep your code organized when you are working with multiple parameters in a function.</p>
 <p>There are a couple ways to supply multiple arguments to a function in Python:</p>
 <ul>
@@ -291,8 +294,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>subtract(x <span class="op">=</span> <span class="dv">11</span>, <span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="default-values" class="level3">
-<h3 class="anchored" data-anchor-id="default-values">Default values</h3>
+<section id="default-values" class="level2">
+<h2 class="anchored" data-anchor-id="default-values">Default values</h2>
 <p>A parameter can also be given a <strong>default value</strong> in the function definition. If you don’t supply an argument for it, the function uses the default; if you do, your argument wins. This is why you can call many library functions without supplying every parameter - most of them have defaults.</p>
 <div id="cell-32" class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> subtract(x, y <span class="op">=</span> <span class="dv">1</span>):</span>
@@ -304,8 +307,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>subtract(<span class="dv">11</span>, y <span class="op">=</span> <span class="dv">7</span>)   <span class="co"># override the default with a named argument</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="docstrings-and-documenting-your-code" class="level3">
-<h3 class="anchored" data-anchor-id="docstrings-and-documenting-your-code">Docstrings and documenting your code</h3>
+<section id="docstrings-and-documenting-your-code" class="level2">
+<h2 class="anchored" data-anchor-id="docstrings-and-documenting-your-code">Docstrings and documenting your code</h2>
 <p>You’ve already learned how to use comments to document your code with the <code>#</code> operator, like this:</p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># I just commented out this line!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Comments are generally best used for small descriptive statements about your code, or notes to yourself regarding something you’d like to remember. More formal documentation of your code - e.g.&nbsp;what your functions are supposed to do - are best handled through <strong>docstrings</strong>. Docstrings are enclosed in triple quotes (<code>"""</code>), and can go beneath the function definition to explain its components. Let’s try using a docstring to explain, in basic terms, the contents of our <code>subtract</code> function.</p>
@@ -339,8 +342,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="booleans-and-conditional-statements" class="level3">
-<h3 class="anchored" data-anchor-id="booleans-and-conditional-statements">Booleans and conditional statements</h3>
+<section id="booleans-and-conditional-statements" class="level2">
+<h2 class="anchored" data-anchor-id="booleans-and-conditional-statements">Booleans and conditional statements</h2>
 <p>The above functions we’ve written perform the same operations for any input values that are passed to them. When writing programs, however, you’ll often have to design them to be flexible to user input where outcomes may vary based on what users supply to the program. In regards to data analysis, you might want to produce a particular type of chart if the data are structured a certain way, which wouldn’t work in another scenario. You can build this type of logic into your programs with <strong>conditional statements</strong>.</p>
 <p>Before we get into this, however, I want to introduce <strong>booleans</strong> in Python. You may have heard this term before in other classes. Booleans in Python are the values <code>True</code> and <code>False</code>; they can be used to evaluate, understandably, if a condition is true or not. For example:</p>
 <div id="cell-41" class="cell">
@@ -391,8 +394,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co">### Your code goes here!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="loops" class="level3">
-<h3 class="anchored" data-anchor-id="loops">Loops</h3>
+<section id="loops" class="level2">
+<h2 class="anchored" data-anchor-id="loops">Loops</h2>
 <p>In programming, you will often want to do an operation multiple times, or carry out some process over a list of values that you’ve created. To do this, you will frequently turn to <strong>loops</strong>.</p>
 <p>The most commonly used loops in Python are <code>for</code> and <code>while</code>. A <code>for</code> loop carries out an action, or set of actions, for every element that you tell it to. Let’s give it a try in very simple terms. I’ve created a list of teams in the Big 12 below; we’ll loop through this list with <code>for</code> and concatenate another string to each element.</p>
 <div id="cell-51" class="cell">
@@ -451,8 +454,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"The index of "</span> <span class="op">+</span> character <span class="op">+</span> <span class="st">" is "</span> <span class="op">+</span> <span class="bu">str</span>(idx))</span>
 <span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>    idx <span class="op">=</span> idx <span class="op">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="the-while-loop" class="level4">
-<h4 class="anchored" data-anchor-id="the-while-loop">The <code>while</code> loop</h4>
+<section id="the-while-loop" class="level3">
+<h3 class="anchored" data-anchor-id="the-while-loop">The <code>while</code> loop</h3>
 <p><code>for</code> is not the only loop you’ll come across in Python. You can also specify a <code>while</code> loop, which will run a loop until a given condition is satisfied. I’ll give you an example below. Let’s say you only want to return the first five elements of your list. While you could do this with indexing (which is simpler), let’s try the <code>while</code> loop instead.</p>
 <div id="cell-66" class="cell">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>newlist <span class="op">=</span> []</span>
@@ -468,8 +471,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Have a look at what we did. We created an empty list, and set a new variable, <code>i</code>, to 0. We then looped through the elements of the list index by index, adding 1 to <code>i</code> with each run of the loop, and then stopping the code when <code>i</code> became equal to 5. In turn, we got back the elements of the <code>big12</code> list indexed 0 to 4, which are the first five elements.</p>
 <p>Be careful with while loops, however. If you don’t specify them correctly, you can get stuck in an infinite loop, which will not stop! For example, if we had not continued to add 1 to <code>i</code>, the loop would have never stopped and would have kept iterating through the list. In Colab, this will cause your notebook to hang while it tries, forever, to finish the loop. If that happens, click the stop button next to the running cell to interrupt it. I’ve been there a few times…</p>
 </section>
-<section id="the-range-function" class="level4">
-<h4 class="anchored" data-anchor-id="the-range-function">The <code>range</code> function</h4>
+<section id="the-range-function" class="level3">
+<h3 class="anchored" data-anchor-id="the-range-function">The <code>range</code> function</h3>
 <p>Sequences of numbers in Python can be generated by typing them out, as you’ve learned how to do in this class. However, they can also be produced by the built-in <code>range</code> function, which can simplify things for you significantly if you need to generate a long list of integers. <code>range</code> has three parameters: <code>start</code>, which is the first integer you want to start with; <code>stop</code>, which is the first integer you <strong>don’t</strong> want to include, and <code>step</code>, which optionally specifies the integer interval. For example:</p>
 <div id="cell-69" class="cell">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">21</span>, <span class="dv">5</span>)</span>
@@ -488,7 +491,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="cell-74" class="cell">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
 </section>
 </section>
 <section id="exercises" class="level2">
