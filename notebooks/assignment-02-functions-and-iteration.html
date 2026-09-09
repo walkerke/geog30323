@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.33">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>assignment-02-functions-and-iteration – GEOG 30323</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-9dc8bef5358b48d85763869357612f5e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-26d92ed3de9e8c71490665069be898bc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">GEOG 30323</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../schedule.html"> 
+<span class="menu-text">Schedule</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../assignments.html"> 
+<span class="menu-text">Assignments</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../GEOG30323-015_Fall2026_Walker.pdf" target="_blank"> 
+<span class="menu-text">Syllabus</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#assignment-2-functions-conditional-statements-and-iteration-in-pythoncongratulations-on-completing-your-first-python-assignment-youll-be-progressively-building-on-those-core-skills-throughout-the-semester.-as-before-click-file-save-a-copy-in-drive-to-save-your-assignment-in-your-personal-google-drive-and-rename-the-notebook-by-replacing-copy-of-with-your-last-name.-in-this-weeks-notebook-you-are-first-going-to-learn-about-functions.-functions-are-in-some-ways-the-bread-and-butter-of-python-programming.-they-make-code-re-usable-as-they-allow-you-to-apply-your-code-in-other-contexts-and-circumstances.-you-can-think-about-functions-this-way-while-variables-store-elements-of-your-code-e.g.-numbers-strings-lists-functions-can-store-entire-chunks-of-your-code-which-can-in-turn-be-re-used-as-necessary.-functions-include-a-definition-and-parameters-and-are-specified-with-def-as-follows-pythondef-myfunctionparameter1-parameter2-parameter3-your-code-goes-herethe-def-command-allows-you-to-introduce-a-function-definition.-you-then-specify-the-parameters-within-parentheses-following-the-function-name-which-are-like-variables-that-operate-within-your-function.-a-colon-then-follows-the-parentheses-and-the-contents-of-the-function-are-found-beginning-on-the-next-line-as-an-indented-code-block-more-on-indentation-soon.-after-youve-defined-the-function-it-can-be-called-by-supplying-arguments-to-the-parameters-youve-defined-again-within-parentheses.-for-example-pythonmyfunctionarg1-arg2-arg3so-how-does-this-all-work-lets-try-it-outat-a-very-basic-level-you-can-define-a-function-without-parameters---an-empty-function.-this-function-will-print-whatever-youve-specified-after-it-is-called." id="toc-assignment-2-functions-conditional-statements-and-iteration-in-pythoncongratulations-on-completing-your-first-python-assignment-youll-be-progressively-building-on-those-core-skills-throughout-the-semester.-as-before-click-file-save-a-copy-in-drive-to-save-your-assignment-in-your-personal-google-drive-and-rename-the-notebook-by-replacing-copy-of-with-your-last-name.-in-this-weeks-notebook-you-are-first-going-to-learn-about-functions.-functions-are-in-some-ways-the-bread-and-butter-of-python-programming.-they-make-code-re-usable-as-they-allow-you-to-apply-your-code-in-other-contexts-and-circumstances.-you-can-think-about-functions-this-way-while-variables-store-elements-of-your-code-e.g.-numbers-strings-lists-functions-can-store-entire-chunks-of-your-code-which-can-in-turn-be-re-used-as-necessary.-functions-include-a-definition-and-parameters-and-are-specified-with-def-as-follows-pythondef-myfunctionparameter1-parameter2-parameter3-your-code-goes-herethe-def-command-allows-you-to-introduce-a-function-definition.-you-then-specify-the-parameters-within-parentheses-following-the-function-name-which-are-like-variables-that-operate-within-your-function.-a-colon-then-follows-the-parentheses-and-the-contents-of-the-function-are-found-beginning-on-the-next-line-as-an-indented-code-block-more-on-indentation-soon.-after-youve-defined-the-function-it-can-be-called-by-supplying-arguments-to-the-parameters-youve-defined-again-within-parentheses.-for-example-pythonmyfunctionarg1-arg2-arg3so-how-does-this-all-work-lets-try-it-outat-a-very-basic-level-you-can-define-a-function-without-parameters---an-empty-function.-this-function-will-print-whatever-youve-specified-after-it-is-called." class="nav-link active" data-scroll-target="#assignment-2-functions-conditional-statements-and-iteration-in-pythoncongratulations-on-completing-your-first-python-assignment-youll-be-progressively-building-on-those-core-skills-throughout-the-semester.-as-before-click-file-save-a-copy-in-drive-to-save-your-assignment-in-your-personal-google-drive-and-rename-the-notebook-by-replacing-copy-of-with-your-last-name.-in-this-weeks-notebook-you-are-first-going-to-learn-about-functions.-functions-are-in-some-ways-the-bread-and-butter-of-python-programming.-they-make-code-re-usable-as-they-allow-you-to-apply-your-code-in-other-contexts-and-circumstances.-you-can-think-about-functions-this-way-while-variables-store-elements-of-your-code-e.g.-numbers-strings-lists-functions-can-store-entire-chunks-of-your-code-which-can-in-turn-be-re-used-as-necessary.-functions-include-a-definition-and-parameters-and-are-specified-with-def-as-follows-pythondef-myfunctionparameter1-parameter2-parameter3-your-code-goes-herethe-def-command-allows-you-to-introduce-a-function-definition.-you-then-specify-the-parameters-within-parentheses-following-the-function-name-which-are-like-variables-that-operate-within-your-function.-a-colon-then-follows-the-parentheses-and-the-contents-of-the-function-are-found-beginning-on-the-next-line-as-an-indented-code-block-more-on-indentation-soon.-after-youve-defined-the-function-it-can-be-called-by-supplying-arguments-to-the-parameters-youve-defined-again-within-parentheses.-for-example-pythonmyfunctionarg1-arg2-arg3so-how-does-this-all-work-lets-try-it-outat-a-very-basic-level-you-can-define-a-function-without-parameters---an-empty-function.-this-function-will-print-whatever-youve-specified-after-it-is-called.">Assignment 2: Functions, conditional statements, and iteration in PythonCongratulations on completing your first Python assignment! You’ll be progressively building on those core skills throughout the semester. As before, click <strong>File &gt; Save a copy in Drive</strong> to save your assignment in your personal Google Drive, and rename the notebook by replacing “Copy of” with your last name. In this week’s notebook, you are first going to learn about functions. Functions are in some ways the bread-and-butter of Python programming. They make code re-usable, as they allow you to apply your code in other contexts and circumstances. You can think about functions this way: while variables store elements of your code (e.g.&nbsp;numbers, strings, lists), functions can store entire chunks of your code, which can in turn be re-used as necessary. Functions include a <strong>definition</strong> and <strong>parameters</strong>, and are specified with <code>def</code> as follows: <code>pythondef myfunction(parameter1, parameter2, parameter3):     """Your code goes here"""</code>The <code>def</code> command allows you to introduce a function definition. You then specify the <strong>parameters</strong> within parentheses following the function name, which are like variables that operate within your function. A colon (<code>:</code>) then follows the parentheses, and the contents of the function are found beginning on the next line as an indented code block (more on indentation soon). After you’ve defined the function, it can be <strong>called</strong> by supplying <strong>arguments</strong> to the parameters you’ve defined, again within parentheses. For example: <code>pythonmyfunction(arg1, arg2, arg3)</code>So how does this all work? Let’s try it out!At a very basic level, you can define a function without parameters - an <em>empty</em> function. This function will print whatever you’ve specified after it is called.</a>
+  <ul class="collapse">
+  <li><a href="#the-return-statement" id="toc-the-return-statement" class="nav-link" data-scroll-target="#the-return-statement">The ‘return’ statement</a></li>
+  <li><a href="#python-and-whitespaceyou-may-have-noticed-that-the-statements-that-follow-the-function-definitions-above-are-indented.-python-code-obeys-whitespace-for-code-organization.-in-many-languages-functions-loops-and-conditional-logic-which-well-get-to-below-etc.-are-organized-with-curly-braces-like-the-equivalent-r-code-below-rdivide_by_two---functionx-returnx-2the-r-code-like-in-many-languages-is-organized-in-relation-to-the-position-of-the-curly-braces-not-the-positioning-of-the-code-itself-per-se.-in-python-curly-braces-are-not-used-in-this-capacity.-instead-code-is-organized-by-indentation-and-whitespace.-within-a-function-definition-for-example-the-code-to-be-executed-by-the-function-call-should-be-indented-beneath-the-line-that-contains-the-def-statement.-the-python-convention-is-four-spaces-colab-indents-with-two-spaces-by-default.-either-works-as-long-as-you-are-consistent-within-a-block-of-code.-in-colab-and-most-other-python-development-environments-the-software-will-already-know-this-and-indent-your-code-for-you-when-you-press-enter-after-the-colon.-without-proper-indentation-however-your-code-will-not-run-correctly." id="toc-python-and-whitespaceyou-may-have-noticed-that-the-statements-that-follow-the-function-definitions-above-are-indented.-python-code-obeys-whitespace-for-code-organization.-in-many-languages-functions-loops-and-conditional-logic-which-well-get-to-below-etc.-are-organized-with-curly-braces-like-the-equivalent-r-code-below-rdivide_by_two---functionx-returnx-2the-r-code-like-in-many-languages-is-organized-in-relation-to-the-position-of-the-curly-braces-not-the-positioning-of-the-code-itself-per-se.-in-python-curly-braces-are-not-used-in-this-capacity.-instead-code-is-organized-by-indentation-and-whitespace.-within-a-function-definition-for-example-the-code-to-be-executed-by-the-function-call-should-be-indented-beneath-the-line-that-contains-the-def-statement.-the-python-convention-is-four-spaces-colab-indents-with-two-spaces-by-default.-either-works-as-long-as-you-are-consistent-within-a-block-of-code.-in-colab-and-most-other-python-development-environments-the-software-will-already-know-this-and-indent-your-code-for-you-when-you-press-enter-after-the-colon.-without-proper-indentation-however-your-code-will-not-run-correctly." class="nav-link" data-scroll-target="#python-and-whitespaceyou-may-have-noticed-that-the-statements-that-follow-the-function-definitions-above-are-indented.-python-code-obeys-whitespace-for-code-organization.-in-many-languages-functions-loops-and-conditional-logic-which-well-get-to-below-etc.-are-organized-with-curly-braces-like-the-equivalent-r-code-below-rdivide_by_two---functionx-returnx-2the-r-code-like-in-many-languages-is-organized-in-relation-to-the-position-of-the-curly-braces-not-the-positioning-of-the-code-itself-per-se.-in-python-curly-braces-are-not-used-in-this-capacity.-instead-code-is-organized-by-indentation-and-whitespace.-within-a-function-definition-for-example-the-code-to-be-executed-by-the-function-call-should-be-indented-beneath-the-line-that-contains-the-def-statement.-the-python-convention-is-four-spaces-colab-indents-with-two-spaces-by-default.-either-works-as-long-as-you-are-consistent-within-a-block-of-code.-in-colab-and-most-other-python-development-environments-the-software-will-already-know-this-and-indent-your-code-for-you-when-you-press-enter-after-the-colon.-without-proper-indentation-however-your-code-will-not-run-correctly.">Python and whitespaceYou may have noticed that the statements that follow the function definitions above are <strong>indented</strong>. Python code obeys <strong>whitespace</strong> for code organization. In many languages, functions, loops, and conditional logic (which we’ll get to below), etc. are organized with curly braces, like the equivalent R code below: <code>rdivide_by_two &lt;- function(x) {    return(x / 2)}</code>The R code, like in many languages, is organized in relation to the position of the curly braces, not the positioning of the code itself per se. In Python, curly braces are not used in this capacity. Instead, code is organized by indentation and whitespace. Within a function definition, for example, the code to be executed by the function call should be indented beneath the line that contains the <code>def</code> statement. The Python convention is four spaces; Colab indents with two spaces by default. Either works, as long as you are consistent within a block of code. In Colab and most other Python development environments, the software will already know this and indent your code for you when you press Enter after the colon. Without proper indentation, however, your code will not run correctly.</a></li>
+  <li><a href="#named-argumentslater-in-the-semester-well-get-started-using-external-libraries-to-do-our-work-which-have-many-pre-built-functions-for-accomplishing-data-analysis-tasks.-many-of-these-functions-are-very-flexible---which-means-they-have-a-lot-of-parameters-in-turn-it-can-be-helpful-to-keep-your-code-organized-when-you-are-working-with-multiple-parameters-in-a-function.-there-are-a-couple-ways-to-supply-multiple-arguments-to-a-function-in-python-in-the-order-they-are-specified-in-the-function-definition-as-named-arguments-in-which-both-the-parameter-name-and-the-argument-are-invoked.-ill-explain-this-further.-lets-define-a-function-subtract-that-takes-two-numbers-and-will-subtract-the-second-number-from-the-first." id="toc-named-argumentslater-in-the-semester-well-get-started-using-external-libraries-to-do-our-work-which-have-many-pre-built-functions-for-accomplishing-data-analysis-tasks.-many-of-these-functions-are-very-flexible---which-means-they-have-a-lot-of-parameters-in-turn-it-can-be-helpful-to-keep-your-code-organized-when-you-are-working-with-multiple-parameters-in-a-function.-there-are-a-couple-ways-to-supply-multiple-arguments-to-a-function-in-python-in-the-order-they-are-specified-in-the-function-definition-as-named-arguments-in-which-both-the-parameter-name-and-the-argument-are-invoked.-ill-explain-this-further.-lets-define-a-function-subtract-that-takes-two-numbers-and-will-subtract-the-second-number-from-the-first." class="nav-link" data-scroll-target="#named-argumentslater-in-the-semester-well-get-started-using-external-libraries-to-do-our-work-which-have-many-pre-built-functions-for-accomplishing-data-analysis-tasks.-many-of-these-functions-are-very-flexible---which-means-they-have-a-lot-of-parameters-in-turn-it-can-be-helpful-to-keep-your-code-organized-when-you-are-working-with-multiple-parameters-in-a-function.-there-are-a-couple-ways-to-supply-multiple-arguments-to-a-function-in-python-in-the-order-they-are-specified-in-the-function-definition-as-named-arguments-in-which-both-the-parameter-name-and-the-argument-are-invoked.-ill-explain-this-further.-lets-define-a-function-subtract-that-takes-two-numbers-and-will-subtract-the-second-number-from-the-first.">Named argumentsLater in the semester, we’ll get started using external libraries to do our work, which have many pre-built functions for accomplishing data analysis tasks. Many of these functions are very flexible - which means they have a lot of parameters! In turn, it can be helpful to keep your code organized when you are working with multiple parameters in a function. There are a couple ways to supply multiple arguments to a function in Python: * In the order they are specified in the function definition; * As <em>named</em> arguments, in which both the parameter name and the argument are invoked. I’ll explain this further. Let’s define a function, <code>subtract</code>, that takes two numbers and will subtract the second number from the first.</a></li>
+  <li><a href="#default-values" id="toc-default-values" class="nav-link" data-scroll-target="#default-values">Default values</a></li>
+  <li><a href="#docstrings-and-documenting-your-codeyouve-already-learned-how-to-use-comments-to-document-your-code-with-the-operator-like-this-python-i-just-commented-out-this-linecomments-are-generally-best-used-for-small-descriptive-statements-about-your-code-or-notes-to-yourself-regarding-something-youd-like-to-remember.-more-formal-documentation-of-your-code---e.g.-what-your-functions-are-supposed-to-do---are-best-handled-through-docstrings.-docstrings-are-enclosed-in-triple-quotes-and-can-go-beneath-the-function-definition-to-explain-its-components.-lets-try-using-a-docstring-to-explain-in-basic-terms-the-contents-of-our-subtract-function." id="toc-docstrings-and-documenting-your-codeyouve-already-learned-how-to-use-comments-to-document-your-code-with-the-operator-like-this-python-i-just-commented-out-this-linecomments-are-generally-best-used-for-small-descriptive-statements-about-your-code-or-notes-to-yourself-regarding-something-youd-like-to-remember.-more-formal-documentation-of-your-code---e.g.-what-your-functions-are-supposed-to-do---are-best-handled-through-docstrings.-docstrings-are-enclosed-in-triple-quotes-and-can-go-beneath-the-function-definition-to-explain-its-components.-lets-try-using-a-docstring-to-explain-in-basic-terms-the-contents-of-our-subtract-function." class="nav-link" data-scroll-target="#docstrings-and-documenting-your-codeyouve-already-learned-how-to-use-comments-to-document-your-code-with-the-operator-like-this-python-i-just-commented-out-this-linecomments-are-generally-best-used-for-small-descriptive-statements-about-your-code-or-notes-to-yourself-regarding-something-youd-like-to-remember.-more-formal-documentation-of-your-code---e.g.-what-your-functions-are-supposed-to-do---are-best-handled-through-docstrings.-docstrings-are-enclosed-in-triple-quotes-and-can-go-beneath-the-function-definition-to-explain-its-components.-lets-try-using-a-docstring-to-explain-in-basic-terms-the-contents-of-our-subtract-function.">Docstrings and documenting your codeYou’ve already learned how to use comments to document your code with the <code>#</code> operator, like this: <code>python# I just commented out this line!</code>Comments are generally best used for small descriptive statements about your code, or notes to yourself regarding something you’d like to remember. More formal documentation of your code - e.g.&nbsp;what your functions are supposed to do - are best handled through <strong>docstrings</strong>. Docstrings are enclosed in triple quotes (<code>"""</code>), and can go beneath the function definition to explain its components. Let’s try using a docstring to explain, in basic terms, the contents of our <code>subtract</code> function.</a></li>
+  <li><a href="#booleans-and-conditional-statements" id="toc-booleans-and-conditional-statements" class="nav-link" data-scroll-target="#booleans-and-conditional-statements">Booleans and conditional statements</a></li>
+  <li><a href="#loopsin-programming-you-will-often-want-to-do-an-operation-multiple-times-or-carry-out-some-process-over-a-list-of-values-that-youve-created.-to-do-this-you-will-frequently-turn-to-loops.-the-most-commonly-used-loops-in-python-are-for-and-while.-a-for-loop-carries-out-an-action-or-set-of-actions-for-every-element-that-you-tell-it-to.-lets-give-it-a-try-in-very-simple-terms.-ive-created-a-list-of-teams-in-the-big-12-below-well-loop-through-this-list-with-for-and-concatenate-another-string-to-each-element." id="toc-loopsin-programming-you-will-often-want-to-do-an-operation-multiple-times-or-carry-out-some-process-over-a-list-of-values-that-youve-created.-to-do-this-you-will-frequently-turn-to-loops.-the-most-commonly-used-loops-in-python-are-for-and-while.-a-for-loop-carries-out-an-action-or-set-of-actions-for-every-element-that-you-tell-it-to.-lets-give-it-a-try-in-very-simple-terms.-ive-created-a-list-of-teams-in-the-big-12-below-well-loop-through-this-list-with-for-and-concatenate-another-string-to-each-element." class="nav-link" data-scroll-target="#loopsin-programming-you-will-often-want-to-do-an-operation-multiple-times-or-carry-out-some-process-over-a-list-of-values-that-youve-created.-to-do-this-you-will-frequently-turn-to-loops.-the-most-commonly-used-loops-in-python-are-for-and-while.-a-for-loop-carries-out-an-action-or-set-of-actions-for-every-element-that-you-tell-it-to.-lets-give-it-a-try-in-very-simple-terms.-ive-created-a-list-of-teams-in-the-big-12-below-well-loop-through-this-list-with-for-and-concatenate-another-string-to-each-element.">LoopsIn programming, you will often want to do an operation multiple times, or carry out some process over a list of values that you’ve created. To do this, you will frequently turn to <strong>loops</strong>. The most commonly used loops in Python are <code>for</code> and <code>while</code>. A <code>for</code> loop carries out an action, or set of actions, for every element that you tell it to. Let’s give it a try in very simple terms. I’ve created a list of teams in the Big 12 below; we’ll loop through this list with <code>for</code> and concatenate another string to each element.</a></li>
+  </ul></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><a href="https://colab.research.google.com/github/walkerke/geog30323/blob/main/notebooks/assignment-02-functions-and-iteration.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" class="img-fluid figure-img"></a></p>
+<figcaption>Open In Colab</figcaption>
+</figure>
+</div>
+<section id="assignment-2-functions-conditional-statements-and-iteration-in-pythoncongratulations-on-completing-your-first-python-assignment-youll-be-progressively-building-on-those-core-skills-throughout-the-semester.-as-before-click-file-save-a-copy-in-drive-to-save-your-assignment-in-your-personal-google-drive-and-rename-the-notebook-by-replacing-copy-of-with-your-last-name.-in-this-weeks-notebook-you-are-first-going-to-learn-about-functions.-functions-are-in-some-ways-the-bread-and-butter-of-python-programming.-they-make-code-re-usable-as-they-allow-you-to-apply-your-code-in-other-contexts-and-circumstances.-you-can-think-about-functions-this-way-while-variables-store-elements-of-your-code-e.g.-numbers-strings-lists-functions-can-store-entire-chunks-of-your-code-which-can-in-turn-be-re-used-as-necessary.-functions-include-a-definition-and-parameters-and-are-specified-with-def-as-follows-pythondef-myfunctionparameter1-parameter2-parameter3-your-code-goes-herethe-def-command-allows-you-to-introduce-a-function-definition.-you-then-specify-the-parameters-within-parentheses-following-the-function-name-which-are-like-variables-that-operate-within-your-function.-a-colon-then-follows-the-parentheses-and-the-contents-of-the-function-are-found-beginning-on-the-next-line-as-an-indented-code-block-more-on-indentation-soon.-after-youve-defined-the-function-it-can-be-called-by-supplying-arguments-to-the-parameters-youve-defined-again-within-parentheses.-for-example-pythonmyfunctionarg1-arg2-arg3so-how-does-this-all-work-lets-try-it-outat-a-very-basic-level-you-can-define-a-function-without-parameters---an-empty-function.-this-function-will-print-whatever-youve-specified-after-it-is-called." class="level2">
+<h2 class="anchored" data-anchor-id="assignment-2-functions-conditional-statements-and-iteration-in-pythoncongratulations-on-completing-your-first-python-assignment-youll-be-progressively-building-on-those-core-skills-throughout-the-semester.-as-before-click-file-save-a-copy-in-drive-to-save-your-assignment-in-your-personal-google-drive-and-rename-the-notebook-by-replacing-copy-of-with-your-last-name.-in-this-weeks-notebook-you-are-first-going-to-learn-about-functions.-functions-are-in-some-ways-the-bread-and-butter-of-python-programming.-they-make-code-re-usable-as-they-allow-you-to-apply-your-code-in-other-contexts-and-circumstances.-you-can-think-about-functions-this-way-while-variables-store-elements-of-your-code-e.g.-numbers-strings-lists-functions-can-store-entire-chunks-of-your-code-which-can-in-turn-be-re-used-as-necessary.-functions-include-a-definition-and-parameters-and-are-specified-with-def-as-follows-pythondef-myfunctionparameter1-parameter2-parameter3-your-code-goes-herethe-def-command-allows-you-to-introduce-a-function-definition.-you-then-specify-the-parameters-within-parentheses-following-the-function-name-which-are-like-variables-that-operate-within-your-function.-a-colon-then-follows-the-parentheses-and-the-contents-of-the-function-are-found-beginning-on-the-next-line-as-an-indented-code-block-more-on-indentation-soon.-after-youve-defined-the-function-it-can-be-called-by-supplying-arguments-to-the-parameters-youve-defined-again-within-parentheses.-for-example-pythonmyfunctionarg1-arg2-arg3so-how-does-this-all-work-lets-try-it-outat-a-very-basic-level-you-can-define-a-function-without-parameters---an-empty-function.-this-function-will-print-whatever-youve-specified-after-it-is-called.">Assignment 2: Functions, conditional statements, and iteration in PythonCongratulations on completing your first Python assignment! You’ll be progressively building on those core skills throughout the semester. As before, click <strong>File &gt; Save a copy in Drive</strong> to save your assignment in your personal Google Drive, and rename the notebook by replacing “Copy of” with your last name. In this week’s notebook, you are first going to learn about functions. Functions are in some ways the bread-and-butter of Python programming. They make code re-usable, as they allow you to apply your code in other contexts and circumstances. You can think about functions this way: while variables store elements of your code (e.g.&nbsp;numbers, strings, lists), functions can store entire chunks of your code, which can in turn be re-used as necessary. Functions include a <strong>definition</strong> and <strong>parameters</strong>, and are specified with <code>def</code> as follows: <code>pythondef myfunction(parameter1, parameter2, parameter3):     """Your code goes here"""</code>The <code>def</code> command allows you to introduce a function definition. You then specify the <strong>parameters</strong> within parentheses following the function name, which are like variables that operate within your function. A colon (<code>:</code>) then follows the parentheses, and the contents of the function are found beginning on the next line as an indented code block (more on indentation soon). After you’ve defined the function, it can be <strong>called</strong> by supplying <strong>arguments</strong> to the parameters you’ve defined, again within parentheses. For example: <code>pythonmyfunction(arg1, arg2, arg3)</code>So how does this all work? Let’s try it out!At a very basic level, you can define a function without parameters - an <em>empty</em> function. This function will print whatever you’ve specified after it is called.</h2>
+<div id="cell-2" class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> print_five():</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now, we call the function:</p>
+<div id="cell-4" class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>print_five()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Notice what happened when we called our <code>print_five</code> function. As the function has no parameters, it will always give us back 5. Naturally, you’re going to want your functions to get more complicated than this - which is what parameters are for. Let’s try out a function that has a parameter and performs a basic mathematical operation.</p>
+<div id="cell-6" class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> divide_by_two(x):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(x <span class="op">/</span> <span class="dv">2</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>divide_by_two(<span class="dv">11</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The function itself is fairly straightforward. Our new function, <code>divide_by_two</code>, takes a number, which we are calling <code>x</code>. It divides <code>x</code> by two, and then prints the result for us. By adding a parameter, however, our function is now re-usable. Let’s try it out:</p>
+<div id="cell-8" class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>divide_by_two(<span class="dv">55</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-9" class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Now it's your turn!  Write a new, empty function that prints your name when called.  Call the function.</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="the-return-statement" class="level3">
+<h3 class="anchored" data-anchor-id="the-return-statement">The ‘return’ statement</h3>
+<p>In the above examples, we’ve created functions that print some result to our screen when called. Often, however, we want our functions to work as part of a larger workflow. This is accomplished with the <code>return</code> statement, which allows the output of functions to be assigned to a new variable.</p>
+<p>For example, let’s try to assign the result of the <code>divide_by_two</code> function to a new variable:</p>
+<div id="cell-11" class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> divide_by_two(<span class="dv">12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>And when we ask Python for the value of y:</p>
+<div id="cell-13" class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We don’t get anything back. Strictly speaking, <code>y</code> now holds a special value called <code>None</code>, which is what a function gives back when it has no <code>return</code> statement - run <code>print(y)</code> to see it. Now, let’s try modifying the function with <code>return</code> used instead of <code>print</code>.</p>
+<div id="cell-15" class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> divide_by_two(x):</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x <span class="op">/</span> <span class="dv">2</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> divide_by_two(<span class="dv">12</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-16" class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Now it's your turn!  Write a new function that subtracts 7 from a number</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">## and returns the result.  Assign the result of the function to a new </span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">## variable (your argument can be any number you want).</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="python-and-whitespaceyou-may-have-noticed-that-the-statements-that-follow-the-function-definitions-above-are-indented.-python-code-obeys-whitespace-for-code-organization.-in-many-languages-functions-loops-and-conditional-logic-which-well-get-to-below-etc.-are-organized-with-curly-braces-like-the-equivalent-r-code-below-rdivide_by_two---functionx-returnx-2the-r-code-like-in-many-languages-is-organized-in-relation-to-the-position-of-the-curly-braces-not-the-positioning-of-the-code-itself-per-se.-in-python-curly-braces-are-not-used-in-this-capacity.-instead-code-is-organized-by-indentation-and-whitespace.-within-a-function-definition-for-example-the-code-to-be-executed-by-the-function-call-should-be-indented-beneath-the-line-that-contains-the-def-statement.-the-python-convention-is-four-spaces-colab-indents-with-two-spaces-by-default.-either-works-as-long-as-you-are-consistent-within-a-block-of-code.-in-colab-and-most-other-python-development-environments-the-software-will-already-know-this-and-indent-your-code-for-you-when-you-press-enter-after-the-colon.-without-proper-indentation-however-your-code-will-not-run-correctly." class="level3">
+<h3 class="anchored" data-anchor-id="python-and-whitespaceyou-may-have-noticed-that-the-statements-that-follow-the-function-definitions-above-are-indented.-python-code-obeys-whitespace-for-code-organization.-in-many-languages-functions-loops-and-conditional-logic-which-well-get-to-below-etc.-are-organized-with-curly-braces-like-the-equivalent-r-code-below-rdivide_by_two---functionx-returnx-2the-r-code-like-in-many-languages-is-organized-in-relation-to-the-position-of-the-curly-braces-not-the-positioning-of-the-code-itself-per-se.-in-python-curly-braces-are-not-used-in-this-capacity.-instead-code-is-organized-by-indentation-and-whitespace.-within-a-function-definition-for-example-the-code-to-be-executed-by-the-function-call-should-be-indented-beneath-the-line-that-contains-the-def-statement.-the-python-convention-is-four-spaces-colab-indents-with-two-spaces-by-default.-either-works-as-long-as-you-are-consistent-within-a-block-of-code.-in-colab-and-most-other-python-development-environments-the-software-will-already-know-this-and-indent-your-code-for-you-when-you-press-enter-after-the-colon.-without-proper-indentation-however-your-code-will-not-run-correctly.">Python and whitespaceYou may have noticed that the statements that follow the function definitions above are <strong>indented</strong>. Python code obeys <strong>whitespace</strong> for code organization. In many languages, functions, loops, and conditional logic (which we’ll get to below), etc. are organized with curly braces, like the equivalent R code below: <code>rdivide_by_two &lt;- function(x) {    return(x / 2)}</code>The R code, like in many languages, is organized in relation to the position of the curly braces, not the positioning of the code itself per se. In Python, curly braces are not used in this capacity. Instead, code is organized by indentation and whitespace. Within a function definition, for example, the code to be executed by the function call should be indented beneath the line that contains the <code>def</code> statement. The Python convention is four spaces; Colab indents with two spaces by default. Either works, as long as you are consistent within a block of code. In Colab and most other Python development environments, the software will already know this and indent your code for you when you press Enter after the colon. Without proper indentation, however, your code will not run correctly.</h3>
+<div id="cell-18" class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> divide_by_three(x):</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="cf">return</span> x <span class="op">/</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="named-argumentslater-in-the-semester-well-get-started-using-external-libraries-to-do-our-work-which-have-many-pre-built-functions-for-accomplishing-data-analysis-tasks.-many-of-these-functions-are-very-flexible---which-means-they-have-a-lot-of-parameters-in-turn-it-can-be-helpful-to-keep-your-code-organized-when-you-are-working-with-multiple-parameters-in-a-function.-there-are-a-couple-ways-to-supply-multiple-arguments-to-a-function-in-python-in-the-order-they-are-specified-in-the-function-definition-as-named-arguments-in-which-both-the-parameter-name-and-the-argument-are-invoked.-ill-explain-this-further.-lets-define-a-function-subtract-that-takes-two-numbers-and-will-subtract-the-second-number-from-the-first." class="level3">
+<h3 class="anchored" data-anchor-id="named-argumentslater-in-the-semester-well-get-started-using-external-libraries-to-do-our-work-which-have-many-pre-built-functions-for-accomplishing-data-analysis-tasks.-many-of-these-functions-are-very-flexible---which-means-they-have-a-lot-of-parameters-in-turn-it-can-be-helpful-to-keep-your-code-organized-when-you-are-working-with-multiple-parameters-in-a-function.-there-are-a-couple-ways-to-supply-multiple-arguments-to-a-function-in-python-in-the-order-they-are-specified-in-the-function-definition-as-named-arguments-in-which-both-the-parameter-name-and-the-argument-are-invoked.-ill-explain-this-further.-lets-define-a-function-subtract-that-takes-two-numbers-and-will-subtract-the-second-number-from-the-first.">Named argumentsLater in the semester, we’ll get started using external libraries to do our work, which have many pre-built functions for accomplishing data analysis tasks. Many of these functions are very flexible - which means they have a lot of parameters! In turn, it can be helpful to keep your code organized when you are working with multiple parameters in a function. There are a couple ways to supply multiple arguments to a function in Python: * In the order they are specified in the function definition; * As <em>named</em> arguments, in which both the parameter name and the argument are invoked. I’ll explain this further. Let’s define a function, <code>subtract</code>, that takes two numbers and will subtract the second number from the first.</h3>
+<div id="cell-20" class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> subtract(x, y):</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x <span class="op">-</span> y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now, we call the function by supplying two arguments to it:</p>
+<div id="cell-22" class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>subtract(<span class="dv">11</span>, <span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We could get the same result by supplying <em>named</em> arguments to the function, which take the form of <code>parameter = argument</code>:</p>
+<div id="cell-24" class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>subtract(x <span class="op">=</span> <span class="dv">11</span>, y <span class="op">=</span> <span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Flipping the order of the arguments will give us a different result <em>unless</em> we name the arguments accordingly. Take a look:</p>
+<div id="cell-26" class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>subtract(<span class="dv">7</span>, <span class="dv">11</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-27" class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>subtract(y <span class="op">=</span> <span class="dv">7</span>, x <span class="op">=</span> <span class="dv">11</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Be careful when mixing named and unnamed arguments, however. When arguments are unnamed, Python assumes that you are supplying them in the order of the corresponding parameters in the function definition. As such, you can mix named and unnamed arguments, but unnamed arguments cannot follow named arguments in a function call.</p>
+<div id="cell-29" class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>subtract(<span class="dv">11</span>, y <span class="op">=</span> <span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-30" class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>subtract(x <span class="op">=</span> <span class="dv">11</span>, <span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="default-values" class="level3">
+<h3 class="anchored" data-anchor-id="default-values">Default values</h3>
+<p>A parameter can also be given a <strong>default value</strong> in the function definition. If you don’t supply an argument for it, the function uses the default; if you do, your argument wins. This is why you can call many library functions without supplying every parameter - most of them have defaults.</p>
+<div id="cell-32" class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> subtract(x, y <span class="op">=</span> <span class="dv">1</span>):    <span class="cf">return</span> x <span class="op">-</span> ysubtract(<span class="dv">11</span>)          <span class="co"># y defaults to 1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-33" class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>subtract(<span class="dv">11</span>, y <span class="op">=</span> <span class="dv">7</span>)   <span class="co"># override the default with a named argument</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="docstrings-and-documenting-your-codeyouve-already-learned-how-to-use-comments-to-document-your-code-with-the-operator-like-this-python-i-just-commented-out-this-linecomments-are-generally-best-used-for-small-descriptive-statements-about-your-code-or-notes-to-yourself-regarding-something-youd-like-to-remember.-more-formal-documentation-of-your-code---e.g.-what-your-functions-are-supposed-to-do---are-best-handled-through-docstrings.-docstrings-are-enclosed-in-triple-quotes-and-can-go-beneath-the-function-definition-to-explain-its-components.-lets-try-using-a-docstring-to-explain-in-basic-terms-the-contents-of-our-subtract-function." class="level3">
+<h3 class="anchored" data-anchor-id="docstrings-and-documenting-your-codeyouve-already-learned-how-to-use-comments-to-document-your-code-with-the-operator-like-this-python-i-just-commented-out-this-linecomments-are-generally-best-used-for-small-descriptive-statements-about-your-code-or-notes-to-yourself-regarding-something-youd-like-to-remember.-more-formal-documentation-of-your-code---e.g.-what-your-functions-are-supposed-to-do---are-best-handled-through-docstrings.-docstrings-are-enclosed-in-triple-quotes-and-can-go-beneath-the-function-definition-to-explain-its-components.-lets-try-using-a-docstring-to-explain-in-basic-terms-the-contents-of-our-subtract-function.">Docstrings and documenting your codeYou’ve already learned how to use comments to document your code with the <code>#</code> operator, like this: <code>python# I just commented out this line!</code>Comments are generally best used for small descriptive statements about your code, or notes to yourself regarding something you’d like to remember. More formal documentation of your code - e.g.&nbsp;what your functions are supposed to do - are best handled through <strong>docstrings</strong>. Docstrings are enclosed in triple quotes (<code>"""</code>), and can go beneath the function definition to explain its components. Let’s try using a docstring to explain, in basic terms, the contents of our <code>subtract</code> function.</h3>
+<div id="cell-35" class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> subtract(x, y):</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Subtract one number from another.</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="co">    Parameters:</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="co">    -----------</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="co">    x: The number you would like to subtract a quantity from (the minuend).</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="co">    y: The quantity you would like to subtract from x (the subtrahend).</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x <span class="op">-</span> y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You’ve now created a new function, <code>subtract()</code> with associated help documentation. To view the documentation, you can use the built-in <code>help()</code> function to print the docstring, or type the function name followed by a question mark to pop up the documentation at the bottom of the screen. Try it out!</p>
+<div id="cell-37" class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="bu">help</span>(subtract)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-38" class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>subtract?</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-39" class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Now it is your turn!</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a new function, "multiply", that multiplies two numbers together.</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Write a docstring in the function definition that describes what the function does,</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="co"># and explains the parameters to the user.</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Run your function and call it to test it out.</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="booleans-and-conditional-statements" class="level3">
+<h3 class="anchored" data-anchor-id="booleans-and-conditional-statements">Booleans and conditional statements</h3>
+<p>The above functions we’ve written perform the same operations for any input values that are passed to them. When writing programs, however, you’ll often have to design them to be flexible to user input where outcomes may vary based on what users supply to the program. In regards to data analysis, you might want to produce a particular type of chart if the data are structured a certain way, which wouldn’t work in another scenario. You can build this type of logic into your programs with <strong>conditional statements</strong>.</p>
+<p>Before we get into this, however, I want to introduce <strong>booleans</strong> in Python. You may have heard this term before in other classes. Booleans in Python are the values <code>True</code> and <code>False</code>; they can be used to evaluate, understandably, if a condition is true or not. For example:</p>
+<div id="cell-41" class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="op">&gt;</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-42" class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="op">&gt;</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-43" class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="op">==</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-44" class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="op">!=</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>In the above lines of code, we used basic mathematical operators to see if conditions are true or false. When we asked Python if 3 is greater than 2, it told us it was True; when we asked it if 2 is greater than 3, it said False. Such true/false logic can be used with conditional statements in your code. To do this, you’ll often use <strong>conditional operators</strong>, which you’ll be familiar with from basic mathematics, possibly with a couple exceptions. Conditional operators in Python are as follows:</p>
+<ul>
+<li><code>&lt;</code> Less than</li>
+<li><code>&gt;</code> Greater than</li>
+<li><code>&lt;=</code> Less than or equal to</li>
+<li><code>&gt;=</code> Greater than or equal to</li>
+<li><code>==</code> Is equal to</li>
+<li><code>!=</code> Is not equal to</li>
+</ul>
+<p>As humans, we use conditional logic all of the time without really thinking about it. For example, <strong>if</strong> I am hungry, I’ll probably go eat something; otherwise, I won’t. Such logic can be expressed in Python as a series of <code>if</code>, <code>elif</code> (which means <em>else if</em>), and <code>else</code> statements.</p>
+<p>Let’s try to express this now in code in basic terms. This is made-up code, so we don’t need to understand everything, but here are the basics of it. We define a function, <code>hungry</code>, that measures the biological/psychological properties that govern hunger reflexes in the human body. We say, hypothetically, that a hunger index value encapsulating these properties that exceeds 100 means that a person is hungry; in turn, the function returns <code>True</code>. Otherwise, it returns <code>False</code>.</p>
+<div id="cell-46" class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> hungry(hunger_index):</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> hunger_index <span class="op">&gt;</span> <span class="dv">100</span>:</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">True</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">False</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>hungry(<span class="dv">103</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-47" class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>hungry(<span class="dv">88</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can then pass a variable <code>kyle</code>, which represents my hunger index, to the function. The function then checks to see if I am hungry, and returns <code>True</code> if I am, and <code>False</code> otherwise. These results can then be embedded in other workflows, in which you program Python to perform different tasks depending on the function results. For example:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> hungry(kyle):  </span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>    eat()</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>: </span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    stay_put()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>As you can see above, this can be simplified in Python as the code <code>if hungry(kyle)</code> checks to see if the returned value is <code>True</code>. If I am hungry, the code calls an unseen <code>eat()</code> function telling me to go eat; otherwise, it tells me to stay put with an unseen <code>stay_put()</code> function.</p>
+<p>Simple enough, right? Not quite. I’m hungry right now, but I’m not currently eating. Why is that the case? Well… I have to get this assignment written for you! While I am hungry, my level of hunger is not so debilitating that I am unable to work, and I know that finishing my work is a higher priority than eating at the moment. In reality, there are countless conditions that influence whether we eat or not beyond simply how hungry we are. For example - is there food accessible? Are you in a place where it is socially acceptable to eat? Perhaps you are at a party where pizza is available - you aren’t hungry, but you eat it anyway? Your brain processes all of this conditional logic at once as you make decisions, so we aren’t always used to thinking explicitly about conditionals in such discrete ways. However, to get a computer to understand this, you have to make it explicit in your code!</p>
+<p>The <code>hungry</code> function we defined above used conditional logic, telling Python to return <code>True</code> or <code>False</code> depending on the value of the hunger index. Note that the <code>if</code> statement starts on a new indented line of code beneath the function definition, and itself is followed by a colon; the code associated with the <code>if</code> statement then follows on another, indented line of code. The same goes for the <code>else</code> statement beneath it. You should be getting a sense now of style rules in Python, and the importance of whitespace for code organization, which applies to conditional statements as well.</p>
+<p>Now I’d like you to try to replicate this yourself! Define a function called <code>greater_than_two</code> that checks to see if a number is greater than 2 or not. Call the function.</p>
+<div id="cell-49" class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co">### Your code goes here!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="loopsin-programming-you-will-often-want-to-do-an-operation-multiple-times-or-carry-out-some-process-over-a-list-of-values-that-youve-created.-to-do-this-you-will-frequently-turn-to-loops.-the-most-commonly-used-loops-in-python-are-for-and-while.-a-for-loop-carries-out-an-action-or-set-of-actions-for-every-element-that-you-tell-it-to.-lets-give-it-a-try-in-very-simple-terms.-ive-created-a-list-of-teams-in-the-big-12-below-well-loop-through-this-list-with-for-and-concatenate-another-string-to-each-element." class="level3">
+<h3 class="anchored" data-anchor-id="loopsin-programming-you-will-often-want-to-do-an-operation-multiple-times-or-carry-out-some-process-over-a-list-of-values-that-youve-created.-to-do-this-you-will-frequently-turn-to-loops.-the-most-commonly-used-loops-in-python-are-for-and-while.-a-for-loop-carries-out-an-action-or-set-of-actions-for-every-element-that-you-tell-it-to.-lets-give-it-a-try-in-very-simple-terms.-ive-created-a-list-of-teams-in-the-big-12-below-well-loop-through-this-list-with-for-and-concatenate-another-string-to-each-element.">LoopsIn programming, you will often want to do an operation multiple times, or carry out some process over a list of values that you’ve created. To do this, you will frequently turn to <strong>loops</strong>. The most commonly used loops in Python are <code>for</code> and <code>while</code>. A <code>for</code> loop carries out an action, or set of actions, for every element that you tell it to. Let’s give it a try in very simple terms. I’ve created a list of teams in the Big 12 below; we’ll loop through this list with <code>for</code> and concatenate another string to each element.</h3>
+<div id="cell-51" class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>big12 <span class="op">=</span> [<span class="st">"TCU Horned Frogs"</span>, <span class="st">"Baylor Bears"</span>, <span class="st">"Texas Tech Red Raiders"</span>, <span class="st">"Oklahoma State Cowboys"</span>, </span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>         <span class="st">"Kansas Jayhawks"</span>, <span class="st">"Kansas State Wildcats"</span>, <span class="st">"Iowa State Cyclones"</span>, <span class="st">"West Virginia Mountaineers"</span>,</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>         <span class="st">"Cincinnati Bearcats"</span>, <span class="st">"Houston Cougars"</span>, <span class="st">"UCF Knights"</span>, <span class="st">"BYU Cougars"</span>,</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>         <span class="st">"Arizona Wildcats"</span>, <span class="st">"Arizona State Sun Devils"</span>, <span class="st">"Colorado Buffaloes"</span>, <span class="st">"Utah Utes"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-52" class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> team <span class="kw">in</span> big12: <span class="co"># You can read this here as "for every team in the Big 12....</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(team <span class="op">+</span> <span class="st">" are in the Big 12."</span>) <span class="co"># ... print the name of the team along with "are in the Big 12."</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>A couple notes about the above code. Notice that I’m using <code>team</code> as a temporary variable that will successively store each value of the list as we loop through it. This variable, <code>team</code>, takes on each value of the list in turn; and presently stores the last value of the list.</p>
+<div id="cell-54" class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>team</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>As such, this is how the <code>for</code> loop works. <code>for</code> tells Python to evaluate every element of the list <code>big12</code>; these elements will be represented by the variable <code>team</code>. The loop then walks through the list <code>big12</code> and prints the specified text <strong>for</strong> every element in the list. This <code>for</code> loop is equivalent, then, to:</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"TCU Horned Frogs are in the Big 12"</span>)</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Baylor Bears are in the Big 12"</span>)</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Texas Tech Red Raiders are in the Big 12"</span>)</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="co"># ... and so forth</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>but you don’t really want to do that manually, especially when you might have thousands of strings to evaluate. In turn, the <code>for</code> loop does the work for you, which is one of the main benefits of programming.</p>
+<p>Also, I’d like you to notice the structure of the loop. Like functions, loops obey <strong>whitespace</strong> rules for code organization, and will fail if your code is not properly indented. The first line of the loop - in this case <code>for team in big12</code> - is not indented, and is followed by a colon. Everything else contained in the loop is found in an indented block on the line(s) following the <code>for</code> loop call. As with functions, your loop will fail without proper indentation.</p>
+<div id="cell-56" class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> team <span class="kw">in</span> big12: </span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(team <span class="op">+</span> <span class="st">" are in the Big 12."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now let’s say you want to create a new list of the “…are in the Big 12” elements. There are a couple ways to do this. In the first, you define an empty list object, then populate the list with the for loop and the <code>append</code> method, as shown below.</p>
+<div id="cell-58" class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>teams <span class="op">=</span> [] <span class="co"># The empty brackets designate an empty list, which you'll fill up with the loop.</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> team <span class="kw">in</span> big12:</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>    teams.append(team <span class="op">+</span> <span class="st">" are in the Big 12."</span>)</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>teams</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You can also do the same thing with something called <strong>list comprehension</strong>. List comprehension allows for the creation of a new list with one line of code. In this case, the <code>for</code> loop is embedded within the statement you make. Below is an example:</p>
+<div id="cell-60" class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>teams2 <span class="op">=</span> [team <span class="op">+</span> <span class="st">" are in the Big 12."</span> <span class="cf">for</span> team <span class="kw">in</span> big12]</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>teams2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You can use methods and functions in your list comprehension as well, as in the example below:</p>
+<div id="cell-62" class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>swap <span class="op">=</span> [name.swapcase() <span class="cf">for</span> name <span class="kw">in</span> big12]</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>swap</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Loops also work for strings - though in this case the loop will iterate through each character contained in your string. An example:</p>
+<div id="cell-64" class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>tcu <span class="op">=</span> <span class="st">"Texas Christian University"</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>idx <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> character <span class="kw">in</span> tcu:</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"The index of "</span> <span class="op">+</span> character <span class="op">+</span> <span class="st">" is "</span> <span class="op">+</span> <span class="bu">str</span>(idx))</span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>    idx <span class="op">=</span> idx <span class="op">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="the-while-loop" class="level4">
+<h4 class="anchored" data-anchor-id="the-while-loop">The <code>while</code> loop</h4>
+<p><code>for</code> is not the only loop you’ll come across in Python. You can also specify a <code>while</code> loop, which will run a loop until a given condition is satisfied. I’ll give you an example below. Let’s say you only want to return the first five elements of your list. While you could do this with indexing (which is simpler), let’s try the <code>while</code> loop instead.</p>
+<div id="cell-66" class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>newlist <span class="op">=</span> []</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> i <span class="op">&lt;</span> <span class="dv">5</span>:</span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>    newlist.append(big12[i])</span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>    i <span class="op">=</span> i <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>newlist</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Have a look at what we did. We created an empty list, and set a new variable, <code>i</code>, to 0. We then looped through the elements of the list index by index, adding 1 to <code>i</code> with each run of the loop, and then stopping the code when <code>i</code> became equal to 5. In turn, we got back the elements of the <code>big12</code> list indexed 0 to 4, which are the first five elements. Be careful with while loops, however. If you don’t specify them correctly, you can get stuck in an infinite loop, which will not stop! For example, if we had not continued to add 1 to <code>i</code>, the loop would have never stopped and would have kept iterating through the list. In Colab, this will cause your notebook to hang while it tries, forever, to finish the loop. If that happens, click the stop button next to the running cell to interrupt it. I’ve been there a few times…</p>
+</section>
+<section id="the-range-function" class="level4">
+<h4 class="anchored" data-anchor-id="the-range-function">The <code>range</code> function</h4>
+<p>Sequences of numbers in Python can be generated by typing them out, as you’ve learned how to do in this class. However, they can also be produced by the built-in <code>range</code> function, which can simplify things for you significantly if you need to generate a long list of integers. <code>range</code> has three parameters: <code>start</code>, which is the first integer you want to start with; <code>stop</code>, which is the first integer you <strong>don’t</strong> want to include, and <code>step</code>, which optionally specifies the integer interval. For example:</p>
+<div id="cell-69" class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">21</span>, <span class="dv">5</span>)</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-70" class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We’ve created a <strong>range</strong> object which conforms to the arguments we supplied to the <code>range</code> function. Notably, the range object can be looped through:</p>
+<div id="cell-72" class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> y <span class="kw">in</span> x:</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If need be, your range object can also be converted to a list with the <code>list</code> function.</p>
+<div id="cell-74" class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="exercises" class="level2">
+<h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
+<p>As with last week’s notebook, I’ll ask you to complete a series of small exercises below to get full credit for this week’s assignment. Some of these exercises will build upon the skills you learned last week - so be prepared! You are welcome to work together on these exercises, and you can use Colab’s embedded AI assistant to help you with them. My recommendation: try to complete the exercise first without AI, then only use AI when you get stuck or to help provide an explanation.</p>
+<p><strong>Exercise 1:</strong> Explain, in your own words, the difference between using <code>print</code> and <code>return</code> for the output of a function. Write your response below, in this Markdown cell.</p>
+<p><strong>Exercise 2:</strong> Write a function called <code>make_big</code> that takes a lowercase string as input and prints the string with all capital letters. Create a new variable and assign to it a string with all lowercase letters, then call the <code>make_big</code> function with that variable as its argument.</p>
+<div id="cell-77" class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your answer goes here!</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Exercise 3:</strong> Write a function called <code>first_word</code> that takes a list of character strings as input and returns the first element of the list in alphabetical order. For example, your function should work like this:</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>students <span class="op">=</span> [<span class="st">'Mary'</span>, <span class="st">'Zelda'</span>, <span class="st">'Jimmy'</span>, <span class="st">'Jack'</span>, <span class="st">'Bartholomew'</span>, <span class="st">'Gertrude'</span>]</span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>first_word(students)</span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a><span class="co">'Bartholomew'</span> <span class="co"># The result</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><em>Hint:</em> You’ll need to first sort your list in the function to accomplish this, then identify the first element. Within a function, it is a good idea to use multiple lines of code to separate out the different steps. Just make sure all the code that belongs to the function is indented!</p>
+<p>After you’ve written the function, run it by supplying the list <code>teams</code> to your function as an argument to test it. Before you run it, write down in a comment which team you expect to come back first. Then check.</p>
+<div id="cell-79" class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>teams <span class="op">=</span> [<span class="st">'Stars'</span>, <span class="st">'Cowboys'</span>, <span class="st">'Rangers'</span>, <span class="st">'Mavericks'</span>, <span class="st">'FC Dallas'</span>]</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code goes below!</span></span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Exercise 4:</strong> Explain, in your own words, the difference between a <code>for</code> loop and a <code>while</code> loop. Write your response below in this Markdown cell.</p>
+<p><strong>Exercise 5</strong>:</p>
+<p>You’re the treasurer of a TCU student club, and you’re in charge of ordering pizza for the club’s meetings this semester. RSVPs come in before each meeting, and the club gives you a budget. Your job is to figure out how many pizzas to order.</p>
+<p>Doing this by hand once is easy. Doing it every meeting, for every club on campus, is exactly the kind of thing a function is for. And as with last week, you’re going to work <em>with</em> an AI assistant to build it. The difference this week: last week you checked the assumptions the AI made. This week, <strong>you</strong> make the assumptions, and then check that the code follows them.</p>
+<p>Run the cell below to load the RSVP counts for this semester’s meetings, along with the budget and the price of a pizza.</p>
+<div id="cell-82" class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>rsvps <span class="op">=</span> [<span class="dv">18</span>, <span class="dv">6</span>, <span class="dv">35</span>, <span class="dv">24</span>, <span class="dv">11</span>, <span class="dv">52</span>]   <span class="co"># one number per meeting, in order</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>budget <span class="op">=</span> <span class="dv">150</span>     <span class="co"># dollars per meeting</span></span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>price <span class="op">=</span> <span class="dv">15</span>       <span class="co"># dollars per large pizza</span></span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(rsvps), <span class="st">"meetings loaded"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Part 1: Make a plan.</strong> Before you write any code, decide on your ordering rules and write them down here. You’ll need to decide at least the following:</p>
+<ul>
+<li>Do you think everyone who RSVPs will show up? Will anyone show up who didn’t RSVP?<br>
+</li>
+<li>How many slices does a person eat?<br>
+</li>
+<li>How many slices are in a pizza?<br>
+</li>
+<li>You can’t order part of a pizza. Which way do you round?</li>
+</ul>
+<p>There is no single right answer to any of these. Just make a choice, and say why in a sentence.</p>
+<p>Then, using your rules, work out by hand how many pizzas you would order for the first meeting (18 RSVPs), and what it would cost. Write those two numbers down.</p>
+<p><em>Double-click and answer here.</em></p>
+<p><strong>Part 2: Build.</strong> Ask Gemini or another AI assistant to write a function called <code>pizzas_needed</code> that follows your rules and returns the number of pizzas to order. Give it your rules from Part 1 - you can copy and paste them.</p>
+<p>You’ll also need to decide what the function’s <strong>parameters</strong> are. Which quantities change from meeting to meeting, and which are rules that belong inside the function? (Think back to the tutorial: a parameter like <code>slices_per_person</code> can have a default value, which you override with a named argument when you need to.)</p>
+<p>Paste the code below, then call your function for the first meeting. Does it give the same answer you worked out by hand?</p>
+<div id="cell-86" class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Paste and run the code Gemini helped you write, then call it for the first meeting.</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Look at the function closely.</p>
+<ol type="1">
+<li>Find each of your rules from Part 1 in the code. Which line carries out which rule?<br>
+</li>
+<li>Is there any rule in the code that you did <em>not</em> write down? What is it?</li>
+</ol>
+<p><em>Double-click and answer here.</em></p>
+<p><strong>Part 3: Try every meeting.</strong> Write a <code>for</code> loop that calls <code>pizzas_needed</code> for every meeting in <code>rsvps</code> and prints the RSVP count, the number of pizzas, and the cost.</p>
+<p>Then look at the results like a treasurer, not a programmer. Would you actually place these orders? Pay special attention to the smallest meeting and the largest one.</p>
+<p>Then change one assumption - say, three slices per person instead of two - and run the loop again. How much did the orders and the costs change?</p>
+<div id="cell-90" class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your loop goes here.</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><em>Double-click and write down what you noticed.</em></p>
+<p><strong>Part 4: The complication.</strong> Bad news from the club president: the budget for the last meeting - the one with 52 RSVPs - has been cut to $75. That’s five pizzas.</p>
+<p>You have to decide what the function should do when the order doesn’t fit the budget: order what the budget allows and risk running out, recommend asking for more money, or something else. Decide on a policy, then revise your instructions to Gemini so the function follows it. Paste and run the revised code below, run it for the last meeting, and explain in a few sentences what your policy means for the people who show up.</p>
+<div id="cell-93" class="cell">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Paste and run the revised code, then run it for the last meeting.</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><em>Double-click and answer here.</em></p>
+<p>To submit your assignment, click the <strong>Share</strong> button and share your assignment with kwalkertcu@gmail.com.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/walkerke\.github\.io\/geog30323\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
