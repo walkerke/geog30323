@@ -9,6 +9,7 @@ project:
     - slides/01-data-literacy.qmd
     - slides/02-programming-1.qmd
     - slides/03-functions-and-iteration.qmd
+    - slides/04-modules-and-eda.qmd
   resources:
     - GEOG30323-015_Fall2026_Walker.pdf
 

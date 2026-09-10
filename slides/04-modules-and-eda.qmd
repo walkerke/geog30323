@@ -2,61 +2,68 @@
 title: "Modules, packages, and EDA in Python"
 date: "2026-09-15"
 ---
+
 ## Time for data!
 
-<img src="img/04-modules-and-eda/data.jpg" style="width: 850px"><figcaption>Source: [bigdatapix.tumblr.com](http://bigdatapix.tumblr.com/)</figcaption>
+<img src="img/04-modules-and-eda/data.jpg" style="width: 850px"/>
 
----
+<figcaption>Source: [bigdatapix.tumblr.com](http://bigdatapix.tumblr.com/)</figcaption>
+
+------------------------------------------------------------------------
 
 ### The data analysis process
 
-<img src="img/04-modules-and-eda/r4ds-data-science.png" style="width: 800px"><figcaption>Source: Wickham and Grolemund, [_R for Data Science_](http://r4ds.had.co.nz/introduction.html)</figcaption>
+<img src="img/04-modules-and-eda/r4ds-data-science.png" style="width: 800px"/>
 
----
+<figcaption>Source: Wickham and Grolemund, [*R for Data Science*](http://r4ds.had.co.nz/introduction.html)</figcaption>
+
+------------------------------------------------------------------------
 
 ### Exploratory data analysis
 
-* "Detective work" to summarize and explore datasets
+-   "Detective work" to summarize and explore datasets
 
-Includes: 
+Includes:
 
-* Data acquisition and input
-* Data cleaning and wrangling ("tidying")
-* Data transformation and summarization
-* Data visualization
+-   Data acquisition and input
+-   Data cleaning and wrangling ("tidying")
+-   Data transformation and summarization
+-   Data visualization
 
 Your core Python tools for EDA: NumPy, pandas, and seaborn/matplotlib
 
----
+------------------------------------------------------------------------
 
 ## Modules and packages
 
-* _Module_: file containing variables, functions, etc. that can be _imported_ into a Python session with the `import` statement
-* _Package_: directory of modules that perform similar tasks (e.g. data visualization, statistics, etc.)
-* Thousands upon thousands of Python packages available - that do just about anything!
+-   *Module*: file containing variables, functions, etc. that can be *imported* into a Python session with the `import` statement
+-   *Package*: directory of modules that perform similar tasks (e.g. data visualization, statistics, etc.)
+-   Thousands upon thousands of Python packages available - that do just about anything!
 
----
+------------------------------------------------------------------------
 
 ## Built-in packages
 
-* Many packages are included in `stdlib`, the standard library that ships with Python
-* Popular modules: `re` for regular expressions; `os` for operating system functions; `random` for random-number generation; and many more.  Full list: <https://docs.python.org/3/library/>
+-   Many packages are included in `stdlib`, the standard library that ships with Python
+-   Popular modules: `re` for regular expressions; `os` for operating system functions; `random` for random-number generation; and many more. Full list: <https://docs.python.org/3/library/>
 
----
+------------------------------------------------------------------------
 
 ### The PyData ecosystem
 
-<img src=img/04-modules-and-eda/pydata.PNG style="width: 700px"><figcaption>Source: [Jake VanderPlas, SciPy 2015 Keynote](https://speakerdeck.com/jakevdp/the-state-of-the-stack-scipy-2015-keynote)</figcaption>
+<img src="img/04-modules-and-eda/pydata.PNG" style="width: 700px"/>
 
----
+<figcaption>Source: [Jake VanderPlas, SciPy 2015 Keynote](https://speakerdeck.com/jakevdp/the-state-of-the-stack-scipy-2015-keynote)</figcaption>
+
+------------------------------------------------------------------------
 
 ### NumPy
 
-* Extension to Python; the core Python package for numerical computing
-* Standard import: `import numpy as np`
-* Data structure: the NumPy __array__.  Sort of like a list - but with more methods, and can be multidimensional
+-   Extension to Python; the core Python package for numerical computing
+-   Standard import: `import numpy as np`
+-   Data structure: the NumPy **array**. Sort of like a list - but with more methods, and can be multidimensional
 
-```python
+``` python
 import numpy as np
 
 y = np.array([[2, 4, 6, 8, 10, 12], 
@@ -66,79 +73,72 @@ y = np.array([[2, 4, 6, 8, 10, 12],
             
 ```
 
----
+------------------------------------------------------------------------
 
 ### Pandas
 
-* Built on top of NumPy; adds support for table-like data structures in Python
-* Standard import: `import pandas as pd`
-* Sequences of data are stored as __Series__ objects, which collectively form __DataFrames__
+-   Built on top of NumPy; adds support for table-like data structures in Python
+-   Standard import: `import pandas as pd`
+-   Sequences of data are stored as **Series** objects, which collectively form **DataFrames**
 
-```python
+``` python
 import pandas as pd
 
 df = pd.DataFrame(y, columns = ['x' + str(num) for num in range(1, 7)])
 ```
 
----
+------------------------------------------------------------------------
 
 ## The pandas DataFrame
 
-* Commonly, DataFrames are created by reading in external data, like CSV files
-* Download link: <https://github.com/walkerke/geog30323/blob/main/data/colleges.csv> (click __Download raw file__)
+-   Commonly, DataFrames are created by reading in external data, like CSV files
+-   Download link: <https://github.com/walkerke/geog30323/blob/main/data/colleges.csv> (click **Download raw file**)
 
-```python
+``` python
 # To read in CSV files, we use the pd.read_csv function 
 colleges = pd.read_csv("colleges.csv")
 ```
 
----
+------------------------------------------------------------------------
 
 ## Tutorial: working with external data in Colab
 
-::: {.incremental}
-* Download `colleges.csv` from the link to your computer
-* In Colab, click the __folder icon__ in the left sidebar to open the Files pane, then the __upload__ button, and choose the file
-* It lands in `/content`, Colab's working directory - so `pd.read_csv("colleges.csv")` finds it
-* Uploaded files __disappear when the runtime disconnects__.  Re-upload, or mount your Google Drive
+::: incremental
+-   Download `colleges.csv` from the link to your computer
+-   In Colab, click the **folder icon** in the left sidebar to open the Files pane, then the **upload** button, and choose the file
+-   It lands in `/content`, Colab's working directory - so `pd.read_csv("colleges.csv")` finds it
+-   Uploaded files **disappear when the runtime disconnects**. Re-upload, or mount your Google Drive
 :::
 
----
+------------------------------------------------------------------------
 
 ### The pandas DataFrame
 
-* Each observation forms a __row__, defined by an __index__; attributes of those observations are found in the __columns__ of the DataFrame
+-   Each observation forms a **row**, defined by an **index**; attributes of those observations are found in the **columns** of the DataFrame
+-   Columns are accessible as indices, e.g. `colleges['median_earn']`, or as attributes of the data frame, e.g. `colleges.median_earn`
 
-```python
+------------------------------------------------------------------------
+
+``` python
 colleges.head()
 ```
 
-```
-                                  name  median_earn   rnk
-0             Alabama A & M University        40628  1648
-1  University of Alabama at Birmingham        54501   832
-2                   Amridge University        37621  1803
-3  University of Alabama in Huntsville        61767   482
-4             Alabama State University        34502  1916
-```
+![](images/paste-1.png)
 
-* Columns are accessible as indices, e.g. `colleges['median_earn']`, or as attributes of the data frame, e.g. `colleges.median_earn`
-
----
+------------------------------------------------------------------------
 
 ### The Python namespace
 
-* When you declare variables, define functions, import modules, etc., you are adding objects to the _Python namespace_
-* To remove objects from the Python namespace, use the `del` statement
+-   When you declare variables, define functions, import modules, etc., you are adding objects to the *Python namespace*
+-   To remove objects from the Python namespace, use the `del` statement
 
+------------------------------------------------------------------------
 
----
+### Imports and the namespace
 
-### Imports and the namespace 
+-   Imported modules can be referenced in multiple ways:
 
-* Imported modules can be referenced in multiple ways: 
-
-```python
+``` python
 # All of these are equivalent
 
 import pandas
@@ -151,198 +151,163 @@ from pandas import *
 read_csv("colleges.csv")
 ```
 
----
+------------------------------------------------------------------------
 
 ### Levels of measurement
 
-* __Nominal__: qualitative, descriptive, categories
-* __Ordinal__: ordering or ranking; however, no information about distance between ranks
-* __Interval__: additive; the zero is arbitrary (0°F is not "no temperature")
-* __Ratio__: multiplicative; natural zero (zero means an absence of a value)
+-   **Nominal**: qualitative, descriptive, categories
+-   **Ordinal**: ordering or ranking; however, no information about distance between ranks
+-   **Interval**: additive; the zero is arbitrary (0°F is not "no temperature")
+-   **Ratio**: multiplicative; natural zero (zero means an absence of a value)
 
 Make sure you know your column types (`dtypes`) and levels of measurement before doing analysis!
 
----
+------------------------------------------------------------------------
 
 ### Measures of central tendency
 
-* __Mode__: the most typical value in a distribution
-* __Median__: the "balancing point" in a distribution (50 percent of observations above and below)
-* __Mean__: the arithmetic average of a distribution
+-   **Mode**: the most typical value in a distribution
+-   **Median**: the "balancing point" in a distribution (50 percent of observations above and below)
+-   **Mean**: the arithmetic average of a distribution
 
 The *mean* of a sample ($\overline{x}$) is calculated as follows:
 
 $$\overline{x} = \dfrac{x_1 + x_2 + ... + x_n}{n}$$
 
-where $n$ is the number of elements in the sample.  
+where $n$ is the number of elements in the sample.
 
----
+------------------------------------------------------------------------
 
 ### Measures of dispersion
 
-* __Range__: difference between maximum and minimum values in a distribution
-* __Interquartile range__: difference between the values at the 25 percent and 75 percent points in a distribution
-* __Variance__ and __standard deviation__
+-   **Range**: difference between maximum and minimum values in a distribution
+-   **Interquartile range**: difference between the values at the 25 percent and 75 percent points in a distribution
+-   **Variance** and **standard deviation**
 
----
+------------------------------------------------------------------------
 
-## Standard deviation 
+## Standard deviation
 
-* Computed as the square root of the variance; denoted by $\sigma$.  
-* Offers a standardized way to discuss the spread of a distribution.  For example, in a normally distributed sample: 
-    * About 68 percent of the values will be within one standard deviation of the mean
-    * About 95 percent of the values will be within two standard deviations of the mean
-    * About 99.7 percent of the values will be within three standard deviations of the mean
+-   Computed as the square root of the variance; denoted by $\sigma$.\
+-   Offers a standardized way to discuss the spread of a distribution. For example, in a normally distributed sample:
+    -   About 68 percent of the values will be within one standard deviation of the mean
+    -   About 95 percent of the values will be within two standard deviations of the mean
+    -   About 99.7 percent of the values will be within three standard deviations of the mean
 
----
+------------------------------------------------------------------------
 
 ### Descriptive statistics in pandas
 
-* Descriptive stats are available in `pandas` as data frame methods, e.g. `colleges.mean()`, `colleges.std()`
-* Calling `.describe()` will give you back a number of important descriptive stats at once
+-   Descriptive stats are available in `pandas` as data frame methods, e.g. `colleges.mean()`, `colleges.std()`
+-   Calling `.describe()` will give you back a number of important descriptive stats at once
 
----
+------------------------------------------------------------------------
 
 ### `.describe()`
 
-```python
+``` python
 colleges.describe()
 ```
 
-```
-       median_earn       rnk
-count     2105.000  2105.000
-mean     52699.362  1052.639
-std      16346.584   607.825
-min      17360.000     1.000
-25%      41855.000   527.000
-50%      50660.000  1053.000
-75%      60509.000  1579.000
-max     143372.000  2105.000
-```
+![](images/paste-2.png)
 
----
+------------------------------------------------------------------------
 
 ## Exploratory visualization
 
-* Often, when exploring a dataset, you'll want to use graphical representations of your data to help reveal insights/trends
-* __Visualization__: Graphical representation of data
+-   Often, when exploring a dataset, you'll want to use graphical representations of your data to help reveal insights/trends
+-   **Visualization**: Graphical representation of data
 
----
+------------------------------------------------------------------------
 
 ### Visualization in Python
 
-* Core visualization package in Python: `matplotlib`
-* `seaborn`: extension to `matplotlib` to make your graphics look nicer!  Standard import: `import seaborn as sns`.  
+-   Core visualization package in Python: `matplotlib`
+-   `seaborn`: extension to `matplotlib` to make your graphics look nicer! Standard import: `import seaborn as sns`.
 
-
----
+------------------------------------------------------------------------
 
 ## Histograms
 
-* __Histogram__: graphical representation of a frequency distribution
-* Observations are organized into __bins__, and plotted with values along the x-axis and the number of observations in each bin along the y-axis
-* __Normal distribution__: histogram is approximately symmetrical (a "bell curve")
-* Histograms are built into `pandas`
+-   **Histogram**: graphical representation of a frequency distribution
+-   Observations are organized into **bins**, and plotted with values along the x-axis and the number of observations in each bin along the y-axis
+-   **Normal distribution**: histogram is approximately symmetrical (a "bell curve")
+-   Histograms are built into `pandas`
 
----
+------------------------------------------------------------------------
 
-### Before you plot: what shape do you expect?
+## Before you plot: what shape do you expect?
 
-<!-- SCAFFOLDING (Kyle to re-voice, delete this comment):
-     Predict-then-run in chart form. Ask the room to sketch the shape of median earnings across
-     2,105 colleges before showing the histogram: symmetric? piled up at one end? two humps?
-     Actual shape: right-skewed (skew ~1.1) - most institutions between $40k and $60k, median
-     $50,660, mean $52,699 pulled up by a long right tail out to $143k (MIT, Harvey Mudd, Olin,
-     pharmacy schools). Mean > median is the tell. This is the same tail the box plot flags as
-     outliers two slides later, and it sets up Assignment 3's "do your data appear skewed?" -->
-
-- [KYLE: 2,105 colleges. Before I show you: sketch the shape you expect for median earnings of former students, 10 years after entry]
-
----
+------------------------------------------------------------------------
 
 ### Example histogram (pandas method)
 
-```python
+``` python
 import seaborn as sns
 sns.set_style("darkgrid")
 
 colleges.median_earn.hist()
 ```
-<img src=img/04-modules-and-eda/hist1.png style="width:600px">
 
----
+<img src="img/04-modules-and-eda/hist1.png" style="width:600px"/>
+
+------------------------------------------------------------------------
 
 ### Example histogram (seaborn function)
 
-```python
+``` python
 # Try the `bins` argument to modify the plot appearance
 sns.histplot(data = colleges, x = "median_earn")
 ```
 
-<img src=img/04-modules-and-eda/hist2.png style="width:600px">
+<img src="img/04-modules-and-eda/hist2.png" style="width:600px"/>
 
----
+------------------------------------------------------------------------
 
 ### Density plots
 
-* Smooth representations of your data can be produced with __kernel density plots__
-* Accessible from both `pandas` and `seaborn`
+-   Smooth representations of your data can be produced with **kernel density plots**
+-   Accessible from both `pandas` and `seaborn`
 
-```python
+``` python
 sns.kdeplot(data = colleges, x = "median_earn", fill = True)
 ```
-<img src=img/04-modules-and-eda/kde.png>
 
----
+<img src="img/04-modules-and-eda/kde.png"/>
+
+------------------------------------------------------------------------
 
 ### Box plots
 
-* Also termed "box and whisker plots" - alternative way to show distribution of values graphically
+-   Also termed "box and whisker plots" - alternative way to show distribution of values graphically
 
-```python
+``` python
 sns.boxplot(data = colleges, y = "median_earn", color = "green")
 ```
-<img src=img/04-modules-and-eda/boxplot.png>
 
----
+<img src="img/04-modules-and-eda/boxplot.png"/>
+
+------------------------------------------------------------------------
 
 ### Anatomy of a box plot
 
-<img src=img/04-modules-and-eda/anatomy.png>
+<img src="img/04-modules-and-eda/anatomy.png"/>
 
-* Dots beyond the whiskers: __outliers__
+-   Dots beyond the whiskers: **outliers**
 
----
+------------------------------------------------------------------------
 
 ### Violin plots
 
-* Combinations of box plots and kernel density plots
+-   Combinations of box plots and kernel density plots
 
-```python
+``` python
 sns.violinplot(data = colleges, x = "median_earn", color = "cyan")
 ```
 
-<img src=img/04-modules-and-eda/violin.png>
+<img src="img/04-modules-and-eda/violin.png"/>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+```{=html}
 <style>
 
 .reveal section img {
@@ -352,3 +317,4 @@ sns.violinplot(data = colleges, x = "median_earn", color = "cyan")
   }
   
 </style>
+```
