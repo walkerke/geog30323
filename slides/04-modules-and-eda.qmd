@@ -112,12 +112,12 @@ colleges = pd.read_csv("colleges.csv")
 ```python
 colleges.head()
 
-                                  name    rate     rnk  median_earn
-0             Alabama A & M University  0.2403  2031.0      40628.0
-1  University of Alabama at Birmingham  0.6423   672.0      54501.0
-2                   Amridge University  1.0000    17.0      37621.0
-3  University of Alabama in Huntsville  0.6429   669.0      61767.0
-4             Alabama State University  0.3034  1921.0      34502.0
+                                  name  median_earn   rnk
+0             Alabama A & M University        40628  1648
+1  University of Alabama at Birmingham        54501   832
+2                   Amridge University        37621  1803
+3  University of Alabama in Huntsville        61767   482
+4             Alabama State University        34502  1916
 ```
 
 * Columns are accessible as indices, e.g. `colleges['median_earn']`, or as attributes of the data frame, e.g. `colleges.median_earn`
@@ -206,15 +206,15 @@ where $n$ is the number of elements in the sample.
 ```python
 colleges.describe()
 
-           rate       rnk  median_earn
-count  2263.000  2263.000     2105.000
-mean      0.521  1132.000    52699.362
-std       0.214   653.412    16346.584
-min       0.000    17.000    17360.000
-25%       0.376   566.500    41855.000
-50%       0.523  1132.000    50660.000
-75%       0.670  1697.500    60509.000
-max       1.000  2244.000   143372.000
+       median_earn       rnk
+count     2105.000  2105.000
+mean     52699.362  1052.639
+std      16346.584   607.825
+min      17360.000     1.000
+25%      41855.000   527.000
+50%      50660.000  1053.000
+75%      60509.000  1579.000
+max     143372.000  2105.000
 ```
 
 ---
