@@ -142,23 +142,6 @@ read_csv("grad_rates.csv")
 
 ---
 
-## Reading the AI's first lines
-
-<!-- SCAFFOLDING (accurate; Kyle to re-voice, delete this comment):
-     Code an agent writes for you starts with a block of imports. Each one is a package it decided
-     to use on your behalf: pandas, numpy, seaborn, matplotlib, and often others you haven't met.
-     help(pd.read_csv) prints the docstring, the same tool description from last week's deck.
-     Takeaway: the import block is the first thing to read in AI-written code, and help() is how
-     you find out what any of it does. -->
-
-::: {.incremental}
-- [KYLE: the first thing AI-written code does is `import` - that block is the list of tools it chose for you]
-- [KYLE: you don't have to know every package; you do have to be able to look one up]
-- [KYLE: `help(pd.read_csv)` - last week's docstring, on a function you didn't write]
-:::
-
----
-
 ### Levels of measurement
 
 * __Nominal__: qualitative, descriptive, categories
@@ -221,27 +204,6 @@ grad.describe()
 | 50%   |    0.468 | 1186.500 |
 | 75%   |    0.613 | 1779.250 |
 | max   |    1.000 | 2372.000 |
-
----
-
-## `.describe()` is your first check
-
-<!-- SCAFFOLDING (accurate; Kyle to re-voice, delete this comment):
-     This is the first of the course's verification habits: look at count / min / max / spread
-     BEFORE trusting any number computed from the column. Two things this table tells you:
-     (1) rate runs from 0.022 to exactly 1.000 - are those real institutions or data problems?
-     (2) mean rate = 0.477. That is NOT "the graduation rate": every college counts once, whatever
-     its size. A 200-student college and a 50,000-student university weigh the same. And there is
-     no enrollment column here, so you *cannot* weight it - the data can't answer that question.
-     An AI asked "what's the average graduation rate?" will report 0.477 without saying any of this.
-     Ties to levels of measurement: rate is a ratio-level number, but it is a rate, not a count. -->
-
-::: {.incremental}
-- [KYLE: read this table before you trust anything else - count, min, max, spread]
-- [KYLE: min is 0.022 and max is exactly 1.000. Real, or a data problem?]
-- [KYLE: mean of `rate` is 0.477. Is that "the graduation rate"? Every college counts once, whatever its size]
-- [KYLE: there's no enrollment column - so this dataset *can't* answer that question. AI will answer it anyway]
-:::
 
 ---
 
