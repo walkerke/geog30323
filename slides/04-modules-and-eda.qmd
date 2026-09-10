@@ -197,15 +197,15 @@ where $n$ is the number of elements in the sample.
 ```python
 grad.describe()
 
-              rate       rnk
-count  2263.000  2263.000
-mean      0.521  1132.000
-std       0.214   653.412
-min       0.000    17.000
-25%       0.376   566.500
-50%       0.523  1132.000
-75%       0.670  1697.500
-max       1.000  2244.000
+           rate       rnk  median_earn
+count  2263.000  2263.000     2105.000
+mean      0.521  1132.000    52699.362
+std       0.214   653.412    16346.584
+min       0.000    17.000    17360.000
+25%       0.376   566.500    41855.000
+50%       0.523  1132.000    50660.000
+75%       0.670  1697.500    60509.000
+max       1.000  2244.000   143372.000
 ```
 
 ---
@@ -290,7 +290,7 @@ sns.kdeplot(data = grad, x = "rate", fill = True)
 * Also termed "box and whisker plots" - alternative way to show distribution of values graphically
 
 ```python
-sns.boxplot(data = grad, y = "rate", color = "green")
+sns.boxplot(data = grad, y = "median_earn", color = "green")
 ```
 <img src=img/04-modules-and-eda/boxplot.png>
 
@@ -309,7 +309,7 @@ sns.boxplot(data = grad, y = "rate", color = "green")
 * Combinations of box plots and kernel density plots
 
 ```python
-sns.violinplot(data = grad, x = "rate", color = "cyan")
+sns.violinplot(data = grad, x = "median_earn", color = "cyan")
 ```
 
 <img src=img/04-modules-and-eda/violin.png>
