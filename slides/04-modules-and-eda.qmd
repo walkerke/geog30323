@@ -85,7 +85,7 @@ df = pd.DataFrame(y, columns = ['x' + str(num) for num in range(1, 7)])
 ## The pandas DataFrame
 
 * Commonly, DataFrames are created by reading in external data, like CSV files
-* Download link: <https://personal.tcu.edu/kylewalker/data/grad_rates.csv>
+* Download link: <https://github.com/walkerke/geog30323/blob/main/data/grad_rates.csv> (click __Download raw file__)
 
 ```python
 # To read in CSV files, we use the pd.read_csv function 
@@ -190,20 +190,24 @@ where $n$ is the number of elements in the sample.
 * Descriptive stats are available in `pandas` as data frame methods, e.g. `grad.mean()`, `grad.std()`
 * Calling `.describe()` will give you back a number of important descriptive stats at once
 
+---
+
+### `.describe()` {.smaller}
+
 ```python
 grad.describe()
 ```
 
 |       |     rate |      rnk |
 |:------|---------:|---------:|
-| count | 2372.000 | 2372.000 |
-| mean  |    0.477 | 1186.500 |
-| std   |    0.202 |  684.882 |
-| min   |    0.022 |    1.000 |
-| 25%   |    0.333 |  593.750 |
-| 50%   |    0.468 | 1186.500 |
-| 75%   |    0.613 | 1779.250 |
-| max   |    1.000 | 2372.000 |
+| count | 2263.000 | 2263.000 |
+| mean  |    0.521 | 1132.000 |
+| std   |    0.214 |  653.412 |
+| min   |    0.000 |   17.000 |
+| 25%   |    0.376 |  566.500 |
+| 50%   |    0.523 | 1132.000 |
+| 75%   |    0.670 | 1697.500 |
+| max   |    1.000 | 2244.000 |
 
 ---
 
@@ -235,13 +239,15 @@ grad.describe()
 
 <!-- SCAFFOLDING (Kyle to re-voice, delete this comment):
      Predict-then-run in chart form. Ask the room to sketch the shape of graduation rates across
-     2,372 colleges before showing the histogram: symmetric? piled up at one end? two humps?
-     Then reveal. The actual shape: roughly symmetric and wide, peak near 0.4, a slight right
-     tail, and only a handful of institutions at 1.0.
+     2,263 colleges before showing the histogram: symmetric? piled up at one end? two humps?
+     Then reveal. The actual shape (June 2026 Scorecard release): roughly symmetric, peak near
+     0.5, wide - and small spikes at BOTH ends: 39 institutions report exactly 0% and 33 report
+     exactly 100%. Worth asking the room whether those are real or a data problem (tiny cohorts,
+     suppressed values) - the describe() min of 0.000 and max of 1.000 already hinted at it.
      This sets up Assignment 3's "do your data appear skewed?" question as a prediction they
      already practiced. -->
 
-- [KYLE: 2,372 colleges. Before I show you: sketch the shape you expect for graduation rates]
+- [KYLE: 2,263 colleges. Before I show you: sketch the shape you expect for graduation rates]
 
 ---
 
