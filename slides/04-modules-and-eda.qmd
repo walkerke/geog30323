@@ -111,7 +111,9 @@ colleges = pd.read_csv("colleges.csv")
 
 ```python
 colleges.head()
+```
 
+```
                                   name  median_earn   rnk
 0             Alabama A & M University        40628  1648
 1  University of Alabama at Birmingham        54501   832
@@ -205,7 +207,9 @@ where $n$ is the number of elements in the sample.
 
 ```python
 colleges.describe()
+```
 
+```
        median_earn       rnk
 count     2105.000  2105.000
 mean     52699.362  1052.639
