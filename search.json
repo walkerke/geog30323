@@ -1,5 +1,453 @@
 [
   {
+    "objectID": "slides/04-modules-and-eda.html#time-for-data",
+    "href": "slides/04-modules-and-eda.html#time-for-data",
+    "title": "Modules, packages, and EDA in Python",
+    "section": "Time for data!",
+    "text": "Time for data!\n\n\nSource: bigdatapix.tumblr.com"
+  },
+  {
+    "objectID": "slides/04-modules-and-eda.html#modules-and-packages",
+    "href": "slides/04-modules-and-eda.html#modules-and-packages",
+    "title": "Modules, packages, and EDA in Python",
+    "section": "Modules and packages",
+    "text": "Modules and packages\n\nModule: file containing variables, functions, etc. that can be imported into a Python session with the import statement\nPackage: directory of modules that perform similar tasks (e.g. data visualization, statistics, etc.)\nThousands upon thousands of Python packages available - that do just about anything!"
+  },
+  {
+    "objectID": "slides/04-modules-and-eda.html#built-in-packages",
+    "href": "slides/04-modules-and-eda.html#built-in-packages",
+    "title": "Modules, packages, and EDA in Python",
+    "section": "Built-in packages",
+    "text": "Built-in packages\n\nMany packages are included in stdlib, the standard library that ships with Python\nPopular modules: re for regular expressions; os for operating system functions; random for random-number generation; and many more. Full list: https://docs.python.org/3/library/"
+  },
+  {
+    "objectID": "slides/04-modules-and-eda.html#the-pandas-dataframe",
+    "href": "slides/04-modules-and-eda.html#the-pandas-dataframe",
+    "title": "Modules, packages, and EDA in Python",
+    "section": "The pandas DataFrame",
+    "text": "The pandas DataFrame\n\nCommonly, DataFrames are created by reading in external data, like CSV files\nDownload link: https://github.com/walkerke/geog30323/blob/main/data/colleges.csv (click Download raw file)\n\n# To read in CSV files, we use the pd.read_csv function \ncolleges = pd.read_csv(\"colleges.csv\")"
+  },
+  {
+    "objectID": "slides/04-modules-and-eda.html#tutorial-working-with-external-data-in-colab",
+    "href": "slides/04-modules-and-eda.html#tutorial-working-with-external-data-in-colab",
+    "title": "Modules, packages, and EDA in Python",
+    "section": "Tutorial: working with external data in Colab",
+    "text": "Tutorial: working with external data in Colab\n\nDownload colleges.csv from the link to your computer\nIn Colab, click the folder icon in the left sidebar to open the Files pane, then the upload button, and choose the file\nIt lands in /content, Colab’s working directory - so pd.read_csv(\"colleges.csv\") finds it\nUploaded files disappear when the runtime disconnects. Re-upload, or mount your Google Drive"
+  },
+  {
+    "objectID": "slides/04-modules-and-eda.html#standard-deviation",
+    "href": "slides/04-modules-and-eda.html#standard-deviation",
+    "title": "Modules, packages, and EDA in Python",
+    "section": "Standard deviation",
+    "text": "Standard deviation\n\nComputed as the square root of the variance; denoted by \\(\\sigma\\).\n\nOffers a standardized way to discuss the spread of a distribution. For example, in a normally distributed sample:\n\nAbout 68 percent of the values will be within one standard deviation of the mean\nAbout 95 percent of the values will be within two standard deviations of the mean\nAbout 99.7 percent of the values will be within three standard deviations of the mean"
+  },
+  {
+    "objectID": "slides/04-modules-and-eda.html#exploratory-visualization",
+    "href": "slides/04-modules-and-eda.html#exploratory-visualization",
+    "title": "Modules, packages, and EDA in Python",
+    "section": "Exploratory visualization",
+    "text": "Exploratory visualization\n\nOften, when exploring a dataset, you’ll want to use graphical representations of your data to help reveal insights/trends\nVisualization: Graphical representation of data"
+  },
+  {
+    "objectID": "slides/04-modules-and-eda.html#histograms",
+    "href": "slides/04-modules-and-eda.html#histograms",
+    "title": "Modules, packages, and EDA in Python",
+    "section": "Histograms",
+    "text": "Histograms\n\nHistogram: graphical representation of a frequency distribution\nObservations are organized into bins, and plotted with values along the x-axis and the number of observations in each bin along the y-axis\nNormal distribution: histogram is approximately symmetrical (a “bell curve”)\nHistograms are built into pandas"
+  },
+  {
+    "objectID": "slides/04-modules-and-eda.html#before-you-plot-what-shape-do-you-expect",
+    "href": "slides/04-modules-and-eda.html#before-you-plot-what-shape-do-you-expect",
+    "title": "Modules, packages, and EDA in Python",
+    "section": "Before you plot: what shape do you expect?",
+    "text": "Before you plot: what shape do you expect?"
+  },
+  {
+    "objectID": "slides/02-programming-1.html#why-code",
+    "href": "slides/02-programming-1.html#why-code",
+    "title": "Programming I - Intro to Python",
+    "section": "Why code?",
+    "text": "Why code?"
+  },
+  {
+    "objectID": "slides/02-programming-1.html#for-discussion",
+    "href": "slides/02-programming-1.html#for-discussion",
+    "title": "Programming I - Intro to Python",
+    "section": "For discussion",
+    "text": "For discussion\nThere’s a lot of talk about AI right now. What have you heard about:\n\nAI and coding / coding jobs?\nAI and jobs in your field, in general?"
+  },
+  {
+    "objectID": "slides/02-programming-1.html#didnt-ai-solve-coding",
+    "href": "slides/02-programming-1.html#didnt-ai-solve-coding",
+    "title": "Programming I - Intro to Python",
+    "section": "Didn’t AI solve coding?",
+    "text": "Didn’t AI solve coding?\n\n“It is our job to create computing technology such that nobody has to program… the programming language is human.” — Jensen Huang, CEO of Nvidia (Feb 2024)\n“We’ll be there in three to six months, where AI is writing 90 percent of the code. And then in twelve months, we may be in a world where AI is writing essentially all of the code.” — Dario Amodei, CEO of Anthropic (Mar 2025)"
+  },
+  {
+    "objectID": "slides/02-programming-1.html#from-the-creator-of-claude-code",
+    "href": "slides/02-programming-1.html#from-the-creator-of-claude-code",
+    "title": "Programming I - Intro to Python",
+    "section": "From the creator of Claude Code:",
+    "text": "From the creator of Claude Code:"
+  },
+  {
+    "objectID": "slides/02-programming-1.html#read-it-the-way-you-read-the-plumber-tweet",
+    "href": "slides/02-programming-1.html#read-it-the-way-you-read-the-plumber-tweet",
+    "title": "Programming I - Intro to Python",
+    "section": "Read it the way you read the plumber tweet",
+    "text": "Read it the way you read the plumber tweet\n\nIf bugs are not yet solved… what exactly got solved?\nTyping is solved: producing code that looks right\nKnowing whether the code is right? Not solved. (That’s this course.)"
+  },
+  {
+    "objectID": "slides/02-programming-1.html#determinism",
+    "href": "slides/02-programming-1.html#determinism",
+    "title": "Programming I - Intro to Python",
+    "section": "Determinism",
+    "text": "Determinism\n\nDeterminism: metaphysical view that events can only take place one certain way\nDeterministic process: a process that executes identically each time it runs\nCode is deterministic; human language is not"
+  },
+  {
+    "objectID": "slides/02-programming-1.html#so-why-use-code-for-data-analysis",
+    "href": "slides/02-programming-1.html#so-why-use-code-for-data-analysis",
+    "title": "Programming I - Intro to Python",
+    "section": "So, why use code for data analysis?",
+    "text": "So, why use code for data analysis?\n\nAutomation\nDocumentation and reproducibility\nLogical organization\nSystems design"
+  },
+  {
+    "objectID": "slides/02-programming-1.html#more-specifically-why-do-you-need-to-learn-code",
+    "href": "slides/02-programming-1.html#more-specifically-why-do-you-need-to-learn-code",
+    "title": "Programming I - Intro to Python",
+    "section": "More specifically, why do you need to learn code?",
+    "text": "More specifically, why do you need to learn code?\n\nIf you want to be lazy, you can be more lazy with less effort than at any other time in human history; you can solve problems with zero intellectual engagement. But you don’t have to do that, because AI can also amplify the best of you. You can use it to go deeper, to engage more in any of the domains that you’re working in.\n\n\nWickham - https://tidydesign.substack.com/p/y-code-when-ai"
+  },
+  {
+    "objectID": "slides/02-programming-1.html#what-amodei-actually-said",
+    "href": "slides/02-programming-1.html#what-amodei-actually-said",
+    "title": "Programming I - Intro to Python",
+    "section": "What Amodei actually said",
+    "text": "What Amodei actually said"
+  },
+  {
+    "objectID": "slides/02-programming-1.html#your-advantage-understanding-the-process",
+    "href": "slides/02-programming-1.html#your-advantage-understanding-the-process",
+    "title": "Programming I - Intro to Python",
+    "section": "Your advantage: understanding the process",
+    "text": "Your advantage: understanding the process\n\nThem: using AI to produce outcomes with no understanding of the process\nYou have access to the same AI tools as them. But you:\n\nUnderstand the code that AI is using to build the outcomes\nHave the knowledge to direct AI to use better, newer, and more efficient tools\nCan build with AI and build expertise as a result"
+  },
+  {
+    "objectID": "slides/02-programming-1.html#some-examples",
+    "href": "slides/02-programming-1.html#some-examples",
+    "title": "Programming I - Intro to Python",
+    "section": "Some examples",
+    "text": "Some examples"
+  },
+  {
+    "objectID": "slides/02-programming-1.html#python",
+    "href": "slides/02-programming-1.html#python",
+    "title": "Programming I - Intro to Python",
+    "section": "Python",
+    "text": "Python\n\nPython is by far the most popular programming language in the world\nIt’s arguably the easiest language for beginners to understand\nIn most cases, coding agents default to it - so you’ll learn to speak their language"
+  },
+  {
+    "objectID": "slides/02-programming-1.html#why-python-xkcd",
+    "href": "slides/02-programming-1.html#why-python-xkcd",
+    "title": "Programming I - Intro to Python",
+    "section": "Why Python? (XKCD)",
+    "text": "Why Python? (XKCD)\n\n\nSource: Randall Munroe/XKCD"
+  },
+  {
+    "objectID": "slides/02-programming-1.html#other-options-for-data-analysis",
+    "href": "slides/02-programming-1.html#other-options-for-data-analysis",
+    "title": "Programming I - Intro to Python",
+    "section": "Other options for data analysis",
+    "text": "Other options for data analysis\n \n\nR (https://www.r-project.org/): programming language for statistics, data analysis, and much more (and a personal favorite of mine)\nJulia (http://julialang.org/): relatively new language for technical computing that aims for high-level syntax and C-like speed"
+  },
+  {
+    "objectID": "slides/02-programming-1.html#google-colaboratory",
+    "href": "slides/02-programming-1.html#google-colaboratory",
+    "title": "Programming I - Intro to Python",
+    "section": "Google Colaboratory",
+    "text": "Google Colaboratory\n\nCloud-based platform for hosted Jupyter Notebooks that connects to your Google account & Google Drive.\nLet’s try it out! https://colab.research.google.com/"
+  },
+  {
+    "objectID": "slides/02-programming-1.html#strings",
+    "href": "slides/02-programming-1.html#strings",
+    "title": "Programming I - Intro to Python",
+    "section": "Strings",
+    "text": "Strings\n\nStrings, or textual representations of data, have a series of special methods that allow for their manipulation\n\nExample:\ntcu = 'Texas Christian University'\ntcu.swapcase()\n# 'tEXAS cHRISTIAN uNIVERSITY'"
+  },
+  {
+    "objectID": "slides/02-programming-1.html#lists",
+    "href": "slides/02-programming-1.html#lists",
+    "title": "Programming I - Intro to Python",
+    "section": "Lists",
+    "text": "Lists\n\nData structure in Python for storing multiple values; enclosed in brackets []\nList elements do not need to all be of the same type (though you’ll often want them to be)\n\nExample list: mylist = [2, 4, 6, 8, 10, 12]"
+  },
+  {
+    "objectID": "slides/02-programming-1.html#assignment-1-lets-take-a-look",
+    "href": "slides/02-programming-1.html#assignment-1-lets-take-a-look",
+    "title": "Programming I - Intro to Python",
+    "section": "Assignment 1: let’s take a look",
+    "text": "Assignment 1: let’s take a look"
+  },
+  {
+    "objectID": "notebooks/assignment-02-functions-and-iteration.html",
+    "href": "notebooks/assignment-02-functions-and-iteration.html",
+    "title": "GEOG 30323",
+    "section": "",
+    "text": "Open In Colab"
+  },
+  {
+    "objectID": "notebooks/assignment-02-functions-and-iteration.html#assignment-2-functions-conditional-statements-and-iteration-in-python",
+    "href": "notebooks/assignment-02-functions-and-iteration.html#assignment-2-functions-conditional-statements-and-iteration-in-python",
+    "title": "GEOG 30323",
+    "section": "Assignment 2: Functions, conditional statements, and iteration in Python",
+    "text": "Assignment 2: Functions, conditional statements, and iteration in Python\nCongratulations on completing your first Python assignment! You’ll be progressively building on those core skills throughout the semester. As before, click File &gt; Save a copy in Drive to save your assignment in your personal Google Drive, and rename the notebook by replacing “Copy of” with your last name.\nIn this week’s notebook, you are first going to learn about functions. Functions are in some ways the bread-and-butter of Python programming. They make code re-usable, as they allow you to apply your code in other contexts and circumstances. You can think about functions this way: while variables store elements of your code (e.g. numbers, strings, lists), functions can store entire chunks of your code, which can in turn be re-used as necessary.\nFunctions include a definition and parameters, and are specified with def as follows:\ndef myfunction(parameter1, parameter2, parameter3): \n    \"\"\"Your code goes here\"\"\"\nThe def command allows you to introduce a function definition. You then specify the parameters within parentheses following the function name, which are like variables that operate within your function. A colon (:) then follows the parentheses, and the contents of the function are found beginning on the next line as an indented code block (more on indentation soon).\nAfter you’ve defined the function, it can be called by supplying arguments to the parameters you’ve defined, again within parentheses. For example:\nmyfunction(arg1, arg2, arg3)\nSo how does this all work? Let’s try it out!\nAt a very basic level, you can define a function without parameters - an empty function. This function will print whatever you’ve specified after it is called.\n\ndef print_five():\n    print(5)\n\nNow, we call the function:\n\nprint_five()\n\nNotice what happened when we called our print_five function. As the function has no parameters, it will always give us back 5. Naturally, you’re going to want your functions to get more complicated than this - which is what parameters are for. Let’s try out a function that has a parameter and performs a basic mathematical operation.\n\ndef divide_by_two(x):\n    print(x / 2)\n\ndivide_by_two(11)\n\nThe function itself is fairly straightforward. Our new function, divide_by_two, takes a number, which we are calling x. It divides x by two, and then prints the result for us. By adding a parameter, however, our function is now re-usable. Let’s try it out:\n\ndivide_by_two(55)\n\n\n## Now it's your turn!  Write a new, empty function that prints your name when called.  Call the function."
+  },
+  {
+    "objectID": "notebooks/assignment-02-functions-and-iteration.html#the-return-statement",
+    "href": "notebooks/assignment-02-functions-and-iteration.html#the-return-statement",
+    "title": "GEOG 30323",
+    "section": "The ‘return’ statement",
+    "text": "The ‘return’ statement\nIn the above examples, we’ve created functions that print some result to our screen when called. Often, however, we want our functions to work as part of a larger workflow. This is accomplished with the return statement, which allows the output of functions to be assigned to a new variable.\nFor example, let’s try to assign the result of the divide_by_two function to a new variable:\n\ny = divide_by_two(12)\n\nAnd when we ask Python for the value of y:\n\ny\n\nWe don’t get anything back. Strictly speaking, y now holds a special value called None, which is what a function gives back when it has no return statement - run print(y) to see it. Now, let’s try modifying the function with return used instead of print.\n\ndef divide_by_two(x):\n    return x / 2\n\ny = divide_by_two(12)\n\ny\n\n\n## Now it's your turn!  Write a new function that subtracts 7 from a number\n## and returns the result.  Assign the result of the function to a new \n## variable (your argument can be any number you want)."
+  },
+  {
+    "objectID": "notebooks/assignment-02-functions-and-iteration.html#python-and-whitespace",
+    "href": "notebooks/assignment-02-functions-and-iteration.html#python-and-whitespace",
+    "title": "GEOG 30323",
+    "section": "Python and whitespace",
+    "text": "Python and whitespace\nYou may have noticed that the statements that follow the function definitions above are indented. Python code obeys whitespace for code organization. In many languages, functions, loops, and conditional logic (which we’ll get to below), etc. are organized with curly braces, like the equivalent R code below:\ndivide_by_two &lt;- function(x) {\n    return(x / 2)\n}\nThe R code, like in many languages, is organized in relation to the position of the curly braces, not the positioning of the code itself per se. In Python, curly braces are not used in this capacity. Instead, code is organized by indentation and whitespace. Within a function definition, for example, the code to be executed by the function call should be indented beneath the line that contains the def statement. The Python convention is four spaces; Colab indents with two spaces by default. Either works, as long as you are consistent within a block of code. In Colab and most other Python development environments, the software will already know this and indent your code for you when you press Enter after the colon. Without proper indentation, however, your code will not run correctly.\n\ndef divide_by_three(x):\nreturn x / 3"
+  },
+  {
+    "objectID": "notebooks/assignment-02-functions-and-iteration.html#named-arguments",
+    "href": "notebooks/assignment-02-functions-and-iteration.html#named-arguments",
+    "title": "GEOG 30323",
+    "section": "Named arguments",
+    "text": "Named arguments\nLater in the semester, we’ll get started using external libraries to do our work, which have many pre-built functions for accomplishing data analysis tasks. Many of these functions are very flexible - which means they have a lot of parameters! In turn, it can be helpful to keep your code organized when you are working with multiple parameters in a function.\nThere are a couple ways to supply multiple arguments to a function in Python:\n\nIn the order they are specified in the function definition;\nAs named arguments, in which both the parameter name and the argument are invoked.\n\nI’ll explain this further. Let’s define a function, subtract, that takes two numbers and will subtract the second number from the first.\n\ndef subtract(x, y):\n    return x - y\n\nNow, we call the function by supplying two arguments to it:\n\nsubtract(11, 7)\n\nWe could get the same result by supplying named arguments to the function, which take the form of parameter = argument:\n\nsubtract(x = 11, y = 7)\n\nFlipping the order of the arguments will give us a different result unless we name the arguments accordingly. Take a look:\n\nsubtract(7, 11)\n\n\nsubtract(y = 7, x = 11)\n\nBe careful when mixing named and unnamed arguments, however. When arguments are unnamed, Python assumes that you are supplying them in the order of the corresponding parameters in the function definition. As such, you can mix named and unnamed arguments, but unnamed arguments cannot follow named arguments in a function call.\n\nsubtract(11, y = 7)\n\n\nsubtract(x = 11, 7)"
+  },
+  {
+    "objectID": "notebooks/assignment-02-functions-and-iteration.html#default-values",
+    "href": "notebooks/assignment-02-functions-and-iteration.html#default-values",
+    "title": "GEOG 30323",
+    "section": "Default values",
+    "text": "Default values\nA parameter can also be given a default value in the function definition. If you don’t supply an argument for it, the function uses the default; if you do, your argument wins. This is why you can call many library functions without supplying every parameter - most of them have defaults.\n\ndef subtract(x, y = 1):\n    return x - y\n\nsubtract(11)          # y defaults to 1\n\n\nsubtract(11, y = 7)   # override the default with a named argument"
+  },
+  {
+    "objectID": "notebooks/assignment-02-functions-and-iteration.html#docstrings-and-documenting-your-code",
+    "href": "notebooks/assignment-02-functions-and-iteration.html#docstrings-and-documenting-your-code",
+    "title": "GEOG 30323",
+    "section": "Docstrings and documenting your code",
+    "text": "Docstrings and documenting your code\nYou’ve already learned how to use comments to document your code with the # operator, like this:\n# I just commented out this line!\nComments are generally best used for small descriptive statements about your code, or notes to yourself regarding something you’d like to remember. More formal documentation of your code - e.g. what your functions are supposed to do - are best handled through docstrings. Docstrings are enclosed in triple quotes (\"\"\"), and can go beneath the function definition to explain its components. Let’s try using a docstring to explain, in basic terms, the contents of our subtract function.\n\ndef subtract(x, y):\n    \"\"\"\n    Subtract one number from another.\n\n    Parameters:\n    -----------\n    x: The number you would like to subtract a quantity from (the minuend).\n    y: The quantity you would like to subtract from x (the subtrahend).\n    \"\"\"\n\n    return x - y\n\nYou’ve now created a new function, subtract() with associated help documentation. To view the documentation, you can use the built-in help() function to print the docstring, or type the function name followed by a question mark to pop up the documentation at the bottom of the screen. Try it out!\n\nhelp(subtract)\n\n\nsubtract?\n\n\n# Now it is your turn!\n\n# Create a new function, \"multiply\", that multiplies two numbers together.\n# Write a docstring in the function definition that describes what the function does,\n# and explains the parameters to the user.\n# Run your function and call it to test it out."
+  },
+  {
+    "objectID": "notebooks/assignment-02-functions-and-iteration.html#booleans-and-conditional-statements",
+    "href": "notebooks/assignment-02-functions-and-iteration.html#booleans-and-conditional-statements",
+    "title": "GEOG 30323",
+    "section": "Booleans and conditional statements",
+    "text": "Booleans and conditional statements\nThe above functions we’ve written perform the same operations for any input values that are passed to them. When writing programs, however, you’ll often have to design them to be flexible to user input where outcomes may vary based on what users supply to the program. In regards to data analysis, you might want to produce a particular type of chart if the data are structured a certain way, which wouldn’t work in another scenario. You can build this type of logic into your programs with conditional statements.\nBefore we get into this, however, I want to introduce booleans in Python. You may have heard this term before in other classes. Booleans in Python are the values True and False; they can be used to evaluate, understandably, if a condition is true or not. For example:\n\n3 &gt; 2\n\n\n2 &gt; 3\n\n\n2 == 3\n\n\n2 != 3\n\nIn the above lines of code, we used basic mathematical operators to see if conditions are true or false. When we asked Python if 3 is greater than 2, it told us it was True; when we asked it if 2 is greater than 3, it said False. Such true/false logic can be used with conditional statements in your code. To do this, you’ll often use conditional operators, which you’ll be familiar with from basic mathematics, possibly with a couple exceptions. Conditional operators in Python are as follows:\n\n&lt; Less than\n&gt; Greater than\n&lt;= Less than or equal to\n&gt;= Greater than or equal to\n== Is equal to\n!= Is not equal to\n\nAs humans, we use conditional logic all of the time without really thinking about it. For example, if I am hungry, I’ll probably go eat something; otherwise, I won’t. Such logic can be expressed in Python as a series of if, elif (which means else if), and else statements.\nLet’s try to express this now in code in basic terms. This is made-up code, so we don’t need to understand everything, but here are the basics of it. We define a function, hungry, that measures the biological/psychological properties that govern hunger reflexes in the human body. We say, hypothetically, that a hunger index value encapsulating these properties that exceeds 100 means that a person is hungry; in turn, the function returns True. Otherwise, it returns False.\n\ndef hungry(hunger_index):\n    if hunger_index &gt; 100:\n        return True\n    else:\n        return False\n\nhungry(103)\n\n\nhungry(88)\n\nWe can then pass a variable kyle, which represents my hunger index, to the function. The function then checks to see if I am hungry, and returns True if I am, and False otherwise. These results can then be embedded in other workflows, in which you program Python to perform different tasks depending on the function results. For example:\nif hungry(kyle):  \n    eat()\nelse: \n    stay_put()\nAs you can see above, this can be simplified in Python as the code if hungry(kyle) checks to see if the returned value is True. If I am hungry, the code calls an unseen eat() function telling me to go eat; otherwise, it tells me to stay put with an unseen stay_put() function.\nSimple enough, right? Not quite. I’m hungry right now, but I’m not currently eating. Why is that the case? Well… I have to get this assignment written for you! While I am hungry, my level of hunger is not so debilitating that I am unable to work, and I know that finishing my work is a higher priority than eating at the moment. In reality, there are countless conditions that influence whether we eat or not beyond simply how hungry we are. For example - is there food accessible? Are you in a place where it is socially acceptable to eat? Perhaps you are at a party where pizza is available - you aren’t hungry, but you eat it anyway? Your brain processes all of this conditional logic at once as you make decisions, so we aren’t always used to thinking explicitly about conditionals in such discrete ways. However, to get a computer to understand this, you have to make it explicit in your code!\nThe hungry function we defined above used conditional logic, telling Python to return True or False depending on the value of the hunger index. Note that the if statement starts on a new indented line of code beneath the function definition, and itself is followed by a colon; the code associated with the if statement then follows on another, indented line of code. The same goes for the else statement beneath it. You should be getting a sense now of style rules in Python, and the importance of whitespace for code organization, which applies to conditional statements as well.\nNow I’d like you to try to replicate this yourself! Define a function called greater_than_two that checks to see if a number is greater than 2 or not. Call the function.\n\n### Your code goes here!"
+  },
+  {
+    "objectID": "notebooks/assignment-02-functions-and-iteration.html#loops",
+    "href": "notebooks/assignment-02-functions-and-iteration.html#loops",
+    "title": "GEOG 30323",
+    "section": "Loops",
+    "text": "Loops\nIn programming, you will often want to do an operation multiple times, or carry out some process over a list of values that you’ve created. To do this, you will frequently turn to loops.\nThe most commonly used loops in Python are for and while. A for loop carries out an action, or set of actions, for every element that you tell it to. Let’s give it a try in very simple terms. I’ve created a list of teams in the Big 12 below; we’ll loop through this list with for and concatenate another string to each element.\n\nbig12 = [\"TCU Horned Frogs\", \"Baylor Bears\", \"Texas Tech Red Raiders\", \"Oklahoma State Cowboys\", \n         \"Kansas Jayhawks\", \"Kansas State Wildcats\", \"Iowa State Cyclones\", \"West Virginia Mountaineers\",\n         \"Cincinnati Bearcats\", \"Houston Cougars\", \"UCF Knights\", \"BYU Cougars\",\n         \"Arizona Wildcats\", \"Arizona State Sun Devils\", \"Colorado Buffaloes\", \"Utah Utes\"]\n\n\nfor team in big12: # You can read this here as \"for every team in the Big 12....\n    print(team + \" are in the Big 12.\") # ... print the name of the team along with \"are in the Big 12.\"\n\nA couple notes about the above code. Notice that I’m using team as a temporary variable that will successively store each value of the list as we loop through it. This variable, team, takes on each value of the list in turn; and presently stores the last value of the list.\n\nteam\n\nAs such, this is how the for loop works. for tells Python to evaluate every element of the list big12; these elements will be represented by the variable team. The loop then walks through the list big12 and prints the specified text for every element in the list. This for loop is equivalent, then, to:\nprint(\"TCU Horned Frogs are in the Big 12\")\nprint(\"Baylor Bears are in the Big 12\")\nprint(\"Texas Tech Red Raiders are in the Big 12\")\n\n# ... and so forth\nbut you don’t really want to do that manually, especially when you might have thousands of strings to evaluate. In turn, the for loop does the work for you, which is one of the main benefits of programming.\nAlso, I’d like you to notice the structure of the loop. Like functions, loops obey whitespace rules for code organization, and will fail if your code is not properly indented. The first line of the loop - in this case for team in big12 - is not indented, and is followed by a colon. Everything else contained in the loop is found in an indented block on the line(s) following the for loop call. As with functions, your loop will fail without proper indentation.\n\nfor team in big12: \nprint(team + \" are in the Big 12.\")\n\nNow let’s say you want to create a new list of the “…are in the Big 12” elements. There are a couple ways to do this. In the first, you define an empty list object, then populate the list with the for loop and the append method, as shown below.\n\nteams = [] # The empty brackets designate an empty list, which you'll fill up with the loop.\n\nfor team in big12:\n    teams.append(team + \" are in the Big 12.\")\n\nteams\n\nYou can also do the same thing with something called list comprehension. List comprehension allows for the creation of a new list with one line of code. In this case, the for loop is embedded within the statement you make. Below is an example:\n\nteams2 = [team + \" are in the Big 12.\" for team in big12]\n\nteams2\n\nYou can use methods and functions in your list comprehension as well, as in the example below:\n\nswap = [name.swapcase() for name in big12]\n\nswap\n\nLoops also work for strings - though in this case the loop will iterate through each character contained in your string. An example:\n\ntcu = \"Texas Christian University\"\n\nidx = 0\nfor character in tcu:\n    print(\"The index of \" + character + \" is \" + str(idx))\n    idx = idx + 1\n\n\nThe while loop\nfor is not the only loop you’ll come across in Python. You can also specify a while loop, which will run a loop until a given condition is satisfied. I’ll give you an example below. Let’s say you only want to return the first five elements of your list. While you could do this with indexing (which is simpler), let’s try the while loop instead.\n\nnewlist = []\n\ni = 0\n\nwhile i &lt; 5:\n    newlist.append(big12[i])\n    i = i + 1\n\nnewlist\n\nHave a look at what we did. We created an empty list, and set a new variable, i, to 0. We then looped through the elements of the list index by index, adding 1 to i with each run of the loop, and then stopping the code when i became equal to 5. In turn, we got back the elements of the big12 list indexed 0 to 4, which are the first five elements.\nBe careful with while loops, however. If you don’t specify them correctly, you can get stuck in an infinite loop, which will not stop! For example, if we had not continued to add 1 to i, the loop would have never stopped and would have kept iterating through the list. In Colab, this will cause your notebook to hang while it tries, forever, to finish the loop. If that happens, click the stop button next to the running cell to interrupt it. I’ve been there a few times…\n\n\nThe range function\nSequences of numbers in Python can be generated by typing them out, as you’ve learned how to do in this class. However, they can also be produced by the built-in range function, which can simplify things for you significantly if you need to generate a long list of integers. range has three parameters: start, which is the first integer you want to start with; stop, which is the first integer you don’t want to include, and step, which optionally specifies the integer interval. For example:\n\nx = range(1, 21, 5)\n\nx\n\n\ntype(x)\n\nWe’ve created a range object which conforms to the arguments we supplied to the range function. Notably, the range object can be looped through:\n\nfor y in x:\n    print(y)\n\nIf need be, your range object can also be converted to a list with the list function.\n\nlist(x)"
+  },
+  {
+    "objectID": "notebooks/assignment-02-functions-and-iteration.html#exercises",
+    "href": "notebooks/assignment-02-functions-and-iteration.html#exercises",
+    "title": "GEOG 30323",
+    "section": "Exercises",
+    "text": "Exercises\nAs with last week’s notebook, I’ll ask you to complete a series of small exercises below to get full credit for this week’s assignment. Some of these exercises will build upon the skills you learned last week - so be prepared! You are welcome to work together on these exercises, and you can use Colab’s embedded AI assistant to help you with them. My recommendation: try to complete the exercise first without AI, then only use AI when you get stuck or to help provide an explanation.\nExercise 1: Explain, in your own words, the difference between using print and return for the output of a function. Write your response below, in this Markdown cell.\nExercise 2: Write a function called make_big that takes a lowercase string as input and prints the string with all capital letters. Create a new variable and assign to it a string with all lowercase letters, then call the make_big function with that variable as its argument.\n\n# Your answer goes here!\n\n\nExercise 3: Write a function called first_word that takes a list of character strings as input and returns the first element of the list in alphabetical order. For example, your function should work like this:\n\nstudents = ['Mary', 'Zelda', 'Jimmy', 'Jack', 'Bartholomew', 'Gertrude']\n\nfirst_word(students)\n\n'Bartholomew' # The result\nHint: You’ll need to first sort your list in the function to accomplish this, then identify the first element. Within a function, it is a good idea to use multiple lines of code to separate out the different steps. Just make sure all the code that belongs to the function is indented!\nAfter you’ve written the function, run it by supplying the list teams to your function as an argument to test it. Before you run it, write down in a comment which team you expect to come back first. Then check.\n\nteams = ['Stars', 'Cowboys', 'Rangers', 'Mavericks', 'FC Dallas']\n\n# Your code goes below!\n\n\nExercise 4: Explain, in your own words, the difference between a for loop and a while loop. Write your response below in this Markdown cell.\nExercise 5:\nYou’re the treasurer of a TCU student club, and you’re in charge of ordering pizza for the club’s meetings this semester. RSVPs come in before each meeting, and the club gives you a budget. Your job is to figure out how many pizzas to order.\nDoing this by hand once is easy. Doing it every meeting, for every club on campus, is exactly the kind of thing a function is for. And as with last week, you’re going to work with an AI assistant to build it. The difference this week: last week you checked the assumptions the AI made. This week, you make the assumptions, and then check that the code follows them.\nRun the cell below to load the RSVP counts for this semester’s meetings, along with the budget and the price of a pizza.\n\nrsvps = [18, 6, 35, 24, 11, 52]   # one number per meeting, in order\n\nbudget = 150     # dollars per meeting\nprice = 15       # dollars per large pizza\n\nprint(len(rsvps), \"meetings loaded\")\n\nPart 1: Make a plan. Before you write any code, decide on your ordering rules and write them down here. You’ll need to decide at least the following:\n\nDo you think everyone who RSVPs will show up? Will anyone show up who didn’t RSVP?\n\nHow many slices does a person eat?\n\nHow many slices are in a pizza?\n\nYou can’t order part of a pizza. Which way do you round?\n\nThere is no single right answer to any of these. Just make a choice, and say why in a sentence.\nThen, using your rules, work out by hand how many pizzas you would order for the first meeting (18 RSVPs), and what it would cost. Write those two numbers down.\nDouble-click and answer here.\nPart 2: Build. Ask Gemini or another AI assistant to write a function called pizzas_needed that follows your rules and returns the number of pizzas to order. Give it your rules from Part 1 - you can copy and paste them.\nYou’ll also need to decide what the function’s parameters are. Which quantities change from meeting to meeting, and which are rules that belong inside the function? (Think back to the tutorial: a parameter like slices_per_person can have a default value, which you override with a named argument when you need to.)\nPaste the code below, then call your function for the first meeting. Does it give the same answer you worked out by hand?\n\n# Paste and run the code Gemini helped you write, then call it for the first meeting.\n\n\n\nLook at the function closely.\n\nFind each of your rules from Part 1 in the code. Which line carries out which rule?\n\nIs there any rule in the code that you did not write down? What is it?\n\nDouble-click and answer here.\nPart 3: Try every meeting. Write a for loop that calls pizzas_needed for every meeting in rsvps and prints the RSVP count, the number of pizzas, and the cost.\nThen look at the results like a treasurer, not a programmer. Would you actually place these orders? Pay special attention to the smallest meeting and the largest one.\nThen change one assumption - say, three slices per person instead of two - and run the loop again. How much did the orders and the costs change?\n\n# Your loop goes here.\n\n\n\nDouble-click and write down what you noticed.\nPart 4: The complication. Bad news from the club president: the budget for the last meeting - the one with 52 RSVPs - has been cut to $75. That’s five pizzas.\nYou have to decide what the function should do when the order doesn’t fit the budget: order what the budget allows and risk running out, recommend asking for more money, or something else. Decide on a policy, then revise your instructions to Gemini so the function follows it. Paste and run the revised code below, run it for the last meeting, and explain in a few sentences what your policy means for the people who show up.\n\n# Paste and run the revised code, then run it for the last meeting.\n\n\n\nDouble-click and answer here.\nTo submit your assignment, click the Share button and share your assignment with kwalkertcu@gmail.com."
+  },
+  {
+    "objectID": "assignments.html",
+    "href": "assignments.html",
+    "title": "Assignments",
+    "section": "",
+    "text": "Open an assignment to read through it, then click Open in Colab at the top to work on it in your own Google Drive. Assignments are typically released each Thursday and due by the end of the day the following Thursday.\n\nAssignment 1: Introduction to Python\nAssignment 2: Functions, conditional statements, and iteration in Python\nAssignment 3 (coming soon)\nAssignment 4 (coming soon)\nAssignment 5 (coming soon)\nAssignment 6 (coming soon)\nAssignment 7 (coming soon)\nAssignment 8 (coming soon)\nAssignment 9 (coming soon)\nAssignment 10 (coming soon)"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "GEOG 30323: Data Analysis & Visualization",
+    "section": "",
+    "text": "Welcome to GEOG 30323: Data Analysis & Visualization, taught by Dr. Kyle Walker at Texas Christian University.\nThis course introduces students to the data analysis process using the Python programming language. Topics covered include obtaining data from a variety of sources, including databases and the Web; cleaning messy datasets and converting data between different formats and types; using exploratory data analysis to summarize and generate insights from data; and producing both static and interactive visualizations to explore data and communicate findings with a wider audience. Students will also gain foundational skills in the Python programming language, one of the most popular languages for data wrangling, data analysis, and data visualization.\nYou’ll write a lot of Python this semester. You’ll also have access to AI tools that can write Python for you, and you’re welcome to use them. The point of this course isn’t to prove you can type code from memory. It’s to help you make good decisions with data, and to understand your work well enough to know when it’s right."
+  },
+  {
+    "objectID": "index.html#using-this-site",
+    "href": "index.html#using-this-site",
+    "title": "GEOG 30323: Data Analysis & Visualization",
+    "section": "Using this site",
+    "text": "Using this site\nYou’ll find the course assignments under Assignments, and the weekly slides and readings under Schedule. To work on an assignment, open it and click the Open in Colab button at the top. That opens the notebook in Google Colab, where you can save your own copy to Google Drive and get started."
+  },
+  {
+    "objectID": "index.html#license",
+    "href": "index.html#license",
+    "title": "GEOG 30323: Data Analysis & Visualization",
+    "section": "License",
+    "text": "License\n Course materials are licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0) license."
+  },
+  {
+    "objectID": "schedule.html",
+    "href": "schedule.html",
+    "title": "Schedule",
+    "section": "",
+    "text": "Here’s the plan for the semester. Slides and assignments will be linked here as we get to them.\n\n\n\nWeek\nTopic\nReadings\nSlides\nLab\n\n\n\n\n1 · Aug 25–27\nCourse introduction\n—\nData Literacy\n—\n\n\n2 · Sep 1–3\nProgramming I\nThink Python, Chs. 1–2\nProgramming I\nAssignment 1\n\n\n3 · Sep 8–10\nProgramming II\nThink Python, Chs. 3, 7, 8\nProgramming II\nAssignment 2\n\n\n4 · Sep 15–17\nExploratory data analysis I\nFundamentals of Data Visualization, Chs. 7 and 9\nModules & EDA\nAssignment 3\n\n\n5 · Sep 22–24\nExploratory data analysis II\nFundamentals of Data Visualization, Chs. 6 and 12\nExploratory viz\nAssignment 4\n\n\n6 · Sep 29–Oct 1\nData wrangling I\nWickham (2014), “Tidy Data”\nData wrangling\nAssignment 5\n\n\n7 · Oct 6\nData wrangling II\nExam 1 distributed; Thursday Oct 8 canceled (Fall Break)\n—\n—\n\n\n8 · Oct 13–15\nExam 1 work week\n\n—\nExam 1 due Fri, Oct 16, 11:59pm\n\n\n9 · Oct 20–22\nExam 1 meetings\nIndividual exam meetings during class sessions (sign-up schedule provided in advance)\n—\n—\n\n\n10 · Oct 27–29\nAdvanced I/O: databases, web, APIs\nMcKinney, Python for Data Analysis (3rd ed.), Ch. 6\nAdvanced I/O\nAssignment 6\n\n\n11 · Nov 3–5\nVisualization best practices\nFundamentals of Data Visualization, Chs. 17 and 19\nData visualization\nAssignment 7\n\n\n12 · Nov 10–12\nGeographic data\nThe Nature of Geographic Information, Ch. 1; Fundamentals of Data Visualization, Ch. 15\nGeographic data\nAssignment 8\n\n\n13 · Nov 17–19\nData communication and interactive visualization\nTableau, “Best Practices for Effective Dashboards”; Tableau Public “Get Started”; Fundamentals of Data Visualization, Ch. 29\nCommunicating\nAssignment 9 (due Tue, Dec 1)\n\n\n14 · Nov 24–26\nThanksgiving Break — no class\n\n—\n—\n\n\n15 · Dec 1–3\nIntroduction to machine learning; data and AI ethics\n“Getting Started,” scikit-learn documentation; Gebru et al. (2021), “Datasheets for Datasets”\nIntro to ML · Ethics\nAssignment 10 (due Wed, Dec 9)\n\n\n16 · Dec 8\nCourse wrap-up\nLast regular class meeting Tuesday, December 8\n—\n—\n\n\nFinals · Dec 15\nExam 2 submission and final exam presentations\nIn-person, Tuesday, December 15, 8:00am–10:30am, Rees-Jones 216\n—\nExam 2 notebook due at start of session"
+  },
+  {
+    "objectID": "notebooks/assignment-01-python-basics.html",
+    "href": "notebooks/assignment-01-python-basics.html",
+    "title": "GEOG 30323",
+    "section": "",
+    "text": "Open In Colab"
+  },
+  {
+    "objectID": "notebooks/assignment-01-python-basics.html#assignment-1-introduction-to-python",
+    "href": "notebooks/assignment-01-python-basics.html#assignment-1-introduction-to-python",
+    "title": "GEOG 30323",
+    "section": "Assignment 1: Introduction to Python",
+    "text": "Assignment 1: Introduction to Python\nWelcome to your first notebook of the semester! Throughout the semester, you’ll be using Jupyter Notebooks like this one to learn practical skills in data analysis. The notebooks will consist of brief tutorials that reiterate some of the concepts you’ve learned in class, along with some basic exercises that test you on some of these skills. Notebooks will be assigned most weeks during the semester, and are due the following week.\nTo get started, click File &gt; Save a copy in Drive to save your assignment in your personal Google Drive. By default, the notebook will be found in a “Colab Notebooks” folder in your Drive. Rename the notebook by clicking the name of the notebook at the top of the screen and replacing “Copy of” with your last name.\nThis notebook includes a series of exercises to introduce you to the basics of programming in Python. You’ll learn, in general terms, about data types in Python, and how to make basic manipulations of these data types.\nPython is rapidly becoming the introductory programming language of choice at universities across the country, and for good reason. This is aptly summed up in the popular web comic XKCD:\n\n\n\nxkcd\n\n\nPython combines simplicity of syntax with relative computational power, which makes it an attractive language of choice for many programmers. The classic introductory programming problem is how to get a language to return the phrase, “Hello world.” In the Java language, for example, it looks something like this:\npublic class HelloWorld {\n\n    public static void main(String[] args) {\n        System.out.println(\"Hello, World\");\n    }\n\n}\nCompare that with Python:\n\nprint(\"Hello, World!\")\n\nHello, World!\n\n\nMuch simpler! Now, Python is not always going to be your language of choice for every application. Python is an example of an interpreted programming language, which means that it is converted on-the-fly to machine code - that is, code your computer can understand. This can make development simpler, but generally executes slower than compiled languages, in which the source code must be run through a compiler before it is executed. This additional step, however, can speed up execution substantially, which is why compiled languages like Java, C, or C++ are sometimes preferred for software development.\nHowever, Python is an outstanding choice for data analysis, which is highly interactive and requires the testing of many different ideas on-the-fly. Indeed, the Python community has built a robust infrastructure for data analysis with the language, which includes the Jupyter Notebook, which we are working in right now.\nThe Jupyter Notebook is an example of literate programming, in which documentation and computer code are tightly integrated. The notebook itself is comprised of “cells” that either accept Python code, or text written in Markdown, a highly-simplified syntax for writing HTML code. To choose a Python or Markdown cell, simply change the option from the drop-down menu at the top of the screen. To “run” the contents of your cell, click the “run cell” button from the menu at the top of the screen, or use the keyboard shortcut Shift+Enter.\nTools like the Jupyter Notebook are an excellent way to document your workflow, and make your work reproducible. Over the course of a data analysis, it is often challenging to remember every small step you have taken, or the rationale behind those steps. With the notebook, you can include descriptions of your workflow along with the actual code you used to do your data analysis."
+  },
+  {
+    "objectID": "notebooks/assignment-01-python-basics.html#python-basics",
+    "href": "notebooks/assignment-01-python-basics.html#python-basics",
+    "title": "GEOG 30323",
+    "section": "Python basics",
+    "text": "Python basics\nYou already saw how to print text using Python using the print command. Now, I’m going to take you through a few of Python’s basic data structures. At its most basic level, Python can function like a calculator. For example, I can type in a simple calculation…\n\n2 + 2\n\n4\n\n\n…and I get 4. Try it out yourself!\n\n## Type in a calculation below and run it!\n\n# By the way: this is an example of a comment.  Comments in Python are preceded by the hash (#) operator.  All text that follows\n# the hash will be bypassed at runtime - so this is a good way to make notes about your code, or to \"comment out\" code that you want\n# to keep, but don't want to run.\n\n\nIn addition, Python can work with strings, which are textual representations of data. Strings are enclosed in single quotes ' ' or double quotes \" \". Like numbers, strings can be “added” together; however, instead of performing a numeric computation, Python will concatenate the strings, combining them. Take the following example:\n\n\"a\" + \"b\"\n\n'ab'\n\n\nNow, let’s see what happens when we try to combine a string and a number:\n\n\"a\" + 4\n\n\n---------------------------------------------------------------------------\nTypeError                                 Traceback (most recent call last)\n&lt;ipython-input-6-3d99485a6381&gt; in &lt;module&gt;\n----&gt; 1 \"a\" + 4\n\nTypeError: must be str, not int\n\n\n\nWe get an error message back - ‘str’ and ‘int’ objects cannot be concatenated, as they are different data types. However, we can convert between different data types by converting our objects. For example, the str command converts to a string, the int command converts to an integer, and the float command converts to a floating-point number, if possible. Let’s try it out:\n\n\"a\" + str(4)\n\n'a4'"
+  },
+  {
+    "objectID": "notebooks/assignment-01-python-basics.html#variables",
+    "href": "notebooks/assignment-01-python-basics.html#variables",
+    "title": "GEOG 30323",
+    "section": "Variables",
+    "text": "Variables\nYou now have a very basic sense of how Python works. To this point, every cell that we’ve run has directly accepted content. However, in your work with Python, you are going to want to store information that you’ll need to come back to later, or re-use certain objects in your code. As such, you will want to work with variables.\nVariables are Python objects that represent some other thing. They can be just about any Python data type (more on these data types later) and are defined through assignment with the equals (=) operator. Let’s give it a try:\n\nx = 4 \n\nprint(x)\n\n4\n\n\nIn the above cell, I assigned the integer 4 to the variable x. When I asked Python to print the variable x, it returns the integer 4, which is what is represented by x.\nIf you’ve programmed in other languages before, you probably noticed that I didn’t have to declare the type of my variable when creating it. Python is an example of a dynamically typed language, which means that the types of objects are mutable (can change) and do not need to be declared. Instead, Python detects the type of the object based on the assignment I made. Let’s check it out with the type command.\n\ntype(x)\n\nint\n\n\nPython knows that x is an int (integer) as I assigned an integer, 4, to x. Other languages, like Java, are known as statically typed programming languages, as object types need to be declared. For example, assignment in a statically typed language might look like this:\nint x = 4;\nIn my opinion, the dynamic typing of Python makes it well-suited for the exploratory nature of data analysis.\nAs my variable x is an integer, I can perform mathematical operations with it. For example, I can multiply it by two with the * operator, or raise it to the second power with the ** operator:\n\nx * 2\n\n8\n\n\n\nx ** 2\n\n16\n\n\n\n# Now you try!  Write an expression that adds 5 to x, then divides the result by 2.  What do you get?\n\n\nVariable types can also be converted to other types through conversion, like I showed your earlier. Conversion operators in Python include int (integer), long (long integer), float (floating-point number), and str (string/text).\nLet’s give it a try. In the space below, we’ll create a new variable y by converting your variable x to a string. Then, we’ll type y and run the code to see what we get.\n\ny = str(x)\n\ny\n\n'4'\n\n\nWe see a ‘4’ returned in quotations – this means that your variable y stores the value 4, but in string rather than number format. As such, we cannot do math with our new variable…\n\ny + 12\n\n\n---------------------------------------------------------------------------\nTypeError                                 Traceback (most recent call last)\n&lt;ipython-input-14-57c9e32a130f&gt; in &lt;module&gt;\n----&gt; 1 y + 12\n\nTypeError: must be str, not int\n\n\n\n\nprint(\"OMG I heart U \" + y + \"ever!!!111\")\n\nOMG I heart U 4ever!!!111\n\n\nNow, try it out yourself! Create a new variable, z, by converting y to a floating-point number, and then divide z by 3. What do you get?\n\n### Run your code here!"
+  },
+  {
+    "objectID": "notebooks/assignment-01-python-basics.html#lists",
+    "href": "notebooks/assignment-01-python-basics.html#lists",
+    "title": "GEOG 30323",
+    "section": "Lists",
+    "text": "Lists\nYou should have a sense to this point of the flexibility of variable assignment in Python. However, to this point we’ve only been working with variables that store one value - and you’ll be working a lot with multiple values in Python.\nThe most common data structure for multiple values in Python is the list. Lists are enclosed in brackets [], and can contain a series of values, objects, variables, etc. Objects in a list need not be of the same type; however, keeping the types within lists consistent will maximize what you can do with them.\nLet’s take a look at a sample list of numbers, and assign it to the variable mylist.\n\nmylist = [2, 4, 6, 8, 10, 12]\n\nprint(mylist)\n\n[2, 4, 6, 8, 10, 12]\n\n\nTo retrieve specific elements within my list, I can use indexing. Indexing is a common operation in Python to subset your data - this will be very important for you when working with datasets later on. Indices are similarly enclosed in brackets. In Python, the index starts at zero; as such, 0 returns the first element, 1 the second element, and so on. Let’s try it:\n\n## This should give me the second element of my list, 4.\n\nmylist[1]\n\n4\n\n\nChunks of your list can also be retrieved through slicing. To slice a list, index with the first element you want, followed by a colon : operator, then the index of the first element you do not want. For example, let’s retrieve the second through fourth elements of mylist, which should give us back 4, 6, and 8.\n\nmylist[1:4]\n\n[4, 6, 8]\n\n\nYou can also add other lists to your lists. Let’s try it:\n\nmylist + [14, 16]\n\n[2, 4, 6, 8, 10, 12, 14, 16]\n\n\nThis can also be achieved with the append command, which will modify the existing list.\n\nmylist.append(18)\n\nmylist\n\n[2, 4, 6, 8, 10, 12, 18]\n\n\nNotice that the append command shows up as a property of your list - that is, a method you can use to modify it. In the Jupyter Notebook, you can get a list of possible methods for your list by pressing Tab after typing a period after your list’s name. Try it out:\n\n# Press \"Tab\" after the period to see what I'm talking about!\n# Be sure that you've run the above cell defining mylist beforehand.\n\nmylist.\n\nNotice a series of methods available to you to manipulate the contents of your list. You can read more about the different list methods here.\nLet’s try a couple:\n\nmylist.reverse()\n\nmylist\n\n[18, 12, 10, 8, 6, 4, 2]\n\n\n\nmylist.extend([22, 44])\n\nmylist\n\n[18, 12, 10, 8, 6, 4, 2, 22, 44]\n\n\n\nmylist.insert(5, 99) # The insert command here will place, at index 5, the number 99\n\nmylist\n\n[18, 12, 10, 8, 6, 99, 4, 2, 22, 44]\n\n\nNow, try working with a list of your own! Do the following:\n\nCreate a list of four numbers - one through four - and assign it to a variable.\n\nIndex the list to return only 3 and 4\nAdd a second list of 5, 6, and 7 to your list\nInsert the number 12 at position 3 of your list\n\n\n## Run your code here!"
+  },
+  {
+    "objectID": "notebooks/assignment-01-python-basics.html#strings",
+    "href": "notebooks/assignment-01-python-basics.html#strings",
+    "title": "GEOG 30323",
+    "section": "Strings",
+    "text": "Strings\nStrings, or textual representations of data, have a series of special methods that allow for their manipulation. In the Jupyter Notebook, these methods are available by pressing the Tab key after typing a period after the variable that stores the string. Let’s test it out.\n\ntcu = \"Texas Christian University\"\n\n\n# Place your cursor after the period, and press the tab key to view the methods\n# Be sure that you've run the previous cell first!\n\ntcu.\n\nNotice all the different methods available to you; you can view them in detail here. In the IPython notebook, you can also see the parameters of the different methods by typing Shift + Tab after typing the first parenthesis. Let’s try a few.\n\ntcu1 = tcu.swapcase()\n\ntcu1\n\n'tEXAS cHRISTIAN uNIVERSITY'\n\n\n\ntcu2 = tcu.replace('Christian', 'Construction')\n\ntcu2\n\n'Texas Construction University'\n\n\n\ntcu3 = tcu.upper()\n\ntcu3\n\n'TEXAS CHRISTIAN UNIVERSITY'\n\n\n\n## Here, we are retrieving the second word of the string (indexed at 1) with the 'split' command.  \n\ntcu4 = tcu.split()[1]\n\ntcu4\n\n'Christian'\n\n\nLike lists, strings can also be indexed or sliced; in this instance, the index refers to the different characters in the string.\n\ntcu[0:5]\n\n'Texas'"
+  },
+  {
+    "objectID": "notebooks/assignment-01-python-basics.html#exercises",
+    "href": "notebooks/assignment-01-python-basics.html#exercises",
+    "title": "GEOG 30323",
+    "section": "Exercises",
+    "text": "Exercises\nEvery notebook you are assigned each week will culminate with a series of exercises to help you solidify your skills in programming, data analysis, and visualization. You are welcome to work together on these exercises, and you can use Colab’s embedded AI assistant to help you with them. My recommendation: try to complete the exercise first without AI, then only use AI when you get stuck or to help provide an explanation.\nExercise 1: Create a new cell below with the “Add text cell” option. Change the cell type to Markdown from the drop-down menu at the top of the screen. Practice writing some Markdown in the cell. The cell should include a numbered list of links to your five favorite websites, with an H2 header for the title. The links should not simply be the website URLs, but should instead show the name of the website, which you can click to get to the website. Also, make the name of the first entry in bold, and the name of the second entry in italics.\nFor Markdown tips, take a look at the Markdown cheatsheet at this link. Also, a tip: you can view how I wrote Markdown in any of the cells in this notebook by double-clicking the cells!\nTCU Website\n\nESPN\nSecond element\nThird element\n\nExercise 2: Create a new variable, name it whatever you want, and assign your full name to it in fully lowercase letters. Then, use Python string methods to capitalize it appropriately. Add a comment to your code explaining what you did.\nExercise 3: Assign the list ['a', 'b', 'c', 'd', 'e'] to a variable. Reverse the list, then insert ‘z’ at index 3, and finally append ‘o’ to the end.\nExercise 4: (Modified from your textbook): A string slice can use an optional third index to specify the ‘step size’, which refers to the number of spaces between characters. Your textbook gives the following example:\n\nfruit = 'banana'\n\nfruit[0:5:2]\n\n'bnn'\n\n\nThe same result could be achieved, however, by omitting the 5, as the above example uses the whole string:\n\nfruit[0::2]\n\n'bnn'\n\n\nIn the cell below, I will provide you with a string of characters that may appear quite random at first. Run the cell to assign the string to the variable code. However, the string is in reality an encoded message, in which the character to keep is at every fourth character.\nUse Python string slicing to decode the message, and print the result to your notebook. The result is a familar expression, so if you are not getting a result that makes sense, try again!\n\ncode = 'varCjjlopaxntrrgnbXrOPraiiItUuUuzaQlliyaxx*t#rgiffFoce&ntPls87C!'\n\n\n# Your answer goes here!\n\nExercise 5:\nYou’re working for the TCU Registrar, and you’re asked to use your programming skills to generate new email addresses for incoming freshmen. You’ll be using string-parsing skills that you’ve learned in Python, and you’ve been given a list of 100 new students to validate on, and you’ve been asked to generate a TCU-style email address for each one.\nTCU email addresses typically follow the format {FIRST NAME OR FIRST INITIAL}.{LASTNAME}@tcu.edu.\nDoing this by hand 100 times would be miserable; doing it for an incoming class of 3000 freshmen would be painfully inefficient. This is exactly the kind of real-world task where you work with an AI assistant. Use Gemini to help you write the code. It may use techniques in Python you’re not familiar with yet.\nRun the cell below to load the roster.\n\nnames = [\n    \"Emma Nguyen\", \"Marcus Johnson\", \"Sophia Williams\", \"Jason Smith\", \"Aiden Garcia\",\n    \"Olivia Martinez\", \"Ethan Brown\", \"Ava Rodriguez\", \"Noah Davis\", \"Isabella Lopez\",\n    \"Patrick O'Brien\", \"Mia Gonzalez\", \"Lucas Wilson\", \"Maria dos Santos\", \"Liam Anderson\",\n    \"Charlotte Thomas\", \"Julia Smith\", \"Benjamin Taylor IV\", \"Amelia Moore\", \"Jose Hernandez\",\n    \"Jordan Wilson-Smith\", \"Harper Jackson\", \"Elijah White\", \"Evelyn Harris\", \"Diana Garcia\",\n    \"Grace Martin\", \"Henry Thompson\", \"Chloe Lee\", \"Samuel Perez\", \"Zoe Robinson\",\n    \"Luis de la Cruz\", \"Nora Clark\", \"David Garcia\", \"Aria Lewis\", \"Gabriel Walker\",\n    \"Layla Hall\", \"Carter Allen\", \"Riley Young\", \"Marco D'Angelo\", \"Scarlett King\",\n    \"Owen Wright\", \"Aaliyah Scott\", \"Sofia Munoz\", \"Leo Green\", \"Hannah Adams\",\n    \"Robert King Jr\", \"Victoria Baker\", \"Julian Nelson\", \"Camila Carter\", \"Wyatt Mitchell\",\n    \"Aisha Okafor-Bello\", \"Nathan Roberts\", \"Lily Turner\", \"Isaac Phillips\", \"Mary Jane Watson\",\n    \"Caleb Campbell\", \"Ellie Parker\", \"Christopher Evans\", \"Nova Edwards\", \"Thomas Collins\",\n    \"Ana Sofia Reyes\", \"Hunter Stewart\", \"Paisley Sanchez\", \"Charles Windsor III\", \"Brooklyn Morris\",\n    \"Dylan Rogers\", \"Savannah Reed\", \"Adrian Cook\", \"Bella Morgan\", \"Jaxon Bell\",\n    \"Priya Patel\", \"Cooper Bailey\", \"Genesis Rivera\", \"Easton Cooper\", \"Kennedy Richardson\",\n    \"Wei Chen\", \"Autumn Cox\", \"J. Michael Torres\", \"Skylar Howard\", \"Colton Ward\",\n    \"Naomi Watson\", \"Jameson Brooks\", \"Kinsley Gray\", \"Ryan James\", \"Chloe Martin\",\n    \"Kevin Nguyen\", \"Sadie Hughes\", \"Xavier Price\", \"Trinity Long\", \"Ashton Foster\",\n    \"Valentina Sanders\", \"Micah Ross\", \"Delilah Powell\", \"Kai Jenkins\", \"Sophia van der Berg\",\n    \"Elias Bennett\", \"Aubrey Barnes\", \"Roman Coleman\", \"Ryan James\", \"Thanh Nguyen\",\n]\n\nprint(len(names), \"names loaded\")\n\nAsk Gemini or another AI assistant to help you write Python code that turns every name in the list into a @tcu.edu email address. Describe the rule you want, then paste the code it gives you into the cell below and run it.\n\n# Paste and run the code Gemini helped you write.\n\n\n\nYou just ran code you may not have fully written. Look at it closely.\n\nFind two pieces of code you recognize from this week’s lesson. Identify that code and explain in your own words what it does.\nFind one piece of code you do NOT understand. What do you think it is doing?\n\nDouble-click and answer here.\nReview your results and reflect on them. As you evaluate the results, use these questions as validation:\n\nAre they all valid, usable email addresses?\nAre they all unique? (Two people cannot share an email.)\nWould every person recognize their address as belonging to them?\n\nList the problems you’ve found here, and suggest a follow-up prompt that might help resolve them.\nDouble-click and list the problems you found here.\nTo submit your assignment, click the Share button and share your assignment with kwalkertcu@gmail.com."
+  },
+  {
+    "objectID": "slides/01-data-literacy.html#introductions",
+    "href": "slides/01-data-literacy.html#introductions",
+    "title": "Data Literacy",
+    "section": "Introductions",
+    "text": "Introductions"
+  },
+  {
+    "objectID": "slides/01-data-literacy.html#course-goals",
+    "href": "slides/01-data-literacy.html#course-goals",
+    "title": "Data Literacy",
+    "section": "Course goals",
+    "text": "Course goals"
+  },
+  {
+    "objectID": "slides/01-data-literacy.html#syllabus",
+    "href": "slides/01-data-literacy.html#syllabus",
+    "title": "Data Literacy",
+    "section": "Syllabus",
+    "text": "Syllabus"
+  },
+  {
+    "objectID": "slides/01-data-literacy.html#brainstorm-how-might-you-use-data-if-you-were",
+    "href": "slides/01-data-literacy.html#brainstorm-how-might-you-use-data-if-you-were",
+    "title": "Data Literacy",
+    "section": "Brainstorm: how might you use data if you were…",
+    "text": "Brainstorm: how might you use data if you were…\n\n…an oil and gas landman?\n…a real estate broker?\n…a TCU athletics department staffer?\n…a social media influencer?"
+  },
+  {
+    "objectID": "slides/01-data-literacy.html#what-you-will-learn-in-this-course",
+    "href": "slides/01-data-literacy.html#what-you-will-learn-in-this-course",
+    "title": "Data Literacy",
+    "section": "What you will learn in this course",
+    "text": "What you will learn in this course\nThis course covers the process of exploratory data analysis, which includes how to:\n\nFind data\nLoad data\nClean data\nSummarize data\nVisualize data\nPresent data\nExample question: what are the most popular female baby names in Texas, and how has this changed over time?"
+  },
+  {
+    "objectID": "slides/01-data-literacy.html#finding-data",
+    "href": "slides/01-data-literacy.html#finding-data",
+    "title": "Data Literacy",
+    "section": "Finding data",
+    "text": "Finding data\n\n\nSource: Social Security Administration"
+  },
+  {
+    "objectID": "slides/01-data-literacy.html#summarizing-data",
+    "href": "slides/01-data-literacy.html#summarizing-data",
+    "title": "Data Literacy",
+    "section": "Summarizing data",
+    "text": "Summarizing data"
+  },
+  {
+    "objectID": "slides/01-data-literacy.html#visualizing-data",
+    "href": "slides/01-data-literacy.html#visualizing-data",
+    "title": "Data Literacy",
+    "section": "Visualizing data",
+    "text": "Visualizing data"
+  },
+  {
+    "objectID": "slides/01-data-literacy.html#presenting-data",
+    "href": "slides/01-data-literacy.html#presenting-data",
+    "title": "Data Literacy",
+    "section": "Presenting data",
+    "text": "Presenting data"
+  },
+  {
+    "objectID": "slides/01-data-literacy.html#baby-names-explorer",
+    "href": "slides/01-data-literacy.html#baby-names-explorer",
+    "title": "Data Literacy",
+    "section": "Baby Names Explorer",
+    "text": "Baby Names Explorer\n\nInteractive exploration of the SSA baby names data, 1910-2025\nhttps://babynames30323.streamlit.app/"
+  },
+  {
+    "objectID": "slides/01-data-literacy.html#data-science",
+    "href": "slides/01-data-literacy.html#data-science",
+    "title": "Data Literacy",
+    "section": "Data science",
+    "text": "Data science\n\n\nSource: The Onion"
+  },
+  {
+    "objectID": "slides/01-data-literacy.html#from-your-feed",
+    "href": "slides/01-data-literacy.html#from-your-feed",
+    "title": "Data Literacy",
+    "section": "From your feed",
+    "text": "From your feed"
+  },
+  {
+    "objectID": "slides/01-data-literacy.html#what-plumbers-actually-earn",
+    "href": "slides/01-data-literacy.html#what-plumbers-actually-earn",
+    "title": "Data Literacy",
+    "section": "What plumbers actually earn",
+    "text": "What plumbers actually earn"
+  },
+  {
+    "objectID": "slides/01-data-literacy.html#viral-maps-on-social-media",
+    "href": "slides/01-data-literacy.html#viral-maps-on-social-media",
+    "title": "Data Literacy",
+    "section": "Viral maps on social media",
+    "text": "Viral maps on social media"
+  },
+  {
+    "objectID": "slides/01-data-literacy.html#google-colab",
+    "href": "slides/01-data-literacy.html#google-colab",
+    "title": "Data Literacy",
+    "section": "Google CoLab",
+    "text": "Google CoLab\n\nGoogle Colaboratory: our tool for using Python in the cloud\nLet’s explore…"
+  },
+  {
     "objectID": "slides/03-functions-and-iteration.html#python-refresher",
     "href": "slides/03-functions-and-iteration.html#python-refresher",
     "title": "Programming II - Functions and Iteration",
@@ -145,390 +593,5 @@
     "title": "Programming II - Functions and Iteration",
     "section": "Building with AI and agents",
     "text": "Building with AI and agents\n\nImportant distinction in AI / coding workflows: deterministic layer vs. orchestration layer\nThe deterministic layer runs every time; the orchestration layer can exercise judgment\n\nWhat are some use-cases for each?"
-  },
-  {
-    "objectID": "slides/01-data-literacy.html#introductions",
-    "href": "slides/01-data-literacy.html#introductions",
-    "title": "Data Literacy",
-    "section": "Introductions",
-    "text": "Introductions"
-  },
-  {
-    "objectID": "slides/01-data-literacy.html#course-goals",
-    "href": "slides/01-data-literacy.html#course-goals",
-    "title": "Data Literacy",
-    "section": "Course goals",
-    "text": "Course goals"
-  },
-  {
-    "objectID": "slides/01-data-literacy.html#syllabus",
-    "href": "slides/01-data-literacy.html#syllabus",
-    "title": "Data Literacy",
-    "section": "Syllabus",
-    "text": "Syllabus"
-  },
-  {
-    "objectID": "slides/01-data-literacy.html#brainstorm-how-might-you-use-data-if-you-were",
-    "href": "slides/01-data-literacy.html#brainstorm-how-might-you-use-data-if-you-were",
-    "title": "Data Literacy",
-    "section": "Brainstorm: how might you use data if you were…",
-    "text": "Brainstorm: how might you use data if you were…\n\n…an oil and gas landman?\n…a real estate broker?\n…a TCU athletics department staffer?\n…a social media influencer?"
-  },
-  {
-    "objectID": "slides/01-data-literacy.html#what-you-will-learn-in-this-course",
-    "href": "slides/01-data-literacy.html#what-you-will-learn-in-this-course",
-    "title": "Data Literacy",
-    "section": "What you will learn in this course",
-    "text": "What you will learn in this course\nThis course covers the process of exploratory data analysis, which includes how to:\n\nFind data\nLoad data\nClean data\nSummarize data\nVisualize data\nPresent data\nExample question: what are the most popular female baby names in Texas, and how has this changed over time?"
-  },
-  {
-    "objectID": "slides/01-data-literacy.html#finding-data",
-    "href": "slides/01-data-literacy.html#finding-data",
-    "title": "Data Literacy",
-    "section": "Finding data",
-    "text": "Finding data\n\n\nSource: Social Security Administration"
-  },
-  {
-    "objectID": "slides/01-data-literacy.html#summarizing-data",
-    "href": "slides/01-data-literacy.html#summarizing-data",
-    "title": "Data Literacy",
-    "section": "Summarizing data",
-    "text": "Summarizing data"
-  },
-  {
-    "objectID": "slides/01-data-literacy.html#visualizing-data",
-    "href": "slides/01-data-literacy.html#visualizing-data",
-    "title": "Data Literacy",
-    "section": "Visualizing data",
-    "text": "Visualizing data"
-  },
-  {
-    "objectID": "slides/01-data-literacy.html#presenting-data",
-    "href": "slides/01-data-literacy.html#presenting-data",
-    "title": "Data Literacy",
-    "section": "Presenting data",
-    "text": "Presenting data"
-  },
-  {
-    "objectID": "slides/01-data-literacy.html#baby-names-explorer",
-    "href": "slides/01-data-literacy.html#baby-names-explorer",
-    "title": "Data Literacy",
-    "section": "Baby Names Explorer",
-    "text": "Baby Names Explorer\n\nInteractive exploration of the SSA baby names data, 1910-2025\nhttps://babynames30323.streamlit.app/"
-  },
-  {
-    "objectID": "slides/01-data-literacy.html#data-science",
-    "href": "slides/01-data-literacy.html#data-science",
-    "title": "Data Literacy",
-    "section": "Data science",
-    "text": "Data science\n\n\nSource: The Onion"
-  },
-  {
-    "objectID": "slides/01-data-literacy.html#from-your-feed",
-    "href": "slides/01-data-literacy.html#from-your-feed",
-    "title": "Data Literacy",
-    "section": "From your feed",
-    "text": "From your feed"
-  },
-  {
-    "objectID": "slides/01-data-literacy.html#what-plumbers-actually-earn",
-    "href": "slides/01-data-literacy.html#what-plumbers-actually-earn",
-    "title": "Data Literacy",
-    "section": "What plumbers actually earn",
-    "text": "What plumbers actually earn"
-  },
-  {
-    "objectID": "slides/01-data-literacy.html#viral-maps-on-social-media",
-    "href": "slides/01-data-literacy.html#viral-maps-on-social-media",
-    "title": "Data Literacy",
-    "section": "Viral maps on social media",
-    "text": "Viral maps on social media"
-  },
-  {
-    "objectID": "slides/01-data-literacy.html#google-colab",
-    "href": "slides/01-data-literacy.html#google-colab",
-    "title": "Data Literacy",
-    "section": "Google CoLab",
-    "text": "Google CoLab\n\nGoogle Colaboratory: our tool for using Python in the cloud\nLet’s explore…"
-  },
-  {
-    "objectID": "notebooks/assignment-01-python-basics.html",
-    "href": "notebooks/assignment-01-python-basics.html",
-    "title": "GEOG 30323",
-    "section": "",
-    "text": "Open In Colab"
-  },
-  {
-    "objectID": "notebooks/assignment-01-python-basics.html#assignment-1-introduction-to-python",
-    "href": "notebooks/assignment-01-python-basics.html#assignment-1-introduction-to-python",
-    "title": "GEOG 30323",
-    "section": "Assignment 1: Introduction to Python",
-    "text": "Assignment 1: Introduction to Python\nWelcome to your first notebook of the semester! Throughout the semester, you’ll be using Jupyter Notebooks like this one to learn practical skills in data analysis. The notebooks will consist of brief tutorials that reiterate some of the concepts you’ve learned in class, along with some basic exercises that test you on some of these skills. Notebooks will be assigned most weeks during the semester, and are due the following week.\nTo get started, click File &gt; Save a copy in Drive to save your assignment in your personal Google Drive. By default, the notebook will be found in a “Colab Notebooks” folder in your Drive. Rename the notebook by clicking the name of the notebook at the top of the screen and replacing “Copy of” with your last name.\nThis notebook includes a series of exercises to introduce you to the basics of programming in Python. You’ll learn, in general terms, about data types in Python, and how to make basic manipulations of these data types.\nPython is rapidly becoming the introductory programming language of choice at universities across the country, and for good reason. This is aptly summed up in the popular web comic XKCD:\n\n\n\nxkcd\n\n\nPython combines simplicity of syntax with relative computational power, which makes it an attractive language of choice for many programmers. The classic introductory programming problem is how to get a language to return the phrase, “Hello world.” In the Java language, for example, it looks something like this:\npublic class HelloWorld {\n\n    public static void main(String[] args) {\n        System.out.println(\"Hello, World\");\n    }\n\n}\nCompare that with Python:\n\nprint(\"Hello, World!\")\n\nHello, World!\n\n\nMuch simpler! Now, Python is not always going to be your language of choice for every application. Python is an example of an interpreted programming language, which means that it is converted on-the-fly to machine code - that is, code your computer can understand. This can make development simpler, but generally executes slower than compiled languages, in which the source code must be run through a compiler before it is executed. This additional step, however, can speed up execution substantially, which is why compiled languages like Java, C, or C++ are sometimes preferred for software development.\nHowever, Python is an outstanding choice for data analysis, which is highly interactive and requires the testing of many different ideas on-the-fly. Indeed, the Python community has built a robust infrastructure for data analysis with the language, which includes the Jupyter Notebook, which we are working in right now.\nThe Jupyter Notebook is an example of literate programming, in which documentation and computer code are tightly integrated. The notebook itself is comprised of “cells” that either accept Python code, or text written in Markdown, a highly-simplified syntax for writing HTML code. To choose a Python or Markdown cell, simply change the option from the drop-down menu at the top of the screen. To “run” the contents of your cell, click the “run cell” button from the menu at the top of the screen, or use the keyboard shortcut Shift+Enter.\nTools like the Jupyter Notebook are an excellent way to document your workflow, and make your work reproducible. Over the course of a data analysis, it is often challenging to remember every small step you have taken, or the rationale behind those steps. With the notebook, you can include descriptions of your workflow along with the actual code you used to do your data analysis."
-  },
-  {
-    "objectID": "notebooks/assignment-01-python-basics.html#python-basics",
-    "href": "notebooks/assignment-01-python-basics.html#python-basics",
-    "title": "GEOG 30323",
-    "section": "Python basics",
-    "text": "Python basics\nYou already saw how to print text using Python using the print command. Now, I’m going to take you through a few of Python’s basic data structures. At its most basic level, Python can function like a calculator. For example, I can type in a simple calculation…\n\n2 + 2\n\n4\n\n\n…and I get 4. Try it out yourself!\n\n## Type in a calculation below and run it!\n\n# By the way: this is an example of a comment.  Comments in Python are preceded by the hash (#) operator.  All text that follows\n# the hash will be bypassed at runtime - so this is a good way to make notes about your code, or to \"comment out\" code that you want\n# to keep, but don't want to run.\n\n\nIn addition, Python can work with strings, which are textual representations of data. Strings are enclosed in single quotes ' ' or double quotes \" \". Like numbers, strings can be “added” together; however, instead of performing a numeric computation, Python will concatenate the strings, combining them. Take the following example:\n\n\"a\" + \"b\"\n\n'ab'\n\n\nNow, let’s see what happens when we try to combine a string and a number:\n\n\"a\" + 4\n\n\n---------------------------------------------------------------------------\nTypeError                                 Traceback (most recent call last)\n&lt;ipython-input-6-3d99485a6381&gt; in &lt;module&gt;\n----&gt; 1 \"a\" + 4\n\nTypeError: must be str, not int\n\n\n\nWe get an error message back - ‘str’ and ‘int’ objects cannot be concatenated, as they are different data types. However, we can convert between different data types by converting our objects. For example, the str command converts to a string, the int command converts to an integer, and the float command converts to a floating-point number, if possible. Let’s try it out:\n\n\"a\" + str(4)\n\n'a4'"
-  },
-  {
-    "objectID": "notebooks/assignment-01-python-basics.html#variables",
-    "href": "notebooks/assignment-01-python-basics.html#variables",
-    "title": "GEOG 30323",
-    "section": "Variables",
-    "text": "Variables\nYou now have a very basic sense of how Python works. To this point, every cell that we’ve run has directly accepted content. However, in your work with Python, you are going to want to store information that you’ll need to come back to later, or re-use certain objects in your code. As such, you will want to work with variables.\nVariables are Python objects that represent some other thing. They can be just about any Python data type (more on these data types later) and are defined through assignment with the equals (=) operator. Let’s give it a try:\n\nx = 4 \n\nprint(x)\n\n4\n\n\nIn the above cell, I assigned the integer 4 to the variable x. When I asked Python to print the variable x, it returns the integer 4, which is what is represented by x.\nIf you’ve programmed in other languages before, you probably noticed that I didn’t have to declare the type of my variable when creating it. Python is an example of a dynamically typed language, which means that the types of objects are mutable (can change) and do not need to be declared. Instead, Python detects the type of the object based on the assignment I made. Let’s check it out with the type command.\n\ntype(x)\n\nint\n\n\nPython knows that x is an int (integer) as I assigned an integer, 4, to x. Other languages, like Java, are known as statically typed programming languages, as object types need to be declared. For example, assignment in a statically typed language might look like this:\nint x = 4;\nIn my opinion, the dynamic typing of Python makes it well-suited for the exploratory nature of data analysis.\nAs my variable x is an integer, I can perform mathematical operations with it. For example, I can multiply it by two with the * operator, or raise it to the second power with the ** operator:\n\nx * 2\n\n8\n\n\n\nx ** 2\n\n16\n\n\n\n# Now you try!  Write an expression that adds 5 to x, then divides the result by 2.  What do you get?\n\n\nVariable types can also be converted to other types through conversion, like I showed your earlier. Conversion operators in Python include int (integer), long (long integer), float (floating-point number), and str (string/text).\nLet’s give it a try. In the space below, we’ll create a new variable y by converting your variable x to a string. Then, we’ll type y and run the code to see what we get.\n\ny = str(x)\n\ny\n\n'4'\n\n\nWe see a ‘4’ returned in quotations – this means that your variable y stores the value 4, but in string rather than number format. As such, we cannot do math with our new variable…\n\ny + 12\n\n\n---------------------------------------------------------------------------\nTypeError                                 Traceback (most recent call last)\n&lt;ipython-input-14-57c9e32a130f&gt; in &lt;module&gt;\n----&gt; 1 y + 12\n\nTypeError: must be str, not int\n\n\n\n\nprint(\"OMG I heart U \" + y + \"ever!!!111\")\n\nOMG I heart U 4ever!!!111\n\n\nNow, try it out yourself! Create a new variable, z, by converting y to a floating-point number, and then divide z by 3. What do you get?\n\n### Run your code here!"
-  },
-  {
-    "objectID": "notebooks/assignment-01-python-basics.html#lists",
-    "href": "notebooks/assignment-01-python-basics.html#lists",
-    "title": "GEOG 30323",
-    "section": "Lists",
-    "text": "Lists\nYou should have a sense to this point of the flexibility of variable assignment in Python. However, to this point we’ve only been working with variables that store one value - and you’ll be working a lot with multiple values in Python.\nThe most common data structure for multiple values in Python is the list. Lists are enclosed in brackets [], and can contain a series of values, objects, variables, etc. Objects in a list need not be of the same type; however, keeping the types within lists consistent will maximize what you can do with them.\nLet’s take a look at a sample list of numbers, and assign it to the variable mylist.\n\nmylist = [2, 4, 6, 8, 10, 12]\n\nprint(mylist)\n\n[2, 4, 6, 8, 10, 12]\n\n\nTo retrieve specific elements within my list, I can use indexing. Indexing is a common operation in Python to subset your data - this will be very important for you when working with datasets later on. Indices are similarly enclosed in brackets. In Python, the index starts at zero; as such, 0 returns the first element, 1 the second element, and so on. Let’s try it:\n\n## This should give me the second element of my list, 4.\n\nmylist[1]\n\n4\n\n\nChunks of your list can also be retrieved through slicing. To slice a list, index with the first element you want, followed by a colon : operator, then the index of the first element you do not want. For example, let’s retrieve the second through fourth elements of mylist, which should give us back 4, 6, and 8.\n\nmylist[1:4]\n\n[4, 6, 8]\n\n\nYou can also add other lists to your lists. Let’s try it:\n\nmylist + [14, 16]\n\n[2, 4, 6, 8, 10, 12, 14, 16]\n\n\nThis can also be achieved with the append command, which will modify the existing list.\n\nmylist.append(18)\n\nmylist\n\n[2, 4, 6, 8, 10, 12, 18]\n\n\nNotice that the append command shows up as a property of your list - that is, a method you can use to modify it. In the Jupyter Notebook, you can get a list of possible methods for your list by pressing Tab after typing a period after your list’s name. Try it out:\n\n# Press \"Tab\" after the period to see what I'm talking about!\n# Be sure that you've run the above cell defining mylist beforehand.\n\nmylist.\n\nNotice a series of methods available to you to manipulate the contents of your list. You can read more about the different list methods here.\nLet’s try a couple:\n\nmylist.reverse()\n\nmylist\n\n[18, 12, 10, 8, 6, 4, 2]\n\n\n\nmylist.extend([22, 44])\n\nmylist\n\n[18, 12, 10, 8, 6, 4, 2, 22, 44]\n\n\n\nmylist.insert(5, 99) # The insert command here will place, at index 5, the number 99\n\nmylist\n\n[18, 12, 10, 8, 6, 99, 4, 2, 22, 44]\n\n\nNow, try working with a list of your own! Do the following:\n\nCreate a list of four numbers - one through four - and assign it to a variable.\n\nIndex the list to return only 3 and 4\nAdd a second list of 5, 6, and 7 to your list\nInsert the number 12 at position 3 of your list\n\n\n## Run your code here!"
-  },
-  {
-    "objectID": "notebooks/assignment-01-python-basics.html#strings",
-    "href": "notebooks/assignment-01-python-basics.html#strings",
-    "title": "GEOG 30323",
-    "section": "Strings",
-    "text": "Strings\nStrings, or textual representations of data, have a series of special methods that allow for their manipulation. In the Jupyter Notebook, these methods are available by pressing the Tab key after typing a period after the variable that stores the string. Let’s test it out.\n\ntcu = \"Texas Christian University\"\n\n\n# Place your cursor after the period, and press the tab key to view the methods\n# Be sure that you've run the previous cell first!\n\ntcu.\n\nNotice all the different methods available to you; you can view them in detail here. In the IPython notebook, you can also see the parameters of the different methods by typing Shift + Tab after typing the first parenthesis. Let’s try a few.\n\ntcu1 = tcu.swapcase()\n\ntcu1\n\n'tEXAS cHRISTIAN uNIVERSITY'\n\n\n\ntcu2 = tcu.replace('Christian', 'Construction')\n\ntcu2\n\n'Texas Construction University'\n\n\n\ntcu3 = tcu.upper()\n\ntcu3\n\n'TEXAS CHRISTIAN UNIVERSITY'\n\n\n\n## Here, we are retrieving the second word of the string (indexed at 1) with the 'split' command.  \n\ntcu4 = tcu.split()[1]\n\ntcu4\n\n'Christian'\n\n\nLike lists, strings can also be indexed or sliced; in this instance, the index refers to the different characters in the string.\n\ntcu[0:5]\n\n'Texas'"
-  },
-  {
-    "objectID": "notebooks/assignment-01-python-basics.html#exercises",
-    "href": "notebooks/assignment-01-python-basics.html#exercises",
-    "title": "GEOG 30323",
-    "section": "Exercises",
-    "text": "Exercises\nEvery notebook you are assigned each week will culminate with a series of exercises to help you solidify your skills in programming, data analysis, and visualization. You are welcome to work together on these exercises, and you can use Colab’s embedded AI assistant to help you with them. My recommendation: try to complete the exercise first without AI, then only use AI when you get stuck or to help provide an explanation.\nExercise 1: Create a new cell below with the “Add text cell” option. Change the cell type to Markdown from the drop-down menu at the top of the screen. Practice writing some Markdown in the cell. The cell should include a numbered list of links to your five favorite websites, with an H2 header for the title. The links should not simply be the website URLs, but should instead show the name of the website, which you can click to get to the website. Also, make the name of the first entry in bold, and the name of the second entry in italics.\nFor Markdown tips, take a look at the Markdown cheatsheet at this link. Also, a tip: you can view how I wrote Markdown in any of the cells in this notebook by double-clicking the cells!\nTCU Website\n\nESPN\nSecond element\nThird element\n\nExercise 2: Create a new variable, name it whatever you want, and assign your full name to it in fully lowercase letters. Then, use Python string methods to capitalize it appropriately. Add a comment to your code explaining what you did.\nExercise 3: Assign the list ['a', 'b', 'c', 'd', 'e'] to a variable. Reverse the list, then insert ‘z’ at index 3, and finally append ‘o’ to the end.\nExercise 4: (Modified from your textbook): A string slice can use an optional third index to specify the ‘step size’, which refers to the number of spaces between characters. Your textbook gives the following example:\n\nfruit = 'banana'\n\nfruit[0:5:2]\n\n'bnn'\n\n\nThe same result could be achieved, however, by omitting the 5, as the above example uses the whole string:\n\nfruit[0::2]\n\n'bnn'\n\n\nIn the cell below, I will provide you with a string of characters that may appear quite random at first. Run the cell to assign the string to the variable code. However, the string is in reality an encoded message, in which the character to keep is at every fourth character.\nUse Python string slicing to decode the message, and print the result to your notebook. The result is a familar expression, so if you are not getting a result that makes sense, try again!\n\ncode = 'varCjjlopaxntrrgnbXrOPraiiItUuUuzaQlliyaxx*t#rgiffFoce&ntPls87C!'\n\n\n# Your answer goes here!\n\nExercise 5:\nYou’re working for the TCU Registrar, and you’re asked to use your programming skills to generate new email addresses for incoming freshmen. You’ll be using string-parsing skills that you’ve learned in Python, and you’ve been given a list of 100 new students to validate on, and you’ve been asked to generate a TCU-style email address for each one.\nTCU email addresses typically follow the format {FIRST NAME OR FIRST INITIAL}.{LASTNAME}@tcu.edu.\nDoing this by hand 100 times would be miserable; doing it for an incoming class of 3000 freshmen would be painfully inefficient. This is exactly the kind of real-world task where you work with an AI assistant. Use Gemini to help you write the code. It may use techniques in Python you’re not familiar with yet.\nRun the cell below to load the roster.\n\nnames = [\n    \"Emma Nguyen\", \"Marcus Johnson\", \"Sophia Williams\", \"Jason Smith\", \"Aiden Garcia\",\n    \"Olivia Martinez\", \"Ethan Brown\", \"Ava Rodriguez\", \"Noah Davis\", \"Isabella Lopez\",\n    \"Patrick O'Brien\", \"Mia Gonzalez\", \"Lucas Wilson\", \"Maria dos Santos\", \"Liam Anderson\",\n    \"Charlotte Thomas\", \"Julia Smith\", \"Benjamin Taylor IV\", \"Amelia Moore\", \"Jose Hernandez\",\n    \"Jordan Wilson-Smith\", \"Harper Jackson\", \"Elijah White\", \"Evelyn Harris\", \"Diana Garcia\",\n    \"Grace Martin\", \"Henry Thompson\", \"Chloe Lee\", \"Samuel Perez\", \"Zoe Robinson\",\n    \"Luis de la Cruz\", \"Nora Clark\", \"David Garcia\", \"Aria Lewis\", \"Gabriel Walker\",\n    \"Layla Hall\", \"Carter Allen\", \"Riley Young\", \"Marco D'Angelo\", \"Scarlett King\",\n    \"Owen Wright\", \"Aaliyah Scott\", \"Sofia Munoz\", \"Leo Green\", \"Hannah Adams\",\n    \"Robert King Jr\", \"Victoria Baker\", \"Julian Nelson\", \"Camila Carter\", \"Wyatt Mitchell\",\n    \"Aisha Okafor-Bello\", \"Nathan Roberts\", \"Lily Turner\", \"Isaac Phillips\", \"Mary Jane Watson\",\n    \"Caleb Campbell\", \"Ellie Parker\", \"Christopher Evans\", \"Nova Edwards\", \"Thomas Collins\",\n    \"Ana Sofia Reyes\", \"Hunter Stewart\", \"Paisley Sanchez\", \"Charles Windsor III\", \"Brooklyn Morris\",\n    \"Dylan Rogers\", \"Savannah Reed\", \"Adrian Cook\", \"Bella Morgan\", \"Jaxon Bell\",\n    \"Priya Patel\", \"Cooper Bailey\", \"Genesis Rivera\", \"Easton Cooper\", \"Kennedy Richardson\",\n    \"Wei Chen\", \"Autumn Cox\", \"J. Michael Torres\", \"Skylar Howard\", \"Colton Ward\",\n    \"Naomi Watson\", \"Jameson Brooks\", \"Kinsley Gray\", \"Ryan James\", \"Chloe Martin\",\n    \"Kevin Nguyen\", \"Sadie Hughes\", \"Xavier Price\", \"Trinity Long\", \"Ashton Foster\",\n    \"Valentina Sanders\", \"Micah Ross\", \"Delilah Powell\", \"Kai Jenkins\", \"Sophia van der Berg\",\n    \"Elias Bennett\", \"Aubrey Barnes\", \"Roman Coleman\", \"Ryan James\", \"Thanh Nguyen\",\n]\n\nprint(len(names), \"names loaded\")\n\nAsk Gemini or another AI assistant to help you write Python code that turns every name in the list into a @tcu.edu email address. Describe the rule you want, then paste the code it gives you into the cell below and run it.\n\n# Paste and run the code Gemini helped you write.\n\n\n\nYou just ran code you may not have fully written. Look at it closely.\n\nFind two pieces of code you recognize from this week’s lesson. Identify that code and explain in your own words what it does.\nFind one piece of code you do NOT understand. What do you think it is doing?\n\nDouble-click and answer here.\nReview your results and reflect on them. As you evaluate the results, use these questions as validation:\n\nAre they all valid, usable email addresses?\nAre they all unique? (Two people cannot share an email.)\nWould every person recognize their address as belonging to them?\n\nList the problems you’ve found here, and suggest a follow-up prompt that might help resolve them.\nDouble-click and list the problems you found here.\nTo submit your assignment, click the Share button and share your assignment with kwalkertcu@gmail.com."
-  },
-  {
-    "objectID": "schedule.html",
-    "href": "schedule.html",
-    "title": "Schedule",
-    "section": "",
-    "text": "Here’s the plan for the semester. Slides and assignments will be linked here as we get to them.\n\n\n\nWeek\nTopic\nReadings\nSlides\nLab\n\n\n\n\n1 · Aug 25–27\nCourse introduction\n—\nData Literacy\n—\n\n\n2 · Sep 1–3\nProgramming I\nThink Python, Chs. 1–2\nProgramming I\nAssignment 1\n\n\n3 · Sep 8–10\nProgramming II\nThink Python, Chs. 3, 7, 8\nProgramming II\nAssignment 2\n\n\n4 · Sep 15–17\nExploratory data analysis I\nFundamentals of Data Visualization, Chs. 7 and 9\nModules & EDA\nAssignment 3\n\n\n5 · Sep 22–24\nExploratory data analysis II\nFundamentals of Data Visualization, Chs. 6 and 12\nExploratory viz\nAssignment 4\n\n\n6 · Sep 29–Oct 1\nData wrangling I\nWickham (2014), “Tidy Data”\nData wrangling\nAssignment 5\n\n\n7 · Oct 6\nData wrangling II\nExam 1 distributed; Thursday Oct 8 canceled (Fall Break)\n—\n—\n\n\n8 · Oct 13–15\nExam 1 work week\n\n—\nExam 1 due Fri, Oct 16, 11:59pm\n\n\n9 · Oct 20–22\nExam 1 meetings\nIndividual exam meetings during class sessions (sign-up schedule provided in advance)\n—\n—\n\n\n10 · Oct 27–29\nAdvanced I/O: databases, web, APIs\nMcKinney, Python for Data Analysis (3rd ed.), Ch. 6\nAdvanced I/O\nAssignment 6\n\n\n11 · Nov 3–5\nVisualization best practices\nFundamentals of Data Visualization, Chs. 17 and 19\nData visualization\nAssignment 7\n\n\n12 · Nov 10–12\nGeographic data\nThe Nature of Geographic Information, Ch. 1; Fundamentals of Data Visualization, Ch. 15\nGeographic data\nAssignment 8\n\n\n13 · Nov 17–19\nData communication and interactive visualization\nTableau, “Best Practices for Effective Dashboards”; Tableau Public “Get Started”; Fundamentals of Data Visualization, Ch. 29\nCommunicating\nAssignment 9 (due Tue, Dec 1)\n\n\n14 · Nov 24–26\nThanksgiving Break — no class\n\n—\n—\n\n\n15 · Dec 1–3\nIntroduction to machine learning; data and AI ethics\n“Getting Started,” scikit-learn documentation; Gebru et al. (2021), “Datasheets for Datasets”\nIntro to ML · Ethics\nAssignment 10 (due Wed, Dec 9)\n\n\n16 · Dec 8\nCourse wrap-up\nLast regular class meeting Tuesday, December 8\n—\n—\n\n\nFinals · Dec 15\nExam 2 submission and final exam presentations\nIn-person, Tuesday, December 15, 8:00am–10:30am, Rees-Jones 216\n—\nExam 2 notebook due at start of session"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "GEOG 30323: Data Analysis & Visualization",
-    "section": "",
-    "text": "Welcome to GEOG 30323: Data Analysis & Visualization, taught by Dr. Kyle Walker at Texas Christian University.\nThis course introduces students to the data analysis process using the Python programming language. Topics covered include obtaining data from a variety of sources, including databases and the Web; cleaning messy datasets and converting data between different formats and types; using exploratory data analysis to summarize and generate insights from data; and producing both static and interactive visualizations to explore data and communicate findings with a wider audience. Students will also gain foundational skills in the Python programming language, one of the most popular languages for data wrangling, data analysis, and data visualization.\nYou’ll write a lot of Python this semester. You’ll also have access to AI tools that can write Python for you, and you’re welcome to use them. The point of this course isn’t to prove you can type code from memory. It’s to help you make good decisions with data, and to understand your work well enough to know when it’s right."
-  },
-  {
-    "objectID": "index.html#using-this-site",
-    "href": "index.html#using-this-site",
-    "title": "GEOG 30323: Data Analysis & Visualization",
-    "section": "Using this site",
-    "text": "Using this site\nYou’ll find the course assignments under Assignments, and the weekly slides and readings under Schedule. To work on an assignment, open it and click the Open in Colab button at the top. That opens the notebook in Google Colab, where you can save your own copy to Google Drive and get started."
-  },
-  {
-    "objectID": "index.html#license",
-    "href": "index.html#license",
-    "title": "GEOG 30323: Data Analysis & Visualization",
-    "section": "License",
-    "text": "License\n Course materials are licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0) license."
-  },
-  {
-    "objectID": "assignments.html",
-    "href": "assignments.html",
-    "title": "Assignments",
-    "section": "",
-    "text": "Open an assignment to read through it, then click Open in Colab at the top to work on it in your own Google Drive. Assignments are typically released each Thursday and due by the end of the day the following Thursday.\n\nAssignment 1: Introduction to Python\nAssignment 2: Functions, conditional statements, and iteration in Python\nAssignment 3 (coming soon)\nAssignment 4 (coming soon)\nAssignment 5 (coming soon)\nAssignment 6 (coming soon)\nAssignment 7 (coming soon)\nAssignment 8 (coming soon)\nAssignment 9 (coming soon)\nAssignment 10 (coming soon)"
-  },
-  {
-    "objectID": "notebooks/assignment-02-functions-and-iteration.html",
-    "href": "notebooks/assignment-02-functions-and-iteration.html",
-    "title": "GEOG 30323",
-    "section": "",
-    "text": "Open In Colab"
-  },
-  {
-    "objectID": "notebooks/assignment-02-functions-and-iteration.html#assignment-2-functions-conditional-statements-and-iteration-in-python",
-    "href": "notebooks/assignment-02-functions-and-iteration.html#assignment-2-functions-conditional-statements-and-iteration-in-python",
-    "title": "GEOG 30323",
-    "section": "Assignment 2: Functions, conditional statements, and iteration in Python",
-    "text": "Assignment 2: Functions, conditional statements, and iteration in Python\nCongratulations on completing your first Python assignment! You’ll be progressively building on those core skills throughout the semester. As before, click File &gt; Save a copy in Drive to save your assignment in your personal Google Drive, and rename the notebook by replacing “Copy of” with your last name.\nIn this week’s notebook, you are first going to learn about functions. Functions are in some ways the bread-and-butter of Python programming. They make code re-usable, as they allow you to apply your code in other contexts and circumstances. You can think about functions this way: while variables store elements of your code (e.g. numbers, strings, lists), functions can store entire chunks of your code, which can in turn be re-used as necessary.\nFunctions include a definition and parameters, and are specified with def as follows:\ndef myfunction(parameter1, parameter2, parameter3): \n    \"\"\"Your code goes here\"\"\"\nThe def command allows you to introduce a function definition. You then specify the parameters within parentheses following the function name, which are like variables that operate within your function. A colon (:) then follows the parentheses, and the contents of the function are found beginning on the next line as an indented code block (more on indentation soon).\nAfter you’ve defined the function, it can be called by supplying arguments to the parameters you’ve defined, again within parentheses. For example:\nmyfunction(arg1, arg2, arg3)\nSo how does this all work? Let’s try it out!\nAt a very basic level, you can define a function without parameters - an empty function. This function will print whatever you’ve specified after it is called.\n\ndef print_five():\n    print(5)\n\nNow, we call the function:\n\nprint_five()\n\nNotice what happened when we called our print_five function. As the function has no parameters, it will always give us back 5. Naturally, you’re going to want your functions to get more complicated than this - which is what parameters are for. Let’s try out a function that has a parameter and performs a basic mathematical operation.\n\ndef divide_by_two(x):\n    print(x / 2)\n\ndivide_by_two(11)\n\nThe function itself is fairly straightforward. Our new function, divide_by_two, takes a number, which we are calling x. It divides x by two, and then prints the result for us. By adding a parameter, however, our function is now re-usable. Let’s try it out:\n\ndivide_by_two(55)\n\n\n## Now it's your turn!  Write a new, empty function that prints your name when called.  Call the function."
-  },
-  {
-    "objectID": "notebooks/assignment-02-functions-and-iteration.html#the-return-statement",
-    "href": "notebooks/assignment-02-functions-and-iteration.html#the-return-statement",
-    "title": "GEOG 30323",
-    "section": "The ‘return’ statement",
-    "text": "The ‘return’ statement\nIn the above examples, we’ve created functions that print some result to our screen when called. Often, however, we want our functions to work as part of a larger workflow. This is accomplished with the return statement, which allows the output of functions to be assigned to a new variable.\nFor example, let’s try to assign the result of the divide_by_two function to a new variable:\n\ny = divide_by_two(12)\n\nAnd when we ask Python for the value of y:\n\ny\n\nWe don’t get anything back. Strictly speaking, y now holds a special value called None, which is what a function gives back when it has no return statement - run print(y) to see it. Now, let’s try modifying the function with return used instead of print.\n\ndef divide_by_two(x):\n    return x / 2\n\ny = divide_by_two(12)\n\ny\n\n\n## Now it's your turn!  Write a new function that subtracts 7 from a number\n## and returns the result.  Assign the result of the function to a new \n## variable (your argument can be any number you want)."
-  },
-  {
-    "objectID": "notebooks/assignment-02-functions-and-iteration.html#python-and-whitespace",
-    "href": "notebooks/assignment-02-functions-and-iteration.html#python-and-whitespace",
-    "title": "GEOG 30323",
-    "section": "Python and whitespace",
-    "text": "Python and whitespace\nYou may have noticed that the statements that follow the function definitions above are indented. Python code obeys whitespace for code organization. In many languages, functions, loops, and conditional logic (which we’ll get to below), etc. are organized with curly braces, like the equivalent R code below:\ndivide_by_two &lt;- function(x) {\n    return(x / 2)\n}\nThe R code, like in many languages, is organized in relation to the position of the curly braces, not the positioning of the code itself per se. In Python, curly braces are not used in this capacity. Instead, code is organized by indentation and whitespace. Within a function definition, for example, the code to be executed by the function call should be indented beneath the line that contains the def statement. The Python convention is four spaces; Colab indents with two spaces by default. Either works, as long as you are consistent within a block of code. In Colab and most other Python development environments, the software will already know this and indent your code for you when you press Enter after the colon. Without proper indentation, however, your code will not run correctly.\n\ndef divide_by_three(x):\nreturn x / 3"
-  },
-  {
-    "objectID": "notebooks/assignment-02-functions-and-iteration.html#named-arguments",
-    "href": "notebooks/assignment-02-functions-and-iteration.html#named-arguments",
-    "title": "GEOG 30323",
-    "section": "Named arguments",
-    "text": "Named arguments\nLater in the semester, we’ll get started using external libraries to do our work, which have many pre-built functions for accomplishing data analysis tasks. Many of these functions are very flexible - which means they have a lot of parameters! In turn, it can be helpful to keep your code organized when you are working with multiple parameters in a function.\nThere are a couple ways to supply multiple arguments to a function in Python:\n\nIn the order they are specified in the function definition;\nAs named arguments, in which both the parameter name and the argument are invoked.\n\nI’ll explain this further. Let’s define a function, subtract, that takes two numbers and will subtract the second number from the first.\n\ndef subtract(x, y):\n    return x - y\n\nNow, we call the function by supplying two arguments to it:\n\nsubtract(11, 7)\n\nWe could get the same result by supplying named arguments to the function, which take the form of parameter = argument:\n\nsubtract(x = 11, y = 7)\n\nFlipping the order of the arguments will give us a different result unless we name the arguments accordingly. Take a look:\n\nsubtract(7, 11)\n\n\nsubtract(y = 7, x = 11)\n\nBe careful when mixing named and unnamed arguments, however. When arguments are unnamed, Python assumes that you are supplying them in the order of the corresponding parameters in the function definition. As such, you can mix named and unnamed arguments, but unnamed arguments cannot follow named arguments in a function call.\n\nsubtract(11, y = 7)\n\n\nsubtract(x = 11, 7)"
-  },
-  {
-    "objectID": "notebooks/assignment-02-functions-and-iteration.html#default-values",
-    "href": "notebooks/assignment-02-functions-and-iteration.html#default-values",
-    "title": "GEOG 30323",
-    "section": "Default values",
-    "text": "Default values\nA parameter can also be given a default value in the function definition. If you don’t supply an argument for it, the function uses the default; if you do, your argument wins. This is why you can call many library functions without supplying every parameter - most of them have defaults.\n\ndef subtract(x, y = 1):\n    return x - y\n\nsubtract(11)          # y defaults to 1\n\n\nsubtract(11, y = 7)   # override the default with a named argument"
-  },
-  {
-    "objectID": "notebooks/assignment-02-functions-and-iteration.html#docstrings-and-documenting-your-code",
-    "href": "notebooks/assignment-02-functions-and-iteration.html#docstrings-and-documenting-your-code",
-    "title": "GEOG 30323",
-    "section": "Docstrings and documenting your code",
-    "text": "Docstrings and documenting your code\nYou’ve already learned how to use comments to document your code with the # operator, like this:\n# I just commented out this line!\nComments are generally best used for small descriptive statements about your code, or notes to yourself regarding something you’d like to remember. More formal documentation of your code - e.g. what your functions are supposed to do - are best handled through docstrings. Docstrings are enclosed in triple quotes (\"\"\"), and can go beneath the function definition to explain its components. Let’s try using a docstring to explain, in basic terms, the contents of our subtract function.\n\ndef subtract(x, y):\n    \"\"\"\n    Subtract one number from another.\n\n    Parameters:\n    -----------\n    x: The number you would like to subtract a quantity from (the minuend).\n    y: The quantity you would like to subtract from x (the subtrahend).\n    \"\"\"\n\n    return x - y\n\nYou’ve now created a new function, subtract() with associated help documentation. To view the documentation, you can use the built-in help() function to print the docstring, or type the function name followed by a question mark to pop up the documentation at the bottom of the screen. Try it out!\n\nhelp(subtract)\n\n\nsubtract?\n\n\n# Now it is your turn!\n\n# Create a new function, \"multiply\", that multiplies two numbers together.\n# Write a docstring in the function definition that describes what the function does,\n# and explains the parameters to the user.\n# Run your function and call it to test it out."
-  },
-  {
-    "objectID": "notebooks/assignment-02-functions-and-iteration.html#booleans-and-conditional-statements",
-    "href": "notebooks/assignment-02-functions-and-iteration.html#booleans-and-conditional-statements",
-    "title": "GEOG 30323",
-    "section": "Booleans and conditional statements",
-    "text": "Booleans and conditional statements\nThe above functions we’ve written perform the same operations for any input values that are passed to them. When writing programs, however, you’ll often have to design them to be flexible to user input where outcomes may vary based on what users supply to the program. In regards to data analysis, you might want to produce a particular type of chart if the data are structured a certain way, which wouldn’t work in another scenario. You can build this type of logic into your programs with conditional statements.\nBefore we get into this, however, I want to introduce booleans in Python. You may have heard this term before in other classes. Booleans in Python are the values True and False; they can be used to evaluate, understandably, if a condition is true or not. For example:\n\n3 &gt; 2\n\n\n2 &gt; 3\n\n\n2 == 3\n\n\n2 != 3\n\nIn the above lines of code, we used basic mathematical operators to see if conditions are true or false. When we asked Python if 3 is greater than 2, it told us it was True; when we asked it if 2 is greater than 3, it said False. Such true/false logic can be used with conditional statements in your code. To do this, you’ll often use conditional operators, which you’ll be familiar with from basic mathematics, possibly with a couple exceptions. Conditional operators in Python are as follows:\n\n&lt; Less than\n&gt; Greater than\n&lt;= Less than or equal to\n&gt;= Greater than or equal to\n== Is equal to\n!= Is not equal to\n\nAs humans, we use conditional logic all of the time without really thinking about it. For example, if I am hungry, I’ll probably go eat something; otherwise, I won’t. Such logic can be expressed in Python as a series of if, elif (which means else if), and else statements.\nLet’s try to express this now in code in basic terms. This is made-up code, so we don’t need to understand everything, but here are the basics of it. We define a function, hungry, that measures the biological/psychological properties that govern hunger reflexes in the human body. We say, hypothetically, that a hunger index value encapsulating these properties that exceeds 100 means that a person is hungry; in turn, the function returns True. Otherwise, it returns False.\n\ndef hungry(hunger_index):\n    if hunger_index &gt; 100:\n        return True\n    else:\n        return False\n\nhungry(103)\n\n\nhungry(88)\n\nWe can then pass a variable kyle, which represents my hunger index, to the function. The function then checks to see if I am hungry, and returns True if I am, and False otherwise. These results can then be embedded in other workflows, in which you program Python to perform different tasks depending on the function results. For example:\nif hungry(kyle):  \n    eat()\nelse: \n    stay_put()\nAs you can see above, this can be simplified in Python as the code if hungry(kyle) checks to see if the returned value is True. If I am hungry, the code calls an unseen eat() function telling me to go eat; otherwise, it tells me to stay put with an unseen stay_put() function.\nSimple enough, right? Not quite. I’m hungry right now, but I’m not currently eating. Why is that the case? Well… I have to get this assignment written for you! While I am hungry, my level of hunger is not so debilitating that I am unable to work, and I know that finishing my work is a higher priority than eating at the moment. In reality, there are countless conditions that influence whether we eat or not beyond simply how hungry we are. For example - is there food accessible? Are you in a place where it is socially acceptable to eat? Perhaps you are at a party where pizza is available - you aren’t hungry, but you eat it anyway? Your brain processes all of this conditional logic at once as you make decisions, so we aren’t always used to thinking explicitly about conditionals in such discrete ways. However, to get a computer to understand this, you have to make it explicit in your code!\nThe hungry function we defined above used conditional logic, telling Python to return True or False depending on the value of the hunger index. Note that the if statement starts on a new indented line of code beneath the function definition, and itself is followed by a colon; the code associated with the if statement then follows on another, indented line of code. The same goes for the else statement beneath it. You should be getting a sense now of style rules in Python, and the importance of whitespace for code organization, which applies to conditional statements as well.\nNow I’d like you to try to replicate this yourself! Define a function called greater_than_two that checks to see if a number is greater than 2 or not. Call the function.\n\n### Your code goes here!"
-  },
-  {
-    "objectID": "notebooks/assignment-02-functions-and-iteration.html#loops",
-    "href": "notebooks/assignment-02-functions-and-iteration.html#loops",
-    "title": "GEOG 30323",
-    "section": "Loops",
-    "text": "Loops\nIn programming, you will often want to do an operation multiple times, or carry out some process over a list of values that you’ve created. To do this, you will frequently turn to loops.\nThe most commonly used loops in Python are for and while. A for loop carries out an action, or set of actions, for every element that you tell it to. Let’s give it a try in very simple terms. I’ve created a list of teams in the Big 12 below; we’ll loop through this list with for and concatenate another string to each element.\n\nbig12 = [\"TCU Horned Frogs\", \"Baylor Bears\", \"Texas Tech Red Raiders\", \"Oklahoma State Cowboys\", \n         \"Kansas Jayhawks\", \"Kansas State Wildcats\", \"Iowa State Cyclones\", \"West Virginia Mountaineers\",\n         \"Cincinnati Bearcats\", \"Houston Cougars\", \"UCF Knights\", \"BYU Cougars\",\n         \"Arizona Wildcats\", \"Arizona State Sun Devils\", \"Colorado Buffaloes\", \"Utah Utes\"]\n\n\nfor team in big12: # You can read this here as \"for every team in the Big 12....\n    print(team + \" are in the Big 12.\") # ... print the name of the team along with \"are in the Big 12.\"\n\nA couple notes about the above code. Notice that I’m using team as a temporary variable that will successively store each value of the list as we loop through it. This variable, team, takes on each value of the list in turn; and presently stores the last value of the list.\n\nteam\n\nAs such, this is how the for loop works. for tells Python to evaluate every element of the list big12; these elements will be represented by the variable team. The loop then walks through the list big12 and prints the specified text for every element in the list. This for loop is equivalent, then, to:\nprint(\"TCU Horned Frogs are in the Big 12\")\nprint(\"Baylor Bears are in the Big 12\")\nprint(\"Texas Tech Red Raiders are in the Big 12\")\n\n# ... and so forth\nbut you don’t really want to do that manually, especially when you might have thousands of strings to evaluate. In turn, the for loop does the work for you, which is one of the main benefits of programming.\nAlso, I’d like you to notice the structure of the loop. Like functions, loops obey whitespace rules for code organization, and will fail if your code is not properly indented. The first line of the loop - in this case for team in big12 - is not indented, and is followed by a colon. Everything else contained in the loop is found in an indented block on the line(s) following the for loop call. As with functions, your loop will fail without proper indentation.\n\nfor team in big12: \nprint(team + \" are in the Big 12.\")\n\nNow let’s say you want to create a new list of the “…are in the Big 12” elements. There are a couple ways to do this. In the first, you define an empty list object, then populate the list with the for loop and the append method, as shown below.\n\nteams = [] # The empty brackets designate an empty list, which you'll fill up with the loop.\n\nfor team in big12:\n    teams.append(team + \" are in the Big 12.\")\n\nteams\n\nYou can also do the same thing with something called list comprehension. List comprehension allows for the creation of a new list with one line of code. In this case, the for loop is embedded within the statement you make. Below is an example:\n\nteams2 = [team + \" are in the Big 12.\" for team in big12]\n\nteams2\n\nYou can use methods and functions in your list comprehension as well, as in the example below:\n\nswap = [name.swapcase() for name in big12]\n\nswap\n\nLoops also work for strings - though in this case the loop will iterate through each character contained in your string. An example:\n\ntcu = \"Texas Christian University\"\n\nidx = 0\nfor character in tcu:\n    print(\"The index of \" + character + \" is \" + str(idx))\n    idx = idx + 1\n\n\nThe while loop\nfor is not the only loop you’ll come across in Python. You can also specify a while loop, which will run a loop until a given condition is satisfied. I’ll give you an example below. Let’s say you only want to return the first five elements of your list. While you could do this with indexing (which is simpler), let’s try the while loop instead.\n\nnewlist = []\n\ni = 0\n\nwhile i &lt; 5:\n    newlist.append(big12[i])\n    i = i + 1\n\nnewlist\n\nHave a look at what we did. We created an empty list, and set a new variable, i, to 0. We then looped through the elements of the list index by index, adding 1 to i with each run of the loop, and then stopping the code when i became equal to 5. In turn, we got back the elements of the big12 list indexed 0 to 4, which are the first five elements.\nBe careful with while loops, however. If you don’t specify them correctly, you can get stuck in an infinite loop, which will not stop! For example, if we had not continued to add 1 to i, the loop would have never stopped and would have kept iterating through the list. In Colab, this will cause your notebook to hang while it tries, forever, to finish the loop. If that happens, click the stop button next to the running cell to interrupt it. I’ve been there a few times…\n\n\nThe range function\nSequences of numbers in Python can be generated by typing them out, as you’ve learned how to do in this class. However, they can also be produced by the built-in range function, which can simplify things for you significantly if you need to generate a long list of integers. range has three parameters: start, which is the first integer you want to start with; stop, which is the first integer you don’t want to include, and step, which optionally specifies the integer interval. For example:\n\nx = range(1, 21, 5)\n\nx\n\n\ntype(x)\n\nWe’ve created a range object which conforms to the arguments we supplied to the range function. Notably, the range object can be looped through:\n\nfor y in x:\n    print(y)\n\nIf need be, your range object can also be converted to a list with the list function.\n\nlist(x)"
-  },
-  {
-    "objectID": "notebooks/assignment-02-functions-and-iteration.html#exercises",
-    "href": "notebooks/assignment-02-functions-and-iteration.html#exercises",
-    "title": "GEOG 30323",
-    "section": "Exercises",
-    "text": "Exercises\nAs with last week’s notebook, I’ll ask you to complete a series of small exercises below to get full credit for this week’s assignment. Some of these exercises will build upon the skills you learned last week - so be prepared! You are welcome to work together on these exercises, and you can use Colab’s embedded AI assistant to help you with them. My recommendation: try to complete the exercise first without AI, then only use AI when you get stuck or to help provide an explanation.\nExercise 1: Explain, in your own words, the difference between using print and return for the output of a function. Write your response below, in this Markdown cell.\nExercise 2: Write a function called make_big that takes a lowercase string as input and prints the string with all capital letters. Create a new variable and assign to it a string with all lowercase letters, then call the make_big function with that variable as its argument.\n\n# Your answer goes here!\n\n\nExercise 3: Write a function called first_word that takes a list of character strings as input and returns the first element of the list in alphabetical order. For example, your function should work like this:\n\nstudents = ['Mary', 'Zelda', 'Jimmy', 'Jack', 'Bartholomew', 'Gertrude']\n\nfirst_word(students)\n\n'Bartholomew' # The result\nHint: You’ll need to first sort your list in the function to accomplish this, then identify the first element. Within a function, it is a good idea to use multiple lines of code to separate out the different steps. Just make sure all the code that belongs to the function is indented!\nAfter you’ve written the function, run it by supplying the list teams to your function as an argument to test it. Before you run it, write down in a comment which team you expect to come back first. Then check.\n\nteams = ['Stars', 'Cowboys', 'Rangers', 'Mavericks', 'FC Dallas']\n\n# Your code goes below!\n\n\nExercise 4: Explain, in your own words, the difference between a for loop and a while loop. Write your response below in this Markdown cell.\nExercise 5:\nYou’re the treasurer of a TCU student club, and you’re in charge of ordering pizza for the club’s meetings this semester. RSVPs come in before each meeting, and the club gives you a budget. Your job is to figure out how many pizzas to order.\nDoing this by hand once is easy. Doing it every meeting, for every club on campus, is exactly the kind of thing a function is for. And as with last week, you’re going to work with an AI assistant to build it. The difference this week: last week you checked the assumptions the AI made. This week, you make the assumptions, and then check that the code follows them.\nRun the cell below to load the RSVP counts for this semester’s meetings, along with the budget and the price of a pizza.\n\nrsvps = [18, 6, 35, 24, 11, 52]   # one number per meeting, in order\n\nbudget = 150     # dollars per meeting\nprice = 15       # dollars per large pizza\n\nprint(len(rsvps), \"meetings loaded\")\n\nPart 1: Make a plan. Before you write any code, decide on your ordering rules and write them down here. You’ll need to decide at least the following:\n\nDo you think everyone who RSVPs will show up? Will anyone show up who didn’t RSVP?\n\nHow many slices does a person eat?\n\nHow many slices are in a pizza?\n\nYou can’t order part of a pizza. Which way do you round?\n\nThere is no single right answer to any of these. Just make a choice, and say why in a sentence.\nThen, using your rules, work out by hand how many pizzas you would order for the first meeting (18 RSVPs), and what it would cost. Write those two numbers down.\nDouble-click and answer here.\nPart 2: Build. Ask Gemini or another AI assistant to write a function called pizzas_needed that follows your rules and returns the number of pizzas to order. Give it your rules from Part 1 - you can copy and paste them.\nYou’ll also need to decide what the function’s parameters are. Which quantities change from meeting to meeting, and which are rules that belong inside the function? (Think back to the tutorial: a parameter like slices_per_person can have a default value, which you override with a named argument when you need to.)\nPaste the code below, then call your function for the first meeting. Does it give the same answer you worked out by hand?\n\n# Paste and run the code Gemini helped you write, then call it for the first meeting.\n\n\n\nLook at the function closely.\n\nFind each of your rules from Part 1 in the code. Which line carries out which rule?\n\nIs there any rule in the code that you did not write down? What is it?\n\nDouble-click and answer here.\nPart 3: Try every meeting. Write a for loop that calls pizzas_needed for every meeting in rsvps and prints the RSVP count, the number of pizzas, and the cost.\nThen look at the results like a treasurer, not a programmer. Would you actually place these orders? Pay special attention to the smallest meeting and the largest one.\nThen change one assumption - say, three slices per person instead of two - and run the loop again. How much did the orders and the costs change?\n\n# Your loop goes here.\n\n\n\nDouble-click and write down what you noticed.\nPart 4: The complication. Bad news from the club president: the budget for the last meeting - the one with 52 RSVPs - has been cut to $75. That’s five pizzas.\nYou have to decide what the function should do when the order doesn’t fit the budget: order what the budget allows and risk running out, recommend asking for more money, or something else. Decide on a policy, then revise your instructions to Gemini so the function follows it. Paste and run the revised code below, run it for the last meeting, and explain in a few sentences what your policy means for the people who show up.\n\n# Paste and run the revised code, then run it for the last meeting.\n\n\n\nDouble-click and answer here.\nTo submit your assignment, click the Share button and share your assignment with kwalkertcu@gmail.com."
-  },
-  {
-    "objectID": "slides/02-programming-1.html#why-code",
-    "href": "slides/02-programming-1.html#why-code",
-    "title": "Programming I - Intro to Python",
-    "section": "Why code?",
-    "text": "Why code?"
-  },
-  {
-    "objectID": "slides/02-programming-1.html#for-discussion",
-    "href": "slides/02-programming-1.html#for-discussion",
-    "title": "Programming I - Intro to Python",
-    "section": "For discussion",
-    "text": "For discussion\nThere’s a lot of talk about AI right now. What have you heard about:\n\nAI and coding / coding jobs?\nAI and jobs in your field, in general?"
-  },
-  {
-    "objectID": "slides/02-programming-1.html#didnt-ai-solve-coding",
-    "href": "slides/02-programming-1.html#didnt-ai-solve-coding",
-    "title": "Programming I - Intro to Python",
-    "section": "Didn’t AI solve coding?",
-    "text": "Didn’t AI solve coding?\n\n“It is our job to create computing technology such that nobody has to program… the programming language is human.” — Jensen Huang, CEO of Nvidia (Feb 2024)\n“We’ll be there in three to six months, where AI is writing 90 percent of the code. And then in twelve months, we may be in a world where AI is writing essentially all of the code.” — Dario Amodei, CEO of Anthropic (Mar 2025)"
-  },
-  {
-    "objectID": "slides/02-programming-1.html#from-the-creator-of-claude-code",
-    "href": "slides/02-programming-1.html#from-the-creator-of-claude-code",
-    "title": "Programming I - Intro to Python",
-    "section": "From the creator of Claude Code:",
-    "text": "From the creator of Claude Code:"
-  },
-  {
-    "objectID": "slides/02-programming-1.html#read-it-the-way-you-read-the-plumber-tweet",
-    "href": "slides/02-programming-1.html#read-it-the-way-you-read-the-plumber-tweet",
-    "title": "Programming I - Intro to Python",
-    "section": "Read it the way you read the plumber tweet",
-    "text": "Read it the way you read the plumber tweet\n\nIf bugs are not yet solved… what exactly got solved?\nTyping is solved: producing code that looks right\nKnowing whether the code is right? Not solved. (That’s this course.)"
-  },
-  {
-    "objectID": "slides/02-programming-1.html#determinism",
-    "href": "slides/02-programming-1.html#determinism",
-    "title": "Programming I - Intro to Python",
-    "section": "Determinism",
-    "text": "Determinism\n\nDeterminism: metaphysical view that events can only take place one certain way\nDeterministic process: a process that executes identically each time it runs\nCode is deterministic; human language is not"
-  },
-  {
-    "objectID": "slides/02-programming-1.html#so-why-use-code-for-data-analysis",
-    "href": "slides/02-programming-1.html#so-why-use-code-for-data-analysis",
-    "title": "Programming I - Intro to Python",
-    "section": "So, why use code for data analysis?",
-    "text": "So, why use code for data analysis?\n\nAutomation\nDocumentation and reproducibility\nLogical organization\nSystems design"
-  },
-  {
-    "objectID": "slides/02-programming-1.html#more-specifically-why-do-you-need-to-learn-code",
-    "href": "slides/02-programming-1.html#more-specifically-why-do-you-need-to-learn-code",
-    "title": "Programming I - Intro to Python",
-    "section": "More specifically, why do you need to learn code?",
-    "text": "More specifically, why do you need to learn code?\n\nIf you want to be lazy, you can be more lazy with less effort than at any other time in human history; you can solve problems with zero intellectual engagement. But you don’t have to do that, because AI can also amplify the best of you. You can use it to go deeper, to engage more in any of the domains that you’re working in.\n\n\nWickham - https://tidydesign.substack.com/p/y-code-when-ai"
-  },
-  {
-    "objectID": "slides/02-programming-1.html#what-amodei-actually-said",
-    "href": "slides/02-programming-1.html#what-amodei-actually-said",
-    "title": "Programming I - Intro to Python",
-    "section": "What Amodei actually said",
-    "text": "What Amodei actually said"
-  },
-  {
-    "objectID": "slides/02-programming-1.html#your-advantage-understanding-the-process",
-    "href": "slides/02-programming-1.html#your-advantage-understanding-the-process",
-    "title": "Programming I - Intro to Python",
-    "section": "Your advantage: understanding the process",
-    "text": "Your advantage: understanding the process\n\nThem: using AI to produce outcomes with no understanding of the process\nYou have access to the same AI tools as them. But you:\n\nUnderstand the code that AI is using to build the outcomes\nHave the knowledge to direct AI to use better, newer, and more efficient tools\nCan build with AI and build expertise as a result"
-  },
-  {
-    "objectID": "slides/02-programming-1.html#some-examples",
-    "href": "slides/02-programming-1.html#some-examples",
-    "title": "Programming I - Intro to Python",
-    "section": "Some examples",
-    "text": "Some examples"
-  },
-  {
-    "objectID": "slides/02-programming-1.html#python",
-    "href": "slides/02-programming-1.html#python",
-    "title": "Programming I - Intro to Python",
-    "section": "Python",
-    "text": "Python\n\nPython is by far the most popular programming language in the world\nIt’s arguably the easiest language for beginners to understand\nIn most cases, coding agents default to it - so you’ll learn to speak their language"
-  },
-  {
-    "objectID": "slides/02-programming-1.html#why-python-xkcd",
-    "href": "slides/02-programming-1.html#why-python-xkcd",
-    "title": "Programming I - Intro to Python",
-    "section": "Why Python? (XKCD)",
-    "text": "Why Python? (XKCD)\n\n\nSource: Randall Munroe/XKCD"
-  },
-  {
-    "objectID": "slides/02-programming-1.html#other-options-for-data-analysis",
-    "href": "slides/02-programming-1.html#other-options-for-data-analysis",
-    "title": "Programming I - Intro to Python",
-    "section": "Other options for data analysis",
-    "text": "Other options for data analysis\n \n\nR (https://www.r-project.org/): programming language for statistics, data analysis, and much more (and a personal favorite of mine)\nJulia (http://julialang.org/): relatively new language for technical computing that aims for high-level syntax and C-like speed"
-  },
-  {
-    "objectID": "slides/02-programming-1.html#google-colaboratory",
-    "href": "slides/02-programming-1.html#google-colaboratory",
-    "title": "Programming I - Intro to Python",
-    "section": "Google Colaboratory",
-    "text": "Google Colaboratory\n\nCloud-based platform for hosted Jupyter Notebooks that connects to your Google account & Google Drive.\nLet’s try it out! https://colab.research.google.com/"
-  },
-  {
-    "objectID": "slides/02-programming-1.html#strings",
-    "href": "slides/02-programming-1.html#strings",
-    "title": "Programming I - Intro to Python",
-    "section": "Strings",
-    "text": "Strings\n\nStrings, or textual representations of data, have a series of special methods that allow for their manipulation\n\nExample:\ntcu = 'Texas Christian University'\ntcu.swapcase()\n# 'tEXAS cHRISTIAN uNIVERSITY'"
-  },
-  {
-    "objectID": "slides/02-programming-1.html#lists",
-    "href": "slides/02-programming-1.html#lists",
-    "title": "Programming I - Intro to Python",
-    "section": "Lists",
-    "text": "Lists\n\nData structure in Python for storing multiple values; enclosed in brackets []\nList elements do not need to all be of the same type (though you’ll often want them to be)\n\nExample list: mylist = [2, 4, 6, 8, 10, 12]"
-  },
-  {
-    "objectID": "slides/02-programming-1.html#assignment-1-lets-take-a-look",
-    "href": "slides/02-programming-1.html#assignment-1-lets-take-a-look",
-    "title": "Programming I - Intro to Python",
-    "section": "Assignment 1: let’s take a look",
-    "text": "Assignment 1: let’s take a look"
   }
 ]
