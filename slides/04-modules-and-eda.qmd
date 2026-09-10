@@ -237,16 +237,14 @@ max       1.000  2244.000   143372.000
 ### Before you plot: what shape do you expect?
 
 <!-- SCAFFOLDING (Kyle to re-voice, delete this comment):
-     Predict-then-run in chart form. Ask the room to sketch the shape of graduation rates across
-     2,263 colleges before showing the histogram: symmetric? piled up at one end? two humps?
-     Then reveal. The actual shape (June 2026 Scorecard release): roughly symmetric, peak near
-     0.5, wide - and small spikes at BOTH ends: 39 institutions report exactly 0% and 33 report
-     exactly 100%. Worth asking the room whether those are real or a data problem (tiny cohorts,
-     suppressed values) - the describe() min of 0.000 and max of 1.000 already hinted at it.
-     This sets up Assignment 3's "do your data appear skewed?" question as a prediction they
-     already practiced. -->
+     Predict-then-run in chart form. Ask the room to sketch the shape of median earnings across
+     2,105 colleges before showing the histogram: symmetric? piled up at one end? two humps?
+     Actual shape: right-skewed (skew ~1.1) - most institutions between $40k and $60k, median
+     $50,660, mean $52,699 pulled up by a long right tail out to $143k (MIT, Harvey Mudd, Olin,
+     pharmacy schools). Mean > median is the tell. This is the same tail the box plot flags as
+     outliers two slides later, and it sets up Assignment 3's "do your data appear skewed?" -->
 
-- [KYLE: 2,263 colleges. Before I show you: sketch the shape you expect for graduation rates]
+- [KYLE: 2,105 colleges. Before I show you: sketch the shape you expect for median earnings of former students, 10 years after entry]
 
 ---
 
@@ -256,7 +254,7 @@ max       1.000  2244.000   143372.000
 import seaborn as sns
 sns.set_style("darkgrid")
 
-grad.rate.hist()
+grad.median_earn.hist()
 ```
 <img src=img/04-modules-and-eda/hist1.png style="width:600px">
 
@@ -266,7 +264,7 @@ grad.rate.hist()
 
 ```python
 # Try the `bins` argument to modify the plot appearance
-sns.histplot(data = grad, x = "rate")
+sns.histplot(data = grad, x = "median_earn")
 ```
 
 <img src=img/04-modules-and-eda/hist2.png style="width:600px">
@@ -279,7 +277,7 @@ sns.histplot(data = grad, x = "rate")
 * Accessible from both `pandas` and `seaborn`
 
 ```python
-sns.kdeplot(data = grad, x = "rate", fill = True)
+sns.kdeplot(data = grad, x = "median_earn", fill = True)
 ```
 <img src=img/04-modules-and-eda/kde.png>
 
