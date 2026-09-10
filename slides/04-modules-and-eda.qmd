@@ -85,11 +85,11 @@ df = pd.DataFrame(y, columns = ['x' + str(num) for num in range(1, 7)])
 ## The pandas DataFrame
 
 * Commonly, DataFrames are created by reading in external data, like CSV files
-* Download link: <https://github.com/walkerke/geog30323/blob/main/data/grad_rates.csv> (click __Download raw file__)
+* Download link: <https://github.com/walkerke/geog30323/blob/main/data/colleges.csv> (click __Download raw file__)
 
 ```python
 # To read in CSV files, we use the pd.read_csv function 
-grad = pd.read_csv("grad_rates.csv")
+colleges = pd.read_csv("colleges.csv")
 ```
 
 ---
@@ -97,9 +97,9 @@ grad = pd.read_csv("grad_rates.csv")
 ## Tutorial: working with external data in Colab
 
 ::: {.incremental}
-* Download `grad_rates.csv` from the link to your computer
+* Download `colleges.csv` from the link to your computer
 * In Colab, click the __folder icon__ in the left sidebar to open the Files pane, then the __upload__ button, and choose the file
-* It lands in `/content`, Colab's working directory - so `pd.read_csv("grad_rates.csv")` finds it
+* It lands in `/content`, Colab's working directory - so `pd.read_csv("colleges.csv")` finds it
 * Uploaded files __disappear when the runtime disconnects__.  Re-upload, or mount your Google Drive
 :::
 
@@ -109,9 +109,18 @@ grad = pd.read_csv("grad_rates.csv")
 
 * Each observation forms a __row__, defined by an __index__; attributes of those observations are found in the __columns__ of the DataFrame
 
-<img src=img/04-modules-and-eda/df1.png>
+```python
+colleges.head()
 
-* Columns are accessible as indices, e.g. `grad['rate']`, or as attributes of the data frame, e.g. `grad.rate`
+                                  name    rate     rnk  median_earn
+0             Alabama A & M University  0.2403  2031.0      40628.0
+1  University of Alabama at Birmingham  0.6423   672.0      54501.0
+2                   Amridge University  1.0000    17.0      37621.0
+3  University of Alabama in Huntsville  0.6429   669.0      61767.0
+4             Alabama State University  0.3034  1921.0      34502.0
+```
+
+* Columns are accessible as indices, e.g. `colleges['median_earn']`, or as attributes of the data frame, e.g. `colleges.median_earn`
 
 ---
 
@@ -131,13 +140,13 @@ grad = pd.read_csv("grad_rates.csv")
 # All of these are equivalent
 
 import pandas
-pandas.read_csv("grad_rates.csv")
+pandas.read_csv("colleges.csv")
 
 import pandas as pd
-pd.read_csv("grad_rates.csv")
+pd.read_csv("colleges.csv")
 
 from pandas import *
-read_csv("grad_rates.csv")
+read_csv("colleges.csv")
 ```
 
 ---
@@ -187,7 +196,7 @@ where $n$ is the number of elements in the sample.
 
 ### Descriptive statistics in pandas
 
-* Descriptive stats are available in `pandas` as data frame methods, e.g. `grad.mean()`, `grad.std()`
+* Descriptive stats are available in `pandas` as data frame methods, e.g. `colleges.mean()`, `colleges.std()`
 * Calling `.describe()` will give you back a number of important descriptive stats at once
 
 ---
@@ -195,7 +204,7 @@ where $n$ is the number of elements in the sample.
 ### `.describe()`
 
 ```python
-grad.describe()
+colleges.describe()
 
            rate       rnk  median_earn
 count  2263.000  2263.000     2105.000
@@ -254,7 +263,7 @@ max       1.000  2244.000   143372.000
 import seaborn as sns
 sns.set_style("darkgrid")
 
-grad.median_earn.hist()
+colleges.median_earn.hist()
 ```
 <img src=img/04-modules-and-eda/hist1.png style="width:600px">
 
@@ -264,7 +273,7 @@ grad.median_earn.hist()
 
 ```python
 # Try the `bins` argument to modify the plot appearance
-sns.histplot(data = grad, x = "median_earn")
+sns.histplot(data = colleges, x = "median_earn")
 ```
 
 <img src=img/04-modules-and-eda/hist2.png style="width:600px">
@@ -277,7 +286,7 @@ sns.histplot(data = grad, x = "median_earn")
 * Accessible from both `pandas` and `seaborn`
 
 ```python
-sns.kdeplot(data = grad, x = "median_earn", fill = True)
+sns.kdeplot(data = colleges, x = "median_earn", fill = True)
 ```
 <img src=img/04-modules-and-eda/kde.png>
 
@@ -288,7 +297,7 @@ sns.kdeplot(data = grad, x = "median_earn", fill = True)
 * Also termed "box and whisker plots" - alternative way to show distribution of values graphically
 
 ```python
-sns.boxplot(data = grad, y = "median_earn", color = "green")
+sns.boxplot(data = colleges, y = "median_earn", color = "green")
 ```
 <img src=img/04-modules-and-eda/boxplot.png>
 
@@ -307,7 +316,7 @@ sns.boxplot(data = grad, y = "median_earn", color = "green")
 * Combinations of box plots and kernel density plots
 
 ```python
-sns.violinplot(data = grad, x = "median_earn", color = "cyan")
+sns.violinplot(data = colleges, x = "median_earn", color = "cyan")
 ```
 
 <img src=img/04-modules-and-eda/violin.png>
