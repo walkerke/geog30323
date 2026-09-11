@@ -6,6 +6,7 @@ project:
     - assignments.qmd
     - notebooks/assignment-01-python-basics.ipynb
     - notebooks/assignment-02-functions-and-iteration.ipynb
+    - notebooks/assignment-03-univariate-data-analysis.ipynb
     - slides/01-data-literacy.qmd
     - slides/02-programming-1.qmd
     - slides/03-functions-and-iteration.qmd

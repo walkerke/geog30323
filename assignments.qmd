@@ -12,7 +12,7 @@ Open an assignment to read through it, then click **Open in Colab** at the top t
 
 - [Assignment 1: Introduction to Python](notebooks/assignment-01-python-basics.ipynb)
 - [Assignment 2: Functions, conditional statements, and iteration in Python](notebooks/assignment-02-functions-and-iteration.ipynb)
-- Assignment 3 *(coming soon)*
+- [Assignment 3: Univariate data analysis](notebooks/assignment-03-univariate-data-analysis.ipynb)
 - Assignment 4 *(coming soon)*
 - Assignment 5 *(coming soon)*
 - Assignment 6 *(coming soon)*

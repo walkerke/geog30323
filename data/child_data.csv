@@ -1,52 +1,52 @@
-state,rate
-Alabama,0.35
-Alaska,0.299
-Arizona,0.367
-Arkansas,0.339
-California,0.304
-Colorado,0.231
-Connecticut,0.297
-Delaware,0.32
-District of Columbia,0.35
-Florida,0.275
-Georgia,0.35
-Hawaii,0.274
-Idaho,0.278
-Illinois,0.336
-Indiana,0.315
-Iowa,0.283
-Kansas,0.302
-Kentucky,0.357
-Louisiana,0.398
-Maine,0.295
-Maryland,0.316
-Massachusetts,0.305
-Michigan,0.326
-Minnesota,0.272
-Mississippi,0.397
-Missouri,0.284
-Montana,0.29
-Nebraska,0.289
-Nevada,0.332
-New Hampshire,0.26
-New Jersey,0.247
-New Mexico,0.328
-New York,0.324
-North Carolina,0.314
-North Dakota,0.358
-Ohio,0.308
-Oklahoma,0.339
-Oregon,0.264
-Pennsylvania,0.265
-Rhode Island,0.283
-South Carolina,0.392
-South Dakota,0.265
-Tennessee,0.341
-Texas,0.366
-Utah,0.221
-Vermont,0.245
-Virginia,0.298
-Washington,0.262
-West Virginia,0.336
-Wisconsin,0.288
-Wyoming,0.267
+state,zero_days,one_to_three_days,four_to_six_days,every_day
+Alabama,0.1211,0.3685,0.2780,0.2325
+Alaska,0.0921,0.3377,0.3565,0.2137
+Arizona,0.1330,0.3939,0.3274,0.1457
+Arkansas,0.1013,0.3969,0.2308,0.2710
+California,0.0839,0.4420,0.3031,0.1711
+Colorado,0.1017,0.3557,0.3338,0.2087
+Connecticut,0.0841,0.4405,0.3051,0.1703
+Delaware,0.1237,0.4734,0.2361,0.1668
+District of Columbia,0.0965,0.4303,0.2922,0.1810
+Florida,0.1298,0.4191,0.2709,0.1803
+Georgia,0.1192,0.4623,0.2443,0.1742
+Hawaii,0.0638,0.4477,0.3192,0.1692
+Idaho,0.0871,0.3916,0.2936,0.2278
+Illinois,0.0892,0.4130,0.3004,0.1974
+Indiana,0.1305,0.3610,0.2843,0.2242
+Iowa,0.0947,0.3761,0.2754,0.2537
+Kansas,0.0922,0.3936,0.3134,0.2007
+Kentucky,0.0967,0.4038,0.2448,0.2547
+Louisiana,0.1309,0.4601,0.2289,0.1801
+Maine,0.0991,0.3289,0.2880,0.2841
+Maryland,0.1220,0.4151,0.2677,0.1952
+Massachusetts,0.0686,0.4356,0.2934,0.2025
+Michigan,0.0884,0.3725,0.2871,0.2521
+Minnesota,0.0659,0.3845,0.3426,0.2069
+Mississippi,0.1386,0.4092,0.2736,0.1787
+Missouri,0.1263,0.3963,0.2904,0.1870
+Montana,0.0584,0.3674,0.3472,0.2269
+Nebraska,0.0795,0.3903,0.2869,0.2434
+Nevada,0.0959,0.4864,0.2838,0.1339
+New Hampshire,0.0625,0.4174,0.3397,0.1803
+New Jersey,0.0886,0.4763,0.2715,0.1635
+New Mexico,0.0884,0.4639,0.2699,0.1779
+New York,0.1352,0.4367,0.2578,0.1703
+North Carolina,0.1020,0.4118,0.2770,0.2092
+North Dakota,0.0578,0.3487,0.3822,0.2112
+Ohio,0.0997,0.3797,0.2971,0.2235
+Oklahoma,0.0882,0.4407,0.2826,0.1885
+Oregon,0.1153,0.4323,0.2706,0.1818
+Pennsylvania,0.0841,0.3828,0.3211,0.2119
+Rhode Island,0.1076,0.4445,0.2780,0.1699
+South Carolina,0.1138,0.4096,0.2764,0.2002
+South Dakota,0.0884,0.4331,0.2702,0.2083
+Tennessee,0.1309,0.3930,0.3121,0.1639
+Texas,0.1526,0.3891,0.2838,0.1745
+Utah,0.0825,0.4000,0.3397,0.1779
+Vermont,0.0490,0.3732,0.3190,0.2588
+Virginia,0.0966,0.3856,0.3093,0.2085
+Washington,0.0752,0.4236,0.3172,0.1840
+West Virginia,0.0999,0.4132,0.2556,0.2313
+Wisconsin,0.0817,0.3740,0.3061,0.2382
+Wyoming,0.0818,0.3561,0.3203,0.2418
