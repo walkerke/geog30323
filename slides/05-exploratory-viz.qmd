@@ -168,7 +168,7 @@ zac.plot(kind = 'pie', figsize = (6, 6))
 
 ### Problems with pie charts
 
-<div style="text-align: center;"><img src="img/05-exploratory-viz/cnn_dogs_china_pie_2019.jpg" style="height: 460px"><figcaption>Source: CNN, 2019, via [WTF Visualizations](https://viz.wtf/)</figcaption></div>
+<div style="text-align: center;"><img src="img/05-exploratory-viz/timesnow_pie_2020.jpg" style="height: 460px"><figcaption>Source: Times Now (India) broadcast graphic, June 2020, via [WTF Visualizations](https://viz.wtf/)</figcaption></div>
 
 ---
 
