@@ -12,7 +12,7 @@ date: "2026-09-22"
 
 ### Exploring data visually
 
-<img src=img/05-exploratory-viz/yau1.PNG style="width: 700px"><figcaption>Source: Yau, _Data Points_ p. 137</figcaption>
+<div style="text-align: center;"><img src="img/05-exploratory-viz/wilke_directory.png" style="height: 560px"><figcaption>Source: Wilke, [_Fundamentals of Data Visualization_](https://clauswilke.com/dataviz/directory-of-visualizations.html), Ch. 5 (CC BY-NC-ND)</figcaption></div>
 
 ---
 
@@ -85,7 +85,7 @@ mx_sorted.head()
 
 ## Bar charts
 
-<img src="https://fivethirtyeight.com/wp-content/uploads/2015/02/hickey-datalab-snl-4.png?w=575" style="width: 600px"><figcaption>Source: [FiveThirtyEight.com](http://fivethirtyeight.com/datalab/who-really-had-the-best-movie-career-after-snl/)</figcaption>
+<div style="text-align: center;"><img src="img/05-exploratory-viz/pew_news_by_age_2025.png" style="height: 500px"><figcaption>Source: [Pew Research Center, "Young Adults and the Future of News"](https://www.pewresearch.org/journalism/2025/12/03/young-adults-and-the-future-of-news/) (Dec 2025)</figcaption></div>
 
 ---
 
@@ -99,7 +99,7 @@ mx_sorted.head()
 
 ### Bar chart with non-zero origin
 
-<img src=img/05-exploratory-viz/foxbar.jpeg style="width: 850px"><figcaption>Source: Fox News via FlowingData.com</figcaption>
+<div style="text-align: center;"><img src="img/05-exploratory-viz/whitehouse_steel_2026.jpg" style="height: 500px"><figcaption>Source: [@WhiteHouse on X](https://x.com/WhiteHouse), Jan 30, 2026 (3M views), with readers' Community Note</figcaption></div>
 
 ---
 
@@ -126,7 +126,7 @@ sns.barplot(x = 'gdp_pc', y = 'name', data = mx_sorted)
 
 ## Dot plots
 
-<img src="https://fivethirtyeight.com/wp-content/uploads/2015/08/enten-datalab-clintonlead-1.png?w=575" style="width: 550px"><figcaption>Source: [FiveThirtyEight.com](http://fivethirtyeight.com/datalab/bernie-sanders-youre-no-barack-obama/)</figcaption>
+<div style="text-align: center;"><img src="img/05-exploratory-viz/pew_platforms_by_age_2025.png" style="height: 500px"><figcaption>Source: [Pew Research Center, "Americans' Social Media Use 2025"](https://www.pewresearch.org/internet/2025/11/20/americans-social-media-use-2025/) (Nov 2025)</figcaption></div>
 
 ---
 
@@ -168,7 +168,7 @@ zac.plot(kind = 'pie', figsize = (6, 6))
 
 ### Problems with pie charts
 
-<img src="http://i2.wp.com/flowingdata.com/wp-content/uploads/2009/11/Fox-News-pie-chart.png?fit=720%2C9999" style="width: 650px"><figcaption>Source: Fox Chicago via FlowingData.com</figcaption>
+<div style="text-align: center;"><img src="img/05-exploratory-viz/hungary_primary_pie_2021.jpg" style="height: 480px"><figcaption>Source: Democratic Coalition (Hungary) campaign graphic, Oct 2021, via [WTF Visualizations](https://viz.wtf/)</figcaption></div>
 
 ---
 
@@ -180,7 +180,7 @@ zac.plot(kind = 'pie', figsize = (6, 6))
 
 ### Line charts
 
-<img src="https://fivethirtyeight.com/wp-content/uploads/2014/10/casselman-feature-dropout-2.png?w=575" style="width: 700px"><figcaption>Source: [FiveThirtyEight.com](http://fivethirtyeight.com/features/u-s-high-school-dropout-rates-fall-especially-among-latinos/)</figcaption>
+<div style="text-align: center;"><img src="img/05-exploratory-viz/pew_teens_platforms_2025.png" style="height: 510px"><figcaption>Source: [Pew Research Center, "Teens, Social Media and AI Chatbots 2025"](https://www.pewresearch.org/internet/2025/12/09/teens-social-media-and-ai-chatbots-2025/) (Dec 2025)</figcaption></div>
 
 ---
 
@@ -206,7 +206,7 @@ sns.lineplot(x = "year", y = "pct_college",
 
 ### Scatter plots
 
-<img src="https://fivethirtyeight.com/wp-content/uploads/2014/11/morris-feature-moss-wowy1.png?w=575" style="width: 600px"><figcaption>Source: [FiveThirtyEight.com](http://fivethirtyeight.com/features/randy-moss-may-well-have-been-the-greatest-receiver-of-all-time/)</figcaption>
+<div style="text-align: center;"><img src="img/05-exploratory-viz/cew_majors_scatter_2026.png" style="height: 530px"><figcaption>Source: [Georgetown CEW, "Major Payoff"](https://cew.georgetown.edu/resource/cew-blog-major-payoff/) (Feb 2026; ACS 2021-23)</figcaption></div>
 
 ---
 
