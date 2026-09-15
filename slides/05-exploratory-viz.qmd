@@ -99,7 +99,7 @@ mx_sorted.head()
 
 ### Bar chart with non-zero origin
 
-<div style="text-align: center;"><img src="img/05-exploratory-viz/whitehouse_steel_2026.jpg" style="height: 500px"><figcaption>Source: [@WhiteHouse on X](https://x.com/WhiteHouse), Jan 30, 2026 (3M views), with readers' Community Note</figcaption></div>
+<div style="text-align: center;"><img src="img/05-exploratory-viz/whitehouse_steel_2026.jpg" style="height: 540px"><figcaption>Source: [@WhiteHouse on X](https://x.com/WhiteHouse/status/2017370992436249025), Jan 30, 2026 (3M views). Community Note: "The vertical axis only shows values in the range 80.2Mt to 81.8Mt. This makes the 1% increase appear much larger than it actually is."</figcaption></div>
 
 ---
 
@@ -168,7 +168,7 @@ zac.plot(kind = 'pie', figsize = (6, 6))
 
 ### Problems with pie charts
 
-<div style="text-align: center;"><img src="img/05-exploratory-viz/hungary_primary_pie_2021.jpg" style="height: 480px"><figcaption>Source: Democratic Coalition (Hungary) campaign graphic, Oct 2021, via [WTF Visualizations](https://viz.wtf/)</figcaption></div>
+<div style="text-align: center;"><img src="img/05-exploratory-viz/cnn_dogs_china_pie_2019.jpg" style="height: 460px"><figcaption>Source: CNN, 2019, via [WTF Visualizations](https://viz.wtf/)</figcaption></div>
 
 ---
 
