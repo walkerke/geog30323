@@ -41,7 +41,7 @@ Many, many more in these categories - these are just our focus for today!
 
 ### Python and the web
 
-* A brief aside: With Python, data on the web is at your fingertips (our topic for Week 8)
+* A brief aside: With Python, data on the web is at your fingertips (our topic for Week 10)
 * This week, you will get a preview
 
 ```python
@@ -158,7 +158,9 @@ sns.stripplot(x = 'gdp_pc', y = 'name', data = mx_sorted)
 ### Pie charts in Python
 
 ```python
-zac = mx[mx.name == 'Zacatecas'].drop(['name', 'gdp_pc', 'gdp_growth', 'pct_65plus'], axis = 1).squeeze()
+zac = mx[mx.name == 'Zacatecas']
+zac = zac.drop(['name', 'gdp_pc', 'gdp_growth', 'pct_65plus'], axis = 1)
+zac = zac.squeeze()
 zac.name = 'Zacatecas'
 zac.plot(kind = 'pie', figsize = (6, 6))
 ```
