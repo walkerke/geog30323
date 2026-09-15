@@ -19,7 +19,7 @@ date: "2026-09-22"
 ## Our schedule: 
 
 * Current activities: data exploration through visualization with common chart types
-* Weeks 9-12: deep dive into data visualization
+* Weeks 11-13: deep dive into data visualization
     * More complex chart types
     * How to customize your `seaborn` plots
     * Best practices in data visualization
@@ -53,12 +53,12 @@ mx.head()
 ```
 
 ```
-                  name  gdp_pc  gdp_growth   pri    sec    ter  pct_65plus
-0       Aguascalientes   214.5        -1.9  4.34  43.70  51.96         7.2
-1      Baja California   233.5         0.3  2.27  46.09  51.64         7.1
-2  Baja California Sur   211.8         3.8  4.21  16.29  79.50         6.6
-3             Campeche   497.3        -6.7  1.46  78.13  20.42         7.9
-4              Chiapas    64.4         2.2  6.76  19.04  74.20         6.0
+                  name  gdp_pc  gdp_growth   pri   sec   ter  other  pct_65plus
+0       Aguascalientes   214.5        -1.9   4.3  30.3  64.7    0.7         7.2
+1      Baja California   233.5         0.3   5.2  29.5  61.4    3.9         7.1
+2  Baja California Sur   211.8         3.8   5.9  18.8  74.8    0.5         6.6
+3             Campeche   497.3        -6.7  17.6  18.8  63.4    0.2         7.9
+4              Chiapas    64.4         2.2  30.9  18.0  50.9    0.2         6.0
 ```
 
 ---
@@ -73,12 +73,12 @@ mx_sorted.head()
 ```
 
 ```
-                name  gdp_pc  gdp_growth   pri    sec    ter  pct_65plus
-3           Campeche   497.3        -6.7  1.46  78.13  20.42         7.9
-6   Ciudad de México   422.5         2.2  0.04   9.36  90.60        12.0
-18        Nuevo León   326.6         3.4  0.49  42.11  57.39         8.0
-7           Coahuila   275.0        -0.5  2.24  54.58  43.18         7.9
-25            Sonora   265.0        -0.3  6.29  48.14  45.57         8.8
+                name  gdp_pc  gdp_growth   pri   sec   ter  other  pct_65plus
+3           Campeche   497.3        -6.7  17.6  18.8  63.4    0.2         7.9
+6   Ciudad de México   422.5         2.2   0.6  13.5  84.4    1.5        12.0
+18        Nuevo León   326.6         3.4   1.3  33.5  64.7    0.5         8.0
+7           Coahuila   275.0        -0.5   2.2  37.6  59.4    0.8         7.9
+25            Sonora   265.0        -0.3   8.9  28.3  61.0    1.8         8.8
 ```
 
 ---
@@ -187,7 +187,7 @@ zac.plot(kind = 'pie', figsize = (6, 6))
 ### Line charts in `seaborn`
 
 ```python
-dfw = pd.read_csv('http://personal.tcu.edu/kylewalker/data/pct_college.csv')
+dfw = pd.read_csv('https://raw.githubusercontent.com/walkerke/geog30323/main/data/pct_college.csv')
 
 sns.lineplot(x = "year", y = "pct_college", 
              hue = "county", data = dfw)
@@ -241,8 +241,7 @@ mx['pri'].corr(mx['gdp_pc'])
 ```
 
 ```
--0.4522172800405324
-
+-0.4880127198490067
 ```
 
 
