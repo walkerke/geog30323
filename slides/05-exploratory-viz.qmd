@@ -47,11 +47,19 @@ Many, many more in these categories - these are just our focus for today!
 ```python
 import pandas as pd
 
-mx_csv = "http://personal.tcu.edu/kylewalker/mexico.csv"
+mx_csv = "https://raw.githubusercontent.com/walkerke/geog30323/main/data/mexico.csv"
 mx = pd.read_csv(mx_csv)
 mx.head()
 ```
-<img src=img/05-exploratory-viz/mx_head.PNG>
+
+```
+                  name  gdp_pc  gdp_growth   pri    sec    ter  pct_65plus
+0       Aguascalientes   214.5        -1.9  4.34  43.70  51.96         7.2
+1      Baja California   233.5         0.3  2.27  46.09  51.64         7.1
+2  Baja California Sur   211.8         3.8  4.21  16.29  79.50         6.6
+3             Campeche   497.3        -6.7  1.46  78.13  20.42         7.9
+4              Chiapas    64.4         2.2  6.76  19.04  74.20         6.0
+```
 
 ---
 
@@ -60,10 +68,18 @@ mx.head()
 How about sorting our data?  
 
 ```python
-mx_sorted = mx.sort_values(by = 'gdp08', ascending = False)
+mx_sorted = mx.sort_values(by = 'gdp_pc', ascending = False)
 mx_sorted.head()
 ```
-<img src=img/05-exploratory-viz/mx_sort.PNG>
+
+```
+                name  gdp_pc  gdp_growth   pri    sec    ter  pct_65plus
+3           Campeche   497.3        -6.7  1.46  78.13  20.42         7.9
+6   Ciudad de México   422.5         2.2  0.04   9.36  90.60        12.0
+18        Nuevo León   326.6         3.4  0.49  42.11  57.39         8.0
+7           Coahuila   275.0        -0.5  2.24  54.58  43.18         7.9
+25            Sonora   265.0        -0.3  6.29  48.14  45.57         8.8
+```
 
 ---
 
@@ -93,7 +109,7 @@ mx_sorted.head()
 import seaborn as sns
 sns.set(style = "darkgrid")
 
-mx.plot(x= 'name', y = 'gdp08', kind = 'bar')
+mx.plot(x = 'name', y = 'gdp_pc', kind = 'bar')
 ```
 <img src=img/05-exploratory-viz/pandas_bar.png style="width:450px">
 
@@ -102,7 +118,7 @@ mx.plot(x= 'name', y = 'gdp08', kind = 'bar')
 ### Bar charts in `seaborn`
 
 ```python
-sns.barplot(x = 'gdp08', y = 'name', data = mx_sorted)
+sns.barplot(x = 'gdp_pc', y = 'name', data = mx_sorted)
 ```
 <img src=img/05-exploratory-viz/seaborn_bar.png>
 
@@ -125,7 +141,7 @@ sns.barplot(x = 'gdp08', y = 'name', data = mx_sorted)
 ### Dot plots in `seaborn`
 
 ```python
-sns.stripplot(x = 'gdp08', y = 'name', data = mx_sorted)
+sns.stripplot(x = 'gdp_pc', y = 'name', data = mx_sorted)
 ```
 <img src=img/05-exploratory-viz/seaborn_dot.png>
 
@@ -142,7 +158,7 @@ sns.stripplot(x = 'gdp08', y = 'name', data = mx_sorted)
 ### Pie charts in Python
 
 ```python
-zac = mx[mx.name == 'Zacatecas'].drop(['name', 'FID', 'gdp08', 'mus09'], axis = 1).squeeze()
+zac = mx[mx.name == 'Zacatecas'].drop(['name', 'gdp_pc', 'gdp_growth', 'pct_65plus'], axis = 1).squeeze()
 zac.name = 'Zacatecas'
 zac.plot(kind = 'pie', figsize = (6, 6))
 ```
@@ -197,7 +213,7 @@ sns.lineplot(x = "year", y = "pct_college",
 ### Scatter plots in `seaborn`
 
 ```python
-sns.scatterplot(x = "mus09", y = "pri10", data = mx)
+sns.scatterplot(x = "pri", y = "gdp_pc", data = mx)
 ```
 <img src=img/05-exploratory-viz/seaborn_scatter.png style="width: 600px">
 
@@ -208,7 +224,7 @@ sns.scatterplot(x = "mus09", y = "pri10", data = mx)
 * Also available in the `lmplot` and `regplot` functions
 
 ```python
-sns.lmplot(data = mx, x = 'mus09', y = 'pri10')
+sns.lmplot(data = mx, x = 'pri', y = 'gdp_pc')
 ```
 <img src=img/05-exploratory-viz/seaborn_lm.png style="width: 400px">
 
@@ -221,9 +237,11 @@ sns.lmplot(data = mx, x = 'mus09', y = 'pri10')
 * Beware of spurious correlations! http://tylervigen.com/spurious-correlations
 
 ```python
-mx['mus09'].corr(mx['pri10'])
+mx['pri'].corr(mx['gdp_pc'])
+```
 
-0.41639990565936902 # the result
+```
+-0.4522172800405324
 
 ```
 
