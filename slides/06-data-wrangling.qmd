@@ -24,9 +24,13 @@ Fortunately, `pandas` can help you with all of this!
 ```python
 import pandas as pd
 
-full_url = 'http://personal.tcu.edu/kylewalker/data/colleges.csv'
-full_df = pd.read_csv(full_url, encoding = 'latin_1')
+full_url = 'https://raw.githubusercontent.com/walkerke/geog30323/main/data/scorecard.csv'
+full_df = pd.read_csv(full_url)
 full_df.shape
+```
+
+```
+(6273, 25)
 ```
 ---
 
@@ -40,7 +44,14 @@ debt_df = full_df.filter(cols_to_keep)
 debt_df.columns = ['name', 'state', 'debt']
 debt_df.head()
 ```
-<img src=img/06-data-wrangling/drop_cols.png>
+```
+                                  name state   debt
+0             Alabama A & M University    AL  31000
+1  University of Alabama at Birmingham    AL  22300
+2                   Amridge University    AL  32189
+3  University of Alabama in Huntsville    AL  20705
+4             Alabama State University    AL  31000
+```
 
 ---
 
@@ -53,7 +64,19 @@ debt_df.head()
 debt_df[0:10]
 ```
 
-<img src=img/06-data-wrangling/ex1.png style="width: 400px">
+```
+                                  name state   debt
+0             Alabama A & M University    AL  31000
+1  University of Alabama at Birmingham    AL  22300
+2                   Amridge University    AL  32189
+3  University of Alabama in Huntsville    AL  20705
+4             Alabama State University    AL  31000
+5            The University of Alabama    AL  22750
+6    Central Alabama Community College    AL   9766
+7              Athens State University    AL  18051
+8      Auburn University at Montgomery    AL  25000
+9                    Auburn University    AL  21000
+```
 
 ---
 
@@ -65,7 +88,13 @@ debt_df[0:10]
 example1 = debt_df.set_index('name')
 example1.loc['Amridge University':'Alabama State University']
 ```
-<img src=img/06-data-wrangling/index_name.png>
+```
+                                    state   debt
+name                                            
+Amridge University                     AL  32189
+University of Alabama in Huntsville    AL  20705
+Alabama State University               AL  31000
+```
 
 ---
 
@@ -80,25 +109,39 @@ example1.loc['Amridge University':'Alabama State University']
 ### By value
 
 ```python
-debt_df1 = debt_df.query("debt != 'PrivacySuppressed'")
+debt_df1 = debt_df.query("debt != 'PS'")
 debt_df1.head()
 ```
-<img src=img/06-data-wrangling/sub1.png>
+```
+                                  name state   debt
+0             Alabama A & M University    AL  31000
+1  University of Alabama at Birmingham    AL  22300
+2                   Amridge University    AL  32189
+3  University of Alabama in Huntsville    AL  20705
+4             Alabama State University    AL  31000
+```
 
 ---
 
 ### By value
 
 ```python
-tx_debt_df = debt_df.query('debt != "PrivacySuppressed" & state == "TX" ')
+tx_debt_df = debt_df.query('debt != "PS" & state == "TX" ')
 tx_debt_df.head()
 
 # Alternatively, use an index-based method
 
-# tx_debt_df = debt_df.loc[(debt_df['debt'] != 'PrivacySuppressed') & (debt_df['state'] == 'TX')]
+# tx_debt_df = debt_df.loc[(debt_df['debt'] != 'PS') & (debt_df['state'] == 'TX')]
 
 ```
-<img src=img/06-data-wrangling/txdebt.png>
+```
+                              name state   debt
+2977  Abilene Christian University    TX  24250
+2978       Alvin Community College    TX   4519
+2979              Amarillo College    TX  15000
+2982       Angelo State University    TX  20000
+2983  Arlington Baptist University    TX  27000
+```
 
 ---
 
@@ -108,11 +151,18 @@ tx_debt_df.head()
 states = ['OK', 'NM', 'TX', 'LA']
 # Use `in @states` to get values in the list
 # @ operator allows for use of variables in the query
-sw_debt_df = debt_df.query("debt != 'PrivacySuppressed' & state in @states")
+sw_debt_df = debt_df.query("debt != 'PS' & state in @states")
 
 sw_debt_df.head()
 ```
-<img src=img/06-data-wrangling/swdebt.png>
+```
+                                                                                        name state   debt
+91                                                        Pima Medical Institute-Albuquerque    NM   5500
+1195                                           Central Louisiana Technical Community College    LA   7000
+1196                                                                    Ayers Career College    LA   9500
+1197  Baton Rouge General Medical Center School of Nursing & School of Radiologic Technology    LA  16750
+1198                                                        Bossier Parish Community College    LA  17500
+```
 
 ---
 
@@ -143,7 +193,14 @@ df2['col5'] = df2['col3'] / df2['col4']
 
 df2.head()
 ```
-<img src=img/06-data-wrangling/assign.png>
+```
+   col1  col2  col3  col4      col5
+0    27    35    23    62  0.370968
+1    47    88    15   135  0.111111
+2    57    81    92   138  0.666667
+3    75    32    58   107  0.542056
+4    25    20    50    45  1.111111
+```
 
 ---
 
@@ -158,7 +215,14 @@ sw_debt_num = sw_debt_df.assign(debtnum = sw_debt_df.debt.astype(float))
 sw_debt_num.head()
 
 ```
-<img src=img/06-data-wrangling/newcol.png>
+```
+                                                                                        name state   debt  debtnum
+91                                                        Pima Medical Institute-Albuquerque    NM   5500   5500.0
+1195                                           Central Louisiana Technical Community College    LA   7000   7000.0
+1196                                                                    Ayers Career College    LA   9500   9500.0
+1197  Baton Rouge General Medical Center School of Nursing & School of Radiologic Technology    LA  16750  16750.0
+1198                                                        Bossier Parish Community College    LA  17500  17500.0
+```
 
 ---
 
@@ -181,7 +245,14 @@ sw_debt_clean = sw_debt_num.dropna()
 
 sw_debt_clean.head()
 ```
-<img src=img/06-data-wrangling/dropna.png>
+```
+                                                                                        name state   debt  debtnum
+91                                                        Pima Medical Institute-Albuquerque    NM   5500   5500.0
+1195                                           Central Louisiana Technical Community College    LA   7000   7000.0
+1196                                                                    Ayers Career College    LA   9500   9500.0
+1197  Baton Rouge General Medical Center School of Nursing & School of Radiologic Technology    LA  16750  16750.0
+1198                                                        Bossier Parish Community College    LA  17500  17500.0
+```
 
 
 ---
@@ -191,11 +262,18 @@ sw_debt_clean.head()
 * `.fillna()` method: fill in missing data with a specified value
 
 ```python
-sw_debt_fill = sw_debt_num.fillna(sw_debt_num.median())
+sw_debt_fill = sw_debt_num.fillna(sw_debt_num.median(numeric_only = True))
 
 sw_debt_fill.head()
 ```
-<img src=img/06-data-wrangling/fillna.png>
+```
+                                                                                        name state   debt  debtnum
+91                                                        Pima Medical Institute-Albuquerque    NM   5500   5500.0
+1195                                           Central Louisiana Technical Community College    LA   7000   7000.0
+1196                                                                    Ayers Career College    LA   9500   9500.0
+1197  Baton Rouge General Medical Center School of Nursing & School of Radiologic Technology    LA  16750  16750.0
+1198                                                        Bossier Parish Community College    LA  17500  17500.0
+```
 
 ---
 
@@ -210,7 +288,7 @@ states = ['OK', 'NM', 'TX', 'LA']
 sw_debt_clean = (full_df
   .filter(cols_to_keep)
   .set_axis(['name', 'state', 'debt'], axis = 'columns')
-  .query("debt != 'PrivacySuppressed' & state in @states")
+  .query("debt != 'PS' & state in @states")
   .assign(debtnum = lambda x: x.debt.astype(float))
   .dropna()
 )
@@ -249,10 +327,10 @@ sw_grouped.debtnum.mean()
 # Result
 
 state
-LA    15876.255319
-NM    16237.466667
-OK    17030.860759
-TX    15009.426582
+LA    15458.226190
+NM    13245.437500
+OK    15708.925926
+TX    13707.255385
 ```
 
 ---
@@ -277,7 +355,7 @@ sns.boxplot(x = 'state', y = 'debtnum', data = sw_debt_clean)
 grid = sns.FacetGrid(data = sw_debt_clean, col = 'state', col_wrap = 2)
 grid.map(sns.kdeplot, 'debtnum')
 ```
-<img src=img/06-data-wrangling/facet.png style="width:350px">
+<img src=img/06-data-wrangling/facet.png style="width:520px">
 
 ---
 
@@ -305,7 +383,15 @@ m2 = pd.DataFrame({'type': ['a', 'b', 'c', 'd', 'e', 'f'],
 ```python
 m3 = m1.merge(m2, on = 'type')
 ```
-<img src=img/06-data-wrangling/merge.png>
+```
+  type  ind1  ind2  ind3  ind4
+0    a    66    33    13    35
+1    b    50    88    76    15
+2    c    57    37    21    71
+3    d    44     9    48    43
+4    e    44    75    51    67
+5    f    92    11    87    48
+```
 
 ---
 
@@ -327,7 +413,12 @@ m4 = pd.DataFrame({'type': ['d', 'e', 'f', 'g', 'h', 'i'],
 ```python
 m5 = m1.merge(m4, on = 'type', how = 'inner')
 ```
-<img src=img/06-data-wrangling/inner.png>
+```
+  type  ind1  ind2  ind5  ind6
+0    d    44     9    69    46
+1    e    44    75    95    70
+2    f    92    11    46    88
+```
 
 ---
 
@@ -336,7 +427,15 @@ m5 = m1.merge(m4, on = 'type', how = 'inner')
 ```python
 m5 = m1.merge(m4, on = 'type', how = 'left')
 ```
-<img src=img/06-data-wrangling/left.png>
+```
+  type  ind1  ind2  ind5  ind6
+0    a    66    33   NaN   NaN
+1    b    50    88   NaN   NaN
+2    c    57    37   NaN   NaN
+3    d    44     9  69.0  46.0
+4    e    44    75  95.0  70.0
+5    f    92    11  46.0  88.0
+```
 
 ---
 
@@ -345,7 +444,15 @@ m5 = m1.merge(m4, on = 'type', how = 'left')
 ```python
 m5 = m1.merge(m4, on = 'type', how = 'right')
 ```
-<img src=img/06-data-wrangling/right.png>
+```
+  type  ind1  ind2  ind5  ind6
+0    d  44.0   9.0    69    46
+1    e  44.0  75.0    95    70
+2    f  92.0  11.0    46    88
+3    g   NaN   NaN    88    37
+4    h   NaN   NaN    85    76
+5    i   NaN   NaN    85    36
+```
 
 ---
 
@@ -354,7 +461,18 @@ m5 = m1.merge(m4, on = 'type', how = 'right')
 ```python
 m5 = m1.merge(m4, on = 'type', how = 'outer')
 ```
-<img src=img/06-data-wrangling/outer.png>
+```
+  type  ind1  ind2  ind5  ind6
+0    a  66.0  33.0   NaN   NaN
+1    b  50.0  88.0   NaN   NaN
+2    c  57.0  37.0   NaN   NaN
+3    d  44.0   9.0  69.0  46.0
+4    e  44.0  75.0  95.0  70.0
+5    f  92.0  11.0  46.0  88.0
+6    g   NaN   NaN  88.0  37.0
+7    h   NaN   NaN  85.0  76.0
+8    i   NaN   NaN  85.0  36.0
+```
 
 
 ---
@@ -375,14 +493,22 @@ m5 = m1.merge(m4, on = 'type', how = 'outer')
 * Long format: 
 
 ```python
+# In Colab, first run: !pip install pandas-datareader
 from pandas_datareader import wb
 countries = ['ZA', 'BR', 'US']
 tfr = wb.download(indicator = 'SP.DYN.TFRT.IN', 
                     country = countries, start = 1960, 
-                    end = 2019).reset_index()
+                    end = 2024).reset_index()
 tfr.head()
 ```
-<img src=img/06-data-wrangling/long.png>
+```
+  country  year  SP.DYN.TFRT.IN
+0  Brazil  2024           1.614
+1  Brazil  2023           1.619
+2  Brazil  2022           1.629
+3  Brazil  2021           1.638
+4  Brazil  2020           1.653
+```
 
 ---
 
@@ -396,7 +522,15 @@ tfr_wide = tfr.pivot(index = 'year', columns = 'country',
 
 tfr_wide.head()
 ```
-<img src=img/06-data-wrangling/wide.png>
+```
+country  Brazil  South Africa  United States
+year                                        
+1960      6.051         6.105          3.654
+1961      6.022         6.080          3.620
+1962      5.984         6.046          3.461
+1963      5.930         6.012          3.319
+1964      5.818         5.955          3.190
+```
 
 ---
 
@@ -420,7 +554,14 @@ tfr_long = pd.melt(tfr_wide.reset_index(), id_vars = 'year',
 
 tfr_long.head()
 ```
-<img src=img/06-data-wrangling/long2.png>
+```
+   year country    tfr
+0  1960  Brazil  6.051
+1  1961  Brazil  6.022
+2  1962  Brazil  5.984
+3  1963  Brazil  5.930
+4  1964  Brazil  5.818
+```
 
 ---
 
