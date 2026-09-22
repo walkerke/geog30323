@@ -10,6 +10,17 @@ date: "2026-09-22"
 
 ---
 
+## For discussion
+
+<https://www.nytimes.com/interactive/2018/08/04/upshot/up-birth-age-gap.html>
+
+::: {.incremental}
+* What type of chart is this?
+* What does it suggest?
+:::
+
+---
+
 ### Exploring data visually
 
 <div style="text-align: center;"><img src="img/05-exploratory-viz/wilke_directory.png" style="height: 560px"><figcaption>Source: Wilke, [_Fundamentals of Data Visualization_](https://clauswilke.com/dataviz/directory-of-visualizations.html), Ch. 5 (CC BY-NC-ND)</figcaption></div>
