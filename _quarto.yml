@@ -13,6 +13,7 @@ project:
     - slides/03-functions-and-iteration.qmd
     - slides/04-modules-and-eda.qmd
     - slides/05-exploratory-viz.qmd
+    - slides/06-data-wrangling.qmd
   resources:
     - GEOG30323-015_Fall2026_Walker.pdf
 
