@@ -1,0 +1,1764 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>assignment-05-data-wrangling – GEOG 30323</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-4793f4f5153f9e4550ddbe4f8cf07c4c.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-8f92666e7d73509cf6a0e16cd8c8f9ae.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">GEOG 30323</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../schedule.html"> 
+<span class="menu-text">Schedule</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../assignments.html"> 
+<span class="menu-text">Assignments</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../GEOG30323-015_Fall2026_Walker.pdf" target="_blank"> 
+<span class="menu-text">Syllabus</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#assignment-5-data-wrangling-i" id="toc-assignment-5-data-wrangling-i" class="nav-link active" data-scroll-target="#assignment-5-data-wrangling-i">Assignment 5: Data wrangling I</a></li>
+  <li><a href="#subsetting-data" id="toc-subsetting-data" class="nav-link" data-scroll-target="#subsetting-data">Subsetting data</a>
+  <ul class="collapse">
+  <li><a href="#missing-data" id="toc-missing-data" class="nav-link" data-scroll-target="#missing-data">Missing data</a></li>
+  </ul></li>
+  <li><a href="#group-wise-data-analysis" id="toc-group-wise-data-analysis" class="nav-link" data-scroll-target="#group-wise-data-analysis">Group-wise data analysis</a>
+  <ul class="collapse">
+  <li><a href="#creating-new-columns" id="toc-creating-new-columns" class="nav-link" data-scroll-target="#creating-new-columns">Creating new columns</a></li>
+  </ul></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><a href="https://colab.research.google.com/github/walkerke/geog30323/blob/main/notebooks/assignment-05-data-wrangling.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" class="img-fluid figure-img"></a></p>
+<figcaption>Open In Colab</figcaption>
+</figure>
+</div>
+<section id="assignment-5-data-wrangling-i" class="level2">
+<h2 class="anchored" data-anchor-id="assignment-5-data-wrangling-i">Assignment 5: Data wrangling I</h2>
+<p>In the last two assignments you’ve explored data with both basic statistical methods and different types of data visualization. While this is a key part of the data analysis process, datasets need to be in the right format before analysts can start drawing meaningful conclusions. The process of preparing data for analysis is called <strong>data wrangling</strong>, and often takes the bulk of an analysts’ time during a data project. Possible issues might include:</p>
+<ul>
+<li>Missing data or problematic/incorrect values in a dataset;</li>
+<li>Data are formatted incorrectly, preventing the analyst from working with the data in the right way;</li>
+<li>Data are spread across multiple files or data tables;</li>
+<li>Data are in the wrong “shape” for analysis and visualization</li>
+<li>All of the above, in varying capacities!</li>
+</ul>
+<p>A major reason why you are learning to work with <code>pandas</code> in this course is because it can flexibly handle all of these tasks. In this notebook, we’ll be going over some basic examples of how this works, which you’ll then put into practice with the Exercises at the end.</p>
+<p>In this notebook, we’ll be working primarily with the US Department of Education’s College Scorecard dataset. Read in the full dataset with the code below.</p>
+<div id="cell-2" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-30T22:33:15.446822Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-30T22:33:15.446544Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-30T22:33:15.704332Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-30T22:33:15.703979Z&quot;}}" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>full_url <span class="op">=</span> <span class="st">'https://raw.githubusercontent.com/walkerke/geog30323/main/data/scorecard.csv'</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>full <span class="op">=</span> pd.read_csv(full_url)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>full.shape</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<pre><code>(6273, 26)</code></pre>
+</div>
+</div>
+<p>We see that our data have over 6200 rows and 25 columns - and this is a small subset of the full College Scorecard, which has over 3,000 columns! At this point, while you might not know yet what insights are contained in the data, you will have some sense of the research questions that you are interested in. As your research questions don’t likely require all 26 columns, you can safely restrict your dataset to only those columns that you need for your analysis. Our core research question is as follows:</p>
+<ul>
+<li>How does the proportion of non-traditional students - defined as undergraduate students aged 25 and above - vary among comparable bachelor’s-granting colleges and universities?</li>
+</ul>
+<p>To accomplish this, we’ll need to identify some columns that we need and subset our data accordingly. The columns we’ll be keeping are as follows:</p>
+<ul>
+<li><code>INSTNM</code>: The name of the institution;</li>
+<li><code>STABBR</code>: The state the institution is located in;</li>
+<li><code>PREDDEG</code>: The primary type of degree granted by the institution; codes include 1 for certificates, 2 for associate’s degrees, 3 for bachelor’s degrees, and 4 for graduate degrees;</li>
+<li><code>CONTROL</code>: The ownership of the institution, coded as 1 for public non-profit, 2 for private non-profit, and 3 for private for-profit;</li>
+<li><code>UGDS</code>: The number of undergraduates enrolled at the institution;</li>
+<li><code>UG25ABV</code>: The percentage of undergraduates at the institution aged 25 and above.</li>
+</ul>
+</section>
+<section id="subsetting-data" class="level2">
+<h2 class="anchored" data-anchor-id="subsetting-data">Subsetting data</h2>
+<p>As we discussed in class, <code>pandas</code> includes many different methods for subsetting data; I encourage you to review the corresponding lecture notes for the full set of methods that we discussed. In this notebook, we’ll be focusing on the methods that allow us to accomplish the task at hand, and you’ll be learning a few new methods as well.</p>
+<p>To subset our data column-wise, we can specify a list of column names that we want to keep then use the <code>.filter()</code> method to restrict our data to only those specified columns.</p>
+<div id="cell-4" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-30T22:33:15.720278Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-30T22:33:15.720178Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-30T22:33:15.724661Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-30T22:33:15.724295Z&quot;}}" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>keep <span class="op">=</span> [<span class="st">'INSTNM'</span>, <span class="st">'STABBR'</span>, <span class="st">'PREDDEG'</span>, <span class="st">'CONTROL'</span>, <span class="st">'UGDS'</span>, <span class="st">'UG25ABV'</span>]</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> full.<span class="bu">filter</span>(keep)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>df.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">INSTNM</th>
+<th data-quarto-table-cell-role="th">STABBR</th>
+<th data-quarto-table-cell-role="th">PREDDEG</th>
+<th data-quarto-table-cell-role="th">CONTROL</th>
+<th data-quarto-table-cell-role="th">UGDS</th>
+<th data-quarto-table-cell-role="th">UG25ABV</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>Alabama A &amp; M University</td>
+<td>AL</td>
+<td>3</td>
+<td>1</td>
+<td>6124.0</td>
+<td>0.0707</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>University of Alabama at Birmingham</td>
+<td>AL</td>
+<td>3</td>
+<td>1</td>
+<td>11635.0</td>
+<td>0.1656</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>Amridge University</td>
+<td>AL</td>
+<td>3</td>
+<td>2</td>
+<td>241.0</td>
+<td>0.8628</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>University of Alabama in Huntsville</td>
+<td>AL</td>
+<td>3</td>
+<td>1</td>
+<td>6591.0</td>
+<td>0.1511</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>Alabama State University</td>
+<td>AL</td>
+<td>3</td>
+<td>1</td>
+<td>3477.0</td>
+<td>0.0692</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Our data are much simpler to work with now! We can already see some noticeable variations in the data; over 86 percent of students at Amridge University are over age 25; however, the university itself is quite small with only 241 undergraduates. These are the types of things we’ll want to account for in our analysis.</p>
+<p>You may have noticed that I decided to assign the result of the subsetting operation to a new data frame. Certainly, I could have assigned the result back to the original frame:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>full <span class="op">=</span> full.<span class="bu">filter</span>(keep)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Or:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>full.<span class="bu">filter</span>(keep, inplace <span class="op">=</span> <span class="va">True</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>My personal preference when doing data programming is to assign the results of major operations to new data frames, creating a data frame object that represents each step of the analysis, and do minor operations in place. For example, had I assigned the results of the subsetting operation back to <code>full</code>, and I later decided that I needed an additional column from the original data frame, I’d need to read the whole thing in again rather than just add a column name to the list <code>keep</code>. Python will hold all of our data <em>in memory</em>, so it will be accessible to us throughout our Python session; given that our data are relatively small, this won’t cause us any problems. Bigger data workflows might require different methods, however.</p>
+<p>There are small things, however, that you can do to your data frame in place to make your lives easier. For example, I don’t really want to hit Caps Lock or the Shift key every time I am typing out column names, but my column names are capitalized. Our column names in our data frame are simply a list of strings, which we’ve learned how to work with already with string methods. As such, we can use <strong>list comprehension</strong> to convert all of the column names to lower case:</p>
+<div id="cell-6" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-30T22:33:15.725717Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-30T22:33:15.725664Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-30T22:33:15.728575Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-30T22:33:15.728228Z&quot;}}" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df.columns <span class="op">=</span> [x.lower() <span class="cf">for</span> x <span class="kw">in</span> df.columns]</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>df.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">instnm</th>
+<th data-quarto-table-cell-role="th">stabbr</th>
+<th data-quarto-table-cell-role="th">preddeg</th>
+<th data-quarto-table-cell-role="th">control</th>
+<th data-quarto-table-cell-role="th">ugds</th>
+<th data-quarto-table-cell-role="th">ug25abv</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>Alabama A &amp; M University</td>
+<td>AL</td>
+<td>3</td>
+<td>1</td>
+<td>6124.0</td>
+<td>0.0707</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>University of Alabama at Birmingham</td>
+<td>AL</td>
+<td>3</td>
+<td>1</td>
+<td>11635.0</td>
+<td>0.1656</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>Amridge University</td>
+<td>AL</td>
+<td>3</td>
+<td>2</td>
+<td>241.0</td>
+<td>0.8628</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>University of Alabama in Huntsville</td>
+<td>AL</td>
+<td>3</td>
+<td>1</td>
+<td>6591.0</td>
+<td>0.1511</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>Alabama State University</td>
+<td>AL</td>
+<td>3</td>
+<td>1</td>
+<td>3477.0</td>
+<td>0.0692</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>You’ve also already learned to modify the column names of your data frame by passing in a list of new names. Individual names can be modified as well. For example, I think <code>'state'</code> makes a lot more sense as a column name than <code>'stabbr'</code>, so I’m going to change it. The following code gets this done:</p>
+<div id="cell-8" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-30T22:33:15.729620Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-30T22:33:15.729571Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-30T22:33:15.732400Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-30T22:33:15.732051Z&quot;}}" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df.rename(columns <span class="op">=</span> {<span class="st">'stabbr'</span>: <span class="st">'state'</span>}, inplace <span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>df.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">instnm</th>
+<th data-quarto-table-cell-role="th">state</th>
+<th data-quarto-table-cell-role="th">preddeg</th>
+<th data-quarto-table-cell-role="th">control</th>
+<th data-quarto-table-cell-role="th">ugds</th>
+<th data-quarto-table-cell-role="th">ug25abv</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>Alabama A &amp; M University</td>
+<td>AL</td>
+<td>3</td>
+<td>1</td>
+<td>6124.0</td>
+<td>0.0707</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>University of Alabama at Birmingham</td>
+<td>AL</td>
+<td>3</td>
+<td>1</td>
+<td>11635.0</td>
+<td>0.1656</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>Amridge University</td>
+<td>AL</td>
+<td>3</td>
+<td>2</td>
+<td>241.0</td>
+<td>0.8628</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>University of Alabama in Huntsville</td>
+<td>AL</td>
+<td>3</td>
+<td>1</td>
+<td>6591.0</td>
+<td>0.1511</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>Alabama State University</td>
+<td>AL</td>
+<td>3</td>
+<td>1</td>
+<td>3477.0</td>
+<td>0.0692</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>The <code>rename</code> data frame method takes a <strong>dictionary</strong> of values, which is a Python data structure that we haven’t discussed yet. Dictionaries, or <code>dict</code> objects as they are often called, are enclosed by curly braces (<code>{}</code>) and are made up of <strong>key/value pairs</strong>. In turn, they can really come in handy when working with paired values; we may return to them later in the semester. As this is a minor change to the data frame, the argument <code>inplace = True</code> makes sense to modify <code>df</code> directly.</p>
+<p>We now want to subset our data even further. As mentioned above, the <code>preddeg</code> column designates the primary degree granted by the colleges and universities in the dataset. We’re interested in comparing primarily bachelor’s-granting universities, which have the code of <code>3</code>; in turn, we want to tell <code>pandas</code> to keep only those rows where the <code>preddeg</code> column is equal to 3. First, let’s check our <code>dtypes</code> to see if the columns is formatted as a string or number:</p>
+<div id="cell-10" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-30T22:33:15.733294Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-30T22:33:15.733239Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-30T22:33:15.735193Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-30T22:33:15.734853Z&quot;}}" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df.dtypes</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<pre><code>instnm         str
+state          str
+preddeg      int64
+control      int64
+ugds       float64
+ug25abv    float64
+dtype: object</code></pre>
+</div>
+</div>
+<p>It appears as though <code>preddeg</code> is an integer, so we will work with the values as numbers. To subset rows in <strong>pandas</strong>, we can use the <code>.query()</code> data frame method. <code>.query()</code> requires an <strong>expression</strong> to be evaluated by Python using boolean/logical operators. The method will then return those rows for which the result of the expression is <code>True</code>, and drop those rows that return <code>False</code>. In this case, we want all of those rows for which the value of the <code>preddeg</code> column is equal to 3. Let’s create a new dataframe, called <code>ug</code> for undergraduate, from this expression.</p>
+<div id="cell-12" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-30T22:33:15.736019Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-30T22:33:15.735971Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-30T22:33:15.738214Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-30T22:33:15.737914Z&quot;}}" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>ug <span class="op">=</span> df.query(<span class="st">'preddeg == 3'</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>ug.shape</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<pre><code>(1947, 6)</code></pre>
+</div>
+</div>
+<p>We’ve gone from over 6200 colleges &amp; universities down to 1947.</p>
+<section id="missing-data" class="level3">
+<h3 class="anchored" data-anchor-id="missing-data">Missing data</h3>
+<p>As mentioned in class, missing data in <strong>pandas</strong> are designated with the value <code>NaN</code>, which refers to “not a number.” Data analysts need to take missing data seriously, as they could be representative of a systematic flaw in the dataset. You can check for missing values in <strong>pandas</strong> with the <code>.isnull()</code> method. Let’s query our undergradate data frame to check to see how many rows in our dataset have missing values for our column of interest, <code>ug25abv</code>.</p>
+<div id="cell-14" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-30T22:33:15.739079Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-30T22:33:15.739038Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-30T22:33:15.740874Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-30T22:33:15.740571Z&quot;}}" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>ugnull <span class="op">=</span> ug.query(<span class="st">'ug25abv.isnull()'</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>ugnull.shape</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<pre><code>(56, 6)</code></pre>
+</div>
+</div>
+<p>It looks like we have 56 rows with null values for the <code>ug25abv</code> column. Let’s see what universities they are:</p>
+<div id="cell-16" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-30T22:33:15.741648Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-30T22:33:15.741604Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-30T22:33:15.745635Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-30T22:33:15.745348Z&quot;}}" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>ugnull</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">instnm</th>
+<th data-quarto-table-cell-role="th">state</th>
+<th data-quarto-table-cell-role="th">preddeg</th>
+<th data-quarto-table-cell-role="th">control</th>
+<th data-quarto-table-cell-role="th">ugds</th>
+<th data-quarto-table-cell-role="th">ug25abv</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">466</th>
+<td>Yeshiva Ohr Elchonon Chabad West Coast Talmudi...</td>
+<td>CA</td>
+<td>3</td>
+<td>2</td>
+<td>163.0</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">516</th>
+<td>United States Air Force Academy</td>
+<td>CO</td>
+<td>3</td>
+<td>1</td>
+<td>4114.0</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">649</th>
+<td>PENSACOLA CHRISTIAN COLLEGE</td>
+<td>FL</td>
+<td>3</td>
+<td>2</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">677</th>
+<td>Talmudic College of Florida</td>
+<td>FL</td>
+<td>3</td>
+<td>2</td>
+<td>27.0</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">936</th>
+<td>Telshe Yeshiva-Chicago</td>
+<td>IL</td>
+<td>3</td>
+<td>2</td>
+<td>78.0</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1399</th>
+<td>New England College of Optometry</td>
+<td>MA</td>
+<td>3</td>
+<td>2</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">1997</th>
+<td>Yeshiva of Far Rockaway Derech Ayson Rabbinica...</td>
+<td>NY</td>
+<td>3</td>
+<td>2</td>
+<td>60.0</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">2025</th>
+<td>Jewish Theological Seminary of America</td>
+<td>NY</td>
+<td>3</td>
+<td>2</td>
+<td>172.0</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2027</th>
+<td>Kehilath Yakov Rabbinical Seminary</td>
+<td>NY</td>
+<td>3</td>
+<td>2</td>
+<td>205.0</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">2085</th>
+<td>Rabbinical College Bobover Yeshiva Bnei Zion</td>
+<td>NY</td>
+<td>3</td>
+<td>2</td>
+<td>473.0</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2107</th>
+<td>Sh'or Yoshuv Rabbinical College</td>
+<td>NY</td>
+<td>3</td>
+<td>2</td>
+<td>156.0</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">2148</th>
+<td>Talmudical Seminary Oholei Torah</td>
+<td>NY</td>
+<td>3</td>
+<td>2</td>
+<td>400.0</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2149</th>
+<td>Talmudical Institute of Upstate New York</td>
+<td>NY</td>
+<td>3</td>
+<td>2</td>
+<td>13.0</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">2167</th>
+<td>Webb Institute</td>
+<td>NY</td>
+<td>3</td>
+<td>2</td>
+<td>106.0</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2175</th>
+<td>Yeshivath Shaar Hatorah</td>
+<td>NY</td>
+<td>3</td>
+<td>2</td>
+<td>76.0</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">2177</th>
+<td>Yeshivath Viznitz</td>
+<td>NY</td>
+<td>3</td>
+<td>2</td>
+<td>1159.0</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2457</th>
+<td>Rabbinical College Telshe</td>
+<td>OH</td>
+<td>3</td>
+<td>2</td>
+<td>50.0</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">2584</th>
+<td>University of Western States</td>
+<td>OR</td>
+<td>3</td>
+<td>2</td>
+<td>0.0</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2615</th>
+<td>Curtis Institute of Music</td>
+<td>PA</td>
+<td>3</td>
+<td>2</td>
+<td>109.0</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">2767</th>
+<td>Talmudical Yeshiva of Philadelphia</td>
+<td>PA</td>
+<td>3</td>
+<td>2</td>
+<td>112.0</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">3533</th>
+<td>Yeshiva Gedolah of Greater Detroit</td>
+<td>MI</td>
+<td>3</td>
+<td>2</td>
+<td>75.0</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3758</th>
+<td>Rabbi Jacob Joseph School</td>
+<td>NJ</td>
+<td>3</td>
+<td>2</td>
+<td>115.0</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">3946</th>
+<td>Yeshiva D'monsey Rabbinical College</td>
+<td>NY</td>
+<td>3</td>
+<td>2</td>
+<td>84.0</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">4048</th>
+<td>Yeshiva College of the Nations Capital</td>
+<td>MD</td>
+<td>3</td>
+<td>2</td>
+<td>56.0</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4089</th>
+<td>Atlantic Institute of Oriental Medicine</td>
+<td>FL</td>
+<td>3</td>
+<td>2</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">4156</th>
+<td>Franklin W Olin College of Engineering</td>
+<td>MA</td>
+<td>3</td>
+<td>2</td>
+<td>377.0</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4230</th>
+<td>Beis Medrash Heichal Dovid</td>
+<td>NY</td>
+<td>3</td>
+<td>2</td>
+<td>206.0</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">4301</th>
+<td>Uta Mesivta of Kiryas Joel</td>
+<td>NY</td>
+<td>3</td>
+<td>2</td>
+<td>2957.0</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4444</th>
+<td>Yeshiva Toras Chaim</td>
+<td>NJ</td>
+<td>3</td>
+<td>2</td>
+<td>227.0</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">4445</th>
+<td>Talmudical Seminary of Bobov</td>
+<td>NY</td>
+<td>3</td>
+<td>2</td>
+<td>602.0</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4878</th>
+<td>Bais HaMedrash and Mesivta of Baltimore</td>
+<td>MD</td>
+<td>3</td>
+<td>2</td>
+<td>87.0</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">4884</th>
+<td>Be'er Yaakov Talmudic Seminary</td>
+<td>NY</td>
+<td>3</td>
+<td>2</td>
+<td>765.0</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4970</th>
+<td>Yeshiva Gedolah Kesser Torah</td>
+<td>NY</td>
+<td>3</td>
+<td>2</td>
+<td>84.0</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">4972</th>
+<td>Yeshiva Yesodei Hatorah</td>
+<td>NJ</td>
+<td>3</td>
+<td>2</td>
+<td>75.0</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">5095</th>
+<td>Rabbinical College Ohr Yisroel</td>
+<td>NY</td>
+<td>3</td>
+<td>2</td>
+<td>114.0</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">5135</th>
+<td>Yeshiva Sholom Shachna</td>
+<td>NY</td>
+<td>3</td>
+<td>2</td>
+<td>130.0</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">5235</th>
+<td>Beth Medrash of Asbury Park</td>
+<td>NJ</td>
+<td>3</td>
+<td>2</td>
+<td>124.0</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">5302</th>
+<td>Yeshiva Bais Aharon</td>
+<td>NJ</td>
+<td>3</td>
+<td>2</td>
+<td>25.0</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">5316</th>
+<td>Yeshiva Ohr Naftoli</td>
+<td>NY</td>
+<td>3</td>
+<td>2</td>
+<td>47.0</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">5362</th>
+<td>Yeshiva Gedolah Tiferes Boruch</td>
+<td>NJ</td>
+<td>3</td>
+<td>2</td>
+<td>81.0</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">5372</th>
+<td>Yeshiva Gedolah of Cliffwood</td>
+<td>NJ</td>
+<td>3</td>
+<td>2</td>
+<td>30.0</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">5375</th>
+<td>Yeshivas Emek Hatorah</td>
+<td>NJ</td>
+<td>3</td>
+<td>2</td>
+<td>90.0</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">5432</th>
+<td>Yeshiva of Ocean</td>
+<td>NY</td>
+<td>3</td>
+<td>2</td>
+<td>63.0</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">5641</th>
+<td>Justice University</td>
+<td>AZ</td>
+<td>3</td>
+<td>2</td>
+<td>116.0</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">5651</th>
+<td>Yeshiva of Kasho</td>
+<td>NY</td>
+<td>3</td>
+<td>2</td>
+<td>185.0</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">5661</th>
+<td>Yeshivas Sanz Klauzenburg</td>
+<td>NY</td>
+<td>3</td>
+<td>2</td>
+<td>98.0</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">5718</th>
+<td>Arizona College of Nursing - Chesapeake</td>
+<td>VA</td>
+<td>3</td>
+<td>3</td>
+<td>149.0</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">5719</th>
+<td>Arizona College of Nursing - Hartford</td>
+<td>CT</td>
+<td>3</td>
+<td>3</td>
+<td>334.0</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">5721</th>
+<td>Arizona College of Nursing-St Louis</td>
+<td>MO</td>
+<td>3</td>
+<td>3</td>
+<td>131.0</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">5722</th>
+<td>EDvance College</td>
+<td>CA</td>
+<td>3</td>
+<td>2</td>
+<td>201.0</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">5736</th>
+<td>Virginia Christian College</td>
+<td>VA</td>
+<td>3</td>
+<td>2</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">5739</th>
+<td>Congregation YMH</td>
+<td>NY</td>
+<td>3</td>
+<td>2</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">5747</th>
+<td>Northpoint College</td>
+<td>MI</td>
+<td>3</td>
+<td>2</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">5786</th>
+<td>UTH Florida University</td>
+<td>FL</td>
+<td>3</td>
+<td>3</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">5788</th>
+<td>West Coast University-Los Angeles</td>
+<td>CA</td>
+<td>3</td>
+<td>3</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">5790</th>
+<td>Herzing University-Clarksville</td>
+<td>TN</td>
+<td>3</td>
+<td>2</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Interesting! It looks like primarily we’ve returned Jewish <em>yeshivas</em>, along with the U.S. Air Force Academy, a few graduate colleges - e.g.&nbsp;New England College of Optometry, which is designated as a bachelor’s granting institution but has no undergraduates - and some institutions that appear to have been mis-coded. This reveals why careful inspection of your data is important. Missing values often aren’t at random, but instead may be systematic or clustered amongst a particular type of record in your dataset. Additionally, it looks like we’ve uncovered some errors in the original data as well.</p>
+<p>In this case, let’s go ahead and drop these records from our dataset. Recall from class that there are other options available for missing data as well; you can <strong>fill</strong> the <code>NaN</code> values with some other value if appropriate, such as <code>0</code> or the mean of the column. We’ll drop these values using <code>.query()</code> again, but instead with the <code>.notna()</code> <strong>pandas</strong> method. This method will identify the rows that are <em>not</em> <code>NaN</code> in the <code>ug25abv</code> column, and retain only those rows.</p>
+<div id="cell-18" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-30T22:33:15.746463Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-30T22:33:15.746419Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-30T22:33:15.748815Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-30T22:33:15.748528Z&quot;}}" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>ug_nonull <span class="op">=</span> ug.query(<span class="st">'ug25abv.notna()'</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>ug_nonull.shape</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<pre><code>(1891, 6)</code></pre>
+</div>
+</div>
+<p>I can also use the <code>.dropna()</code> method, which we learned in class. One thing about <code>.dropna()</code> is that it can operate over the entire data frame if we don’t pass it any columns. Let’s check it out:</p>
+<div id="cell-20" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-30T22:33:15.749647Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-30T22:33:15.749605Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-30T22:33:15.751667Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-30T22:33:15.751405Z&quot;}}" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>ug1 <span class="op">=</span> ug.dropna()</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>ug1.shape</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<pre><code>(1891, 6)</code></pre>
+</div>
+</div>
+<p>We get the same result, which tells us that there weren’t any rows with null values in the <code>ugds</code> column that we hadn’t already dropped.</p>
+</section>
+</section>
+<section id="group-wise-data-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="group-wise-data-analysis">Group-wise data analysis</h2>
+<p>In class, we discussed the “split-apply-combine” approach to data analysis. This approach involves:</p>
+<ol type="1">
+<li><strong>Splitting</strong> the data into groups based on some common characteristic;</li>
+<li><strong>Applying</strong> some function to each group;</li>
+<li><strong>Combining</strong> the results back into a single dataset, allowing for group-wise comparisons.</li>
+</ol>
+<p>While conceptually simple, this approach to data analysis is extraordinarily powerful - and extremely common! For example, let’s say you are working in analytics for a business, and your supervisor wants you to compare sales results of your stores by region. This is a very common request when working with data professionally, and fortunately <strong>pandas</strong> can help you out with this with minimal code.</p>
+<p>Let’s start with a couple guiding questions.</p>
+<ol type="1">
+<li>How does the proportion of undergraduate students above age 25 vary among public, private, and for-profit universities?<br>
+</li>
+<li>How does the proportion of undergraduate students above age 25 vary by institution size?</li>
+</ol>
+<p>Group-wise data analysis in <strong>pandas</strong> is conducted by the creation of a <code>groupby</code> object, in which you tell <code>pandas</code> exactly how the data should be grouped. To address the first question, we’ll want to group our data by institution type. The code below gets this done.</p>
+<div id="cell-22" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-30T22:33:15.752544Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-30T22:33:15.752486Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-30T22:33:15.754263Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-30T22:33:15.753918Z&quot;}}" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>groups1 <span class="op">=</span> ug1.groupby(<span class="st">'control'</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(groups1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+<pre><code>pandas.api.typing.DataFrameGroupBy</code></pre>
+</div>
+</div>
+<p>Notice the object <code>type</code> - Python knows that our new object, <code>groups1</code>, represents grouped data. In turn, anything we calculate over this object will apply to each of our groups, defined by unique values of the <code>control</code> column. Let’s try:</p>
+<div id="cell-24" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-30T22:33:15.755124Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-30T22:33:15.755073Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-30T22:33:15.757150Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-30T22:33:15.756807Z&quot;}}" data-execution_count="12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>groups1.ug25abv.mean()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<pre><code>control
+1    0.166248
+2    0.187823
+3    0.665443
+Name: ug25abv, dtype: float64</code></pre>
+</div>
+</div>
+<p>Interesting stuff - whereas public and private non-profit colleges and universities are pretty similar in their age composition, with 17-19 percent of their student bodies above age 25, private for-profit universities are quite different, with two-thirds of their undergraduates aged over 25.</p>
+<p>Let’s visualize this with <code>seaborn</code>, which also sets up very nicely for group-wise data analysis. Box plots and violin plots, for example, can be extended by specifying a second column for the plot.</p>
+<div id="cell-26" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-30T22:33:15.758040Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-30T22:33:15.757995Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-30T22:33:15.925138Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-30T22:33:15.924858Z&quot;}}" data-execution_count="13">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>sns.<span class="bu">set</span>(style <span class="op">=</span> <span class="st">"darkgrid"</span>)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>sns.boxplot(data <span class="op">=</span> ug1, x <span class="op">=</span> <span class="st">'control'</span>, y <span class="op">=</span> <span class="st">'ug25abv'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="assignment-05-data-wrangling_files/figure-html/cell-14-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We can get a clear sense here of the variations of the distributions between the groups. While the mean percentage of undergraduates above 25 at public non-profits was below that of private non-profits, it appears as though the median for private non-profits is lower; there is simply a longer tail of private non-profits with large proportions of their student bodies above 25. For private for-profits, the distribution is quite evident - with the median value above 70 percent.</p>
+<p><code>seaborn</code> includes even more functionality for group-wise visualization - incorporating, in some instances, multiple groups! We’ll learn more about this later in the semester when we focus on data visualization; however we can take a look right now. The <code>catplot</code> function in <code>seaborn</code> allows you to split categorical plots such as point (the default), box, violin, bar, or strip plots into separate smaller charts, to facilitate comparisons across groups.</p>
+<p>Let’s create a new subsetted data frame, <code>sub1</code>, by indexing our <code>ug1</code> data frame for only those colleges and universities that are located in New York, Texas, and California. We then call the <code>catplot</code> function, specifying how to divide our plots into <strong>small multiples</strong> with the <code>col = 'state'</code> argument.</p>
+<div id="cell-28" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-30T22:33:15.926336Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-30T22:33:15.926261Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-30T22:33:16.049209Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-30T22:33:16.048812Z&quot;}}" data-execution_count="14">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>sub1 <span class="op">=</span> ug1.query(<span class="st">"state in ['NY', 'TX', 'CA']"</span>)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>sns.catplot(data <span class="op">=</span> sub1, x <span class="op">=</span> <span class="st">'control'</span>, y <span class="op">=</span> <span class="st">'ug25abv'</span>, </span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>               col <span class="op">=</span> <span class="st">'state'</span>, kind <span class="op">=</span> <span class="st">'box'</span>, order <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="assignment-05-data-wrangling_files/figure-html/cell-15-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Now, we want to look at how the percentage of undergraduates over age 25 varies by institution size. Certainly, we could create a scatter plot as both the <code>ug25abv</code> and <code>ugds</code> columns are numeric:</p>
+<div id="cell-30" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-30T22:33:16.050330Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-30T22:33:16.050273Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-30T22:33:16.147328Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-30T22:33:16.146947Z&quot;}}" data-execution_count="15">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>sns.lmplot(data <span class="op">=</span> ug1, x <span class="op">=</span> <span class="st">'ugds'</span>, y <span class="op">=</span> <span class="st">'ug25abv'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="assignment-05-data-wrangling_files/figure-html/cell-16-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The regression line suggests an inverse relationship; however the clustering of dots suggests (potentially) a non-linear relationship, and there are several outliers. For example:</p>
+<div id="cell-32" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-30T22:33:16.148323Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-30T22:33:16.148271Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-30T22:33:16.151415Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-30T22:33:16.151064Z&quot;}}" data-execution_count="16">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>ug1.query(<span class="st">'ugds &gt; 150000'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">instnm</th>
+<th data-quarto-table-cell-role="th">state</th>
+<th data-quarto-table-cell-role="th">preddeg</th>
+<th data-quarto-table-cell-role="th">control</th>
+<th data-quarto-table-cell-role="th">ugds</th>
+<th data-quarto-table-cell-role="th">ug25abv</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">1796</th>
+<td>Southern New Hampshire University</td>
+<td>NH</td>
+<td>3</td>
+<td>2</td>
+<td>163164.0</td>
+<td>0.7462</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">4026</th>
+<td>Western Governors University</td>
+<td>UT</td>
+<td>3</td>
+<td>2</td>
+<td>155088.0</td>
+<td>0.8424</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Southern New Hampshire University and Western Governors University, each with over 150,000 students, stand out as distinct outliers - and notice that both are coded as private non-profits, not for-profits. Additionally, a scatter plot is not the only way that we can assess this relationship. We can convert our data from quantitative to categorical, and in turn assess variations amongst the categories.</p>
+<section id="creating-new-columns" class="level3">
+<h3 class="anchored" data-anchor-id="creating-new-columns">Creating new columns</h3>
+<p>Creating a categorical column from a quantitative column requires computing a new column in our data frame, which will be a common part of your workflow in <strong>pandas</strong>. As you learned in class, you can use basic mathematical operations to create new columns from existing ones. In this example, we are going to organize our universities into <strong>bins</strong> based on their size, and then compare universities across those bins.</p>
+<p><strong>pandas</strong> includes a lot of methods for creating new columns; we’re going to discuss here options for organizing our data into bins. The three options are as follows:</p>
+<ul>
+<li>Equal interval: all bins have the same width, regardless of the number of observations in each bin.<br>
+</li>
+<li>Manual breaks: the analyst specifies where the bin breaks should be located</li>
+<li>Quantile: An equal number of observations are organized into a specified number of bins; bins widths will in turn be irregular.</li>
+</ul>
+<p>Equal interval and manual breaks are available via the <code>cut()</code> function in <strong>pandas</strong>; quantiles are available from the <code>qcut()</code> function. Let’s create a new column with the <code>.assign()</code> method that organizes the values in <code>ugds</code> into five quantiles, labeled with 1 through 5 which we accomplish with <code>range()</code>:</p>
+<div id="cell-34" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-30T22:33:16.152334Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-30T22:33:16.152287Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-30T22:33:16.155764Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-30T22:33:16.155410Z&quot;}}" data-execution_count="17">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>ug_quantiles <span class="op">=</span> ug1.assign(quant5 <span class="op">=</span> pd.qcut(ug1.ugds, <span class="dv">5</span>, labels <span class="op">=</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">6</span>)))</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>ug_quantiles.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">instnm</th>
+<th data-quarto-table-cell-role="th">state</th>
+<th data-quarto-table-cell-role="th">preddeg</th>
+<th data-quarto-table-cell-role="th">control</th>
+<th data-quarto-table-cell-role="th">ugds</th>
+<th data-quarto-table-cell-role="th">ug25abv</th>
+<th data-quarto-table-cell-role="th">quant5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>Alabama A &amp; M University</td>
+<td>AL</td>
+<td>3</td>
+<td>1</td>
+<td>6124.0</td>
+<td>0.0707</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>University of Alabama at Birmingham</td>
+<td>AL</td>
+<td>3</td>
+<td>1</td>
+<td>11635.0</td>
+<td>0.1656</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>Amridge University</td>
+<td>AL</td>
+<td>3</td>
+<td>2</td>
+<td>241.0</td>
+<td>0.8628</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>University of Alabama in Huntsville</td>
+<td>AL</td>
+<td>3</td>
+<td>1</td>
+<td>6591.0</td>
+<td>0.1511</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>Alabama State University</td>
+<td>AL</td>
+<td>3</td>
+<td>1</td>
+<td>3477.0</td>
+<td>0.0692</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>We can now make comparisons by quantile if we want. Let’s try a bar chart; <code>seaborn</code>’s <code>barplot</code> function will calculate group means and plot them, and give us an indication of the uncertainty around that mean with an error bar:</p>
+<div id="cell-36" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-30T22:33:16.156677Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-30T22:33:16.156630Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-30T22:33:16.200652Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-30T22:33:16.200341Z&quot;}}" data-execution_count="18">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>sns.barplot(x <span class="op">=</span> <span class="st">'ug25abv'</span>, y <span class="op">=</span> <span class="st">'quant5'</span>, data <span class="op">=</span> ug_quantiles)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="assignment-05-data-wrangling_files/figure-html/cell-19-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We can analyze this further by breaking out the bar charts by college type with <code>sns.catplot()</code>:</p>
+<div id="cell-38" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-30T22:33:16.201774Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-30T22:33:16.201723Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-30T22:33:16.369631Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-30T22:33:16.369344Z&quot;}}" data-execution_count="19">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>sns.catplot(data <span class="op">=</span> ug_quantiles, x <span class="op">=</span> <span class="st">'ug25abv'</span>, y <span class="op">=</span> <span class="st">'quant5'</span>, col <span class="op">=</span> <span class="st">'control'</span>, kind <span class="op">=</span> <span class="st">'bar'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="assignment-05-data-wrangling_files/figure-html/cell-20-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Our results appear quite different when we break them out by college type! This starts to reveal the importance of detailed investigation of your data through visualization; we’ll be exploring this much more later in the semester. We can also take a look at the numbers behind these plots by creating a <code>groupby</code> object that groups by <code>control</code> and the quantiles:</p>
+<div id="cell-40" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-30T22:33:16.370873Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-30T22:33:16.370813Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-30T22:33:16.373600Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-30T22:33:16.373252Z&quot;}}" data-execution_count="20">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>groups2 <span class="op">=</span> ug_quantiles.groupby([<span class="st">'control'</span>, <span class="st">'quant5'</span>])</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>groups2.ug25abv.mean()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="20">
+<pre><code>control  quant5
+1        1         0.274223
+         2         0.194794
+         3         0.186778
+         4         0.180929
+         5         0.138311
+2        1         0.372717
+         2         0.145920
+         3         0.109607
+         4         0.113939
+         5         0.165309
+3        1         0.638164
+         2         0.654021
+         3         0.696762
+         4         0.621008
+         5         0.839400
+Name: ug25abv, dtype: float64</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="exercises" class="level2">
+<h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
+<p>You’ll now complete some exercises so you can practice what you’ve learned. Your job, in general, is to replicate the analysis above, but for a different column in the dataset. You’ll be analyzing the column <code>PCTPELL</code>, which denotes the percentages of students receiving Pell Grants, a federal grant program to help students pay for college. Unlike loans, Pell Grants do not need to be repaid.</p>
+<p>While you’ll be using a lot of the code I provided for you and modifying it slightly, make sure that you know what the code is doing at every step! You are welcome to use Colab’s embedded AI assistant. My recommendation: try each exercise first on your own, then use AI when you get stuck or to help explain something.</p>
+<hr>
+<p><strong>Exercise 1</strong>: Similar to what you did earlier in the notebook, create a data frame that is subsetted for the columns <code>'INSTNM', 'STABBR', 'PREDDEG', 'CONTROL', 'UGDS',</code> and <code>'PCTPELL'</code>, and that retains only those rows where <code>PREDDEG</code> is equal to <code>3</code>, representing primarily bachelor’s-granting universities. What is the mean, median, maximum value, and minimum value of the <code>PCTPELL</code> column?</p>
+<div id="cell-42" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-30T22:33:16.374483Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-30T22:33:16.374440Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-30T22:33:16.375752Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-30T22:33:16.375452Z&quot;}}" data-execution_count="21">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code goes here!</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><em>Double-click and answer here.</em></p>
+<p><strong>Exercise 2:</strong> How many null values are contained in the <code>PCTPELL</code> column in your subsetted data frame? Once you’ve found this out, drop them from your data frame.</p>
+<div id="cell-45" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-30T22:33:16.376647Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-30T22:33:16.376602Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-30T22:33:16.377861Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-30T22:33:16.377542Z&quot;}}" data-execution_count="22">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code goes here!</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><em>Double-click and answer here.</em></p>
+<p><strong>Exercise 3:</strong> Compare the means of <code>PCTPELL</code> by the different groups of <code>CONTROL</code> (the college/university type). Draw a visualization that shows how the distributions vary.</p>
+<div id="cell-48" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-30T22:33:16.378787Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-30T22:33:16.378716Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-30T22:33:16.379982Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-30T22:33:16.379726Z&quot;}}" data-execution_count="23">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code goes here!</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><em>Double-click and answer here.</em></p>
+<p><strong>Exercise 4:</strong> Draw a visualization that breaks your visualization from Exercise 3 down by state with <code>catplot</code>, similar to what you did earlier in the notebook; in this instance, however, compare Texas with Florida and Illinois.</p>
+<div id="cell-51" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-30T22:33:16.380812Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-30T22:33:16.380770Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-30T22:33:16.382072Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-30T22:33:16.381750Z&quot;}}" data-execution_count="24">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code goes here!</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><strong>Exercise 5</strong>: Show how the percent of students receiving Pell Grants varies by institution size and institution type (public, private, for-profit). Break up the <code>UGDS</code> column into five quantiles in your data frame as you did before, and then compare the means of <code>PCTPELL</code> by institution type by institution size. Draw a visualization with <code>catplot</code> to show this graphically.</p>
+<div id="cell-53" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-30T22:33:16.382980Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-30T22:33:16.382937Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-30T22:33:16.384104Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-30T22:33:16.383878Z&quot;}}" data-execution_count="25">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code goes here!</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><em>Double-click and answer here.</em></p>
+<p><strong>Exercise 6</strong>: In Exercise 1, you calculated the mean of <code>PCTPELL</code> across bachelor’s-granting institutions. Here’s a question about that number: is it the share of <em>students</em> who receive Pell Grants, or the share of <em>colleges</em>?</p>
+<p>It’s the second one - every institution counts once, whether it has 200 undergraduates or 150,000. Now calculate the first one. You’ll need to create a new column: the number of Pell recipients at each institution, which is <code>PCTPELL</code> multiplied by <code>UGDS</code>. Then divide the total number of Pell recipients by the total number of undergraduates.</p>
+<p>Compare the two numbers. Why are they different? Which one would you report if the Department of Education asked you “what share of undergraduates receive Pell Grants?”, and which one would you report if a college president asked you “how does my school’s Pell share compare to other schools?”</p>
+<div id="cell-56" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-09-30T22:33:16.384948Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-09-30T22:33:16.384895Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-09-30T22:33:16.386097Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-09-30T22:33:16.385848Z&quot;}}" data-execution_count="26">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code goes here!</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><em>Double-click and answer here.</em></p>
+<p>To submit your assignment, click the <strong>Share</strong> button and share your assignment with kwalkertcu@gmail.com.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/walkerke\.github\.io\/geog30323\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
