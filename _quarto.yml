@@ -8,6 +8,7 @@ project:
     - notebooks/assignment-02-functions-and-iteration.ipynb
     - notebooks/assignment-03-univariate-data-analysis.ipynb
     - notebooks/assignment-04-multivariate-visualization.ipynb
+    - notebooks/assignment-05-data-wrangling.ipynb
     - slides/01-data-literacy.qmd
     - slides/02-programming-1.qmd
     - slides/03-functions-and-iteration.qmd
