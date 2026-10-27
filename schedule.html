@@ -231,7 +231,7 @@ ul.task-list li input[type="checkbox"] {
 <td><strong>10</strong> · Oct 27–29</td>
 <td>Advanced I/O: databases, web, APIs</td>
 <td>McKinney, <em><a href="https://wesmckinney.com/book/">Python for Data Analysis</a></em> (3rd ed.), <a href="https://wesmckinney.com/book/accessing-data">Ch. 6</a></td>
-<td>Advanced I/O</td>
+<td><a href="slides/07-advanced-io.html">Advanced I/O</a></td>
 <td>Assignment 6</td>
 </tr>
 <tr class="odd">
@@ -362,7 +362,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/walkerke\.github\.io\/geog30323\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
