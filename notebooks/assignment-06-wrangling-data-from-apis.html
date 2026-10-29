@@ -1,0 +1,1551 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>assignment-06-wrangling-data-from-apis – GEOG 30323</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-4793f4f5153f9e4550ddbe4f8cf07c4c.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-8f92666e7d73509cf6a0e16cd8c8f9ae.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">GEOG 30323</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../schedule.html"> 
+<span class="menu-text">Schedule</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../assignments.html"> 
+<span class="menu-text">Assignments</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../GEOG30323-015_Fall2026_Walker.pdf" target="_blank"> 
+<span class="menu-text">Syllabus</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#assignment-6-wrangling-data-from-apis" id="toc-assignment-6-wrangling-data-from-apis" class="nav-link active" data-scroll-target="#assignment-6-wrangling-data-from-apis">Assignment 6: Wrangling data from APIs</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><a href="https://colab.research.google.com/github/walkerke/geog30323/blob/main/notebooks/assignment-06-wrangling-data-from-apis.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" class="img-fluid figure-img"></a></p>
+<figcaption>Open In Colab</figcaption>
+</figure>
+</div>
+<section id="assignment-6-wrangling-data-from-apis" class="level2">
+<h2 class="anchored" data-anchor-id="assignment-6-wrangling-data-from-apis">Assignment 6: Wrangling data from APIs</h2>
+<p>The previous assignment gave you some experience with the data wrangling functionality of <code>pandas</code>; these are skills you’ll be returning to throughout the semester. In this assignment, you’ll be expanding upon those skills by working with data from the City of Fort Worth’s Open Data API. As you learned in class, data APIs are interfaces that allow you to access data programmatically. In turn, data APIs allow data to be accessed by applications such as websites, or in this case a data analysis pipeline.</p>
+<p>Fort Worth’s Open Data API is powered by <a href="https://www.esri.com/en-us/arcgis/products/arcgis-hub/overview">ArcGIS Hub</a>, a platform from Esri that helps cities open up their data catalogs to the public. Many other cities use ArcGIS Hub as well. Fort Worth’s open data catalog is small, but growing, and the city’s use of ArcGIS Hub makes its data available in many different ways.</p>
+<p>In this assignment we’ll be working with Fort Worth Police crime data, available at this link: https://data.fortworthtexas.gov/datasets/5acdb612b4654c3abb30e6987db2408b/explore. The data include observations going back more than 50 years! However, we’ll be working with more recent data as we can presume that they are more complete.</p>
+<p>The ArcGIS Hub web interface includes a lot of options for filtering, manipulating, and visualizing the data. As we want to be able to access it inside our data analysis environment in <code>pandas</code>, however, we’ll want to be able to access it directly. ArcGIS Hub gives several options for exporting the data in a variety of formats, including CSV; however, you are going to learn in this assignment how to access the data through the city’s open data API.</p>
+<p>Generally, data APIs make data available in one of two formats: JSON (<strong>J</strong>ava<strong>S</strong>cript <strong>O</strong>bject <strong>N</strong>otation) or XML (e<strong>X</strong>tensible <strong>M</strong>arkup <strong>L</strong>anguage). JSON is becoming the more common of the two, as it fits well within the structure of modern websites, which rely heavily on the JavaScript programming language.</p>
+<p>JSON is a way of encoding data objects with JavaScript, and organizes data as a series objects represented by key-value pairs. In terms of how you are used to thinking about data, the <strong>object</strong> represents a record, the <strong>key</strong> represents a column header, and the <strong>value</strong> represents a data value. Let’s take a look at a single JSON record from the crime database (run the cell to display it if it doesn’t show):</p>
+<div id="883ed280" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-29T14:00:21.715216Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-29T14:00:21.715104Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-29T14:00:21.721064Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-29T14:00:21.720586Z&quot;}}" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> IFrame</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>IFrame(<span class="st">"https://services5.arcgis.com/3ddLCBXe1bRt7mzj/arcgis/rest/services/CFW_Open_Data_Police_Crime_Data_Table_view/FeatureServer/0/query?where=Case_No%3D</span><span class="sc">%27250090795%</span><span class="st">27&amp;outFields=Case_No,Reported_Date,Nature_Of_Call,BLOCK_ADDRESS,CouncilDistrict&amp;f=pjson"</span>, width <span class="op">=</span> <span class="dv">700</span>, height <span class="op">=</span> <span class="dv">450</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+
+        <iframe width="700" height="450" src="https://services5.arcgis.com/3ddLCBXe1bRt7mzj/arcgis/rest/services/CFW_Open_Data_Police_Crime_Data_Table_view/FeatureServer/0/query?where=Case_No%3D%27250090795%27&amp;outFields=Case_No,Reported_Date,Nature_Of_Call,BLOCK_ADDRESS,CouncilDistrict&amp;f=pjson" frameborder="0" allowfullscreen=""></iframe>
+        
+</div>
+</div>
+<p>The code you see above is new: I’m using the capabilities of the Jupyter Notebook to display an embedded web page. Trust me, we haven’t even scratched the surface of what the Notebook can do; it can display animated GIFs, YouTube videos, interactive charts/maps, and much more! Here, I’m showing the contents of the URL https://services5.arcgis.com/3ddLCBXe1bRt7mzj/arcgis/rest/services/CFW_Open_Data_Police_Crime_Data_Table_view/FeatureServer/0/query?where=Case_No%3D%27250090795%27&amp;outFields=Case_No,Reported_Date,Nature_Of_Call,BLOCK_ADDRESS,CouncilDistrict&amp;f=pjson - click it to take a look if you want - which queries Fort Worth’s open data API and returns a single record from the crime dataset. Let’s break the URL down a little bit.</p>
+<p>The first part, https://services5.arcgis.com/3ddLCBXe1bRt7mzj/arcgis/rest/services/CFW_Open_Data_Police_Crime_Data_Table_view/FeatureServer/0/query, is the <strong>API endpoint</strong>. This is the root directory of the data API, where our requests for the crime data are sent. The second part, beginning with <code>?where=Case_No='250090795'</code>, is a <strong>filter</strong>; the question mark signifies that I am going to query the data, and the string that follows, <code>Case_No='250090795'</code>, specifies how the data are to be subsetted. The other parameters, separated by <code>&amp;</code>, ask for five of the columns (<code>outFields=Case_No,Reported_Date,Nature_Of_Call,BLOCK_ADDRESS,CouncilDistrict</code>) in JSON format (<code>f=pjson</code>). I’ve done this all in the URL of the API call!</p>
+<p>The response has two parts. <code>"fields"</code> describes each column, including its name and data type, a bit like a data dictionary. <code>"features"</code> contains the records themselves; each record’s data values are found in <code>"attributes"</code>. Keep both of these in mind; they’ll come up again later in the assignment.</p>
+<p>Additionally, the <code>where</code> parameter of the API recognizes SQL (Structured Query Language), the language that allows users to access databases. More information is here: https://developers.arcgis.com/rest/services-reference/enterprise/query-feature-service-layer/. For example, the following query will return thefts in Fort Worth for 2025:</p>
+<div id="b100529b" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-29T14:00:21.722597Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-29T14:00:21.722492Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-29T14:00:21.724807Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-29T14:00:21.724302Z&quot;}}" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This is the API endpoint - the source of our data</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>endpoint <span class="op">=</span> <span class="st">"https://services5.arcgis.com/3ddLCBXe1bRt7mzj/arcgis/rest/services/CFW_Open_Data_Police_Crime_Data_Table_view/FeatureServer/0/query"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Here is the first part of the query - denoting what type of offense we want</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>type_query <span class="op">=</span> <span class="st">"Nature_Of_Call = 'THEFT'"</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Here is the second part of the query - we are taking offenses on or after January 1, 2025, </span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># and prior to January 1, 2026</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>date_query <span class="op">=</span> <span class="st">" AND Reported_Date &gt;= '2025-01-01' AND Reported_Date &lt; '2026-01-01'"</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># We then put the query into a dictionary of parameters for our API call.  </span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 'outFields': '*' returns all columns; 'resultType': 'standard' allows up to 32,000 records </span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co"># to be returned at once (the default is 1,000); and 'f': 'json' returns the data as JSON.  </span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>params <span class="op">=</span> {</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">'where'</span>: type_query <span class="op">+</span> date_query,</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">'outFields'</span>: <span class="st">'*'</span>,</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">'resultType'</span>: <span class="st">'standard'</span>,</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">'f'</span>: <span class="st">'json'</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>We’ll use the <code>requests</code> library to send our query to the API. As there are spaces and special characters in the query, it needs to be translated to the string a web browser would use; <code>requests</code> handles this for us. Take a look at the URL it builds:</p>
+<div id="cf6c486a" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-29T14:00:21.726126Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-29T14:00:21.726025Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-29T14:00:28.853514Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-29T14:00:28.852788Z&quot;}}" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(endpoint, params <span class="op">=</span> params)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>response.url</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<pre><code>'https://services5.arcgis.com/3ddLCBXe1bRt7mzj/arcgis/rest/services/CFW_Open_Data_Police_Crime_Data_Table_view/FeatureServer/0/query?where=Nature_Of_Call+%3D+%27THEFT%27+AND+Reported_Date+%3E%3D+%272025-01-01%27+AND+Reported_Date+%3C+%272026-01-01%27&amp;outFields=%2A&amp;resultType=standard&amp;f=json'</code></pre>
+</div>
+</div>
+<p>The <code>.json()</code> method translates the response into Python dictionaries and lists. The records themselves are found in the <code>'features'</code> element; a list comprehension pulls the <code>'attributes'</code> of each record out, and <code>pd.DataFrame()</code> turns them into a new data frame called <code>theft_df</code>.</p>
+<div id="d2e83a09" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-29T14:00:28.855432Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-29T14:00:28.855254Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-29T14:00:28.893971Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-29T14:00:28.893495Z&quot;}}" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> response.json()</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>theft_df <span class="op">=</span> pd.DataFrame([f[<span class="st">'attributes'</span>] <span class="cf">for</span> f <span class="kw">in</span> data[<span class="st">'features'</span>]])</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>theft_df.shape</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<pre><code>(11917, 19)</code></pre>
+</div>
+</div>
+<p>Our API call has returned nearly 12,000 theft calls in Fort Worth in 2025. Let’s take a quick peek at the data:</p>
+<div id="0161e19c" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-29T14:00:28.895146Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-29T14:00:28.895073Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-29T14:00:28.901306Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-29T14:00:28.900885Z&quot;}}" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>theft_df.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Case_No_Offense</th>
+<th data-quarto-table-cell-role="th">Case_No</th>
+<th data-quarto-table-cell-role="th">Reported_Date</th>
+<th data-quarto-table-cell-role="th">Nature_Of_Call</th>
+<th data-quarto-table-cell-role="th">From_Date</th>
+<th data-quarto-table-cell-role="th">Offense</th>
+<th data-quarto-table-cell-role="th">Offense_Desc</th>
+<th data-quarto-table-cell-role="th">BLOCK_ADDRESS</th>
+<th data-quarto-table-cell-role="th">City</th>
+<th data-quarto-table-cell-role="th">State</th>
+<th data-quarto-table-cell-role="th">Beat</th>
+<th data-quarto-table-cell-role="th">Division</th>
+<th data-quarto-table-cell-role="th">CouncilDistrict</th>
+<th data-quarto-table-cell-role="th">Attempt_Complete</th>
+<th data-quarto-table-cell-role="th">Location_Type</th>
+<th data-quarto-table-cell-role="th">LocationTypeDescription</th>
+<th data-quarto-table-cell-role="th">intTotal</th>
+<th data-quarto-table-cell-role="th">Location_1</th>
+<th data-quarto-table-cell-role="th">ObjectId</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>250089045-23</td>
+<td>25008904</td>
+<td>2025-11-24T00:30:00</td>
+<td>THEFT</td>
+<td>2025-11-18T13:00:00</td>
+<td>23H</td>
+<td>PC 31.03(e)(2)(A)&nbsp;&nbsp;Theft Property &gt;=$100&lt;$750</td>
+<td>4100 AIRPORT FWY</td>
+<td>FORT WORTH</td>
+<td>TX</td>
+<td>A13</td>
+<td>NaN</td>
+<td>11</td>
+<td>C</td>
+<td>7.0</td>
+<td>07 CONVENIENCE STORE</td>
+<td>0</td>
+<td>(32.775660705690548, -97.287510573265365)</td>
+<td>105</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>220074885-26A</td>
+<td>220074885</td>
+<td>2025-01-06T05:08:00</td>
+<td>THEFT</td>
+<td>2025-01-06T05:08:00</td>
+<td>26A</td>
+<td>PC 32.55(d)(6) FINANCIAL ABUSE ELDERLY &gt;=$150K</td>
+<td>300 W BELKNAP ST</td>
+<td>FORT WORTH</td>
+<td>Te</td>
+<td>A16</td>
+<td>NaN</td>
+<td>9</td>
+<td>C</td>
+<td>20.0</td>
+<td>20 RESIDENCE/HOME</td>
+<td>0</td>
+<td>(32.89283981132138, -97.302715710753986)</td>
+<td>1217105</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>230011993-23H</td>
+<td>230011993</td>
+<td>2025-02-17T08:25:00</td>
+<td>THEFT</td>
+<td>2025-02-13T22:20:00</td>
+<td>23H</td>
+<td>PC 31.03(E)(4)(A) Theft&gt;$1500&lt;$20K</td>
+<td>5700 OAKLEY AVE</td>
+<td>FORT WORTH</td>
+<td>Te</td>
+<td>E15</td>
+<td>North</td>
+<td>10</td>
+<td>C</td>
+<td>20.0</td>
+<td>20 RESIDENCE/HOME</td>
+<td>0</td>
+<td>(32.935578499448255, -97.259713400222935)</td>
+<td>1245608</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>230318026-23C</td>
+<td>230318026</td>
+<td>2025-02-16T03:44:00</td>
+<td>THEFT</td>
+<td>2023-06-29T21:00:00</td>
+<td>23C</td>
+<td>PC 31.03 Theft - Shoplifting</td>
+<td>1100 EASTCHASE PKWY</td>
+<td>FORT WORTH</td>
+<td>TX</td>
+<td>H12</td>
+<td>East</td>
+<td>5</td>
+<td>C</td>
+<td>24.0</td>
+<td>24 SPECIALTY STORE</td>
+<td>0</td>
+<td>NaN</td>
+<td>1297255</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>240001145-23C</td>
+<td>240001145</td>
+<td>2025-01-05T15:06:00</td>
+<td>THEFT</td>
+<td>2024-12-30T13:28:00</td>
+<td>23C</td>
+<td>GC&nbsp;&nbsp;085-07 Theft under $100- Shoplifting</td>
+<td>7900 SOUTH FWY</td>
+<td>FORT WORTH</td>
+<td>TX</td>
+<td>I18</td>
+<td>South</td>
+<td>8</td>
+<td>C</td>
+<td>24.0</td>
+<td>24 SPECIALTY STORE</td>
+<td>0</td>
+<td>(32.634589813124343, -97.321709532507086)</td>
+<td>1301204</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Notice how <code>pandas</code> has translated the JSON into a data frame with columns that make sense to us. There is a lot we can do with the data here! We have information about the date of the crime; the location - including lat/long coordinates, that need some additional parsing - the police beat, and the city council district. Using the methods we’ve learned to this point, we can do some basic analysis of the data. For example: how did theft vary by city council district in 2025?</p>
+<div id="a9ccee31" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-29T14:00:28.902436Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-29T14:00:28.902364Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-29T14:00:28.905735Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-29T14:00:28.905354Z&quot;}}" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>theft_by_district <span class="op">=</span> theft_df.groupby(<span class="st">'CouncilDistrict'</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>theft_by_district.size()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<pre><code>CouncilDistrict
+10     658
+11    1211
+2      898
+3     1275
+4      935
+5     1326
+6     1366
+7      612
+8     1463
+9     1692
+dtype: int64</code></pre>
+</div>
+</div>
+<p>Looks like District 9 had the most thefts, followed by District 8. Let’s try plotting this with <code>seaborn</code>:</p>
+<div id="2829294e" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-29T14:00:28.906814Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-29T14:00:28.906747Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-29T14:00:29.660158Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-29T14:00:29.659702Z&quot;}}" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>sns.set_theme(style <span class="op">=</span> <span class="st">"darkgrid"</span>, rc <span class="op">=</span> {<span class="st">"figure.figsize"</span>: (<span class="dv">8</span>, <span class="dv">6</span>)})</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>sns.countplot(data <span class="op">=</span> theft_df, y <span class="op">=</span> <span class="st">'CouncilDistrict'</span>, </span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>              order <span class="op">=</span> [<span class="st">'2'</span>, <span class="st">'3'</span>, <span class="st">'4'</span>, <span class="st">'5'</span>, <span class="st">'6'</span>, <span class="st">'7'</span>, <span class="st">'8'</span>, <span class="st">'9'</span>, <span class="st">'10'</span>, <span class="st">'11'</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="assignment-06-wrangling-data-from-apis_files/figure-html/cell-8-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>A trained observer, however, would notice that that data are not normalized for population. As data analysts, always be mindful of whether your analysis accurately represents the underlying variation in your data. Data can easily mislead if not presented correctly; for example, while the largest cities in the United States will usually have the most crimes, they won’t necessarily have the highest crime <strong>rates</strong>.</p>
+<p>However, we don’t have city council district population in our dataset; in turn, we’ll need to fetch it from somewhere else and <strong>merge</strong> it to our existing data. As we discussed in class, merges are based on <strong>key fields</strong> that match between two different tables. Also, recall from class our discussion of the four types of merges available to you in <code>pandas</code> via the <code>.merge()</code> method, which can be passed as arguments to the <code>how</code> parameter:</p>
+<ul>
+<li><code>'inner'</code> (the default): only the matching rows are retained</li>
+<li><code>'left'</code>: all rows from the first table are retained; only matching rows from the second table are retained</li>
+<li><code>'right'</code>: all rows from the second table are retained; only matching rows from the first table are retained</li>
+<li><code>'outer'</code>: all rows are retained, regardless of a match between the two tables</li>
+</ul>
+<p>We’ll be conducting a very simple merge here, in which all rows will match between the two tables. Let’s read in the city council population data (from the 2020 Census, for the current council districts) from our course GitHub repository:</p>
+<div id="831e3fcc" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-29T14:00:29.661553Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-29T14:00:29.661423Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-29T14:00:31.231124Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-29T14:00:31.230493Z&quot;}}" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>council <span class="op">=</span> pd.read_csv(<span class="st">'https://raw.githubusercontent.com/walkerke/geog30323/main/data/cd_population.csv'</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>council</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">name</th>
+<th data-quarto-table-cell-role="th">total</th>
+<th data-quarto-table-cell-role="th">district</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>2 - Carlos Flores</td>
+<td>89699</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>3 - Michael D. Crain</td>
+<td>86783</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>4 - Charles Lauersdorf</td>
+<td>94350</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>5 - Deborah Peoples</td>
+<td>94935</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>6 - Mia Hall</td>
+<td>87751</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">5</th>
+<td>7 - Macy Hill</td>
+<td>95456</td>
+<td>7</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">6</th>
+<td>8 - Chris Nettles</td>
+<td>92649</td>
+<td>8</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">7</th>
+<td>9 - Elizabeth M. Beck</td>
+<td>86668</td>
+<td>9</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">8</th>
+<td>10 - Chris Jamieson</td>
+<td>95643</td>
+<td>10</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">9</th>
+<td>11 - Jeanette Martinez</td>
+<td>95148</td>
+<td>11</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>We can now create a data frame from our <code>groupby</code> result (resetting the index, as <code>pandas</code> places the group name in the index), to get it ready for a merge.</p>
+<div id="ff2eb09d" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-29T14:00:31.233598Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-29T14:00:31.233358Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-29T14:00:31.238721Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-29T14:00:31.238170Z&quot;}}" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>theft_by_district_df <span class="op">=</span> pd.DataFrame(theft_by_district.size().reset_index())</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>theft_by_district_df.columns <span class="op">=</span> [<span class="st">'district'</span>, <span class="st">'count'</span>]</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>theft_by_district_df</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">district</th>
+<th data-quarto-table-cell-role="th">count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>10</td>
+<td>658</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>11</td>
+<td>1211</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>2</td>
+<td>898</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>3</td>
+<td>1275</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>4</td>
+<td>935</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">5</th>
+<td>5</td>
+<td>1326</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">6</th>
+<td>6</td>
+<td>1366</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">7</th>
+<td>7</td>
+<td>612</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">8</th>
+<td>8</td>
+<td>1463</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">9</th>
+<td>9</td>
+<td>1692</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>We’ll be able to merge on the “district” column, which I’ve renamed in the second data frame for clarity. First, let’s check our <code>dtypes</code> to make sure they match up:</p>
+<div id="bd41ca4e" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-29T14:00:31.240393Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-29T14:00:31.240292Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-29T14:00:31.243180Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-29T14:00:31.242656Z&quot;}}" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>council.dtypes</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<pre><code>name          str
+total       int64
+district    int64
+dtype: object</code></pre>
+</div>
+</div>
+<div id="f9cacd02" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-29T14:00:31.244449Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-29T14:00:31.244356Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-29T14:00:31.246717Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-29T14:00:31.246299Z&quot;}}" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>theft_by_district_df.dtypes</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+<pre><code>district      str
+count       int64
+dtype: object</code></pre>
+</div>
+</div>
+<p>The <code>district</code> column is stored as integers in <code>council</code>, but as text in <code>theft_by_district_df</code> - the district numbers came from the API as strings. The <code>"fields"</code> section of the API response told us this at the start: <code>CouncilDistrict</code> is listed as <code>esriFieldTypeString</code>. <code>pandas</code> will not merge on columns of two different types, so we’ll convert it to integers first with the <code>.astype()</code> method:</p>
+<div id="36935b4c" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-29T14:00:31.248180Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-29T14:00:31.248086Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-29T14:00:31.250827Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-29T14:00:31.250288Z&quot;}}" data-execution_count="12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>theft_by_district_df[<span class="st">'district'</span>] <span class="op">=</span> theft_by_district_df[<span class="st">'district'</span>].astype(<span class="bu">int</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>theft_by_district_df.dtypes</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<pre><code>district    int64
+count       int64
+dtype: object</code></pre>
+</div>
+</div>
+<p>Now, we can do the merge with the <code>.merge()</code> method in <code>pandas</code>.</p>
+<div id="b52ec2d8" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-29T14:00:31.252068Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-29T14:00:31.251973Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-29T14:00:31.256268Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-29T14:00:31.255859Z&quot;}}" data-execution_count="13">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>council_merged <span class="op">=</span> council.merge(theft_by_district_df, on <span class="op">=</span> <span class="st">'district'</span>, how <span class="op">=</span> <span class="st">"left"</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>council_merged</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="13">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">name</th>
+<th data-quarto-table-cell-role="th">total</th>
+<th data-quarto-table-cell-role="th">district</th>
+<th data-quarto-table-cell-role="th">count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>2 - Carlos Flores</td>
+<td>89699</td>
+<td>2</td>
+<td>898</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>3 - Michael D. Crain</td>
+<td>86783</td>
+<td>3</td>
+<td>1275</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>4 - Charles Lauersdorf</td>
+<td>94350</td>
+<td>4</td>
+<td>935</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>5 - Deborah Peoples</td>
+<td>94935</td>
+<td>5</td>
+<td>1326</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>6 - Mia Hall</td>
+<td>87751</td>
+<td>6</td>
+<td>1366</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">5</th>
+<td>7 - Macy Hill</td>
+<td>95456</td>
+<td>7</td>
+<td>612</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">6</th>
+<td>8 - Chris Nettles</td>
+<td>92649</td>
+<td>8</td>
+<td>1463</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">7</th>
+<td>9 - Elizabeth M. Beck</td>
+<td>86668</td>
+<td>9</td>
+<td>1692</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">8</th>
+<td>10 - Chris Jamieson</td>
+<td>95643</td>
+<td>10</td>
+<td>658</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">9</th>
+<td>11 - Jeanette Martinez</td>
+<td>95148</td>
+<td>11</td>
+<td>1211</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Perfect! We can now calculate a new column that measures rate per 1000 residents for thefts in 2025.</p>
+<div id="a77eebe4" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-29T14:00:31.257577Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-29T14:00:31.257511Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-29T14:00:31.260766Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-29T14:00:31.260382Z&quot;}}" data-execution_count="14">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>council_merged[<span class="st">'rate'</span>] <span class="op">=</span> (council_merged[<span class="st">'count'</span>] <span class="op">/</span> council_merged[<span class="st">'total'</span>]) <span class="op">*</span> <span class="dv">1000</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>council_merged</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">name</th>
+<th data-quarto-table-cell-role="th">total</th>
+<th data-quarto-table-cell-role="th">district</th>
+<th data-quarto-table-cell-role="th">count</th>
+<th data-quarto-table-cell-role="th">rate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>2 - Carlos Flores</td>
+<td>89699</td>
+<td>2</td>
+<td>898</td>
+<td>10.011260</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>3 - Michael D. Crain</td>
+<td>86783</td>
+<td>3</td>
+<td>1275</td>
+<td>14.691818</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>4 - Charles Lauersdorf</td>
+<td>94350</td>
+<td>4</td>
+<td>935</td>
+<td>9.909910</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>5 - Deborah Peoples</td>
+<td>94935</td>
+<td>5</td>
+<td>1326</td>
+<td>13.967451</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>6 - Mia Hall</td>
+<td>87751</td>
+<td>6</td>
+<td>1366</td>
+<td>15.566774</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">5</th>
+<td>7 - Macy Hill</td>
+<td>95456</td>
+<td>7</td>
+<td>612</td>
+<td>6.411331</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">6</th>
+<td>8 - Chris Nettles</td>
+<td>92649</td>
+<td>8</td>
+<td>1463</td>
+<td>15.790780</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">7</th>
+<td>9 - Elizabeth M. Beck</td>
+<td>86668</td>
+<td>9</td>
+<td>1692</td>
+<td>19.522777</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">8</th>
+<td>10 - Chris Jamieson</td>
+<td>95643</td>
+<td>10</td>
+<td>658</td>
+<td>6.879751</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">9</th>
+<td>11 - Jeanette Martinez</td>
+<td>95148</td>
+<td>11</td>
+<td>1211</td>
+<td>12.727540</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>And we can plot the results:</p>
+<div id="af33d619" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-29T14:00:31.261845Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-29T14:00:31.261783Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-29T14:00:31.347488Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-29T14:00:31.347078Z&quot;}}" data-execution_count="15">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>council_sort <span class="op">=</span> council_merged.sort_values(<span class="st">'rate'</span>, ascending <span class="op">=</span> <span class="va">False</span>)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>sns.stripplot(data <span class="op">=</span> council_sort, x <span class="op">=</span> <span class="st">'rate'</span>, y <span class="op">=</span> <span class="st">'name'</span>, size <span class="op">=</span> <span class="dv">12</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="assignment-06-wrangling-data-from-apis_files/figure-html/cell-16-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Just in case you were wondering: TCU is split across council districts 3 and 9.</p>
+<p>The last thing we’re going to do is look at how thefts varied by date in 2025. We have two columns that represent dates: <code>From_Date</code> and <code>Reported_Date</code>; however they are not currently formatted as dates. Dates are very tricky types to work with in data analysis - there are many different ways that dates can be written! Fortunately, ours are currently fairly consistent - we just need to do a little work with them.</p>
+<p>The date fields in our data frame include the time of day after the <code>'T'</code> (e.g.&nbsp;<code>'T13:06:00'</code>); as we’re interested in how thefts varied by day, we’re going to remove it from the string.</p>
+<p>The steps below will do the following:</p>
+<ul>
+<li>Remove the unnecessary time information, creating a new column <code>date1</code>;</li>
+<li>Create a new column formatted as a date, <code>date2</code>, from <code>date1</code>, using the <code>to_datetime()</code> function in <code>pandas</code>.</li>
+</ul>
+<div id="72f64a3b" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-29T14:00:31.348690Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-29T14:00:31.348619Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-29T14:00:31.358382Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-29T14:00:31.357925Z&quot;}}" data-execution_count="16">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>theft_df[<span class="st">'date1'</span>] <span class="op">=</span> theft_df[<span class="st">'Reported_Date'</span>].<span class="bu">str</span>[:<span class="dv">10</span>]</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>theft_df[<span class="st">'date2'</span>] <span class="op">=</span> pd.to_datetime(theft_df[<span class="st">'date1'</span>])</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>theft_df.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Case_No_Offense</th>
+<th data-quarto-table-cell-role="th">Case_No</th>
+<th data-quarto-table-cell-role="th">Reported_Date</th>
+<th data-quarto-table-cell-role="th">Nature_Of_Call</th>
+<th data-quarto-table-cell-role="th">From_Date</th>
+<th data-quarto-table-cell-role="th">Offense</th>
+<th data-quarto-table-cell-role="th">Offense_Desc</th>
+<th data-quarto-table-cell-role="th">BLOCK_ADDRESS</th>
+<th data-quarto-table-cell-role="th">City</th>
+<th data-quarto-table-cell-role="th">State</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">Division</th>
+<th data-quarto-table-cell-role="th">CouncilDistrict</th>
+<th data-quarto-table-cell-role="th">Attempt_Complete</th>
+<th data-quarto-table-cell-role="th">Location_Type</th>
+<th data-quarto-table-cell-role="th">LocationTypeDescription</th>
+<th data-quarto-table-cell-role="th">intTotal</th>
+<th data-quarto-table-cell-role="th">Location_1</th>
+<th data-quarto-table-cell-role="th">ObjectId</th>
+<th data-quarto-table-cell-role="th">date1</th>
+<th data-quarto-table-cell-role="th">date2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>250089045-23</td>
+<td>25008904</td>
+<td>2025-11-24T00:30:00</td>
+<td>THEFT</td>
+<td>2025-11-18T13:00:00</td>
+<td>23H</td>
+<td>PC 31.03(e)(2)(A)&nbsp;&nbsp;Theft Property &gt;=$100&lt;$750</td>
+<td>4100 AIRPORT FWY</td>
+<td>FORT WORTH</td>
+<td>TX</td>
+<td>...</td>
+<td>NaN</td>
+<td>11</td>
+<td>C</td>
+<td>7.0</td>
+<td>07 CONVENIENCE STORE</td>
+<td>0</td>
+<td>(32.775660705690548, -97.287510573265365)</td>
+<td>105</td>
+<td>2025-11-24</td>
+<td>2025-11-24</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>220074885-26A</td>
+<td>220074885</td>
+<td>2025-01-06T05:08:00</td>
+<td>THEFT</td>
+<td>2025-01-06T05:08:00</td>
+<td>26A</td>
+<td>PC 32.55(d)(6) FINANCIAL ABUSE ELDERLY &gt;=$150K</td>
+<td>300 W BELKNAP ST</td>
+<td>FORT WORTH</td>
+<td>Te</td>
+<td>...</td>
+<td>NaN</td>
+<td>9</td>
+<td>C</td>
+<td>20.0</td>
+<td>20 RESIDENCE/HOME</td>
+<td>0</td>
+<td>(32.89283981132138, -97.302715710753986)</td>
+<td>1217105</td>
+<td>2025-01-06</td>
+<td>2025-01-06</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>230011993-23H</td>
+<td>230011993</td>
+<td>2025-02-17T08:25:00</td>
+<td>THEFT</td>
+<td>2025-02-13T22:20:00</td>
+<td>23H</td>
+<td>PC 31.03(E)(4)(A) Theft&gt;$1500&lt;$20K</td>
+<td>5700 OAKLEY AVE</td>
+<td>FORT WORTH</td>
+<td>Te</td>
+<td>...</td>
+<td>North</td>
+<td>10</td>
+<td>C</td>
+<td>20.0</td>
+<td>20 RESIDENCE/HOME</td>
+<td>0</td>
+<td>(32.935578499448255, -97.259713400222935)</td>
+<td>1245608</td>
+<td>2025-02-17</td>
+<td>2025-02-17</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>230318026-23C</td>
+<td>230318026</td>
+<td>2025-02-16T03:44:00</td>
+<td>THEFT</td>
+<td>2023-06-29T21:00:00</td>
+<td>23C</td>
+<td>PC 31.03 Theft - Shoplifting</td>
+<td>1100 EASTCHASE PKWY</td>
+<td>FORT WORTH</td>
+<td>TX</td>
+<td>...</td>
+<td>East</td>
+<td>5</td>
+<td>C</td>
+<td>24.0</td>
+<td>24 SPECIALTY STORE</td>
+<td>0</td>
+<td>NaN</td>
+<td>1297255</td>
+<td>2025-02-16</td>
+<td>2025-02-16</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>240001145-23C</td>
+<td>240001145</td>
+<td>2025-01-05T15:06:00</td>
+<td>THEFT</td>
+<td>2024-12-30T13:28:00</td>
+<td>23C</td>
+<td>GC&nbsp;&nbsp;085-07 Theft under $100- Shoplifting</td>
+<td>7900 SOUTH FWY</td>
+<td>FORT WORTH</td>
+<td>TX</td>
+<td>...</td>
+<td>South</td>
+<td>8</td>
+<td>C</td>
+<td>24.0</td>
+<td>24 SPECIALTY STORE</td>
+<td>0</td>
+<td>(32.634589813124343, -97.321709532507086)</td>
+<td>1301204</td>
+<td>2025-01-05</td>
+<td>2025-01-05</td>
+</tr>
+</tbody>
+</table>
+
+<p>5 rows × 21 columns</p>
+</div>
+</div>
+</div>
+<p>Scroll to the end; we see that <code>date1</code> and <code>date2</code> look similar; however, <code>date2</code> is formatted as a date, which means that <code>pandas</code> recognizes how to work with it in sequence. In turn, we can plot how thefts varied by day in Fort Worth in 2025:</p>
+<div id="0d65e16f" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-29T14:00:31.359561Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-29T14:00:31.359487Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-29T14:00:31.423157Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-29T14:00:31.422736Z&quot;}}" data-execution_count="17">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>theft_by_date <span class="op">=</span> (theft_df</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>                .groupby(<span class="st">'date2'</span>)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>                .size()</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>                .reset_index()</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>                )</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>theft_by_date.columns <span class="op">=</span> [<span class="st">"Date"</span>, <span class="st">"Number"</span>]</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>sns.lineplot(x <span class="op">=</span> <span class="st">"Date"</span>, y <span class="op">=</span> <span class="st">"Number"</span>, data <span class="op">=</span> theft_by_date)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="assignment-06-wrangling-data-from-apis_files/figure-html/cell-18-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Read through the code to understand what it does. I’m introducing you here to a new process of operations called <em>method chaining</em> which is very popular in data programming. Rather than writing out a separate command for each method, generating new objects along the way, e.g.:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>theft_groupby <span class="op">=</span> theft_df.groupby(<span class="st">'date2'</span>)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>theft_size <span class="op">=</span> theft_groupby.size()</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>theft_reset <span class="op">=</span> theft_size.reset_index()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Method chaining allows for the specification of a data wrangling process as a series of steps. The code we use -</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>theft_by_date <span class="op">=</span> (theft_df</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>                .groupby(<span class="st">'date2'</span>)</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>                .size()</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>                .reset_index()</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>                )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>can be read as “To generate the object <code>theft_by_date</code>, we first take the <code>theft_df</code> data frame, then we group it by the <code>"date2"</code> column, then we compute the size, then we reset the index.” Method chains over multiple lines like these must be wrapped in parentheses so Python knows that the methods belong to a multi-line chain. This is the style that I often use in my projects as it helps me keep my thoughts organized.</p>
+<p>Once we’ve generated an appropriate object using the method chain, we can give it sensible column names and plot the result with <code>sns.lineplot()</code>.</p>
+<p>One thing you may notice with the plot, however, is that it appears choppy, making it difficult to discern trends for the entire year. An alternative way to visualize this is by re-calculating the data as a <em>rolling mean</em>, where the number associated with each date represents an average of the days around it. <strong>pandas</strong> is designed specifically for this type of time-series analysis.</p>
+<div id="b5267cea" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-29T14:00:31.424481Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-29T14:00:31.424392Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-29T14:00:31.427882Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-29T14:00:31.427548Z&quot;}}" data-execution_count="18">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>theft_by_date[<span class="st">'Weekly_Avg'</span>] <span class="op">=</span> theft_by_date[<span class="st">'Number'</span>].rolling(window <span class="op">=</span> <span class="dv">7</span>, min_periods <span class="op">=</span> <span class="dv">1</span>).mean()</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>theft_by_date.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="18">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Date</th>
+<th data-quarto-table-cell-role="th">Number</th>
+<th data-quarto-table-cell-role="th">Weekly_Avg</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>2025-01-01</td>
+<td>26</td>
+<td>26.0</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>2025-01-02</td>
+<td>26</td>
+<td>26.0</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>2025-01-03</td>
+<td>29</td>
+<td>27.0</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>2025-01-04</td>
+<td>33</td>
+<td>28.5</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>2025-01-05</td>
+<td>22</td>
+<td>27.2</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Above, we use the <code>.rolling()</code> method to specify a “window” of observations around each row for a given column. We can then compute a statistic (e.g.&nbsp;sum, mean) over that rolling window and we get back the appropriate result. The <code>min_periods</code> argument is necessary here as the default will return <code>NaN</code> (missing data) for rows with fewer observations in their windows than the specified size.</p>
+<p>As we’ve now computed the seven-day average for theft in 2025 by day, we can visualize it on a chart. Here, we draw the seven-day average on top of the daily counts, which are made lighter with the <code>alpha</code> argument.</p>
+<div id="c7cdc1cf" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-10-29T14:00:31.428971Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-10-29T14:00:31.428907Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-10-29T14:00:31.497165Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-10-29T14:00:31.496789Z&quot;}}" data-execution_count="19">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>sns.lineplot(x <span class="op">=</span> <span class="st">"Date"</span>, y <span class="op">=</span> <span class="st">"Number"</span>, data <span class="op">=</span> theft_by_date, alpha <span class="op">=</span> <span class="fl">0.3</span>)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>sns.lineplot(x <span class="op">=</span> <span class="st">"Date"</span>, y <span class="op">=</span> <span class="st">"Weekly_Avg"</span>, data <span class="op">=</span> theft_by_date)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="assignment-06-wrangling-data-from-apis_files/figure-html/cell-20-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="exercises" class="level2">
+<h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
+<p>Data APIs are complicated topics and we’re only scratching the surface here of what you can do with them. In turn, your exercises for this assignment will be a little different.</p>
+<p>Your job here is to replicate the above analysis for <strong>another type of offense</strong> and <strong>optionally another time period</strong> in Fort Worth. Visit the Fort Worth dataset on the web here: https://data.fortworthtexas.gov/datasets/5acdb612b4654c3abb30e6987db2408b/explore and look at the “Nature of Call” column to see what other options there are. Some tips: some crimes like murder are relatively rare, so you might be better served choosing an offense that is more frequent. Also, values in the “Description” column have changed somewhat over time, so be mindful of this when selecting a type of crime. Finally, the API will return at most 32,000 records in a single call; if you choose a common offense, keep your time period to a year or less.</p>
+<p>What this basically involves is re-using the code I’ve already written for this assignment, and modifying it slightly for your chosen type of offense and your chosen time period. To do this, you’ll modify the API call at the beginning of the code accordingly. I want you to get a sense of how you can “change parameters” in an API call, and in turn get different results. Indeed, an enterprising analysis like this could wrap everything in a function and re-produce analyses by parameterizing these inputs in Python; you don’t have to do that here, but hopefully this gives you a sense of why it is useful to write everything out with code.</p>
+<p>To get full credit for this assignment, your results should include responses to the following questions:</p>
+<ol type="1">
+<li>How did crime incidents for your chosen offense in your chosen time period vary by city council district?<br>
+</li>
+<li>Draw a chart that shows these variations.<br>
+</li>
+<li>How did crime rates per 1000 residents in your chosen time period vary by city council district for your chosen offense?<br>
+</li>
+<li>Draw a chart that shows variations in rates by council district.<br>
+</li>
+<li>Draw a line chart that shows how incidents of your chosen offense varied by day in the time period that you chose.<br>
+</li>
+<li>In the theft example above, the counts by council district add up to fewer than the number of records the API returned; about 480 thefts have no council district. Check your own offense: how many of your records are missing a council district? If you were reporting your results from Questions 1-4, what would you do about these records, and why? Would your answer change if most of the missing records came from one part of the city?</li>
+</ol>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
