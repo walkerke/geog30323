@@ -9,12 +9,14 @@ project:
     - notebooks/assignment-03-univariate-data-analysis.ipynb
     - notebooks/assignment-04-multivariate-visualization.ipynb
     - notebooks/assignment-05-data-wrangling.ipynb
+    - notebooks/assignment-06-wrangling-data-from-apis.ipynb
     - slides/01-data-literacy.qmd
     - slides/02-programming-1.qmd
     - slides/03-functions-and-iteration.qmd
     - slides/04-modules-and-eda.qmd
     - slides/05-exploratory-viz.qmd
     - slides/06-data-wrangling.qmd
+    - slides/07-advanced-io.qmd
   resources:
     - GEOG30323-015_Fall2026_Walker.pdf
 

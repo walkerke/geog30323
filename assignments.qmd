@@ -15,7 +15,7 @@ Open an assignment to read through it, then click **Open in Colab** at the top t
 - [Assignment 3: Univariate data analysis](notebooks/assignment-03-univariate-data-analysis.ipynb)
 - [Assignment 4: Multivariate exploratory visualization](notebooks/assignment-04-multivariate-visualization.ipynb)
 - [Assignment 5: Data wrangling I](notebooks/assignment-05-data-wrangling.ipynb)
-- Assignment 6 *(coming soon)*
+- [Assignment 6: Wrangling data from APIs](notebooks/assignment-06-wrangling-data-from-apis.ipynb)
 - Assignment 7 *(coming soon)*
 - Assignment 8 *(coming soon)*
 - Assignment 9 *(coming soon)*

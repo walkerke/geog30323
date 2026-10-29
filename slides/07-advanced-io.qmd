@@ -5,7 +5,7 @@ date: "2026-10-27"
 ## The 'ins' and 'outs' of data
 
 * We've learned how to work with CSV files - which are probably the most common data format you'll come across
-* What if your data aren't available in CSV format?  
+* What if your data aren't available in CSV format?
 * Possible formats: Excel, database, fixed-width text, statistics packages, JSON, XML, ...
 
 ---
@@ -23,7 +23,7 @@ date: "2026-10-27"
 ### Delimited text data
 
 * Generally: each record on a different line of the text file; columns separated in some consistent way (hopefully)
-* Common delimiters: 
+* Common delimiters:
     * Comma `','`
     * Semi-colon `';'`
     * Pipe `'|'`
@@ -48,7 +48,7 @@ date: "2026-10-27"
 
 ### Data on the web
 
-* Example: https://data.fortworthtexas.gov/
+* Example: <https://data.fortworthtexas.gov/>
 
 ---
 
@@ -58,75 +58,217 @@ date: "2026-10-27"
     * For example: the `pandas` API comprises the functions, methods, etc. that you use in `pandas`
 * Data API: interface that allows you to access __data__ programmatically
     * Often: requests are made via URL; interact with data via URL parameters
-    
+
 
 ---
 
 ### JavaScript Object Notation (JSON)
 
-* Example: https://data.fortworthtexas.gov/resource/kr8h-9zxd.json
+* Example: the five most recent thefts reported to Fort Worth police - [open in your browser](https://services5.arcgis.com/3ddLCBXe1bRt7mzj/arcgis/rest/services/CFW_Open_Data_Police_Crime_Data_Table_view/FeatureServer/0/query?where=Nature_Of_Call%3D%27THEFT%27&outFields=Reported_Date,Nature_Of_Call,BLOCK_ADDRESS&orderByFields=Reported_Date+DESC&resultRecordCount=5&f=pjson)
+* Look at the URL: the parameters (`where`, `outFields`, `resultRecordCount`) _are_ the request
 
----
-
-### JSON in `pandas`
-
-* Convert JSON to data frames with the `read_json()` function
-* Be careful with what you get back!
-
-```python
-import pandas as pd
-
-api_call = 'https://data.fortworthtexas.gov/resource/kr8h-9zxd.json?streetname=BERRY'
-
-berry = pd.read_json(api_call)
-
-berry.head()
-
+```
+{
+  "attributes" : {
+    "Reported_Date" : "2026-10-25T13:12:00",
+    "Nature_Of_Call" : "THEFT",
+    "BLOCK_ADDRESS" : "10000 HARMON RD"
+  }
+},
 ```
 
 ---
 
-### Why use APIs? 
+### JSON in Python
+
+* The `requests` library sends the request and builds the URL for you
+* `.json()` turns the response into Python dictionaries and lists
+
+```python
+import pandas as pd
+import requests
+
+base = 'https://services5.arcgis.com/3ddLCBXe1bRt7mzj/arcgis/rest/services/'
+endpoint = base + 'CFW_Open_Data_Police_Crime_Data_Table_view/FeatureServer/0/query'
+
+params = {
+    'where': "Nature_Of_Call = 'THEFT' AND Reported_Date LIKE '2026%'",
+    'outFields': '*',
+    'f': 'json'
+}
+
+data = requests.get(endpoint, params = params).json()
+
+data.keys()
+```
+```
+dict_keys(['objectIdFieldName', 'uniqueIdField', 'globalIdFieldName', 'fields', 'exceededTransferLimit', 'features'])
+```
+
+---
+
+### JSON to a data frame
+
+* The records are nested inside `'features'`; a list comprehension pulls them out
+
+```python
+thefts = pd.DataFrame([f['attributes'] for f in data['features']])
+
+thefts.filter(['Reported_Date', 'Nature_Of_Call', 'BLOCK_ADDRESS']).head()
+```
+```
+         Reported_Date Nature_Of_Call         BLOCK_ADDRESS
+0  2026-03-28T16:52:25          THEFT       6100 TILAPIA DR
+1  2026-04-23T14:58:16          THEFT        4500 MARTIN ST
+2  2026-01-01T10:02:00          THEFT    1500 E PRESIDIO ST
+3  2026-01-01T11:07:00          THEFT        8200 CHAPIN RD
+4  2026-01-01T14:17:00          THEFT  1900 THISTLE HILL DR
+```
+
+* Be careful with what you get back!
+
+---
+
+### Be careful with what you get back!
+
+```python
+thefts.shape
+```
+```
+(1000, 19)
+```
+
+* Exactly 1,000 thefts in Fort Worth in 2026?
+
+```python
+data['exceededTransferLimit']
+```
+```
+True
+```
+
+* Most APIs cap the number of records per request. No error, no warning - the API told us, but only if we looked
+
+---
+
+### Check against a known total
+
+* Ask the API how many records match your request:
+
+```python
+count_params = {'where': params['where'],
+                'returnCountOnly': 'true',
+                'f': 'json'}
+
+requests.get(endpoint, params = count_params).json()
+```
+```
+{'count': 9428}
+```
+
+* We had 1,000 of 9,428. Always compare what you got with what you expected
+
+---
+
+### Why use APIs?
 
 * Your programming knowledge can give you even more flexibility...
 
 ```python
-def get_accidents(street_name): 
-    part1 = 'https://data.fortworthtexas.gov/resource/kr8h-9zxd.json?streetname='
-    api_call = part1 + street_name
-    return pd.read_json(api_call)
-
-uni = get_accidents('UNIVERSITY')
-
-uni.head()
+def get_crimes(where):
+    rows = []
+    offset = 0
+    while True:
+        page = requests.get(endpoint, params = {
+            'where': where, 'outFields': '*',
+            'orderByFields': 'ObjectId',
+            'resultOffset': offset, 'f': 'json'
+        }).json()
+        rows.extend([f['attributes'] for f in page['features']])
+        if not page.get('exceededTransferLimit'):
+            break
+        offset = offset + 1000
+    return pd.DataFrame(rows)
 ```
+
+---
+
+### Why use APIs?
+
+```python
+def get_street(street_name):
+    where = f"BLOCK_ADDRESS LIKE '%{street_name}%' AND Reported_Date LIKE '2026%'"
+    return get_crimes(where)
+
+berry = get_street('BERRY')
+
+berry['Nature_Of_Call'].value_counts().head()
+```
+```
+Nature_Of_Call
+THEFT                  118
+NARCOTIC VIOLATIONS     81
+PENAL CODE              79
+CRIMINAL MISCHIEF       52
+ASSAULT                 48
+Name: count, dtype: int64
+```
+
+---
+
+### Why use APIs?
+
+```python
+uni = get_street('UNIVERSITY')
+
+uni['Nature_Of_Call'].value_counts().head()
+```
+```
+Nature_Of_Call
+THEFT                44
+DWI                  23
+PENAL CODE           22
+CRIMINAL MISCHIEF    10
+CRIMINAL TRESPASS     7
+Name: count, dtype: int64
+```
+
+* Up-to-date data, every time you run it
 
 ---
 
 ### Data on websites
 
-<img src=img/07-advanced-io/epl_standings.png style="width: 800px">
+* Example: Premier League standings, 2026-27 season - <https://www.espn.com/soccer/standings/_/league/ENG.1>
 
 ---
 
 ### Web scraping
 
-* Process of getting data __from__ websites __into__ your computing environment 
+* Process of getting data __from__ websites __into__ your computing environment
 * Python packages to accomplish this: `html5lib`, `BeautifulSoup`, `lxml`, `scrapy`
 * Web scraping built into `pandas` with the `read_html()` function (for tables)
     * "Expect to do some cleanup after you call this function."
-    
+
 
 ---
 
 ### Web scraping in `pandas`
 
 ```python
-url = 'https://www.espn.com/soccer/standings/_/league/ENG.1/season/2019'
+url = 'https://www.espn.com/soccer/standings/_/league/ENG.1'
 
 epl = pd.read_html(url)
 
-epl
+epl[0].head()
+```
+```
+                    2026-2027
+0         1MNCManchester City
+1                 2ARSArsenal
+2  3BHABrighton & Hove Albion
+3               4LIVLiverpool
+4                 5CHEChelsea
 ```
 
 We get back a list of data frame objects with team names (with clean-up required) in the first data frame and team performance in the second
@@ -139,47 +281,52 @@ We get back a list of data frame objects with team names (with clean-up required
 
 ---
 
+### Regular expressions
+
+* A small language for describing __patterns__ in text
+* `'^[0-9]+[A-Z]{3}'`: at the start of the string (`^`), one or more digits (`[0-9]+`), then three capital letters (`[A-Z]{3}`)
+* AI tools are very good at writing these - but you still need to check what they match
+
+---
+
 ```python
 teams = epl[0]
 
-teams["name"] = teams["2019-2020"].str.replace("[0-9]", "")
-
-teams[6:12]
-```
-<img src=img/07-advanced-io/epl_snippet_1.png>
-
----
-
-* `np.where()`: If the specified condition is `True`, return the first supplied outcome; otherwise return the second supplied outcome
-
-```python
-import numpy as np
-
-teams["firstfive"] = teams["name"].str[0:5]
-
-teams["name"] = np.where(teams["firstfive"].str.isupper(),
-                         teams["name"].str[4:], 
-                         teams["name"].str[3:])
-
-```
-
----
-
-```python
-teams[6:12]
-```
-
-<img src=img/07-advanced-io/epl_snippet_2.png>
-
-
----
-
-```python
-teams.drop(["2019-2020", "firstfive"], axis = 1, inplace = True)
+teams['name'] = teams['2026-2027'].str.replace('^[0-9]+[A-Z]{3}', '')
 
 teams.head()
 ```
-<img src=img/07-advanced-io/clean1.png>
+```
+                    2026-2027                        name
+0         1MNCManchester City         1MNCManchester City
+1                 2ARSArsenal                 2ARSArsenal
+2  3BHABrighton & Hove Albion  3BHABrighton & Hove Albion
+3               4LIVLiverpool               4LIVLiverpool
+4                 5CHEChelsea                 5CHEChelsea
+```
+
+* Nothing happened - and no error. `pandas` looked for that text _literally_
+
+---
+
+```python
+teams['name'] = teams['2026-2027'].str.replace('^[0-9]+[A-Z]{3}', '',
+                                               regex = True)
+
+teams = teams.drop('2026-2027', axis = 1)
+
+teams.head()
+```
+```
+                     name
+0         Manchester City
+1                 Arsenal
+2  Brighton & Hove Albion
+3               Liverpool
+4                 Chelsea
+```
+
+* That's five teams. Did it work for all 20?
 
 ---
 
@@ -192,8 +339,14 @@ epl_cleaned = pd.concat([teams, epl[1]], axis = 1)
 
 epl_cleaned.head()
 ```
-
-<img src="img/07-advanced-io/pandas_concat.png">
+```
+                     name  GP  W  D  L   F   A  GD   P
+0         Manchester City   8  7  0  1  20   9  11  21
+1                 Arsenal   8  7  0  1  13   5   8  21
+2  Brighton & Hove Albion   8  5  1  2  23   7  16  16
+3               Liverpool   8  4  3  1  11   8   3  15
+4                 Chelsea   8  4  1  3  17  15   2  13
+```
 
 ---
 
@@ -201,22 +354,21 @@ epl_cleaned.head()
 
 ```python
 import seaborn as sns
-sns.set(style = "darkgrid")
+sns.set_theme(style = "darkgrid")
 
 sns.lmplot(data = epl_cleaned, x = "A", y = "P")
 ```
 
-<img src=img/07-advanced-io/lmplot.png style="width:425px">
+<img src=img/07-advanced-io/lmplot-2026.png style="width:425px">
 
 ---
 
 ```python
-sns.barplot(x = "F", y = "name", 
+sns.barplot(x = "F", y = "name",
             data = epl_cleaned.sort_values("F", ascending = False))
 ```
 
-<img src=img/07-advanced-io/barplot.png style="width:650px">
-
+<img src=img/07-advanced-io/barplot-2026.png style="width:650px">
 
 ---
 
@@ -224,17 +376,132 @@ sns.barplot(x = "F", y = "name",
 
 * The `.to_xxx()` suite of methods allow you to write `pandas` data frames to a host of different formats
 
-For example: 
+For example:
 
 ```python
 epl_cleaned.to_csv('epl_standings.csv', index = False)
 ```
 
+---
+
+## Not everyone wants to be scraped
+
+---
+
+### `robots.txt`
+
+* Many websites publish a file telling automated visitors what they may and may not access
+
+```python
+print(requests.get('https://www.espn.com/robots.txt').text)
+```
+```
+# excerpt
+User-agent: GPTBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+```
+
+* ESPN lets our code read its standings, but not the crawlers that collect data for AI models
+
+---
+
+### Why sites are closing their doors
+
+* AI companies crawl the web at enormous scale to collect training data
+* Wikipedia (April 2025): bandwidth for multimedia downloads up 50% since January 2024, driven largely by AI scrapers; bots account for 65% of its most expensive traffic - "Our content is free, our infrastructure is not" ([TechCrunch](https://techcrunch.com/2025/04/02/ai-crawlers-cause-wikimedia-commons-bandwidth-demands-to-surge-50/))
+* Cloudflare, which sits in front of a large share of the web, began blocking AI crawlers by default for new sites in July 2025 ([CNBC](https://www.nbcwashington.com/news/business/money-report/web-giant-cloudflare-to-block-ai-bots-from-scraping-content-by-default/3947915/))
+
+---
+
+### Example: Wikipedia
+
+```python
+wiki = 'https://en.wikipedia.org/wiki/List_of_cities_in_Texas_by_population'
+
+pd.read_html(wiki)
+```
+```
+HTTPError: HTTP Error 403: Forbidden
+```
+
+* Wikipedia blocks requests that don't say who they are
+
+---
+
+### Example: Wikipedia
+
+* Identify yourself with a __user agent__
+
+```python
+import io
+
+headers = {'User-Agent': 'GEOG 30323 class project (yourname@tcu.edu)'}
+response = requests.get(wiki, headers = headers)
+
+tx = pd.read_html(io.StringIO(response.text))[0]
+tx.columns = tx.columns.get_level_values(1)
+
+tx.iloc[:6, [1, 5, 7]]
+```
+```
+  Municipality  2025 Estimate[7] 2020–2025 Change
+0      Houston         2397315.0           +4.16%
+1  San Antonio         1548422.0           +7.93%
+2       Dallas         1329491.0           +1.93%
+3   Fort Worth         1028117.0          +11.88%
+4       Austin         1002632.0           +4.24%
+5      El Paso          683012.0           +0.62%
+```
+
+---
+
+### Example: Pro Football Reference
+
+```python
+pd.read_html('https://www.pro-football-reference.com/years/2025/passing.htm')
+```
+```
+HTTPError: HTTP Error 403: Forbidden
+```
+
+* Blocked - even when the request claims to be a web browser
+* The quarterback data for Exam 1 came from [nflverse](https://github.com/nflverse/nflverse-data/releases) instead: data published for machines
+
+---
+
+### APIs, too
+
+* Reddit began charging for access to its API in 2023; its CEO pointed to AI companies training on Reddit's data for free ([Fortune](https://fortune.com/2023/04/19/reddit-charge-api-access-ceo-steve-huffman-artificial-intelligence-chatgpt/))
+* Free, open APIs still exist - especially from governments (like Fort Worth's!)
+* Rate limits are common: Sports Reference blocks visitors making more than 20 requests a minute ([policy](https://www.sports-reference.com/bot-traffic.html))
+
+---
+
+### Getting data from the web responsibly
+
+* Look for data published for machines first: APIs, open data portals, data packages
+* Check `robots.txt`
+* Identify yourself
+* Slow down - don't send hundreds of requests in a loop
+* Expect sources to move, change, or close
+
 <style>
 
 .reveal section img {
-  background:none; 
-  border:none; 
+  background:none;
+  border:none;
   box-shadow:none;
   }
 
@@ -243,6 +510,5 @@ h3 {
 
 
 }
-  
-</style>
 
+</style>
