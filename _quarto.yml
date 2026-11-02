@@ -17,6 +17,7 @@ project:
     - slides/05-exploratory-viz.qmd
     - slides/06-data-wrangling.qmd
     - slides/07-advanced-io.qmd
+    - slides/08-data-visualization.qmd
   resources:
     - GEOG30323-015_Fall2026_Walker.pdf
 

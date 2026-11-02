@@ -14,7 +14,7 @@ date: "2026-11-03"
 
 ---
 
-<img src="https://image.sciencenorway.no/1618713.webp?imageId=1618713&x=0.00&y=0.00&cropw=100.00&croph=100.00&width=960&height=458&format=jpg" style="width: 900px">
+<img src="https://image.sciencenorway.no/1618713.webp?imageId=1618713&x=0.00&y=0.00&cropw=100.00&croph=100.00&width=960&height=458&format=jpg" style="width: 900px"><figcaption>Source: Charles Minard (1869)</figcaption>
 
 ---
 
@@ -63,13 +63,13 @@ date: "2026-11-03"
 
 ### Color and context
 
-<img src="https://fivethirtyeight.com/wp-content/uploads/2014/04/silver-partisan-split-immigration.png?w=1150" style="width: 350px"><figcaption>Source: [FiveThirtyEight.com](http://fivethirtyeight.com/datalab/our-33-weirdest-charts-from-2014/)</figcaption>
+<img src=img/08-data-visualization/fivethirtyeight-partisan-split.png style="width: 350px"><figcaption>Source: FiveThirtyEight (2014)</figcaption>
 
 ---
 
 ## Color-blindness
 
-<img src="https://pbs.twimg.com/media/BaSY069CYAAlHXY.jpg" style="width: 700px"><figcaption>SBNation.com</figcaption>
+<img src=img/08-data-visualization/sbnation-colorblind.jpg style="width: 700px"><figcaption>Source: SBNation.com</figcaption>
 
 ---
 
@@ -87,7 +87,7 @@ date: "2026-11-03"
 
 ### Color and visual variables
 
-<img src="https://calconstructionlaw.files.wordpress.com/2012/04/trustworthiness-of-beards.jpg" style="width: 300px"><figcaption>[Image link/source](http://pixelspread.com/images/beards_trust_2.jpg)</figcaption>
+<img src=img/08-data-visualization/beards.jpg style="width: 300px"><figcaption>[Image link/source](http://pixelspread.com/images/beards_trust_2.jpg)</figcaption>
 
 ---
 
@@ -98,19 +98,20 @@ import seaborn as sns
 import pandas as pd
 import matplotlib.pyplot as plt
 from pandas_datareader import wb
-sns.set(style = "whitegrid", rc = {"figure.figsize": (10, 8)})
+sns.set_theme(style = "whitegrid", rc = {"figure.figsize": (10, 8)})
 
-eu_countries = ['BE', 'BG', 'CZ', 'DK', 'DE', 'EE', 'IE', 'GR', 'ES', 'FR', 'HR', 
-               'IT', 'CY', 'LV', 'LT', 'LU', 'HU', 'MT', 'NL', 'AT', 'PL', 'PT', 
-               'RO', 'SI', 'SK', 'FI', 'SE', 'GB']
-               
+eu_countries = ['AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR',
+                'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL',
+                'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE']
+
 ue = wb.download(indicator = "SL.UEM.TOTL.ZS", 
                  country = eu_countries, start = 1991, 
-                 end = 2019)
+                 end = 2025)
 
 ue.reset_index(inplace = True)
-
 ue.columns = ['country', 'year', 'unemployment']
+# Convert the year to integer for better labels
+ue = ue.assign(year = ue.year.astype(int))
 ```
 
 ---
@@ -123,7 +124,7 @@ ue.columns = ['country', 'year', 'unemployment']
 
 ## Heat maps in `seaborn`
 
-* Available in `seaborn`'s `heatmap()` function; takes a wide data frame with x-values in the index and y-values as column headers
+* Available in `seaborn`'s `heatmap()` function; takes a wide data frame with y-values in the index and x-values as column headers
 
 ```python
 ue_wide = ue.pivot(index = 'country', columns = 'year', 
@@ -143,34 +144,35 @@ sns.heatmap(ue_wide)
 
 * ColorBrewer: popular color schemes for visualization
 * Support for ColorBrewer built into `seaborn`; available in the `color_palette()` function
-* See more at http://colorbrewer2.org/
+* See more at <https://colorbrewer2.org/>
 
 ---
 
 ### Color in `seaborn`
 
 ```python
-ue19 = (ue
-  .query('year == "2019"')
+ue25 = (ue
+  .query('year == 2025')
   .sort_values('unemployment',
                 ascending = False)
 )
 
 sns.barplot(x = 'unemployment', y = 'country',
-            data = ue19, palette = "Greens_r")
+            data = ue25, hue = 'country',
+            palette = "Greens_r", legend = False)
 ```
 
 ---
 
 ### Color in `seaborn`
 
-<img src=img/08-data-visualization/europe19.png>
+<img src=img/08-data-visualization/europe25.png>
 
 ---
 
 ### Highlighting and annotation
 
-<img src=img/08-data-visualization/hotdog.PNG style="width: 750px"><figcaption>Source: _Data Points_</figcaption>
+<img src=img/08-data-visualization/hotdog-2023.png style="width: 750px"><figcaption>Source: Nathan Yau/[FlowingData](https://flowingdata.com/2023/07/03/competitive-hot-dog-eating-requirements/)</figcaption>
 
 ---
 
@@ -194,14 +196,12 @@ sns.lineplot(data = ue, x = "year", y = "unemployment",
 ### Highlighting code
 
 ```python
-# Convert the year to integer for better labels
-ue = ue.assign(year = ue.year.astype(int))
 # Make a Greece-only dataset
 greece = ue.query('country == "Greece"')
-# Plot everything as grey, first
+# Plot every country in grey, first
 sns.lineplot(data = ue, x = "year", y = "unemployment",
-             hue = "country", palette = ["grey"] * 28,
-             legend = False)
+             units = "country", estimator = None,
+             color = "grey")
 # Then, plot Greece on top
 sns.lineplot(data = greece, x = "year", y = "unemployment",
              hue = "country", palette = ["blue"], linewidth = 3)
@@ -222,6 +222,30 @@ sns.lineplot(data = greece, x = "year", y = "unemployment",
 plt.annotate('Global recession \nspreads to Europe', xy = (2009, 9.5), 
              xycoords = 'data', xytext = (2005, 23), textcoords = 'data', 
              arrowprops = dict(arrowstyle = 'simple', color = '#000000'))
+```
+
+---
+
+### Text as legend
+
+<img src=img/08-data-visualization/text-legend.png style="width: 550px">
+
+---
+
+### Text as legend code
+
+```python
+countries = ["Spain", "Greece", "Italy", "Germany"]
+four = ue[ue["country"].isin(countries)]
+sns.lineplot(data = four, x = "year", y = "unemployment",
+             hue = "country", hue_order = countries, legend = False)
+# Label each line at its end, in the matching color
+end = four.query('year == 2025').set_index('country')
+for country, color in zip(countries, sns.color_palette()):
+    plt.text(2025.5, end.loc[country, 'unemployment'], country,
+             color = color, va = 'center', fontweight = 'bold')
+# Make room for the labels
+plt.xlim(1990, 2030)
 ```
 
 ---
@@ -268,7 +292,7 @@ sns.heatmap(ue_wide, cmap = 'YlGnBu')
 
 plt.ylabel("")
 plt.xlabel("")
-plt.title("Unemployment in Europe, 1991-2019")
+plt.title("Unemployment in Europe, 1991-2025")
 plt.xticks(rotation = 45)
 ```
 
@@ -292,13 +316,13 @@ plt.xticks(rotation = 45)
 * Higher __resolution__: greater detail in an image
 * Commonly: _dpi_ (dots per inch)
 
-<img src="https://bo.duggal.com/wp-content/uploads/2019/04/print-resolution-examples-dpi-sq.png" style="width: 50%">
+<img src=img/08-data-visualization/dpi.png style="width: 85%">
 
 ---
 
 ### Exporting your visualizations
 
-* To save your visualizations from the Jupyter Notebook: 
+* To save your visualizations from Colab: 
 
 ```python
 plt.savefig('destfile.jpg', dpi = 300)
