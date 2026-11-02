@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>assignment-07-data-visualization – GEOG 30323</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-4793f4f5153f9e4550ddbe4f8cf07c4c.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-8f92666e7d73509cf6a0e16cd8c8f9ae.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">GEOG 30323</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../schedule.html"> 
+<span class="menu-text">Schedule</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../assignments.html"> 
+<span class="menu-text">Assignments</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../GEOG30323-015_Fall2026_Walker.pdf" target="_blank"> 
+<span class="menu-text">Syllabus</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#assignment-7-data-visualization" id="toc-assignment-7-data-visualization" class="nav-link active" data-scroll-target="#assignment-7-data-visualization">Assignment 7: Data visualization</a>
+  <ul class="collapse">
+  <li><a href="#question-1-what-were-the-most-popular-names-in-2025-and-how-did-their-popularity-change-over-the-past-10-years" id="toc-question-1-what-were-the-most-popular-names-in-2025-and-how-did-their-popularity-change-over-the-past-10-years" class="nav-link" data-scroll-target="#question-1-what-were-the-most-popular-names-in-2025-and-how-did-their-popularity-change-over-the-past-10-years">Question 1: What were the most popular names in 2025, and how did their popularity change over the past 10 years?</a></li>
+  <li><a href="#question-2-how-does-the-release-of-disney-movies-influence-the-popularity-of-baby-names" id="toc-question-2-how-does-the-release-of-disney-movies-influence-the-popularity-of-baby-names" class="nav-link" data-scroll-target="#question-2-how-does-the-release-of-disney-movies-influence-the-popularity-of-baby-names">Question 2: How does the release of Disney movies influence the popularity of baby names?</a></li>
+  <li><a href="#question-3-how-have-gender-neutral-names-shifted-in-popularity-between-male-and-female-over-time" id="toc-question-3-how-have-gender-neutral-names-shifted-in-popularity-between-male-and-female-over-time" class="nav-link" data-scroll-target="#question-3-how-have-gender-neutral-names-shifted-in-popularity-between-male-and-female-over-time">Question 3: How have gender-neutral names shifted in popularity between male and female over time?</a></li>
+  </ul></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><a href="https://colab.research.google.com/github/walkerke/geog30323/blob/main/notebooks/assignment-07-data-visualization.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" class="img-fluid figure-img"></a></p>
+<figcaption>Open In Colab</figcaption>
+</figure>
+</div>
+<section id="assignment-7-data-visualization" class="level2">
+<h2 class="anchored" data-anchor-id="assignment-7-data-visualization">Assignment 7: Data visualization</h2>
+<p>As we’ve discussed in class, there are many different ways you can visualize data! You’ve learned several techniques for data visualization in this class thus far. This assignment will focus explicitly on data visualization, and include more of an emphasis on plot customization.</p>
+<p>The dataset we’ll be using in this assignment is the popular “Baby names” dataset from the Social Security Administration, available at <a href="https://www.ssa.gov/oact/babynames/limits.html" class="uri">https://www.ssa.gov/oact/babynames/limits.html</a>. We’ll be using a pre-processed version of the national dataset, which is a long-form table of baby names from 1880 to 2025, available in the course GitHub repository. Next, import the necessary libraries for this assignment, then read in the dataset and take a quick look:</p>
+<div id="cell-2" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-11-02T20:24:11.692552Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-11-02T20:24:11.692391Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-11-02T20:24:16.782096Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-11-02T20:24:16.781765Z&quot;}}" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">"white"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'https://raw.githubusercontent.com/walkerke/geog30323/main/data/babynames.csv'</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Converting the year to integer for better display</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.assign(year <span class="op">=</span> df.year.astype(<span class="bu">int</span>))</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>df.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">sex</th>
+<th data-quarto-table-cell-role="th">name</th>
+<th data-quarto-table-cell-role="th">n</th>
+<th data-quarto-table-cell-role="th">prop</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>1880</td>
+<td>F</td>
+<td>Mary</td>
+<td>7065</td>
+<td>0.077642</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>1880</td>
+<td>F</td>
+<td>Anna</td>
+<td>2604</td>
+<td>0.028617</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>1880</td>
+<td>F</td>
+<td>Emma</td>
+<td>2003</td>
+<td>0.022012</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>1880</td>
+<td>F</td>
+<td>Elizabeth</td>
+<td>1939</td>
+<td>0.021309</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>1880</td>
+<td>F</td>
+<td>Minnie</td>
+<td>1746</td>
+<td>0.019188</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>The data frame has the following columns: <code>year</code>, which is the year the baby was born; <code>sex</code>, the sex of the baby; <code>name</code>, the name of the baby; <code>n</code>, the number of babies born with that name for that sex in that year; and <code>prop</code>, the proportion of babies of that sex in that year with that name. (The SSA only reports names given to at least five babies in a year, so <code>prop</code> is the share among those names.) As you can see, over 7 percent of female babies in 1880 were given the name Mary! Now let’s take a look at the size of our data frame.</p>
+<div id="cell-4" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-11-02T20:24:16.796515Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-11-02T20:24:16.796409Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-11-02T20:24:16.798269Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-11-02T20:24:16.797985Z&quot;}}" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df.shape</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>(2181032, 5)</code></pre>
+</div>
+</div>
+<p>Our data frame has 2.18 million rows! As such, this isn’t a dataset that you could reasonably deal with manually. Also: Excel worksheets cannot handle data of this size, as they have row limits of 1,048,576 rows, which takes us up to around 1989. This is not a dataset that is “big” by standard definitions, as it is only about 83 MB in size given the small number of columns. However, it is much-better suited to a computational approach to data analysis like Python/<code>pandas</code>.</p>
+<p>Granted, with 1.9 million rows in our dataset, we’ll need to carefully consider our research questions and how they can help us cut down the size of our dataset. In this notebook, I’d like you to get experience with three skills in Python plot customization:</p>
+<ol type="1">
+<li>Modifying chart properties</li>
+<li>Annotation/labeling</li>
+<li>Small multiples</li>
+</ol>
+<p>To do this, we are going to focus on three topics:</p>
+<ol type="1">
+<li>What were the most popular names in 2025 (the last year in the dataset), and how did their popularity change over the past 10 years?</li>
+<li>How does the release of Disney princess movies influence the popularity of baby names?</li>
+<li>How have various gender-neutral names shifted in popularity between male &amp; female over time?</li>
+</ol>
+<p>You’ll then get a chance to do some of this on your own at the end of the assignment.</p>
+<section id="question-1-what-were-the-most-popular-names-in-2025-and-how-did-their-popularity-change-over-the-past-10-years" class="level3">
+<h3 class="anchored" data-anchor-id="question-1-what-were-the-most-popular-names-in-2025-and-how-did-their-popularity-change-over-the-past-10-years">Question 1: What were the most popular names in 2025, and how did their popularity change over the past 10 years?</h3>
+<p>To get started with this question, we need to do some subsetting, which you are very familiar with by now. Let’s look specifically at males for this first question. First and foremost, however, we need to figure out the most popular male baby names in 2025. A few <code>pandas</code>/Python methods that you’ve learned in previous assignments can get this done.</p>
+<p>Notice what we are doing here - you can think of the line of code as a <em>chain</em> of methods in which we are manipulating the <code>df</code> data frame in turn.</p>
+<ul>
+<li>First, we subset the data frame for only those male records in 2025;</li>
+<li>Then, we sort the data frame in descending order by count;</li>
+<li>Then, we slice the data frame to get back the top 15 rows;</li>
+<li>Finally, we ask <code>pandas</code> to generate a list of names from our subsetted and sorted data frame.</li>
+</ul>
+<div id="cell-6" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-11-02T20:24:16.799355Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-11-02T20:24:16.799292Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-11-02T20:24:16.812492Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-11-02T20:24:16.812090Z&quot;}}" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Subset for males in 2025</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>male25 <span class="op">=</span> df.query(<span class="st">'year == 2025 &amp; sex == "M"'</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Sort in descending order of the number of names</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>male25sorted <span class="op">=</span> male25.sort_values(<span class="st">'n'</span>, ascending <span class="op">=</span> <span class="va">False</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Slice the sorted data frame for the first 15 rows</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>top_male <span class="op">=</span> male25sorted[<span class="dv">0</span>:<span class="dv">15</span>]</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Pull the name column from the sliced data frame and convert to a list</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>name_list <span class="op">=</span> top_male.name.tolist()</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>name_list</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<pre><code>['Liam',
+ 'Noah',
+ 'Oliver',
+ 'Theodore',
+ 'Henry',
+ 'James',
+ 'Elijah',
+ 'Mateo',
+ 'William',
+ 'Lucas',
+ 'Benjamin',
+ 'Levi',
+ 'Elias',
+ 'Luca',
+ 'Jack']</code></pre>
+</div>
+</div>
+<p><code>pandas</code> returns a Python list of the top 15 baby names in 2025 for boys. We can then pass this list to the <code>.isin()</code> method to get back entries for all of those names over the past 10 years, and calculate their frequency per 1000 records in the dataset.</p>
+<div id="cell-8" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-11-02T20:24:16.813604Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-11-02T20:24:16.813534Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-11-02T20:24:16.864741Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-11-02T20:24:16.864198Z&quot;}}" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>sub1 <span class="op">=</span> (df</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    .query(<span class="st">'name in @name_list &amp; year &gt; 2015 &amp; sex == "M"'</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    .assign(per1000 <span class="op">=</span> df.prop <span class="op">*</span> <span class="dv">1000</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>sub1.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">sex</th>
+<th data-quarto-table-cell-role="th">name</th>
+<th data-quarto-table-cell-role="th">n</th>
+<th data-quarto-table-cell-role="th">prop</th>
+<th data-quarto-table-cell-role="th">per1000</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">1879159</th>
+<td>2016</td>
+<td>M</td>
+<td>Noah</td>
+<td>19188</td>
+<td>0.010111</td>
+<td>10.110985</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1879160</th>
+<td>2016</td>
+<td>M</td>
+<td>Liam</td>
+<td>18277</td>
+<td>0.009631</td>
+<td>9.630940</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">1879161</th>
+<td>2016</td>
+<td>M</td>
+<td>William</td>
+<td>15810</td>
+<td>0.008331</td>
+<td>8.330971</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1879163</th>
+<td>2016</td>
+<td>M</td>
+<td>James</td>
+<td>14920</td>
+<td>0.007862</td>
+<td>7.861991</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">1879164</th>
+<td>2016</td>
+<td>M</td>
+<td>Benjamin</td>
+<td>14686</td>
+<td>0.007739</td>
+<td>7.738687</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>We are just about ready to visualize the data now. There are multiple ways these data could be visualized; in this instance, we’ll use a <strong>heatmap</strong>, which we discussed in class. A heatmap is a grid of cells in which the shading of each cell is proportional to its value. Generally, darker cells represent a greater value. When applied to temporal data, it can be an effective way to show the variation of values for multiple data series over time.</p>
+<p>Heatmaps in <code>seaborn</code> take a wide-format data frame with the y-values in the index, the x-values as the columns, and the data values in the cells. We will use the <code>.pivot()</code> method to reshape our data and produce this type of data frame, then pass the dataframe to the <code>heatmap()</code> function.</p>
+<div id="cell-10" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-11-02T20:24:16.866018Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-11-02T20:24:16.865943Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-11-02T20:24:17.014811Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-11-02T20:24:17.014504Z&quot;}}" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>wide1 <span class="op">=</span> sub1.pivot(index <span class="op">=</span> <span class="st">'name'</span>, columns <span class="op">=</span> <span class="st">'year'</span>, values <span class="op">=</span> <span class="st">'per1000'</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>sns.heatmap(wide1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="assignment-07-data-visualization_files/figure-html/cell-6-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The plot looks nice by default; we can see some trends such as the ascension of Theodore, Mateo, and Luca and the relative descent of William and Benjamin (although both of those names are still in the top 15, of course). However, you may still want to customize your chart.</p>
+<p><code>seaborn</code> plots have many plot customization options built-in; you’ll learn how to use a few later in the assignment. <code>seaborn</code> plots, however, are also <code>matplotlib</code> objects, which is the core plotting library in Python. In turn, you can use the wealth of functions available in <code>matplotlib</code> to modify your <code>seaborn</code> plots. You’ll learn a few of those methods in this assignment.</p>
+<p>Note the code below and what we are doing. We’ll import the <code>pyplot</code> module from <code>matplotlib</code> in the standard way as <code>plt</code>. <code>pyplot</code> gives us access to many different plot customization functions. We can set the figure size before calling the plotting function, then rotate the x-tick labels, remove the axis labels, and add a title to our chart. Also, notice the arguments passed to <code>sns.heatmap()</code>. The <code>annot</code> parameter allows us to annotate the heatmap with data values, and the <code>cmap</code> parameter allows us to adjust the colors. It accepts all ColorBrewer palettes as well as the built-in <code>matplotlib</code> palettes.</p>
+<div id="cell-12" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-11-02T20:24:17.016073Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-11-02T20:24:17.016006Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-11-02T20:24:17.175587Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-11-02T20:24:17.175176Z&quot;}}" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize <span class="op">=</span> (<span class="dv">10</span>, <span class="dv">8</span>), )</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>sns.heatmap(wide1, annot <span class="op">=</span> <span class="va">True</span>, cmap <span class="op">=</span> <span class="st">'Greens'</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation <span class="op">=</span> <span class="dv">45</span>)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">""</span>)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">""</span>)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Most popular baby names - Male (rate per 1000)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="assignment-07-data-visualization_files/figure-html/cell-7-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="question-2-how-does-the-release-of-disney-movies-influence-the-popularity-of-baby-names" class="level3">
+<h3 class="anchored" data-anchor-id="question-2-how-does-the-release-of-disney-movies-influence-the-popularity-of-baby-names">Question 2: How does the release of Disney movies influence the popularity of baby names?</h3>
+<p>Baby names can sometimes be responsive to trends in popular culture. For example, “Daenerys” showed up in the dataset for the first time in 2012, and 82 baby girls were named Daenerys in 2015!. In this exercise, we’ll examine how the release of Disney Princess movies relates to baby names.</p>
+<p>Let’s examine trends in female baby names since 1980 for four Disney Princess names: Jasmine, Ariel, Elsa, and Tiana.</p>
+<div id="cell-14" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-11-02T20:24:17.176658Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-11-02T20:24:17.176600Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-11-02T20:24:17.223657Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-11-02T20:24:17.223243Z&quot;}}" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">"darkgrid"</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>princesses <span class="op">=</span> [<span class="st">'Jasmine'</span>, <span class="st">'Ariel'</span>, <span class="st">'Elsa'</span>, <span class="st">'Tiana'</span>]</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>princess_df <span class="op">=</span> (df</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    .query(<span class="st">'name in @princesses &amp; sex == "F" &amp; year &gt; 1979'</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    .assign(per1000 <span class="op">=</span> df.prop <span class="op">*</span> <span class="dv">1000</span>)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>princess_df.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">sex</th>
+<th data-quarto-table-cell-role="th">name</th>
+<th data-quarto-table-cell-role="th">n</th>
+<th data-quarto-table-cell-role="th">prop</th>
+<th data-quarto-table-cell-role="th">per1000</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">864266</th>
+<td>1980</td>
+<td>F</td>
+<td>Jasmine</td>
+<td>1187</td>
+<td>0.000715</td>
+<td>0.714928</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">864565</th>
+<td>1980</td>
+<td>F</td>
+<td>Tiana</td>
+<td>377</td>
+<td>0.000227</td>
+<td>0.227066</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">864749</th>
+<td>1980</td>
+<td>F</td>
+<td>Elsa</td>
+<td>244</td>
+<td>0.000147</td>
+<td>0.146961</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">864903</th>
+<td>1980</td>
+<td>F</td>
+<td>Ariel</td>
+<td>181</td>
+<td>0.000109</td>
+<td>0.109016</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">883695</th>
+<td>1981</td>
+<td>F</td>
+<td>Jasmine</td>
+<td>1402</td>
+<td>0.000840</td>
+<td>0.840497</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Clearly, Jasmine was a popular name in the early 1980s prior to the release of Aladdin. Tiana, Ariel, and Elsa, however, were not as popular. So how did their popularity shift over time?</p>
+<p>We’ll make a line chart using the <code>lineplot()</code> function in <code>seaborn</code>. <code>sns.lineplot()</code> takes a long-form data frame like our babynames data frame along with a mapping of x and y values for a given dataset. The <code>hue</code> argument, if specified, will divide up the data into groups within a given column and plot a separate line, with different colors, for each group.</p>
+<div id="cell-16" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-11-02T20:24:17.225069Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-11-02T20:24:17.224993Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-11-02T20:24:17.271415Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-11-02T20:24:17.271029Z&quot;}}" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>sns.lineplot(data <span class="op">=</span> princess_df, x <span class="op">=</span> <span class="st">"year"</span>, y <span class="op">=</span> <span class="st">"per1000"</span>, hue <span class="op">=</span> <span class="st">"name"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="assignment-07-data-visualization_files/figure-html/cell-9-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We can start to get a sense here of some “spikes” in the data - for example, a clear spike in babies named Ariel is evident after 1989, which is when <em>The Little Mermaid</em> was released. We can also note small spikes for Tiana and Elsa after the release of their respective movies.</p>
+<p>However - how can we express this on the chart in clearer terms? One way to accomplish this is through <strong>annotation</strong>, which refers to the placement of text on the plot to highlight particular data points. Before doing this, let’s figure out approximately what the values are for each princess name when its movie was released:</p>
+<div id="cell-18" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-11-02T20:24:17.272463Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-11-02T20:24:17.272402Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-11-02T20:24:17.275926Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-11-02T20:24:17.275591Z&quot;}}" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>disney_yrs <span class="op">=</span> {<span class="st">'Ariel'</span>: <span class="dv">1989</span>,</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>             <span class="st">'Elsa'</span>: <span class="dv">2013</span>,</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>             <span class="st">'Jasmine'</span>: <span class="dv">1992</span>,</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>             <span class="st">'Tiana'</span>: <span class="dv">2009</span>}</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> princess, year <span class="kw">in</span> disney_yrs.items():</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Subset the data frame for princess and year</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    subset <span class="op">=</span> princess_df.query(<span class="st">'name == @princess &amp; year == @year'</span>)</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Extract the value for per1000 with .values</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># .values returns a list, so we'll extract the 0th element</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    value <span class="op">=</span> subset.per1000.values[<span class="dv">0</span>]</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(princess <span class="op">+</span> <span class="st">': '</span> <span class="op">+</span> <span class="bu">str</span>(value))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Ariel: 0.6964815746992762
+Elsa: 0.32255380550803364
+Jasmine: 5.6829675296960005
+Tiana: 0.27434334505098756</code></pre>
+</div>
+</div>
+<p>I accomplished this with a little new Python code. I’ve mentioned before the <code>dict</code>, a type of Python object enclosed in curly braces (<code>{}</code>) that can hold key-value pairs. The <em>key</em> comes before the colon, the <em>value</em> comes after the colon, and each element of the dictionary is separated by a comma.</p>
+<p>In this case, our dictionary holds the name of the Disney princess, and the year that the corresponding film was released. Dictionaries can be iterated through with <code>for</code> and the <code>.items()</code> method; in this example, <code>princess</code> represents the key in the loop, and <code>year</code> represents the value. Within the loop, we can first create a princess and year-specific subset of our data frame, then extract the corresponding value from it.</p>
+<p>Spend some time reading through the <code>plt.annotate()</code> code below so that you can understand it. We’re using a number of parameters here:</p>
+<ul>
+<li>The annotation text is the first argument. Python will interpret the string ‘’ as a line break, which allows us to put the text on multiple lines.<br>
+</li>
+<li>The <code>xy</code> parameter refers to the data coordinates of the point we want to annotate, given that we’ve specified this with the <code>'data'</code> argument supplied to the <code>xycoords</code> parameter. We’ll use the year of the film release for the X value, and the data values we obtained above (approximately) for the Y value.<br>
+</li>
+<li>In this case, however, we don’t want to put the text right on top of the lines themselves; as such, we can specify an offset, and connect our text with the data point with an arrow. We use the <code>xytext</code> and <code>textcoords</code> parameters to do this; have a look at the plot and see where this puts the text. The argument supplied to <code>arrowprops</code>, which are in the form of a <code>dict</code>, govern the appearance of the arrow.</li>
+</ul>
+<p>Annotation often takes iteration and patience to get it right. Try changing some of the arguments in the <code>plt.annotate()</code> calls below and see how the text and arrows move around!</p>
+<div id="cell-20" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-11-02T20:24:17.276828Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-11-02T20:24:17.276758Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-11-02T20:24:17.376500Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-11-02T20:24:17.376085Z&quot;}}" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the figure size</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize <span class="op">=</span> (<span class="dv">8</span>, <span class="dv">6</span>))</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate the chart</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>sns.lineplot(data <span class="op">=</span> princess_df, x <span class="op">=</span> <span class="st">"year"</span>, y <span class="op">=</span> <span class="st">"per1000"</span>, hue <span class="op">=</span> <span class="st">"name"</span>)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Build each annotation individually</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>plt.annotate(<span class="st">'The Little </span><span class="ch">\n</span><span class="st">Mermaid'</span>, xy <span class="op">=</span> (<span class="dv">1989</span>, <span class="fl">0.70</span>), xycoords <span class="op">=</span> <span class="st">'data'</span>, </span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>            xytext <span class="op">=</span> (<span class="dv">1983</span>, <span class="fl">2.5</span>), textcoords <span class="op">=</span> <span class="st">'data'</span>, arrowprops <span class="op">=</span> <span class="bu">dict</span>(arrowstyle <span class="op">=</span> <span class="st">'simple'</span>),</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>            fontsize <span class="op">=</span> <span class="dv">10</span>)</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>plt.annotate(<span class="st">'Aladdin'</span>, xy <span class="op">=</span> (<span class="dv">1992</span>, <span class="fl">5.68</span>), xycoords <span class="op">=</span> <span class="st">'data'</span>, </span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>            xytext <span class="op">=</span> (<span class="dv">1993</span>, <span class="fl">3.6</span>), textcoords <span class="op">=</span> <span class="st">'data'</span>, arrowprops <span class="op">=</span> <span class="bu">dict</span>(arrowstyle <span class="op">=</span> <span class="st">'simple'</span>),</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>            fontsize <span class="op">=</span> <span class="dv">10</span>)</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>plt.annotate(<span class="st">'Frozen'</span>, xy <span class="op">=</span> (<span class="dv">2013</span>, <span class="fl">0.32</span>), xycoords <span class="op">=</span> <span class="st">'data'</span>, </span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>            xytext <span class="op">=</span> (<span class="dv">2011</span>, <span class="fl">2.5</span>), textcoords <span class="op">=</span> <span class="st">'data'</span>, arrowprops <span class="op">=</span> <span class="bu">dict</span>(arrowstyle <span class="op">=</span> <span class="st">'simple'</span>),</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>            fontsize <span class="op">=</span> <span class="dv">10</span>)</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>plt.annotate(<span class="st">'The Princess </span><span class="ch">\n</span><span class="st">and the Frog'</span>, xy <span class="op">=</span> (<span class="dv">2009</span>, <span class="fl">0.27</span>), xycoords <span class="op">=</span> <span class="st">'data'</span>, </span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>            xytext <span class="op">=</span> (<span class="dv">2007</span>, <span class="fl">1.6</span>), textcoords <span class="op">=</span> <span class="st">'data'</span>, arrowprops <span class="op">=</span> <span class="bu">dict</span>(arrowstyle <span class="op">=</span> <span class="st">'simple'</span>),</span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>            fontsize <span class="op">=</span> <span class="dv">10</span>)</span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Female baby names per 1000"</span>, fontsize <span class="op">=</span> <span class="dv">12</span>)</span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">""</span>)</span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Influence of Disney movies on baby names"</span>, fontsize <span class="op">=</span> <span class="dv">15</span>)</span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>plt.legend(title <span class="op">=</span> <span class="st">""</span>, fontsize <span class="op">=</span> <span class="dv">12</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="assignment-07-data-visualization_files/figure-html/cell-11-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="question-3-how-have-gender-neutral-names-shifted-in-popularity-between-male-and-female-over-time" class="level3">
+<h3 class="anchored" data-anchor-id="question-3-how-have-gender-neutral-names-shifted-in-popularity-between-male-and-female-over-time">Question 3: How have gender-neutral names shifted in popularity between male and female over time?</h3>
+<p>For the third and final question, we’ll be looking at how four gender-neutral names have shifted between male and female over time. Let’s produce a new data frame from our original data frame that subsets for four popular gender-neutral names: Jordan, Riley, Peyton, and Taylor. We’ll take rows for years 1960 and later, and fill NaN values with 0.</p>
+<div id="cell-22" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-11-02T20:24:17.377493Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-11-02T20:24:17.377436Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-11-02T20:24:17.379058Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-11-02T20:24:17.378653Z&quot;}}" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>neutral_names <span class="op">=</span> [<span class="st">'Jordan'</span>, <span class="st">'Peyton'</span>, <span class="st">'Taylor'</span>, <span class="st">'Riley'</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="cell-23" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-11-02T20:24:17.380048Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-11-02T20:24:17.379974Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-11-02T20:24:17.417081Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-11-02T20:24:17.416738Z&quot;}}" data-execution_count="12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>neutral_df <span class="op">=</span> (df</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    .query(<span class="st">'name in @neutral_names &amp; year &gt; 1959'</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    .fillna(<span class="dv">0</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>neutral_df.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">sex</th>
+<th data-quarto-table-cell-role="th">name</th>
+<th data-quarto-table-cell-role="th">n</th>
+<th data-quarto-table-cell-role="th">prop</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">576962</th>
+<td>1960</td>
+<td>F</td>
+<td>Taylor</td>
+<td>10</td>
+<td>0.000005</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">578528</th>
+<td>1960</td>
+<td>F</td>
+<td>Jordan</td>
+<td>6</td>
+<td>0.000003</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">580543</th>
+<td>1960</td>
+<td>M</td>
+<td>Jordan</td>
+<td>137</td>
+<td>0.000064</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">580620</th>
+<td>1960</td>
+<td>M</td>
+<td>Riley</td>
+<td>107</td>
+<td>0.000050</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">580670</th>
+<td>1960</td>
+<td>M</td>
+<td>Taylor</td>
+<td>93</td>
+<td>0.000044</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>In Assignment 5, you learned how to make faceted plots are available using the <code>catplot()</code> function, which is appropriate for charts that have a categorical axis. The companion <code>relplot()</code> function can be used for plots with two continuous axes, such as scatterplots or lineplots. Let’s try plotting faceted line charts that show how counts for these names vary by gender over time:</p>
+<div id="cell-25" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-11-02T20:24:17.418252Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-11-02T20:24:17.418191Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-11-02T20:24:17.638702Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-11-02T20:24:17.638403Z&quot;}}" data-execution_count="13">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>sns.relplot(data <span class="op">=</span> neutral_df, x <span class="op">=</span> <span class="st">"year"</span>, y <span class="op">=</span> <span class="st">"n"</span>, hue <span class="op">=</span> <span class="st">"sex"</span>, col <span class="op">=</span> <span class="st">"name"</span>, kind <span class="op">=</span> <span class="st">"line"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="assignment-07-data-visualization_files/figure-html/cell-14-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We can start to get a sense of some of the variations here; Taylor is more popular among girls than boys, whereas the opposite is true for Jordan. Let’s make a few modifications to the plot to improve its clarity. We will add a <code>col_wrap</code> argument to specify how many columns to create in our plot grid. We can also change the colors with the argument supplied to <code>palette</code>, and we can specify a <code>height</code> argument to modify the plot size.</p>
+<p>Additionally, plot objects themselves have methods that you can use to modify the chart appearance; we’ll use <code>.set_axis_labels()</code> to improve the look of our axes, and we can modify the title of the legend as well.</p>
+<div id="cell-27" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-11-02T20:24:17.639856Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-11-02T20:24:17.639794Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-11-02T20:24:17.820953Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-11-02T20:24:17.820570Z&quot;}}" data-execution_count="14">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Note the font_scale argument that increases all font size by 25 percent</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>sns.set_theme(style <span class="op">=</span> <span class="st">"white"</span>, font_scale <span class="op">=</span> <span class="fl">1.25</span>)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>chart <span class="op">=</span> sns.relplot(data <span class="op">=</span> neutral_df, x <span class="op">=</span> <span class="st">"year"</span>, y <span class="op">=</span> <span class="st">"n"</span>, </span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>                    hue <span class="op">=</span> <span class="st">"sex"</span>, col <span class="op">=</span> <span class="st">"name"</span>, kind <span class="op">=</span> <span class="st">"line"</span>,</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>                    col_wrap <span class="op">=</span> <span class="dv">2</span>, palette <span class="op">=</span> [<span class="st">"darkred"</span>, <span class="st">"navy"</span>],</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>                    height <span class="op">=</span> <span class="dv">4</span>)</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>chart.set_axis_labels(<span class="st">'Year'</span>, <span class="st">'Number of names'</span>)</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>chart._legend.set_title(<span class="st">'Sex'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="assignment-07-data-visualization_files/figure-html/cell-15-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="exercises" class="level2">
+<h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
+<p>To get credit for this assignment, you are going to apply what you’ve learned to some additional tasks using the baby names dataset. Some of this will involve re-producing some of the analyses in the notebook, but for different prompts.</p>
+<p><strong>Exercise 1:</strong> Re-create the heatmap from Question 1, but this time for females. What trends do you observe?</p>
+<p><strong>Exercise 2:</strong> Create a line chart that shows how a name of your choice has varied in popularity over time. Find out the year when your chosen name peaked in popularity, and annotate your chart to show where this peak is located on the line.</p>
+<p><strong>Exercise 3:</strong> In Question 2, we looked at the possible influence of Disney princess movies on female baby names. Pick four other names (male or female) from popular culture over the past 30 years and produce a chart that illustrates their influence (or lack thereof) on baby names. Be strategic with your name decisions! You can create a single line chart with four series, or a small multiples chart with facets - pick the one you think is ideal!</p>
+<p>To submit your assignment, click the <strong>Share</strong> button and share your assignment with kwalkertcu@gmail.com.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
