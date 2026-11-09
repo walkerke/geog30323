@@ -1,0 +1,224 @@
+Name,Street,City,Postcode,Latitude,Longitude,Confidence,Status,Overture_ID
+Starbucks Coffee Company,2209 West Howard Street,Evanston,60202,42.019,-87.685099,0.92,open,1a75c1b3-1dd9-47e3-ae1e-7a7fc463b59f
+Starbucks,151 N Michigan Ave The Shops At Mille Nium Sta,Chicago,60601,41.885136,-87.624385,0.92,open,f92da86e-e63e-4b55-aa33-c24544c7901d
+Starbucks,161 N Clark St,Chicago,60601,41.884895,-87.630941,0.98,open,e05b3c88-73cd-442f-b011-8cc48ed60f22
+Starbucks,171 W Randolph St,Chicago,60601,41.884394,-87.633685,0.981,open,ac8dcc7a-f8d3-4104-9501-5cdc0290cc70
+Starbucks,180 N La Salle St (Lake & Lasalle),Chicago,60601,41.885388,-87.632529,0.85,,cdce0af3-bfd6-44ee-b0c2-9685d6c90298
+Starbucks,333 N Michigan Ave,Chicago,60601,41.88772,-87.62445,1.0,open,a0e1f098-02c2-4d5d-aada-63a46dc7aa60
+Starbucks Coffee Company,40 W Lake St,Chicago,60601,41.8859,-87.62886,0.983,open,8cdec26e-8399-4d70-b0aa-b5b6dfad67f7
+Starbucks,155 N Wabash Ave,Chicago,60601-3605,41.884629,-87.626059,0.99,open,7fe2ae8a-7bb7-4bbe-b751-74c856338939
+Starbucks,225 N Michigan Ave,Chicago,60601-6002,41.886886,-87.623105,0.985,open,ae412c3f-2e84-4ebf-b0c8-873048fe32cf
+Starbucks Coffee Company,108 N State St,Chicago,60602,41.883896,-87.628573,0.952,open,7d7b49c0-2711-48e3-9ec7-2f7f8db3e13f
+Starbucks,111 W Washington St (West Washington),Chicago,60602,41.88323,-87.631424,0.975,open,9a03edd6-6dc9-4480-bee9-2c58763734f3
+Starbucks,68 E Madison St (68 E Madison),Chicago,60602,41.882134,-87.625679,0.966,,b01768d8-ac6c-4eb1-a118-b20caafbb7b1
+Starbucks,70 W Madison St (Clark & Madison),Chicago,60602,41.881985,-87.630378,0.958,open,f110fa57-e506-4e10-9008-d201fd30bbf2
+Starbucks,8 N Michigan Ave,Chicago,60602,41.88252,-87.624777,0.991,open,d0423058-4a4e-4ef8-8ff9-da76503bbb36
+Starbucks,105 W Adams St (West Adams),Chicago,60603,41.879431,-87.631082,0.97,open,b870360d-d542-4f73-a9ff-b8229977210e
+Starbucks,131 S State St (State & Adams),Chicago,60603,41.879674,-87.627772,0.979,open,0e9bc412-c531-47fc-af46-b7df49fae128
+Starbucks,17 E Monroe St,Chicago,60603,41.88047,-87.626801,0.993,open,0e3c2841-65a9-4d4a-938e-b79bec752521
+Starbucks Coffee Company,39 South LaSalle Street,Chicago,60603,41.880802,-87.632161,1.0,open,a325187b-c250-4083-97df-072a1bddcf49
+Starbucks,175 W Jackson Blvd,Chicago,60604,41.878118,-87.633222,0.966,open,ea406e37-3543-4ba7-9a8a-ed44dfa0b582
+Starbucks,200 S Michigan Ave,Chicago,60604,41.879449,-87.624678,0.981,open,6ed683f9-07a3-4790-8e12-34f2a0c6b2fa
+Starbucks Coffee Company,230 W Jackson Blvd,Chicago,60604,41.878285,-87.631062,0.972,open,f4c20845-cb04-46bc-8976-9243db5bed3b
+Starbucks,55 E Jackson Blvd,Chicago,60604,41.878106,-87.625956,0.981,open,09e621b5-a077-48cf-b15f-1f974dd9eece
+Starbucks Coffee Company,1154 S Clark St,Chicago,60605,41.867647,-87.630724,0.99,open,3f97a3e4-897b-4136-abab-f537ec3dd807
+Starbucks,31 E Roosevelt Rd (Roosevelt & Wabash),Chicago,60605,41.867409,-87.626135,0.966,,24f1ab0f-e56b-4243-8daa-ca7c81765e7b
+Starbucks,600 S Michigan Ave,Chicago,60605,41.874191,-87.624766,0.95,open,f050c6de-ee97-42fb-bdfe-7f9a0cee0d2c
+Starbucks,555 S Dearborn St,Chicago,60605-1586,41.874622,-87.628851,0.99,open,3760f332-9451-443b-ab04-e76f6da45b20
+Starbucks,100 S Wacker Dr (100 S Wacker),Chicago,60606,41.880314,-87.636994,0.966,,618e3553-e5ec-44c0-b07d-687c1c3785db
+Starbucks,120 S Riverside,Chicago,60606,41.880594,-87.638822,0.756,,02e028c6-6ab4-4c2c-a872-f09ed1183d10
+Starbucks Coffee Company,150 North Upper Wacker Drive,Chicago,60606,41.88461,-87.63734,1.0,open,7842601a-a1a3-44e9-b93b-e81db6f6f427
+Starbucks Coffee Company,200 W Madison St,Chicago,60606,41.88223,-87.63405,0.972,open,a800bcee-a585-4884-a477-5afb01725c92
+Starbucks Coffee Company,233 S Wacker Dr,Chicago,60606,41.87903,-87.63638,0.977,open,d3fed874-f5ed-4d81-b9f8-73533ba3dcc4
+Starbucks,303 W Madison St (303 W Madison),Chicago,60606,41.881905,-87.635577,0.979,open,25f72ccb-36e6-4b4c-b98f-8d01675e0e89
+Starbucks,311 S Wacker Dr (311 S Wacker),Chicago,60606,41.877449,-87.63669,0.979,,97f4de6d-15f6-4ba2-a980-f4f671ba1902
+Starbucks,"400 W Madison St (Two North Riverside, Plaza)",Chicago,60606,41.881886,-87.638952,0.983,open,a24a0266-662e-4036-a69b-49a19d92cddb
+Starbucks,"1101 S Canal St (South Loop-Roosevelt, & Canal)",Chicago,60607,41.868849,-87.639223,0.85,,dac7aebf-1733-435f-8d87-3558cf9a861d
+Starbucks Coffee Company,1101 W Jackson Blvd,Chicago,60607,41.877642,-87.654773,0.917,open,85204db8-32cb-4866-bfc8-76d3efb147fd
+Starbucks,1328 S Halsted St.,Chicago,60607,41.86469,-87.647053,0.99,open,b10ab3ca-3305-464f-8f73-3b30a7ecb358
+Starbucks,1340 South Canal Street,Chicago,60607,41.864403,-87.639402,1.0,open,9aa7c4ea-1f19-4d23-914e-df47ca2ac327
+Starbucks,1430 W Taylor St Taylor St,Chicago,60607,41.869318,-87.662988,0.99,open,31d3fc04-8d73-4855-9ef2-85c6a78a9500
+Starbucks,550 W Van Buren St (550 W Van Buren),Chicago,60607,41.876747,-87.641459,0.976,open,140dc826-5ac0-44ca-aa92-2a7044c0b1ba
+Starbucks Coffee Company,940 W Harrison St,Chicago,60607,41.87474,-87.65008,0.99,open,8c83ca49-a073-4a46-89fa-1be78d002479
+Starbucks Coffee Company,946 W Randolph St,Chicago,60607,41.8846,-87.65188,0.99,open,0e381251-964e-4c14-a2f5-0aa63b82629a
+Starbucks,1001 W Madison St,Chicago,60607-2070,41.88153,-87.652123,0.99,open,37427b7a-6892-4cbf-80cf-79e40043d434
+Starbucks,1347 S Ashland Ave,Chicago,60608,41.91734,-87.66616,0.8,,7ef0aed5-4f6d-4ad9-97f2-3e8e97367699
+Starbucks,1347 South Ashland Avenue,Chicago,60608,41.863632,-87.665867,0.95,open,e6a0f1bf-a6b9-472c-8b2d-a58916740dc3
+Starbucks Coffee Company,1940 W 33rd St,Chicago,60608,41.835553,-87.674863,0.981,open,8b83e2a6-63ec-4f56-aff8-95b1feb32862
+Starbucks,2443 W 16th St,Chicago,60608,41.858773,-87.686837,0.92,open,78385fcc-7c8c-4be9-89d5-49609fb385cc
+Starbucks,3108 S Halsted St,Chicago,60608,41.837687,-87.646689,0.99,open,dae39c70-804a-4548-9192-dca7262edbe7
+Starbucks,"3145 S Ashland Ave (Dominick'S-Chicago, #1100)",Chicago,60608,41.837476,-87.66385,0.92,open,dd71c5f6-7fa6-419c-a3b0-19665fba8af2
+Starbucks,3506 S State St,Chicago,60609,41.83085,-87.626811,0.99,open,41e20940-78f9-4684-8a9c-f55cfc4083a3
+Starbucks,3800 S Western Ave,Chicago,60609,41.824849,-87.685178,0.99,open,ca8f363a-32a2-4109-9ca1-3624158bd22a
+Starbucks,102 W Division St,Chicago,60610,41.904242,-87.631979,1.0,open,c6c5f46b-1398-4f80-bd02-54c3e3f36a67
+Starbucks Coffee Company,1200 N Larrabee St,Chicago,60610,41.904202,-87.643953,1.0,open,05d38fc8-64ec-4e0a-b14e-6f28e74a4093
+Starbucks,1229 N Clybourn Ave Old Town Sq,Chicago,60610,41.904485,-87.64053,0.966,,7ab6630f-a153-497d-b116-625d23f5ce1f
+Starbucks,1230 N Wells St,Chicago,60610,41.904808,-87.634795,1.0,open,56a6d9cf-6687-4e7b-9770-8b688aa28cce
+Starbucks,1538 N Clark St Germania Pl,Chicago,60610,41.910538,-87.631674,0.92,open,b9035d7d-e7fd-4cbb-a5c3-8b1ee7eeffb7
+Starbucks,210 W North Ave,Chicago,60610,41.911323,-87.634836,0.99,open,ec56bd85-01ee-4aeb-ac5a-58f9a53ce9f7
+Starbucks,39 W Division St,Chicago,60610,41.903836,-87.630163,0.99,open,31ea0bf1-4657-46ca-aa78-d7f69f1b6064
+Starbucks,828 N State St (State & Pearson),Chicago,60610,41.897666,-87.62822,0.981,open,a3ad91ab-d6af-4e62-ac2f-0a02b194bded
+Starbucks,424 W Division St,Chicago,60610-3190,41.904875,-87.639016,1.0,open,95f188be-0502-4a92-bb01-f54c8afbf0cf
+Starbucks,1 E Delaware Pl,Chicago,60611,41.899064,-87.628078,0.99,open,42840fee-3ee0-4fbd-9cfa-d92ffdc874b6
+Starbucks Reserve,1003 N Rush St,Chicago,60611,41.900951,-87.627477,0.92,open,150547ea-94cc-4d58-aa9f-4e451553b8ad
+Starbucks,165 E Ontario St,Chicago,60611,41.893394,-87.622829,0.986,open,428d4a40-d2f9-4ef0-abdf-74cc709ed29d
+Starbucks Coffee Company,250 E Superior St,Chicago,60611,41.896208,-87.620865,1.0,,6b1c5e9e-b3f9-415a-9dc5-54258d57164c
+Starbucks,"255 E Grand Ave (Dominicks-Chicago #17, 03)",Chicago,60611,41.891808,-87.620899,0.979,open,13a781ce-b0e5-477a-be8e-fdf87bd0e876
+Starbucks,301 E North Water St,Chicago,60611,41.887599,-87.620978,0.92,open,f99b2791-5606-475f-ae35-c475edcdfba4
+Starbucks,320 E. Superior St.,Chicago,60611,41.8959,-87.619395,1.0,open,0777d914-b938-4274-9c31-ae73a46f7ec1
+Starbucks,"38 E Ontario St (River North-Ontario &, Wabash)",Chicago,60611,41.893317,-87.626574,0.966,,19501271-fa51-4b48-8c47-12548bfc815a
+Starbucks,401 E Ontario St,Chicago,60611,41.893336,-87.617457,0.99,open,d18ea9ae-76f5-4ec4-bf58-caea85bfb992
+Starbucks,455 N Park Dr,Chicago,60611,41.890162,-87.619908,0.92,open,e2da0bf5-f233-4e62-8b67-de0f510463b3
+Starbucks,505 N Michigan Ave,Chicago,60611,41.891448,-87.623903,0.992,open,22066210-6226-4888-b8a5-98c8daeb23f0
+Starbucks,646 N Michigan Ave,Chicago,60611,41.894007,-87.624558,0.989,open,784493db-39f6-4d4c-a77b-b469d7ab4b64
+Starbucks Coffee Company,819 N Rush St,Chicago,60611,41.89741,-87.62575,0.99,open,bf8c8d63-c461-47cd-9aa6-22fb5f7660d9
+Starbucks Coffee Company,875 N Michigan Ave,Chicago,60611,41.89878,-87.62367,0.975,open,5aaf06b4-4973-4e73-844b-5e7f6912e0fa
+Starbucks,251 E Huron St,Chicago,60611-2908,41.894689,-87.620868,0.963,open,0888cc05-c6dc-486f-8ed9-61d1ce52af43
+Starbucks,715 S Seeley Ave,Chicago,60612,41.872763,-87.676717,0.972,open,4438a222-e767-4df4-87b1-192829f3c1f7
+Starbucks,828 S Wolcott Ave,Chicago,60612,41.870719,-87.674155,0.99,open,692ae2b2-36eb-48b0-be11-a14942d68e6a
+Starbucks,600 S Paulina St,Chicago,60612-3806,41.874002,-87.669227,0.99,open,d0eac607-30c0-462a-abc7-36a81b9f6f80
+Starbucks,1027 W Addison St A109,Chicago,60613,41.947047,-87.654839,0.99,open,6e27e9a2-3343-49ac-94ac-47ccf32fc9dc
+Starbucks,1601 W Irving Park Rd,Chicago,60613,41.954095,-87.669249,0.99,open,a5c08ae4-61c1-4e36-bd5a-dbfb3ac76877
+Starbucks,1900 W Montrose Ave,Chicago,60613,41.961626,-87.676113,0.99,open,2dcc1166-7d41-46ab-ad17-d92ad34de079
+Starbucks Reserve,3649 N Clark St,Chicago,60613,41.948635,-87.65722,0.92,open,fbd655c2-7c6b-4c40-bdc3-4020c2026946
+Starbucks,3845 N Broadway,Chicago,60613,41.952614,-87.649512,0.99,open,27c98a5c-6359-43ce-8beb-b6895bc275f8
+Starbucks,1000 1002 W Diversey Pkwy Unit C-102,Chicago,60614,41.932757,-87.654133,0.99,open,3e085c21-2787-4deb-bdb6-33eb658f1efd
+Starbucks,1001 W Armitage Ave,Chicago,60614,41.918011,-87.653439,0.99,open,b85ce484-8498-40f1-992e-2de5d40b8a77
+Starbucks Coffee Company,1245 W Fullerton Ave,Chicago,60614,41.925087,-87.660379,1.0,open,1d80ff80-5960-4370-983b-a10a5918c447
+Starbucks,1730 W Fullerton Ave,Chicago,60614,41.925679,-87.672383,0.99,open,bc2c6939-25b1-4187-952d-f3040f803496
+Starbucks Coffee Company,2063 N Clark St,Chicago,60614,41.920034,-87.636979,0.99,open,7bdb5bf7-1f35-4d8e-90ee-152a1aa30e5d
+Starbucks Coffee Company,2112 N. Ashland Ave.,Chicago,60614,41.92136,-87.66948,1.0,open,edb540c0-de64-4f93-9527-760e0a7095ab
+Starbucks,"2200 N Clybourn Ave (Clybourn & Webste, R)",Chicago,60614,41.921827,-87.664676,0.85,,c4a514ff-e72c-4513-8ff3-84aab2adc7d4
+Starbucks,2200 N Halsted St,Chicago,60614,41.921911,-87.648831,0.99,open,bf6dbfa9-c998-4087-aa9b-43c5c08a4bdb
+Starbucks,2275 N Lincoln Ave (Lincoln & Belden),Chicago,60614,41.923382,-87.645829,0.969,open,108b0d27-4ce1-4f25-abba-038559b89624
+Starbucks Coffee Company,2550 North Clybourn Avenue,Chicago,60614,41.92713,-87.67437,0.92,open,d57bbb0b-b15a-4e8b-b997-a98d55522c10
+Starbucks Coffee Company,2754 N Clark St,Chicago,60614,41.93268,-87.64506,0.972,open,52a5714a-3d7d-4fbf-958b-4a6466625ef1
+Starbucks,"959 W Fullerton Ave (Dominick'S-Chicag, O #1695)",Chicago,60614,41.925406,-87.653244,0.99,,f4cb3ebb-13a7-4531-ac82-b43315bf1e39
+Starbucks,1157 W Wrightwood Ave,Chicago,60614-1355,41.928875,-87.65845,0.99,open,80818f06-6f55-45b0-8f0a-81d4f30e3a34
+Starbucks,2525 N Clark St,Chicago,60614-1729,41.928638,-87.642127,0.99,open,944e5526-00db-437e-bbf1-51ade2baeb33
+Starbucks,1174 E 55th St,Chicago,60615,41.795187,-87.596741,0.99,open,6162b3d4-6ab4-4876-bf2a-9579c9a7ca63
+Starbucks,1346 E 53rd St,Chicago,60615,41.799726,-87.593126,1.0,open,e0d3bc73-b639-4fc9-8269-ead90c00f7f8
+Starbucks,1530 E 53rd St,Chicago,60615,41.799718,-87.5876,1.0,open,ee3df4c0-93bc-423d-9444-d08506a18242
+Starbucks,111 E Cermak Rd,Chicago,60616,41.852609,-87.623203,0.99,open,95ac98bd-a14d-4b46-88b4-c55df32612e8
+Starbucks Coffee Company,1615 S. Clark St.,Chicago,60616,41.85953,-87.62974,0.92,open,7a09f586-f335-4b0f-aa90-bf0fad702135
+Starbucks Coffee Company,2301 South DuSable Lake Shore Drive,Chicago,60616,41.85014,-87.61583,0.92,open,49a531ef-725d-4946-a55a-3d67e6d22ed6
+Starbucks,261 W Cermak Rd,Chicago,60616,41.852654,-87.63445,0.99,open,ce6152df-18dd-42bb-ab43-11720c2f2555
+Starbucks Coffee Company,1655 East 95th Street,Chicago,60617,41.72028,-87.58277,0.92,open,a80c6439-50de-4b3f-a030-6e5b010dc1d9
+Starbucks,2023 25 W Roscoe St,Chicago,60618,41.943122,-87.679488,0.99,open,d7468eb7-4b7b-4f25-96f6-9573ff714782
+Starbucks,2159 W Belmont Ave (Belmont & Leavitt),Chicago,60618,41.939527,-87.683041,0.966,,4f60e09d-247d-452b-92d0-a70a85f71497
+Starbucks,2939 W Addison St,Chicago,60618,41.945743,-87.702009,0.983,open,21a38d76-a7d7-46cb-b346-7776586d18c7
+Starbucks Coffee Company,3350 N. Western Ave.,Chicago,60618,41.94242,-87.68976,0.92,open,8d6d8392-5668-4efa-b737-df99bd10a387
+Starbucks,3640 North Western Avenue,Chicago,60618,41.947978,-87.688607,0.99,open,25f93341-6891-4aa8-bc8d-610637234597
+Starbucks,4015 N Lincoln Ave Unit C-1,Chicago,60618,41.95468,-87.679037,0.99,open,9986ed5a-4cdf-45e4-aa2e-f6e3d484afd9
+Starbucks,160 W 87th St Chatam Ridge Shopping Center,Chicago,60620,41.736488,-87.628814,0.99,open,b4add278-2d59-4866-8cfe-74cb3fffc009
+Starbucks,9438 S Ashland Ave,Chicago,60620,41.721578,-87.663167,0.99,open,69bc19af-b427-4a43-8745-b2e2c24e389b
+Starbucks,806 W 63rd St Unit B,Chicago,60621,41.780175,-87.645357,1.0,open,df4908be-695e-438e-9a2f-cbbc58acc3f7
+Starbucks,1588 North Milwaukee Avenue,Chicago,60622,41.91032,-87.677674,0.99,open,d4df0aab-21bc-49f9-9379-f109b754df9d
+Starbucks,1701 W Division St,Chicago,60622,41.903168,-87.670048,0.99,open,40c1834b-b491-47e5-98a7-76445cd00e97
+Starbucks,2021 W Chicago Ave,Chicago,60622,41.895638,-87.678594,0.981,open,30c6c612-ec11-4075-96e3-7effe43917ad
+Starbucks Coffee Company,3105 W. 26th Street,Chicago,60623,41.84295,-87.70285,0.99,open,400dab67-2360-42d6-a765-f3af9bb57f8b
+Starbucks,"3232 W Foster Ave (North Park-Foster &, Sawyer)",Chicago,60625,41.975726,-87.710088,0.972,open,e45efcb3-ec2b-466b-bd45-b60e0faed853
+Starbucks,4553 4557 N Lincoln Ave,Chicago,60625,41.964701,-87.685861,0.99,open,fd2fa880-370e-48b2-8d91-5d04f0dbcd3f
+Starbucks,4558 N Kedzie Ave,Chicago,60625,41.964475,-87.708662,0.99,open,bd53c9b1-bc46-4606-8bd8-93fa31ce1bac
+Starbucks Coffee Company,5140 N California Ave,Chicago,60625,41.97498,-87.69946,0.92,open,201ccf96-2333-4811-a745-317db050d422
+Starbucks Coffee Company,1763 W Howard St,Chicago,60626,42.017644,-87.674541,0.92,open,7ca087b4-5fd2-49a0-962f-55d5d6934420
+Starbucks Coffee Company,6418 N Sheridan Rd,Chicago,60626,41.99903,-87.661006,1.0,open,5bd5bbef-2570-4b96-8516-ea47f0d5b00a
+Starbucks,6576 N Sheridan Rd,Chicago,60626,42.002239,-87.661008,0.972,open,23d76fcf-caa2-4a41-9c57-910262c4d708
+Starbucks,5505 S Kedzie Ave,Chicago,60629,41.793264,-87.703301,0.99,open,0fe19ac2-9197-4e8f-84a7-8fbcad95754c
+Starbucks,5601 W Lawrence Ave,Chicago,60630,41.96762,-87.767645,0.99,open,ede1e903-6896-4d77-b471-17effacbb26e
+Starbucks,4715 W Foster Ave,Chicago,60630-1710,41.975042,-87.74612,1.0,open,ff770184-e68e-4690-bc25-1925460fe29d
+Starbucks,4830 N Pulaski Rd,Chicago,60630-2844,41.968952,-87.728931,0.99,open,8d0f50ce-f98f-4f5d-85ad-e8f561b0f76b
+Starbucks,5614 N Harlem Ave,Chicago,60631,41.983089,-87.807389,0.99,open,8de5ba93-0ea7-44b6-917e-beab3c68969e
+Starbucks Coffee Company,6332 N Northwest Hwy,Chicago,60631,41.996327,-87.806318,0.99,open,8fa9dab0-7a4a-45ac-b8a2-1136fb08d350
+Starbucks Coffee Company,8500 West Bryn Mawr Avenue,Chicago,60631,41.98322,-87.84101,1.0,open,a0de17a7-ff57-40b4-99ff-51cb424df607
+Starbucks Coffee Company,4200 S Pulaski Rd,Chicago,60632,41.816829,-87.72413,0.99,open,207ed749-8221-4603-9523-4865715b49bf
+Starbucks,4701 S Cicero Ave,Chicago,60632,41.80736,-87.742783,0.99,open,1b234208-6a1b-49fb-b156-be7d0250deb4
+Starbucks Coffee Company,5320 South Pulaski Road,Chicago,60632,41.79586,-87.72502,0.99,open,53de882c-9cf7-42e8-ae6c-5bcee43cd4a4
+Starbucks,4433 S Pulaski Rd,Chicago,60632-4010,41.812675,-87.722529,0.92,open,21aac0f2-8466-48dc-b7e1-cbd96d22e5df
+Starbucks,3649 N Harlem Ave,Chicago,60634,41.946944,-87.806771,0.99,open,03fbd7c1-3531-4437-a883-d301ad3b06fe
+Starbucks,5807 S. Western Ave.,Chicago,60636,41.788053,-87.683466,0.99,open,f7a64fc5-493e-413a-b7da-3f810d81a53e
+Starbucks,5700 S Maryland Ave,Chicago,60637,41.79106,-87.60502,0.77,,96cc3d26-1c1c-4e15-9b01-7c9d8d6db2c3
+Starbucks,5757 S University Ave,Chicago,60637,41.78989,-87.597599,0.99,open,9b88837a-3361-4c56-91b9-aa561a074004
+Starbucks,5210 S Cicero Ave,Chicago,60638,41.798376,-87.743325,0.99,open,b0a91312-6f09-4351-a1fd-1291b5f47bb3
+Starbucks Coffee Company,6107 S Archer Ave,Chicago,60638,41.793976,-87.770325,0.92,open,8e5e2ac4-9436-4a8f-a22e-f867eca1ab7a
+Starbucks,6520 S Cicero Ave,Bedford Park,60638,41.77609,-87.741762,1.0,open,dd466c7e-cdae-4cef-a003-181273bfe5e2
+Starbucks,1941 N Cicero Ave,Chicago,60639,41.916487,-87.745622,0.99,open,9a94900a-65c7-4800-ad79-e9a87e0961d9
+Starbucks,2749 N. Cicero Ave.,Chicago,60639,41.931007,-87.746207,0.975,open,93fd3a5e-57b7-4946-8787-6b111ab384eb
+Starbucks,4925 W North Ave,Chicago,60639,41.90942,-87.749607,0.99,open,6232033a-fd19-4295-9928-50f1fad640e4
+Starbucks,2730 N Narragansett Ave,Chicago,60639-1032,41.930278,-87.786383,0.974,open,a980dde9-4f52-4cce-a100-fac7f5992280
+Starbucks,1800 W Lawrence Ave,Chicago,60640,41.96915,-87.675147,0.96,open,a85dd9c1-cf05-4561-b564-fa2b18d44f95
+Starbucks,4446 N Broadway St,Chicago,60640,41.963062,-87.656506,0.92,open,9a72966e-4edc-4640-bff7-2d4e30b31664
+Starbucks,"4600 N Magnolia Ave (Wilson & Magnolia, )",Chicago,60640,41.965543,-87.661038,0.966,,5a494629-760c-42c5-b84a-1ffd97680d87
+Starbucks,4753 N Broadway St Broadway And Lawre Nce,Chicago,60640,41.968611,-87.659512,0.984,,8059acee-8642-48b4-b81e-5262cd32d2ed
+Starbucks,5244 N Broadway St,Chicago,60640,41.977639,-87.660335,0.99,open,07ac6fed-45d5-4089-bdbb-8004e44e4ed5
+Starbucks,5300 N Clark St,Chicago,60640,41.978085,-87.668578,0.99,open,d7451114-899e-42ed-821a-e87e2b139341
+Starbucks #31294,4155 N Cicero Ave,Chicago,60641,41.956714,-87.747047,0.99,open,028a6c58-5305-49ec-958c-8decebd3032b
+Starbucks,4365 W Irving Park Rd,Chicago,60641,41.95333,-87.737936,0.99,open,be5e5381-8cb0-49e4-9155-e15878b2965a
+Starbucks Coffee Company,4730 W. Irving Park Road,Chicago,60641,41.95399,-87.74657,0.99,open,bdb74920-4058-4c4c-b0c7-36ac214a00ae
+Starbucks,1001 W North Ave,Chicago,60642,41.910851,-87.653484,0.92,open,bf23ad56-03bb-473a-8002-5276d7a1d06f
+Starbucks,1200 16th Street,Chicago,60642,41.910815,-87.649299,0.92,open,07f9905c-4cc0-496b-8982-798116262a00
+Starbucks,506 N Milwaukee Ave,Chicago,60642,41.891359,-87.648157,0.99,open,0896a59a-87c4-40e4-b003-b4a088ad0bc4
+Starbucks,520 N Ogden Ave,Chicago,60642,41.891608,-87.658952,0.99,open,7426dc90-6872-40dd-88cf-52506cbec129
+Starbucks Coffee Company,11730 S Marshfield Ave,Chicago,60643,41.680244,-87.664552,0.99,open,060b91f6-777e-468d-a6f1-0ebe6f18bec5
+Starbucks,11840 S Marshfield Ave Target Chicago Morgan Park # T-2,Chicago,60643,41.678843,-87.664516,0.966,,ca2d8c42-8e97-4a06-a3b3-e52a941fb692
+Starbucks,1933 W 103rd St,Chicago,60643,41.706323,-87.670464,0.99,open,43e54f6b-d88d-4cd2-ad3c-2a10fdfb1c21
+Starbucks,"6623 N Damen Ave (Dominicks-Chicago #2, 984)",Chicago,60645,42.002516,-87.68029,0.85,,57d6eb71-9bf3-4dda-986e-cf7db9e496b2
+Starbucks,7137 N Western Ave,Chicago,60645,42.011933,-87.689764,0.99,open,961a71d5-136b-4d01-9127-2b7c9f16ba20
+Starbucks,5406 W Devon Ave,Chicago,60646,41.997358,-87.763996,0.92,open,499f4080-9a99-44f4-8940-4f156eab5332
+Starbucks,"6312 N Nagle Ave (Dominicks - Chicago, #1113)",Chicago,60646,41.995689,-87.788748,0.92,open,d206c4e2-aab0-4907-bbcf-ad87e9b05c3d
+Starbucks,4159 W Peterson Ave,Chicago,60646-6002,41.989879,-87.733819,0.99,open,9d935b32-187e-43a6-a1c2-55505490dd91
+Starbucks,1932 N Milwaukee Ave,Chicago,60647,41.916533,-87.687174,0.96,open,07f04afb-69ff-4c2c-ba83-09397a49231d
+Starbucks,2101 W. Armitage Avenue,Chicago,60647,41.917626,-87.680311,0.99,open,9eef6c8e-8321-4ecd-b133-89868bf725bb
+Starbucks,2543 N California Ave,Chicago,60647,41.927941,-87.697393,0.99,open,d9123880-bbe4-4142-be9f-df77430ea703
+Starbucks,2566 B N Elston Ave,Chicago,60647,41.927949,-87.682194,0.99,open,bc88e75f-80e3-49bc-a47b-39290ee48f6b
+Starbucks,2656 N Elston Ave,Chicago,60647,41.928718,-87.685344,0.99,open,d5e1a8d0-e806-47b2-b23f-9048532a41c6
+Starbucks,7101 S Stony Island Ave,Chicago,60649,41.765807,-87.585601,0.99,open,4a5d3b88-ef49-4c13-9c3b-86cbc94a9373
+Starbucks Coffee Company,3857 S Martin Luther King Dr,Chicago,60653,41.824217,-87.615709,1.0,,fba7599d-7fc3-4e15-b0c5-4af35d1f69c7
+Starbucks,30 W Erie St,Chicago,60654,41.894268,-87.629556,0.929,open,b3f3d849-dd13-4a0c-8070-5f5dcc25fc3c
+Starbucks,469 W Chicago Ave,Chicago,60654,41.896353,-87.64122,0.99,open,f066d6f9-18c8-4084-bbe9-2bc812167073
+Starbucks,470 Merchandise Mart Plz,Chicago,60654,41.888572,-87.634506,0.99,open,e4cdff3b-e438-4c63-9fe8-413ba32852b4
+Starbucks,515 N State St,Chicago,60654,41.89155,-87.627091,0.978,open,db39c3c6-9f79-45ff-8950-8af52a286a1a
+Starbucks,640 N La Salle Drive,Chicago,60654,41.893614,-87.63304,0.92,open,27acc872-2a62-493e-9274-4e9ddee17786
+Starbucks,750 N Franklin St,Chicago,60654,41.896381,-87.635871,0.99,open,7e20482a-ffc3-4bc0-8644-d8e63b080204
+Starbucks,414 N Orleans St,Chicago,60654-1760,41.889772,-87.637224,0.99,open,f4206124-d07e-42b2-b3be-3d7977de8c91
+Starbucks,430 N Clark St,Chicago,60654-4517,41.890162,-87.631223,0.99,open,55f9e85c-b5e0-459a-864f-350ef707aba2
+Starbucks,3700 W 103rd St,Chicago,60655,41.709112,-87.712461,0.99,open,1e803f17-e694-4b0f-af23-619ef204d2a4
+Starbucks Coffee Company,7342 West Foster Avenue,Chicago,60656,41.97504,-87.81083,0.92,open,437297f7-3db6-4963-ad0d-ac539831f8c6
+Starbucks Coffee Company,2940 N Ashland Ave,Chicago,60657,41.935663,-87.670142,0.92,open,746d7abf-7679-4288-96bf-20dee527a045
+Starbucks,3030 N Broadway,Chicago,60657,41.937246,-87.644457,1.0,open,e003d8ef-91c7-4c66-ab34-3601ba8faef7
+Starbucks,"3045 N Greenview Ave (Lincoln & Greenv, Iew)",Chicago,60657,41.937562,-87.666149,0.966,,bee626d2-3bfc-430e-9eb6-16ed91ebb85d
+Starbucks,3184 N Clark St,Chicago,60657,41.93987,-87.650773,0.99,open,1e40c616-e0b0-41e7-8559-275e4dc6151f
+Starbucks Coffee Company,3300 N. Ashland Ave.,Chicago,60657,41.94185,-87.66954,1.0,open,d13310bc-f991-492a-a2b5-4c267d4ea69a
+Starbucks,3356 North Lincoln Avenue,Chicago,60657,41.942804,-87.670961,0.99,open,74d4dfdd-7538-4a5d-b497-e4133110bf5c
+Starbucks,3358 N. Broadway,Chicago,60657,41.943564,-87.645108,0.99,open,62cfb788-6bea-4d57-840a-0449008650ed
+Starbucks,3531 N. Broadway,Chicago,60657,41.946848,-87.646256,1.0,open,52560db0-084e-42dd-9dcc-0c9b46ce8648
+Starbucks,3400 N Southport Ave,Chicago,60657-1420,41.943529,-87.664037,0.99,open,094a53c7-c744-49a1-960d-accb18779ca6
+Starbucks,2112 W Peterson Ave,Chicago,60659,41.990981,-87.683351,1.0,open,ea06adc2-edb2-4f61-988c-2b8153d3796c
+Starbucks,6075 N Lincoln Ave,Chicago,60659,41.992847,-87.711039,0.99,open,63213ac6-06e1-4ed5-a4ad-6e9135dbce10
+Starbucks,6108 N Western Ave,Chicago,60659,41.992594,-87.690095,0.99,open,04abb273-f6a4-4cdc-9771-716cbc5dbede
+Starbucks,"1070 W Bryn Mawr Ave (Edgewater - Chic, Ago)",Chicago,60660,41.983661,-87.657836,0.99,open,b4ed5973-2703-4fa0-ba77-113f571757bc
+Starbucks,5964 N Ridge Ave,Chicago,60660,41.989955,-87.671081,0.998,,08541af3-8cd1-48d6-a8b2-97559a0bbc39
+Starbucks,"6009 N Broadway St (Dominick'S-N Broa, Dway & Thornd #12)",Chicago,60660,41.991127,-87.66031,0.933,,3ec9c8c6-de2e-4679-bde0-5542a3d9f62c
+Starbucks,6350 North Broadway,Chicago,60660,41.997931,-87.660843,0.972,open,a65220df-ecb6-4956-bc89-5c94b064e8dc
+Starbucks,"1 N Halsted St (Dominick'S-Chicago #18, 75)",Chicago,60661,41.882185,-87.647376,0.966,,0ba09696-ce92-4327-83a8-9e8ece31103e
+Starbucks,116 S Halsted St,Chicago,60661,41.879953,-87.647438,0.99,open,7398d75f-c253-4fe6-ae46-20d9389e929c
+Starbucks,139 S Clinton St Metropolitan Pl,Chicago,60661,41.8796,-87.6411,0.966,open,611ef18d-4ac7-4431-af9b-4f259ad8a43b
+Starbucks,328 North Desplaines,Chicago,60661,41.887764,-87.644693,0.77,,4ce2a81d-6e1e-4390-9e3a-d7bdfc357742
+Starbucks Coffee Company,40 N Clinton St,Chicago,60661,41.88301,-87.641544,0.985,open,ae08e36c-86da-4c7c-bafc-8cbe4371abfb
+Starbucks,600 W Lake St,Chicago,60661,41.8859,-87.642937,0.972,open,e38ea568-c47a-4d9a-9a1b-887739b785d6
+Starbucks,500 W Madison St,Chicago,60661-0004,41.882241,-87.6403,1.0,open,780703e2-7822-4743-8295-3685d12e6da1
+Starbucks,10000 O'hare Ave,Chicago,60666,41.978574,-87.897138,0.999,open,2d89b489-7318-41bc-8349-4fbfea2563f0
+Starbucks,10000 W Balmoral Ave Terminal 3,Chicago,60666,41.975891,-87.902357,1.0,open,374c4c88-5e6b-461e-9310-76baf23dff3f
+Starbucks,10000 W Balmoral Ave Terminal 3,Chicago,60666,41.975252,-87.900034,0.936,open,9d9cb4d1-7192-4cab-a96a-93e4c90c9ac9
+Starbucks,10000 W Balmoral Ave al 3,Chicago,60666,41.977507,-87.881051,0.983,,26cd4c15-018f-4a51-b5da-11d4496b2f98
+Starbucks,10000 W O'Hare Ave.,Chicago,60666,41.95945,-87.91211,0.77,,38083b20-f89c-4605-bd56-43e95180ef71
+Starbucks,Circular Building #6,Chicago,60666,41.978784,-87.910071,0.988,open,e0221c81-63c6-425f-9dd6-95ba13079a4e
+Starbucks,"Terminal 1, near Gate B14",Chicago,60666,41.981016,-87.906305,0.987,open,1f1d7d14-9886-49db-8409-861aafe5f259
+Starbucks,"Terminal 1, near Gate C30",Chicago,60666,41.980783,-87.909732,0.909,open,02b29761-4ed7-456b-b62d-fff22c52ab61
+Starbucks,"Terminal 1, near Gate C6",Chicago,60666,41.97702,-87.91064,0.77,,3608aacc-9efc-42c8-8848-dd9b34510aab
+Starbucks,"Terminal 3, near Gate G13",Chicago,60666,41.973457,-87.90333,0.77,,7d9710d5-0e6d-46a4-b102-b08053c73865
+Starbucks,"Terminal 3, near Gate H13",Chicago,60666,41.973093,-87.900375,0.77,,8070585d-40c7-4580-8a23-cd05feb07ae7
+Starbucks,"Terminal 3, near Gate K14",Chicago,60666,41.974377,-87.897101,0.77,,1e03a65e-b7f3-4573-9d34-013a3d460f45
+Starbucks Coffee Company,2007 N Harlem Ave,Chicago,60707,41.91655,-87.8057,0.99,open,2cd1f9d7-5a48-40cd-add5-a5ee1aed9c57
+Starbucks Coffee Company,6525 W Diversey Ave,Chicago,60707,41.930168,-87.789302,0.99,open,3d796204-5e29-43b6-a6c2-d6a60caea714
+Starbucks,7112 W. North Ave.,Chicago,60707,41.909114,-87.802505,0.99,open,2337e4b7-e4c9-4639-9229-af0eed80b664
