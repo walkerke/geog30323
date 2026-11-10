@@ -919,7 +919,16 @@ Name: count, dtype: int64</code></pre>
 <p><strong>Exercise 1:</strong> Use the <code>crime</code> dataset to get the 2025 data for your chosen offense. How many rows are in your dataset, and how many calls do those rows represent? How many of those calls are missing location information?</p>
 <p><strong>Exercise 2:</strong> Make an interactive heatmap of your chosen offense. Choose your own basemap style, heatmap radius, color palette, and opacity. In a sentence or two, explain why you made the choices that you did. Then, save your map as an HTML file.</p>
 <p><strong>Exercise 3:</strong> Calculate the rate of your chosen offense per 1000 residents for Census tracts in Fort Worth, and draw a choropleth map of the rates. Compare your choropleth map with your heatmap from Exercise 2. Do the two maps tell the same story about where your offense is concentrated?</p>
-<p><strong>Exercise 4:</strong> Choose a variable from the American Community Survey other than median age - for example median household income (<code>B19013_001</code>), which we used in class, or median home value (<code>B25077_001</code>) - and request it for Census tracts in Tarrant County. Before you draw any charts, write down what kind of relationship you expect to see between your variable and the rate of your chosen offense, and why. Then, draw a scatterplot and calculate the correlation. Did the results match your expectations?</p>
+<p><strong>Exercise 4:</strong> Choose one of the variables from the American Community Survey in the list below and request it for Census tracts in Tarrant County. Before you draw any charts, write down what kind of relationship you expect to see between your variable and the rate of your chosen offense, and why. Then, draw a scatterplot and calculate the correlation. Did the results match your expectations?</p>
+<ul>
+<li><code>B19013_001</code>: median household income</li>
+<li><code>B19301_001</code>: per capita income</li>
+<li><code>B25077_001</code>: median home value</li>
+<li><code>B25064_001</code>: median gross rent</li>
+<li><code>B25035_001</code>: median year in which housing units were built</li>
+<li><code>B25010_001</code>: average household size</li>
+</ul>
+<p>Keep in mind that your variable may come back as an <code>object</code> column, as median age did; if so, you’ll need to convert it with <code>pd.to_numeric()</code> before you can use it.</p>
 <p><strong>Exercise 5:</strong> In this assignment, we calculated rates per 1000 <em>residents</em> of each Census tract. For public intoxication, we saw that the tract with the highest rate is an entertainment district that people visit from all over the region. Is the number of residents the right way to normalize public intoxication calls? What about for your chosen offense? Explain your reasoning; if you think a different measure would work better, describe what it would be.</p>
 <p>To submit your assignment, click the <strong>Share</strong> button and share your assignment with kwalkertcu@gmail.com. Additionally, upload the HTML file of your map from Exercise 2 to the submission console in TCU Online. This will allow me to view your map!</p>
 
