@@ -11,6 +11,7 @@ project:
     - notebooks/assignment-05-data-wrangling.ipynb
     - notebooks/assignment-06-wrangling-data-from-apis.ipynb
     - notebooks/assignment-07-data-visualization.ipynb
+    - notebooks/assignment-08-geographic-visualization.ipynb
     - slides/01-data-literacy.qmd
     - slides/02-programming-1.qmd
     - slides/03-functions-and-iteration.qmd
