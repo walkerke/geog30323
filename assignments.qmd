@@ -18,5 +18,5 @@ Open an assignment to read through it, then click **Open in Colab** at the top t
 - [Assignment 6: Wrangling data from APIs](notebooks/assignment-06-wrangling-data-from-apis.ipynb)
 - [Assignment 7: Data visualization](notebooks/assignment-07-data-visualization.ipynb)
 - [Assignment 8: Geographic data visualization and analysis](notebooks/assignment-08-geographic-visualization.ipynb)
-- Assignment 9 *(coming soon)*
+- [Assignment 9: Vibe coding a dashboard](notebooks/assignment-09-vibe-coding-a-dashboard.qmd)
 - Assignment 10 *(coming soon)*

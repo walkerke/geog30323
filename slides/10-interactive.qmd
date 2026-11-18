@@ -1,107 +1,85 @@
 ---
-title: "Interactive data visualization"
-date: "2026-11-19"
+title: "Data communication and interactive visualization"
+date: "2026-11-17"
 ---
-## Interactive visualization
+## Course recap
 
-* Thus far: you've learned how to create static charts with `pandas` and `seaborn`
-* Our focus now turns to _interactive charts_
+* Thus far: we've focused on _exploratory data analysis_, which involves data wrangling, summarization, and visualization
+* Your data analysis journey shouldn't stop here!  Topics to consider:
+    * _Explanatory_ vs. exploratory visualization
+    * Statistics and data science
+    * Data ethics and "big data"
+
+---
+
+### Communicating with data
+
+* Once you've done all of the hard work wrangling your data, you'll want to communicate insights to others!
+* This might include:
+    * Polished data products or reports
+    * Models that can scale your insights
+
+---
+
+### Explanatory visualization
+
+* We've largely worked to this point with _exploratory visualization_, which refers to internally-facing visualizations that help us reveal insights about our data
+* Often, externally-facing data products will include _explanatory visualization_, which include a polished design and emphasize one or two key points
+
+---
+
+### Infographics
+
+Obesity infographics:
+
+* [Example #1](https://s-media-cache-ak0.pinimg.com/736x/41/4b/1b/414b1b7627feca460785a8eb749c2f38.jpg)
+* [Example #2](https://www.aace.com/images/pj-obesity-infographic/AACE_obesity_patient_Journey_Infographic_02.jpg)
+* [Example #3](img/10-interactive/obesity-infographic-chatgpt.png)
+
+---
+
+### Are infographics useful?
+
+* XKCD: <https://xkcd.com/1273/>
+
+---
+
+### Interactive reports
+
+* Example: a data journalism article - or your Jupyter Notebook!
+* Key distinction: your code, data exploration, etc. will likely be external to the report (this can vary depending on the context, however)
 
 ---
 
 ### Data storytelling
 
-<iframe width="853" height="480" src="https://www.youtube.com/embed/jbkSRLYSojo" frameborder="0" allowfullscreen></iframe>
+<iframe id="rosling-clip" width="853" height="480" frameborder="0" allowfullscreen></iframe>
+
+```{=html}
+<script>
+(function () {
+  var f = document.getElementById("rosling-clip");
+  if (f) f.src = "https://www.youtube.com/embed/" + "jbkSRLYSojo";
+})();
+</script>
+```
 
 ---
 
-### Data journalism
-
-[<img src=img/10-interactive/nyt-migration.png style="width: 900px">](http://www.nytimes.com/interactive/2014/08/13/upshot/where-people-in-each-state-were-born.html?_r=0#Texas)<figcaption>Source: _The New York Times_</figcaption>
-
----
-
-### Interactive visualization and the web
-
-* Analytical workflows have become increasingly connected to the web - or even completely web-based
-* Interactive data visualization: graphics not just _on_ the web, but _of_ the web
-
----
-
-### The past: Java and Flash
-
-<img src="http://www.java-forums.org/attachments/java-applets/1332d1319003525t-remove-java-loader-jsp-page-java_logo.jpg" style="width: 600px"><img src="http://community.linuxmint.com/img/screenshots/adobe-flashplugin.png" style="width: 300px">
-
-
----
-
-### The present: HTML5 and JavaScript
-
-<img src="http://www.w3.org/html/logo/downloads/HTML5_Logo_512.png" style="width: 300px"><img src="http://inspiredtoeducate.net/inspiredtoeducate/wp-content/uploads/2013/12/js-logo.png" style="width: 300px">
-
-* Examples: http://d3js.org/
-
-
----
-
-### The future: WebGL
-
-<iframe width="900" height="550" src="https://labs.strava.com/heatmap/#11.55/-97.30973/32.75073/hot/all" frameborder="0"></iframe><figcaption>[Direct link to map](https://labs.strava.com/heatmap/#11.55/-97.30973/32.75073/hot/all)</figcaption>
-
----
-
-### Why interactive visualization? 
+### Why interactive visualization?
 
 * User is an _active participant_ rather than a _passive observer_
-* Key points to consider: 
-    * What are you visualizing? 
-    * What is the purpose of your visualization? 
-    * Who is your audience? 
-    * In what format and venue will you be presenting the visualization?  
-    
----
-
-### New libraries!
-
-* We're going to usesome new Python libraries to chart interactively.  They include: 
-    * `ipywidgets`: a package for interactive mini-apps in the Jupyter Notebook
-    * `plotly`: produces D3.js charts using Python, and can convert your Python charts as well
-    * `cufflinks`: binds `pandas` to `plotly`
-
-* In CoCalc, interactivity only available in the __Classical Notebook__: change the format to get this code to work
-    
----
-
-### Let's get some data!
-
-```python
-import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
-
-mx = pd.read_csv('http://personal.tcu.edu/kylewalker/mexico.csv')
-```
+* Key points to consider:
+    * What are you visualizing?
+    * What is the purpose of your visualization?
+    * Who is your audience?
+    * In what format and venue will you be presenting the visualization?
 
 ---
 
-### Our basic plot
+### Interactive data journalism
 
-```python
-mx.plot(kind = 'scatter', x = 'pri10', y = 'mus09')
-```
-<img src=img/10-interactive/basic.png>
-
----
-
-### Interactivity in the Notebook
-
-* In CoCalc: interactivity requires the __Classical__ rather than the __Modern__ notebook
-* Use the command `%matplotlib notebook`, and your plot becomes interactive!
-
-```python
-%matplotlib notebook
-mx.plot(kind = 'scatter', x = 'pri10', y = 'mus09')
-```
+<div style="text-align: center;">[<img src="img/12-communicating/nyt-migration.PNG" style="width: 900px">](https://www.nytimes.com/interactive/2014/08/13/upshot/where-people-in-each-state-were-born.html#Texas)<figcaption>Source: _The New York Times_</figcaption></div>
 
 ---
 
@@ -113,7 +91,7 @@ mx.plot(kind = 'scatter', x = 'pri10', y = 'mus09')
 ```python
 from ipywidgets import interact
 
-def add_five(x): 
+def add_five(x):
     print(x + 5)
 
 interact(add_five, x = (1, 100))
@@ -125,12 +103,19 @@ interact(add_five, x = (1, 100))
 ## Interactivity with plots
 
 ```python
-cols = ['mus09', 'pri10', 'sec10', 'ter10', 'gdp08']
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
 
-def make_plot(x, y, title): 
+mx = pd.read_csv("https://raw.githubusercontent.com/walkerke/geog30323/main/data/mexico.csv")
+
+cols = ['gdp_pc', 'pri', 'sec', 'ter', 'pct_65plus']
+
+def make_plot(x, y, title):
     sns.lmplot(data = mx, x = x, y = y)
-    plt.title(title)    
-    
+    plt.title(title)
+    plt.show()
+
 interact(make_plot, x = cols, y = cols, title = "Enter a plot title!")
 ```
 
@@ -139,195 +124,129 @@ interact(make_plot, x = cols, y = cols, title = "Enter a plot title!")
 ### Widgets: not just for plots!
 
 ```python
-def get_accidents(street_name): 
-    part1 = 'https://data.fortworthtexas.gov/resource/kr8h-9zxd.json?streetname='
-    api_call = part1 + street_name
-    return pd.read_json(api_call)
+import geopandas as gp
 
-def get_street(street = ['BERRY', 'UNIVERSITY', 'ROSEDALE']): 
-    df = get_accidents(street)
+crime = gp.read_file("https://raw.githubusercontent.com/walkerke/geog30323/main/data/fort_worth_crime_2025.geojson")
+
+def get_offense(offense = ['PUBLIC INTOXICATION', 'DWI', 'FRAUD']):
+    df = crime[crime.Nature_Of_Call == offense]
     return df.head()
-    
-interact(get_street) 
+
+interact(get_offense)
 ```
 
 ---
 
-### Plotly
+## Ipywidgets fundamentals
 
-* Plotly: Web-based platform for interactive charting; 
-* Includes both offline components (works in the Jupyter Notebook) and an online cloud/web GUI at  https://plot.ly/
+Arguments used in `interact()` correspond to the following:
+
+* A __boolean__ (`True` or `False`) returns a __checkbox__
+* A __string__ returns a __text input__
+* A __number__ (integer or float) returns a __slider__
+* A __tuple of numbers__ (start, end, step size) returns a __range slider__
+* A __list__ returns a __drop-down menu__
+
+Experiment with the functions you've written this semester!
 
 ---
 
-### Plotly in Python
+### Interactive visualization and the web
 
-* The Plotly Python package can convert your `matplotlib` plots to Plotly charts!
+* Analytical workflows have become increasingly connected to the web - or even completely web-based
+* Interactive data visualization: graphics not just _on_ the web, but _of_ the web
+
+---
+
+### Filtering & highlighting
+
+<div style="text-align: center;"><img src="img/12-communicating/cases.gif" style="width: 500px"><figcaption>Image source: [_The New York Times_](https://www.nytimes.com/interactive/2020/04/03/upshot/coronavirus-metro-area-tracker.html)</figcaption></div>
+
+---
+
+### Linked charts
+
+<div style="text-align: center;"><img src="img/12-communicating/nigeria.gif" style="width: 800px"><figcaption>[Link to live example](https://rpubs.com/walkerke/nigeria-tfr)</figcaption></div>
+
+---
+
+### Interactive visualization in Python
+
+* [Altair](https://altair-viz.github.io/)
+
+* [Bokeh](https://docs.bokeh.org/en/latest/index.html)
+
+* [Plotly](https://plotly.com/python/)
+
+---
+
+## Altair example
 
 ```python
-import plotly.offline as py
-py.init_notebook_mode()
+import altair as alt
 
-mx.plot(kind = 'scatter', x = 'pri10', y = 'mus09')
-fig = plt.gcf() # "Get current figure"
-py.iplot_mpl(fig)
+alt.Chart(mx).mark_circle(size = 60).encode(
+    x = "pri",
+    y = "gdp_pc",
+    tooltip = ["name", "gdp_pc", "pri"]
+).interactive()
 ```
 
 ---
 
-### Plotly and `seaborn`
+### Data dashboards
 
-* Plotly can convert some `seaborn` plots - though the styling will not always carry over
-
-```python
-sns.distplot(mx.pri10)
-f = plt.gcf()
-py.iplot_mpl(f)
-```
+* __Dashboards__ are applications that may include multiple charts, which in some cases are configured to interact with one another
 
 ---
 
-## Cufflinks
+### What is "vibe coding"
 
-* New Python library to create Plotly plots directly from `pandas` data frames!
-* Simply use `iplot` instead of `plot`!
-
-```python
-import cufflinks as cf
-cf.go_offline()
-
-mx.iplot(kind = 'scatter', mode = 'markers', x = 'pri10', 
-         y = 'mus09', text = 'name', colors = 'green', 
-         xTitle = '% of workforce in primary sector', 
-         yTitle = 'Out-migration rate to the United States')
-```
----
-
-## Cufflinks
-
-```python
-mx[['pri10', 'gdp08', 'mus09']].scatter_matrix()
-```
+<img src="img/10-interactive/vibe-coding.png" style="width: 650px">
 
 ---
 
-## Cufflinks!
+### Should you "vibe code?"
 
-```python
-mx.iplot(kind = 'scatter3d', x = 'mus09', y = 'gdp08', 
-         z = 'pri10', mode = 'markers', text = 'name')
-```
+* You absolutely should be using AI assistants when you write code. However:
 
----
+* You can't just build apps on "vibes" alone
 
-## The Plotly cloud
+* You need to think and act like an engineer / project manager
 
-* Plotly plots are fully editable and saveable in the cloud if you have a Plotly account; click "Export to plot.ly" on your chart
-* Demo
+* Clear direction and _plenty of context_ will help your project succeed
 
 ---
 
-## Plotly.py
+### Demo: vibe coding a dashboard
 
-* More advanced visualizations can be developed with the Plotly Python library
-* How it works: specify a list of graph objects to be plotted, along with layout options (optional) to customize the chart appearance; supply to the `iplot()` function to view in the Jupyter Notebook
-
----
-
-## 3-dimensional plots
-
-```python
-import numpy as np
-import plotly.graph_objs as go
-
-arr = np.random.randn(10, 10)
-
-data = [go.Surface(z = arr)]
-
-py.iplot(data)
-```
+* Let's build a dashboard with the Mexico data
 
 ---
 
-### Widgets and range sliders
+### "Slop"
 
-* Step 1: Get the data
+> digital content of low quality that is produced usually in quantity by means of artificial intelligence
 
-```python
-from pandas_datareader import wb
-
-ind = "SP.DYN.TFRT.IN"
-
-tfr = wb.download(country = "all", indicator = ind, start = 1960, end = 2013)
-
-tfr.reset_index(inplace = True)
-```
+<figcaption>Merriam-Webster's 2025 Word of the Year ([WBUR](https://www.wbur.org/news/2025/12/16/merriam-webster-word-of-year-slop-ai-dictionary))</figcaption>
 
 ---
 
-### Widgets and range sliders
+### Assignment 9
 
-* Step 2: build the plotting function
 
-```python
-def tfr_plot(country1, country2, country3):
-    countries = [country1, country2, country3]    
-    subset = tfr[tfr.country.isin(countries)]
-    subset_wide = subset.pivot(index = "year", columns = "country", 
-                               values = "SP.DYN.TFRT.IN")
-    plot_data = [
-        go.Scatter(x = subset_wide.index, 
-                  y = subset_wide[country], 
-                  name = country, 
-                  mode = "lines")
-        for country in countries
-    ]
-    plot_layout = go.Layout(title = "Total fertility rate", 
-                           xaxis = dict(rangeslider = dict()), 
-                           yaxis = dict(title = "TFR"))
-    fig = dict(data = plot_data, layout = plot_layout)
-    py.iplot(fig)
-```
 
----
 
-### Widgets and range sliders
 
-* Step 3: interact with the plot
 
-```python
-country_list = list(tfr.country.unique())
-    
-interact(tfr_plot, country1 = country_list, 
-         country2 = country_list, country3 = country_list)
-```
 
----
 
-## Saving your plots
-
-* If you have a Plotly account, you can save plots with the default styling to Plotly's cloud by clicking "Export to plot.ly"
-* Otherwise: plots can be saved as standalone HTML outside of the notebook
-
----
-
-### Saving your plots (cufflinks example)
-
-```python
-myplot = mx.iplot(kind = 'scatter', mode = 'markers', x = 'pri10', 
-         y = 'mus09', text = 'name', colors = 'green', 
-         xTitle = '% of workforce in primary sector', 
-         yTitle = 'Out-migration rate to the United States', 
-         asFigure = True)
-         
-py.plot(myplot, filename = 'mexico_plot.html')
-```
 
 <style>
 
 .reveal section img {
-  background:none; 
-  border:none; 
+  background:none;
+  border:none;
   box-shadow:none;
   }
 
@@ -336,6 +255,5 @@ h3 {
 
 
 }
-  
-</style>
 
+</style>
